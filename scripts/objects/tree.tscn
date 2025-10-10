@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cyhgsqoaellnb" path="res://assets/objects/tree.png" id="1_13syr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_81xbw"]
+radius = 16.0
 
 [node name="Tree" type="StaticBody2D" groups=["trees"]]
 
@@ -10,5 +11,5 @@
 shape = SubResource("CircleShape2D_81xbw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.25, 1.25)
+scale = Vector2(2, 2)
 texture = ExtResource("1_13syr")

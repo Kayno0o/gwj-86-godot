@@ -1,16 +1,24 @@
 extends Mask
 
 var target_tree: Node2D = null
+var new_check: float = 1.0
 
 func abstract_ready():
 	if mask_task == MaskTask.Type.ChopWood:
 		find_nearest_tree()
 
-func abstract_physics_process(_delta):
+func abstract_physics_process(delta):
+	new_check -= delta
+
+	if new_check < 0:
+		find_nearest_tree()
+
 	if target_tree:
 		move_to_target()
 
 func find_nearest_tree():
+	new_check = 1.0
+
 	var trees = get_tree().get_nodes_in_group("trees")
 	if trees.is_empty():
 		print(mask_name + ": No trees found!")
