@@ -1,4 +1,4 @@
-enum MaskTask {
+enum Type {
   ChopWood,
   Mine,
   Tank,

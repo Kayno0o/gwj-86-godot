@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqk8yh7c2vn8p"]
+
+[ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://scripts/characters/mask.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://rvbs8w81rmnn" path="res://assets/characters/blue.png" id="2_texture"]
+
+[node name="MaskBlue" instance=ExtResource("1_base")]
+mask_task = 2
+sprite_texture = ExtResource("2_texture")
+color = Color(0.5, 0.5, 1, 1)
+mask_name = "Blue Tank"

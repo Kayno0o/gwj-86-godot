@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=6 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://scenes/game/game.gd" id="1_7h61r"]
-[ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://scripts/characters/mask.tscn" id="2_0sr1o"]
+[ext_resource type="PackedScene" path="res://scripts/characters/mask_blue.tscn" id="3_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://dshnwhetas36j" path="res://scripts/objects/tree.tscn" id="3_kelw5"]
+[ext_resource type="PackedScene" uid="uid://bakv343je48nt" path="res://scripts/characters/mask_green.tscn" id="4_lfrn8"]
+[ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://scripts/characters/mask_red.tscn" id="5_5i0tg"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7h61r")
@@ -14,5 +16,11 @@ position = Vector2(124, 191)
 
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="Blue" parent="Characters" instance=ExtResource("2_0sr1o")]
-position = Vector2(205, 97)
+[node name="MaskBlue" parent="Characters" instance=ExtResource("3_0sr1o")]
+position = Vector2(90, 82)
+
+[node name="MaskGreen" parent="Characters" instance=ExtResource("4_lfrn8")]
+position = Vector2(153, 126)
+
+[node name="MaskRed" parent="Characters" instance=ExtResource("5_5i0tg")]
+position = Vector2(48, 151)
