@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dshnwhetas36j"]
+
+[ext_resource type="Texture2D" uid="uid://cyhgsqoaellnb" path="res://assets/objects/tree.png" id="1_13syr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_81xbw"]
+
+[node name="Tree" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_81xbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_13syr")

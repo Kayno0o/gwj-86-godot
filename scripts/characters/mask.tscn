@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyshqk03h8wqg"]
+
+[ext_resource type="Texture2D" uid="uid://rvbs8w81rmnn" path="res://assets/characters/blue.png" id="1_kr2ou"]
+[ext_resource type="Script" uid="uid://16705hfnybqe" path="res://scripts/characters/mask.gd" id="1_tc0r8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_guiot"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ppd22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kr2ou")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_tc0r8")
+color = Color(0.15808596, 106.1273, 106.129395, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_guiot")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.62499994, 0.625)
+sprite_frames = SubResource("SpriteFrames_ppd22")
