@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="GWJ86"
-run/main_scene="res://scene/node_2d.tscn"
+run/main_scene="uid://b5gxjdr52th8t"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+ItemType="*res://globals/ItemType.gd"
+MaskTask="*res://globals/MaskTask.gd"
 
 [rendering]
 
