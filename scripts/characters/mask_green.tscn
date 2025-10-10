@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bakv343je48nt"]
-
-[ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://scripts/characters/mask.tscn" id="1_kjuky"]
-[ext_resource type="Texture2D" uid="uid://dnqjhjrs4vblj" path="res://assets/characters/green.png" id="2_kjuky"]
-
-[node name="MaskGreen" instance=ExtResource("1_kjuky")]
-sprite_texture = ExtResource("2_kjuky")
-color = Color(0.5019608, 1, 0.5019608, 1)
-mask_name = "Green Lumberjack"

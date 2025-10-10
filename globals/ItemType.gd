@@ -1,4 +1,4 @@
-extends RefCounted
+extends Node
 
 enum Type {
   Wood,
