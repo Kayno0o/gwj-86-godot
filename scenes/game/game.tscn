@@ -12,10 +12,10 @@ script = ExtResource("1_7h61r")
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Tree" parent="Objects" instance=ExtResource("3_kelw5")]
-position = Vector2(124, 191)
+position = Vector2(209, 311)
 
 [node name="Tree2" parent="Objects" instance=ExtResource("3_kelw5")]
-position = Vector2(466, 487)
+position = Vector2(556, 533)
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -26,4 +26,4 @@ position = Vector2(90, 82)
 position = Vector2(48, 151)
 
 [node name="MaskGreen" parent="Characters" instance=ExtResource("4_lfrn8")]
-position = Vector2(883, 76)
+position = Vector2(314, 313)

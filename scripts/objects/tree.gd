@@ -1,4 +1,5 @@
-extends Resource
-class_name ObjectTree
+extends ResourceNode
+class_name ResourceTree
 
-var loot: Item = Item.new(ItemType.Wood, 2)
+func _ready() -> void:
+	health = 12
