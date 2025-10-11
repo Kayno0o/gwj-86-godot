@@ -27,3 +27,6 @@ position = Vector2(48, 151)
 
 [node name="MaskGreen" parent="Characters" instance=ExtResource("4_lfrn8")]
 position = Vector2(314, 313)
+
+[node name="MaskGreen2" parent="Characters" instance=ExtResource("4_lfrn8")]
+position = Vector2(118, 393)

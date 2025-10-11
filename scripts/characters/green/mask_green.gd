@@ -1,6 +1,6 @@
 extends Mask
 
-var target: Node2D = null
+var target: ResourceNode = null
 
 func abstract_ready():
 	check_timer.timeout.connect(_on_check_timer_timeout)
@@ -16,7 +16,7 @@ func _on_check_timer_timeout():
 	find_target()
 
 func _on_damage_timer_timeout():
-	if target and is_instance_valid(target) and is_instance_of(target, ResourceNode):
+	if target and is_instance_valid(target):
 		var distance = global_position.distance_to(target.global_position)
 		if distance < 30.0:
 			target.on_damage(attack)
@@ -32,13 +32,20 @@ func find_target():
 	var nearest_distance = INF
 
 	for tree in trees:
+		if tree.is_targeted:
+			continue
+
 		var distance = global_position.distance_to(tree.global_position)
 		if distance < nearest_distance:
 			nearest_distance = distance
 			nearest_tree = tree
 
 	if nearest_tree:
+		if target:
+			target.is_targeted = false
+
 		target = nearest_tree
+		target.is_targeted = true
 	
 	if check_timer.is_stopped():
 		check_timer.start(check_cooldown)
@@ -54,9 +61,8 @@ func move_to_target():
 
 	if distance < 30.0:
 		velocity = Vector2.ZERO
-		if is_instance_of(target, ResourceNode):
-			if damage_timer.is_stopped():
-				damage_timer.start(attack_speed)
+		if damage_timer.is_stopped():
+			damage_timer.start(attack_speed)
 		return
 
 	velocity = direction * movement_speed

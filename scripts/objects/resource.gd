@@ -2,9 +2,11 @@ extends Node2D
 class_name ResourceNode
 
 @export var loot: Item
-var health: int
+var health: float
 
-func on_damage(damage: int):
+var is_targeted: bool = false
+
+func on_damage(damage: float):
 	print("on_damage")
 	health -= damage
 
