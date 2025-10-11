@@ -11,6 +11,7 @@ class_name Mask
 @export var inventory_size: int = 1
 @export var check_cooldown: float = 2.0
 @export var pickup_distance: float = 30.0
+@export var attack_distance: float = 30.0
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
@@ -51,34 +52,11 @@ func get_mask_task() -> MaskTask.Type:
 func get_mask_name() -> String:
 	return mask_name
 
-func find_nearest(targets: Array):
-	if targets.is_empty():
-		return
-
-	var nearest_target = null
-	var nearest_distance = INF
-
-	for target in targets:
-		if target.is_targeted && target != current_target:
-			continue
-
-		var distance = global_position.distance_to(target.global_position)
-		if distance < nearest_distance:
-			nearest_distance = distance
-			nearest_target = target
-
-	if nearest_target:
-		if current_target:
-			current_target.is_targeted = false
-
-		current_target = nearest_target
-		current_target.is_targeted = true
-
 func find_target():
 	return
 
-func on_pickup():
-	return
+func on_check_distance(_distance: float) -> bool:
+	return false
 
 func move_to_target():
 	if not current_target or not is_instance_valid(current_target):
@@ -86,11 +64,9 @@ func move_to_target():
 		return
 
 	var direction = (current_target.global_position - global_position).normalized()
-	var distance = global_position.distance_to(current_target.global_position)
+	var distance: float = global_position.distance_to(current_target.global_position)
 
-	if distance < pickup_distance:
-		velocity = Vector2.ZERO
-		on_pickup()
+	if on_check_distance(distance):
 		return
 
 	velocity = direction * movement_speed

@@ -14,12 +14,17 @@ func _on_check_timer_timeout():
 	find_target()
 
 func _on_damage_timer_timeout():
-	if current_target and is_instance_valid(current_target):
-		var distance = global_position.distance_to(current_target.global_position)
-		if distance < pickup_distance:
-			current_target.on_damage(attack)
-		else:
-			damage_timer.stop()
+	if current_target == null or not is_instance_valid(current_target):
+		return
+
+	if is_instance_of(current_target, ResourceProps):
+		return
+
+	var distance = global_position.distance_to(current_target.global_position)
+	if distance < pickup_distance:
+		current_target.on_damage(attack)
+	else:
+		damage_timer.stop()
 
 func find_target():
 	var targets = get_tree().get_nodes_in_group("trees")
@@ -27,17 +32,29 @@ func find_target():
 
 	targets.append_array(items)
 
-	find_nearest(targets)
-	
+	var valid_current = current_target if is_instance_valid(current_target) else null
+	current_target = Utils.get_nearest(targets, valid_current, global_position)
+
 	if check_timer.is_stopped():
 		check_timer.start(check_cooldown)
 
-func on_pickup():
-	if is_instance_of(current_target, Item):
-		current_target.queue_free()
-		current_target = null
-		return
+func on_check_distance(distance: float) -> bool:
+	if is_instance_of(current_target, Item) and distance < pickup_distance:
+		velocity = Vector2.ZERO
+		on_touch_item()
+		return true
 
-	if is_instance_of(current_target, ResourceProps):
-		if damage_timer.is_stopped():
-			damage_timer.start(attack_speed)
+	if is_instance_of(current_target, ResourceProps) and distance < attack_distance:
+		velocity = Vector2.ZERO
+		on_touch_resource()
+		return true
+
+	return false
+
+func on_touch_item():
+	current_target.queue_free()
+	current_target = null
+
+func on_touch_resource():
+	if damage_timer.is_stopped():
+		damage_timer.start(attack_speed)
