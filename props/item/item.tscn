@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dojasoijlk7mr"]
+[gd_scene load_steps=3 format=3 uid="uid://dojasoijlk7mr"]
 
 [ext_resource type="Script" uid="uid://7c0q4inr1s3g" path="res://props/item/item.gd" id="1_qnvdu"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnvdu"]
+radius = 16.0
+
 [node name="Item" type="Node2D"]
 script = ExtResource("1_qnvdu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qnvdu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
