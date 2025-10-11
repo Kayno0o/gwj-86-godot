@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://7c0q4inr1s3g" path="res://props/item/item.gd" id="1_qnvdu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnvdu"]
-radius = 16.0
+radius = 8.0
 
-[node name="Item" type="Node2D"]
+[node name="Item" type="Node2D" groups=["items"]]
 script = ExtResource("1_qnvdu")
 
 [node name="Area2D" type="Area2D" parent="."]

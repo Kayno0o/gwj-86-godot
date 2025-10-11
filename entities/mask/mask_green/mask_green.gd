@@ -1,69 +1,43 @@
 extends Mask
 
-var target: ResourceProps = null
-
-func abstract_ready():
+func on_ready():
 	check_timer.timeout.connect(_on_check_timer_timeout)
 	damage_timer.timeout.connect(_on_damage_timer_timeout)
 
 	find_target()
 
-func abstract_physics_process(_delta) -> void:
-	if target:
+func on_physics_process(_delta) -> void:
+	if current_target:
 		move_to_target()
 
 func _on_check_timer_timeout():
 	find_target()
 
 func _on_damage_timer_timeout():
-	if target and is_instance_valid(target):
-		var distance = global_position.distance_to(target.global_position)
-		if distance < 30.0:
-			target.on_damage(attack)
+	if current_target and is_instance_valid(current_target):
+		var distance = global_position.distance_to(current_target.global_position)
+		if distance < pickup_distance:
+			current_target.on_damage(attack)
 		else:
 			damage_timer.stop()
 
 func find_target():
-	var trees = get_tree().get_nodes_in_group("trees")
-	if trees.is_empty():
-		return
+	var targets = get_tree().get_nodes_in_group("trees")
+	var items = get_tree().get_nodes_in_group("items")
 
-	var nearest_tree = null
-	var nearest_distance = INF
+	targets.append_array(items)
 
-	for tree in trees:
-		if tree.is_targeted && tree != target:
-			continue
-
-		var distance = global_position.distance_to(tree.global_position)
-		if distance < nearest_distance:
-			nearest_distance = distance
-			nearest_tree = tree
-
-	if nearest_tree:
-		if target:
-			target.is_targeted = false
-
-		target = nearest_tree
-		target.is_targeted = true
+	find_nearest(targets)
 	
 	if check_timer.is_stopped():
 		check_timer.start(check_cooldown)
 
-func move_to_target():
-	if not target or not is_instance_valid(target):
-		target = null
-		find_target()
+func on_pickup():
+	if is_instance_of(current_target, Item):
+		current_target.queue_free()
+		current_target = null
 		return
 
-	var direction = (target.global_position - global_position).normalized()
-	var distance = global_position.distance_to(target.global_position)
-
-	if distance < 30.0:
-		velocity = Vector2.ZERO
+	if is_instance_of(current_target, ResourceProps):
 		if damage_timer.is_stopped():
 			damage_timer.start(attack_speed)
-		return
-
-	velocity = direction * movement_speed
-	move_and_slide()
