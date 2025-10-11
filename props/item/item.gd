@@ -1,7 +1,3 @@
-extends Node2D
-class_name Item
+class_name Item extends Node2D
 
 @export var type: ItemType.Type
-@export var amount: int
-
-var is_targeted: bool = false
