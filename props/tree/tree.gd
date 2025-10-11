@@ -1,2 +1,0 @@
-extends ResourceProps
-class_name ResourceTree
