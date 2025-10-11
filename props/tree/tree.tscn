@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cyhgsqoaellnb" path="res://props/tree/tree.png" id="1_13syr"]
 [ext_resource type="PackedScene" uid="uid://yttupk6ktjv" path="res://props/resource_props.tscn" id="1_olndm"]
 
-[node name="Resource" groups=["trees"] instance=ExtResource("1_olndm")]
+[node name="Tree" groups=["trees"] instance=ExtResource("1_olndm")]
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("1_13syr")
