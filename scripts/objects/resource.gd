@@ -2,7 +2,7 @@ extends Node2D
 class_name ResourceNode
 
 @export var loot: Item
-var health: float
+@export var health: float
 
 var is_targeted: bool = false
 
