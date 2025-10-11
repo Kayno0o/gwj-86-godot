@@ -5,13 +5,15 @@ class_name Mask
 @export var color: Color = Color.WHITE
 @export var mask_name: String = "Mask"
 @export var movement_speed: float = 50.0
+
 @export var attack: float = 5
 @export var attack_speed: float = 1.0
 @export var attack_range: float = 15.0
+@export var attack_distance: float = 30.0
+
 @export var inventory_size: int = 1
 @export var check_cooldown: float = 2.0
 @export var pickup_distance: float = 30.0
-@export var attack_distance: float = 30.0
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 

@@ -1,12 +1,12 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://ca6vdp6830gst"]
 
-[ext_resource type="Texture2D" uid="uid://dnqjhjrs4vblj" path="res://entities/mask/mask_green/green.png" id="1_ae8ph"]
+[ext_resource type="Texture2D" uid="uid://caipea0ynvebi" path="res://entities/mask/mask_green/feuille_verte.png" id="1_xlo8x"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ae8ph")
+"texture": ExtResource("1_xlo8x")
 }],
 "loop": true,
 "name": &"default",
