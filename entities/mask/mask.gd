@@ -15,8 +15,6 @@ class_name Mask
 @export var check_cooldown: float = 2.0
 @export var pickup_distance: float = 30.0
 
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
-
 var current_target: Node = null
 
 var damage_timer: Timer

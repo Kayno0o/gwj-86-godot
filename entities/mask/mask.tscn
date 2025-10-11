@@ -7,12 +7,10 @@ radius = 16.0
 
 [node name="Mask2" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_wo7wq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ixog2")
-disabled = true
 debug_color = Color(0.5, 0.5, 0.5, 0.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

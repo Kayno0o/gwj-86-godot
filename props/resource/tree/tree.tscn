@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bfhwvj28jnhvo" path="res://props/item/log/log.tscn" id="2_ni0tv"]
 
 [node name="Tree" groups=["trees"] instance=ExtResource("1_olndm")]
+collision_layer = 2
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("1_13syr")
