@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://yttupk6ktjv"]
+[gd_scene load_steps=6 format=3 uid="uid://yttupk6ktjv"]
 
 [ext_resource type="Script" uid="uid://dhnuuyiy4vn3l" path="res://props/resource/resource_props.gd" id="1_xiw2d"]
+[ext_resource type="Script" uid="uid://bkxvgh7mco8ws" path="res://scripts/components/HealthComponent.gd" id="2_u28t8"]
+[ext_resource type="Script" uid="uid://dg243j2b1fptq" path="res://scripts/components/TargetComponent.gd" id="3_ivyfh"]
+[ext_resource type="Script" uid="uid://blo7u0vfyxo7d" path="res://scripts/components/LootComponent.gd" id="4_b0ddn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohewn"]
 radius = 16.0
@@ -14,3 +17,17 @@ shape = SubResource("CircleShape2D_ohewn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" type="Node" parent="Components"]
+script = ExtResource("2_u28t8")
+metadata/_custom_type_script = "uid://bkxvgh7mco8ws"
+
+[node name="TargetComponent" type="Node" parent="Components"]
+script = ExtResource("3_ivyfh")
+metadata/_custom_type_script = "uid://dg243j2b1fptq"
+
+[node name="LootComponent" type="Node" parent="Components"]
+script = ExtResource("4_b0ddn")
+metadata/_custom_type_script = "uid://blo7u0vfyxo7d"

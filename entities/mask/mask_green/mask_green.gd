@@ -22,9 +22,13 @@ func _on_damage_timer_timeout():
 
 	var distance = global_position.distance_to(current_target.global_position)
 	if distance < pickup_distance:
-		current_target.on_damage(attack)
-	else:
-		damage_timer.stop()
+		var health_comp: HealthComponent = Utils.get_component(current_target, HealthComponent)
+		if health_comp:
+			health_comp.on_damage(attack)
+
+		return
+
+	damage_timer.stop()
 
 func find_target():
 	var targets = get_tree().get_nodes_in_group("trees")
@@ -33,7 +37,7 @@ func find_target():
 	targets.append_array(items)
 
 	var valid_current = current_target if is_instance_valid(current_target) else null
-	current_target = Utils.get_nearest(targets, valid_current, global_position)
+	current_target = Utils.get_nearest(targets, valid_current, self)
 
 	if check_timer.is_stopped():
 		check_timer.start(check_cooldown)

@@ -1,28 +1,16 @@
-extends StaticBody2D
-class_name ResourceProps
+class_name ResourceProps extends StaticBody2D
 
-@export var health: float
-@export var loot_scene: PackedScene
-@export var loot_count: int = 1
+@onready var health_component: HealthComponent = $Components/HealthComponent
+@onready var loot_component: LootComponent = $Components/LootComponent
+@onready var interactable_component: TargetComponent = $Components/TargetComponent
 
-var is_targeted: bool = false
+func _ready() -> void:
+	health_component.death.connect(on_death)
 
 func on_damage(damage: float):
-	health -= damage
+	health_component.on_damage(damage)
 
-	if health < 0:
-		on_break()
-
-func on_break():
-	if loot_scene:
-		for i in range(loot_count):
-			var loot_instance = loot_scene.instantiate()
-			loot_instance.global_position = global_position
-
-			var offset = Vector2(randf_range(-16, 16), randf_range(-16, 16))
-			loot_instance.global_position += offset
-
-			get_parent().add_child(loot_instance)
-
-	queue_free()
-	return
+func on_death():
+	if loot_component:
+		if loot_component.spawn_loot(global_position, get_parent()):
+			queue_free()
