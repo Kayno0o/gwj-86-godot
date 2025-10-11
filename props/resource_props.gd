@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 class_name ResourceProps
 
 @export var loot: Item
