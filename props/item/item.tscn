@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dojasoijlk7mr"]
+[gd_scene load_steps=2 format=3 uid="uid://dojasoijlk7mr"]
 
 [ext_resource type="Script" uid="uid://7c0q4inr1s3g" path="res://props/item/item.gd" id="1_qnvdu"]
-[ext_resource type="Script" uid="uid://dg243j2b1fptq" path="res://scripts/components/TargetComponent.gd" id="2_2ji1m"]
 
 [node name="Item" type="Node2D" groups=["items"]]
 script = ExtResource("1_qnvdu")
@@ -9,7 +8,3 @@ script = ExtResource("1_qnvdu")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Components" type="Node" parent="."]
-
-[node name="TargetComponent" type="Node" parent="Components"]
-script = ExtResource("2_2ji1m")
-metadata/_custom_type_script = "uid://dg243j2b1fptq"

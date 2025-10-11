@@ -12,29 +12,21 @@ class_name Mask
 @export var attack_distance: float = 30.0
 
 @export var inventory_size: int = 1
-@export var check_cooldown: float = 2.0
 @export var pickup_distance: float = 30.0
+@export var target_search_cooldown: float = 0.5
+
+@export var interested_target_types: Array[String] = ["tree", "item"]
 
 var current_target: Node = null
 
 var damage_timer: Timer
-var check_timer: Timer
 
 func _ready():
 	apply_mask_properties()
 
-	check_timer = Timer.new()
-	check_timer.one_shot = false
-	add_child(check_timer)
-
 	damage_timer = Timer.new()
 	damage_timer.one_shot = false
 	add_child(damage_timer)
-
-	on_ready()
-
-func on_ready() -> void:
-	return
 
 func _physics_process(delta):
 	on_physics_process(delta)
@@ -51,9 +43,6 @@ func get_mask_task() -> MaskTask.Type:
 
 func get_mask_name() -> String:
 	return mask_name
-
-func find_target():
-	return
 
 func on_check_distance(_distance: float) -> bool:
 	return false
