@@ -17,7 +17,7 @@ func _on_damage_timer_timeout():
 	if current_target == null or not is_instance_valid(current_target):
 		return
 
-	if is_instance_of(current_target, ResourceProps):
+	if not is_instance_of(current_target, ResourceProps):
 		return
 
 	var distance = global_position.distance_to(current_target.global_position)
@@ -43,7 +43,7 @@ func on_check_distance(distance: float) -> bool:
 		velocity = Vector2.ZERO
 		on_touch_item()
 		return true
-
+	
 	if is_instance_of(current_target, ResourceProps) and distance < attack_distance:
 		velocity = Vector2.ZERO
 		on_touch_resource()

@@ -35,13 +35,16 @@ position = Vector2(556, 533)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="MaskBlue" parent="Characters" instance=ExtResource("3_0sr1o")]
-position = Vector2(90, 82)
+position = Vector2(329, 72)
 
 [node name="MaskRed" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(48, 151)
+position = Vector2(287, 141)
 
 [node name="MaskGreen" parent="Characters" instance=ExtResource("4_lfrn8")]
-position = Vector2(314, 313)
+position = Vector2(555, 281)
+
+[node name="MaskGreen3" parent="Characters" instance=ExtResource("4_lfrn8")]
+position = Vector2(700, 384)
 
 [node name="MaskGreen2" parent="Characters" instance=ExtResource("4_lfrn8")]
-position = Vector2(118, 393)
+position = Vector2(287, 429)
