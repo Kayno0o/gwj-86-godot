@@ -14,6 +14,21 @@ script = ExtResource("1_7h61r")
 [node name="Tree" parent="Objects" instance=ExtResource("3_kelw5")]
 position = Vector2(209, 311)
 
+[node name="Tree3" parent="Objects" instance=ExtResource("3_kelw5")]
+position = Vector2(711, 130)
+
+[node name="Tree4" parent="Objects" instance=ExtResource("3_kelw5")]
+position = Vector2(840, 450)
+
+[node name="Tree5" parent="Objects" instance=ExtResource("3_kelw5")]
+position = Vector2(484, 325)
+
+[node name="Tree6" parent="Objects" instance=ExtResource("3_kelw5")]
+position = Vector2(421, 135)
+
+[node name="Tree7" parent="Objects" instance=ExtResource("3_kelw5")]
+position = Vector2(328, 467)
+
 [node name="Tree2" parent="Objects" instance=ExtResource("3_kelw5")]
 position = Vector2(556, 533)
 

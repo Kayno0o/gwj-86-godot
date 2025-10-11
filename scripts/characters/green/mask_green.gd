@@ -32,7 +32,7 @@ func find_target():
 	var nearest_distance = INF
 
 	for tree in trees:
-		if tree.is_targeted:
+		if tree.is_targeted && tree != target:
 			continue
 
 		var distance = global_position.distance_to(tree.global_position)
