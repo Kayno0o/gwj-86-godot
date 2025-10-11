@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://qc4kdv7yak4b"]
 
-[ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://scripts/characters/mask.tscn" id="1_base"]
-[ext_resource type="SpriteFrames" uid="uid://c7cl0lhvk4rph" path="res://scripts/characters/red/mask_red.tres" id="2_oj8or"]
+[ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_base"]
+[ext_resource type="SpriteFrames" uid="uid://c7cl0lhvk4rph" path="res://entities/mask/mask_red/mask_red.tres" id="2_oj8or"]
 
 [node name="MaskRed" instance=ExtResource("1_base")]
 mask_task = 3

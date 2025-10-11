@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://ca6vdp6830gst"]
 
-[ext_resource type="Texture2D" uid="uid://dnqjhjrs4vblj" path="res://assets/characters/green.png" id="1_ae8ph"]
+[ext_resource type="Texture2D" uid="uid://dnqjhjrs4vblj" path="res://entities/mask/mask_green/green.png" id="1_ae8ph"]
 
 [resource]
 animations = [{

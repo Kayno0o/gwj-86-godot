@@ -1,2 +1,2 @@
-extends ResourceNode
+extends ResourceProps
 class_name ResourceTree

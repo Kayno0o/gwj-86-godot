@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://caipea0ynvebi"
-path="res://.godot/imported/feuille_verte.png-ed24b64182aa984d21e9feed8b640d7b.ctex"
+path.bptc="res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/totems/main/feuille_verte.png"
-dest_files=["res://.godot/imported/feuille_verte.png-ed24b64182aa984d21e9feed8b640d7b.ctex"]
+source_file="res://entities/mask/mask_green/feuille_verte.png"
+dest_files=["res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

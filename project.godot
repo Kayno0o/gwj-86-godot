@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ItemType="*res://globals/ItemType.gd"
-MaskTask="*res://globals/MaskTask.gd"
+ItemType="*res://scripts/ItemType.gd"
+MaskTask="*res://scripts/MaskTask.gd"
 
 [rendering]
 

@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rvbs8w81rmnn"
-path.bptc="res://.godot/imported/blue.png-cdfbda8774a4cccf7a74e21881f3b3d6.bptc.ctex"
+uid="uid://cyhgsqoaellnb"
+path="res://.godot/imported/tree.png-c05e8551a1e23154d3f00eadd70cffbf.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/blue.png"
-dest_files=["res://.godot/imported/blue.png-cdfbda8774a4cccf7a74e21881f3b3d6.bptc.ctex"]
+source_file="res://props/tree/tree.png"
+dest_files=["res://.godot/imported/tree.png-c05e8551a1e23154d3f00eadd70cffbf.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=true
+compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

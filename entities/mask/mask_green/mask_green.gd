@@ -1,6 +1,6 @@
 extends Mask
 
-var target: ResourceNode = null
+var target: ResourceProps = null
 
 func abstract_ready():
 	check_timer.timeout.connect(_on_check_timer_timeout)

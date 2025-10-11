@@ -1,5 +1,5 @@
 extends Node2D
-class_name ResourceNode
+class_name ResourceProps
 
 @export var loot: Item
 @export var health: float
