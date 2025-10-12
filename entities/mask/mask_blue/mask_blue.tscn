@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cj3wl52m7bgjx" path="res://entities/mask/mask_blue/mask_blue.tres" id="2_542vy"]
 
 [node name="MaskBlue" instance=ExtResource("1_base")]
-type = 1
+type = 3
 entity_name = "Blue Tank"
 
 [node name="AnimatedSprite2D" parent="." index="1"]

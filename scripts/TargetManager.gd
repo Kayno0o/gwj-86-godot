@@ -1,12 +1,14 @@
 extends Node
 
 enum Type {
-	Resource,
-	Tree,
-	Rock,
-	Enemy,
-	Mask,
-	Item,
+	Resource = 0,
+	Tree = 1,
+	Rock = 2,
+
+	Enemy = 10,
+	Mask = 11,
+
+	Item = 20,
 }
 
 # signal emitted when a new target becomes available

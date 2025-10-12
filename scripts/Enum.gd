@@ -1,11 +1,12 @@
 extends Node
 
 enum EntityType {
-	MaskLumberjack,
-	MaskMiner,
-	MaskAttacker,
-	MaskTank,
-	Enemy,
+	MaskLumberjack = 0,
+	MaskMiner = 1,
+	MaskAttacker = 2,
+	MaskTank = 3,
+
+	Enemy = 10,
 }
 
 ## Behavior profiles define target priorities for each entity type

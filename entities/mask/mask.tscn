@@ -13,7 +13,7 @@ radius = 16.0
 [node name="Mask" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_wo7wq")
-target_type = 2
+target_type = 4
 metadata/_custom_type_script = "uid://20wyg6v86aum"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,8 +1,8 @@
 class_name Component extends Node
 
 enum Type {
-	Health,
-	Loot,
+	Health = 0,
+	Loot = 1,
 }
 
 var type: Type

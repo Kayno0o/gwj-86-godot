@@ -1,10 +1,10 @@
 class_name State extends Node
 
 enum Type {
-	Idle,
-	MoveToTarget,
-	Pickup,
-	Attack,
+	Idle = 0,
+	MoveToTarget = 1,
+	Pickup = 2,
+	Attack = 3,
 }
 
 var parent: Entity

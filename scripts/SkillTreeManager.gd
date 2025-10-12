@@ -1,16 +1,16 @@
 extends Node
 
 enum StatType {
-	MovementSpeed,
+	MovementSpeed = 0,
 
-	Attack,
-	AttackSpeed,
-	AttackRange,
-	AttackViewDistance,
-	
-	InventorySize,
-	PickupRange,
-	TargetSearchCooldown,
+	Attack = 10,
+	AttackSpeed = 11,
+	AttackRange = 12,
+	AttackViewDistance = 13,
+
+	InventorySize = 20,
+	PickupRange = 21,
+	TargetSearchCooldown = 22,
 }
 
 var _bonuses: Dictionary = {
