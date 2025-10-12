@@ -5,6 +5,7 @@ class_name Entity extends CharacterBody2D
 @export var target_type: Enum.TargetType
 @export var entity_name: String = "Entity"
 @export var movement_speed: float = 50.0
+@export var totem_approach_distance: float = 100.0
 
 @export_category("Pickup")
 @export var inventory_size: int = 1
@@ -37,6 +38,20 @@ func _on_target_removed(target: Node) -> void:
 	if current_target == target:
 		current_target = null
 
+func target_has_type(target: Node, target_type_to_check: Enum.TargetType) -> bool:
+	if not is_instance_valid(target):
+		return false
+
+	if target.get("target_types") != null:
+		var types = target.get("target_types")
+		if types is Array:
+			return target_type_to_check in types
+
+	if target.get("target_type") != null:
+		return target.get("target_type") == target_type_to_check
+
+	return false
+
 func find_target() -> Node:
 	var priorities_group = Enum.get_target_priorities(type)
 	if priorities_group.is_empty():
@@ -56,6 +71,15 @@ func find_target() -> Node:
 		)
 
 		if target:
+			# check if should fight
+			var is_mask = target_type == Enum.TargetType.Mask
+			var is_enemy = target_type == Enum.TargetType.Enemy
+
+			if is_mask and target_has_type(target, Enum.TargetType.Enemy) or is_enemy and target_has_type(target, Enum.TargetType.Mask):
+				var distance = global_position.distance_to(target.global_position)
+				if distance > get_attack_view_distance():
+					continue
+
 			return target
 
 	return null
