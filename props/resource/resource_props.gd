@@ -1,6 +1,6 @@
 class_name ResourceProps extends StaticBody2D
 
-@export var target_types: Array[TargetManager.Type]
+@export var target_types: Array[Enum.TargetType]
 
 @export var health_component: HealthComponent
 @export var loot_component: LootComponent

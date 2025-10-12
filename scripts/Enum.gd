@@ -9,30 +9,42 @@ enum EntityType {
 	Enemy = 10,
 }
 
-## Behavior profiles define target priorities for each entity type
-## Each entry maps to an array of target type arrays, ordered by priority (highest first)
+enum TargetType {
+	Resource = 0,
+	Tree = 1,
+	Rock = 2,
+
+	Enemy = 10,
+	Mask = 11,
+
+	Item = 20,
+
+	Totem = 30,
+}
+
+## highest to lowest priority
 const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {
 	EntityType.MaskLumberjack: [
-		[TargetManager.Type.Enemy],
-		[TargetManager.Type.Tree, TargetManager.Type.Item],
+		[Enum.TargetType.Enemy],
+		[Enum.TargetType.Tree, Enum.TargetType.Item],
 	],
 	EntityType.MaskMiner: [
-		[TargetManager.Type.Enemy],
-		[TargetManager.Type.Rock, TargetManager.Type.Item],
+		[Enum.TargetType.Enemy],
+		[Enum.TargetType.Rock, Enum.TargetType.Item],
 	],
 	EntityType.MaskAttacker: [
-		[TargetManager.Type.Enemy],
-		[TargetManager.Type.Item],
+		[Enum.TargetType.Enemy],
+		[Enum.TargetType.Item],
 	],
 	EntityType.MaskTank: [
-		[TargetManager.Type.Enemy],
+		[Enum.TargetType.Enemy],
+		[Enum.TargetType.Totem],
 	],
 	EntityType.Enemy: [
-		[TargetManager.Type.Mask],
+		[Enum.TargetType.Mask],
 	],
 }
 
-## Get the target priorities for a given entity type
 func get_target_priorities(entity_type: EntityType) -> Array[Array]:
 	if BEHAVIOR_PROFILES.has(entity_type):
 		var result: Array[Array] = []

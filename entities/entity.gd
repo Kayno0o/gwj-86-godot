@@ -2,7 +2,7 @@ class_name Entity extends CharacterBody2D
 
 @export_category("Base")
 @export var type: Enum.EntityType
-@export var target_type: TargetManager.Type
+@export var target_type: Enum.TargetType
 @export var entity_name: String = "Entity"
 @export var movement_speed: float = 50.0
 
@@ -46,7 +46,7 @@ func find_target() -> Node:
 		if priorities.is_empty():
 			continue
 
-		var typed_priorities: Array[TargetManager.Type] = []
+		var typed_priorities: Array[Enum.TargetType] = []
 		typed_priorities.assign(priorities)
 
 		var target = TargetManager.get_nearest_available_target(

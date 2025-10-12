@@ -1,18 +1,7 @@
 extends Node
 
-enum Type {
-	Resource = 0,
-	Tree = 1,
-	Rock = 2,
-
-	Enemy = 10,
-	Mask = 11,
-
-	Item = 20,
-}
-
 # signal emitted when a new target becomes available
-signal target_available(target: Node2D, target_types: Array[Type])
+signal target_available(target: Node2D, target_types: Array[Enum.TargetType])
 
 # signal emitted when a target is destroyed/removed
 signal target_removed(target: Node2D)
@@ -25,7 +14,7 @@ var _targets_by_type: Dictionary = {}
 # format: { target_node: node }
 var _target_assignments: Dictionary = {}
 
-func register_target(target: Node2D, target_types: Array[Type]) -> void:
+func register_target(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
 	if not is_instance_valid(target):
 		return
 	
@@ -45,7 +34,7 @@ func register_target(target: Node2D, target_types: Array[Type]) -> void:
 		target.tree_exiting.connect(_on_target_destroyed.bind(target, target_types))
 
 ## unregister a target (called automatically on destruction)
-func unregister_target(target: Node2D, target_types: Array[Type]) -> void:
+func unregister_target(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
 	if not is_instance_valid(target):
 		return
 	
@@ -61,7 +50,7 @@ func unregister_target(target: Node2D, target_types: Array[Type]) -> void:
 	target_removed.emit(target)
 
 ## get all targets of specific types (returns unique targets only)
-func get_targets_of_type(target_types: Array[Type]) -> Array[Node2D]:
+func get_targets_of_type(target_types: Array[Enum.TargetType]) -> Array[Node2D]:
 	var results: Array[Node2D] = []
 	var seen: Dictionary = {}
 
@@ -77,7 +66,7 @@ func get_targets_of_type(target_types: Array[Type]) -> Array[Node2D]:
 ## get the nearest available target to a position
 func get_nearest_available_target(
 	current_position: Vector2,
-	target_types: Array[Type],
+	target_types: Array[Enum.TargetType],
 	requester: Node2D,
 ) -> Node2D:
 	var candidates = get_targets_of_type(target_types)
@@ -162,7 +151,7 @@ func is_target_available(target: Node2D) -> bool:
 	return not _target_assignments.has(target)
 
 ## called automatically when a target is destroyed
-func _on_target_destroyed(target: Node2D, target_types: Array[Type]) -> void:
+func _on_target_destroyed(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
 	unregister_target(target, target_types)
 
 ## called automatically when a node is destroyed
