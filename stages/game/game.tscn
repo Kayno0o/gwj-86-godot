@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://bqk8yh7c2vn8p" path="res://entities/mask/mask_blue/mask_blue.tscn" id="3_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="3_kelw5"]
-[ext_resource type="PackedScene" uid="uid://bakv343je48nt" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
+[ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://entities/mask/mask_red/mask_red.tscn" id="5_5i0tg"]
 
 [node name="Node2D" type="Node2D"]
@@ -36,9 +36,11 @@ position = Vector2(556, 533)
 
 [node name="MaskBlue" parent="Characters" instance=ExtResource("3_0sr1o")]
 position = Vector2(329, 72)
+type = 3
 
 [node name="MaskRed" parent="Characters" instance=ExtResource("5_5i0tg")]
 position = Vector2(287, 141)
+type = 2
 
 [node name="MaskGreen" parent="Characters" instance=ExtResource("4_lfrn8")]
 position = Vector2(555, 281)

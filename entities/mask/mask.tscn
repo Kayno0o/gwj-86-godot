@@ -1,16 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyshqk03h8wqg"]
+[gd_scene load_steps=9 format=3 uid="uid://dyshqk03h8wqg"]
 
 [ext_resource type="Script" uid="uid://20wyg6v86aum" path="res://entities/mask/mask.gd" id="1_wo7wq"]
+[ext_resource type="Script" uid="uid://vkh5cbpfovf6" path="res://scripts/StateMachine.gd" id="2_p0has"]
+[ext_resource type="Script" uid="uid://cmyewdmquhdrv" path="res://scripts/states/IdleState.gd" id="3_xmf0i"]
+[ext_resource type="Script" uid="uid://b7ndusukamgna" path="res://scripts/states/GatheringState.gd" id="4_wbtl5"]
+[ext_resource type="Script" uid="uid://lev6fv0ow2np" path="res://scripts/states/MovingToTargetState.gd" id="5_oeqx8"]
+[ext_resource type="Script" uid="uid://wjida1gmw8jj" path="res://scripts/states/AttackingState.gd" id="6_w6upt"]
+[ext_resource type="Script" uid="uid://2w42o2uyjtxd" path="res://scripts/states/PickingUpState.gd" id="7_1fhx1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixog2"]
 radius = 16.0
 
-[node name="Mask2" type="CharacterBody2D"]
+[node name="Mask" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_wo7wq")
+mask_name = null
+type = null
+_movement_speed = null
+_attack = null
+_attack_speed = null
+_attack_range = null
+_attack_view_distance = null
+_inventory_size = null
+_pickup_range = null
+_target_search_cooldown = null
+metadata/_custom_type_script = "uid://20wyg6v86aum"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ixog2")
 debug_color = Color(0.5, 0.5, 0.5, 0.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_p0has")
+metadata/_custom_type_script = "uid://vkh5cbpfovf6"
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("3_xmf0i")
+metadata/_custom_type_script = "uid://bcylmficadrhp"
+
+[node name="GatheringState" type="Node" parent="StateMachine"]
+script = ExtResource("4_wbtl5")
+metadata/_custom_type_script = "uid://bcylmficadrhp"
+
+[node name="MovingToTargetState" type="Node" parent="StateMachine"]
+script = ExtResource("5_oeqx8")
+metadata/_custom_type_script = "uid://bcylmficadrhp"
+
+[node name="AttackingState" type="Node" parent="StateMachine"]
+script = ExtResource("6_w6upt")
+metadata/_custom_type_script = "uid://bcylmficadrhp"
+
+[node name="PickingUpState" type="Node" parent="StateMachine"]
+script = ExtResource("7_1fhx1")
+metadata/_custom_type_script = "uid://bcylmficadrhp"
