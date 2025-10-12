@@ -4,9 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://cj3wl52m7bgjx" path="res://entities/mask/mask_blue/mask_blue.tres" id="2_542vy"]
 
 [node name="MaskBlue" instance=ExtResource("1_base")]
-mask_task = 2
-color = Color(0.5, 0.5, 1, 1)
-mask_name = "Blue Tank"
+type = 1
+entity_name = "Blue Tank"
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("2_542vy")

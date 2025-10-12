@@ -1,9 +1,12 @@
-class_name LootComponent extends Node
+class_name LootComponent extends Component
 
 @export_category("Loot")
 @export var loot_scene: PackedScene
 @export var loot_amount: int
 @export var spawn_spread: float = 16.0
+
+func _init() -> void:
+	type = Component.Type.Loot
 
 func spawn_loot(at_position: Vector2, parent: Node) -> bool:
 	if not loot_scene:

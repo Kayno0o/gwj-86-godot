@@ -1,28 +1,28 @@
-extends Node
-class_name State
+class_name State extends Node
 
-## Base class for all state machine states
-## States handle specific behaviors and determine when to transition to other states
+enum Type {
+	Idle,
+	MoveToTarget,
+	Pickup,
+	Attack,
+}
 
-## Reference to the entity (Mask) that owns this state
-var entity: Node = null
+var parent: Entity
+var type: Type
 
-## Reference to the state machine managing this state
-var state_machine: Node = null
+func init(p_parent: Entity) -> void:
+	parent = p_parent
 
-## Called when entering this state
+	assert(type != null, "%s must set type in init()" % get_script().resource_path)
+
 func enter() -> void:
 	pass
 
-## Called when exiting this state
 func exit() -> void:
 	pass
 
-## Called every physics frame while in this state
-## Should return the name of the next state, or empty string to stay in current state
-func update(_delta: float) -> String:
-	return ""
+func physics_process(_delta: float):
+	return null
 
-## Called to get the name of this state (for debugging)
-func get_state_name() -> String:
-	return name
+func process(_delta: float):
+	return null

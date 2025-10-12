@@ -36,17 +36,20 @@ position = Vector2(556, 533)
 
 [node name="MaskBlue" parent="Characters" instance=ExtResource("3_0sr1o")]
 position = Vector2(329, 72)
-type = 3
+target_type = 0
 
 [node name="MaskRed" parent="Characters" instance=ExtResource("5_5i0tg")]
 position = Vector2(287, 141)
-type = 2
+target_type = 0
 
 [node name="MaskGreen" parent="Characters" instance=ExtResource("4_lfrn8")]
 position = Vector2(555, 281)
+target_type = 0
 
 [node name="MaskGreen3" parent="Characters" instance=ExtResource("4_lfrn8")]
 position = Vector2(700, 384)
+target_type = 0
 
 [node name="MaskGreen2" parent="Characters" instance=ExtResource("4_lfrn8")]
 position = Vector2(287, 429)
+target_type = 0
