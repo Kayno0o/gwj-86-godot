@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Mask
 
-@export var mask_task: MaskTask.Type = MaskTask.Type.ChopWood
+@export var mask_task: Enum.EntityType = Enum.EntityType.MaskLumberjack
 @export var color: Color = Color.WHITE
 @export var mask_name: String = "Mask"
 @export var movement_speed: float = 50.0
@@ -38,7 +38,7 @@ func apply_mask_properties():
 	if not is_node_ready():
 		return
 
-func get_mask_task() -> MaskTask.Type:
+func get_mask_task() -> Enum.EntityType:
 	return mask_task
 
 func get_mask_name() -> String:
