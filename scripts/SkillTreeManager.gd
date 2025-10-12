@@ -2,6 +2,7 @@ extends Node
 
 enum StatType {
 	MovementSpeed = 0,
+	Health = 1,
 
 	Attack = 10,
 	AttackSpeed = 11,

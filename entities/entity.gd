@@ -18,10 +18,10 @@ class_name Entity extends CharacterBody2D
 @export var attack_range: float = 30.0
 @export var attack_view_distance: float = 15.0
 
-@export var health_component: Component
+@export var health_component: HealthComponent
 
 @onready var components: Dictionary[Component.Type, Component] = {
-	Component.Type.Health: health_component
+	Component.Type.Health: health_component,
 }
 
 var current_target: Node = null
@@ -83,6 +83,9 @@ func find_target() -> Node:
 			return target
 
 	return null
+
+func get_health() -> float:
+	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Health, health_component.health)
 
 func get_movement_speed() -> float:
 	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.MovementSpeed, movement_speed)
