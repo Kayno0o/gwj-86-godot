@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd5aauhivh5py"]
+
+[ext_resource type="Script" uid="uid://crod0pyw6moh8" path="res://entities/villains/medium/medium.gd" id="1_hkpc8"]
+
+[node name="medium" type="CharacterBody2D"]
+script = ExtResource("1_hkpc8")
+cost = 60
+metadata/_custom_type_script = "uid://cdyc56cbxg0v2"

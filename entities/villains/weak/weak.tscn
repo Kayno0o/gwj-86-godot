@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://v11l5mnm1jwf"]
+
+[ext_resource type="Script" uid="uid://cfx4i85t4e7s5" path="res://entities/villains/weak/weak.gd" id="1_ex2au"]
+
+[node name="weak" type="CharacterBody2D"]
+script = ExtResource("1_ex2au")
+metadata/_custom_type_script = "uid://20wyg6v86aum"
