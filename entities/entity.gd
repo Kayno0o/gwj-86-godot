@@ -17,6 +17,12 @@ class_name Entity extends CharacterBody2D
 @export var attack_range: float = 30.0
 @export var attack_view_distance: float = 15.0
 
+@export var health_component: Component
+
+@onready var components: Dictionary[Component.Type, Component] = {
+	Component.Type.Health: health_component
+}
+
 var current_target: Node = null
 
 func _ready() -> void:
