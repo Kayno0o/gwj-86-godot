@@ -1,19 +1,22 @@
 extends CharacterBody2D
 class_name Mask
 
-@export var mask_task: Enum.EntityType = Enum.EntityType.MaskLumberjack
-@export var color: Color = Color.WHITE
+@export_category("Base")
 @export var mask_name: String = "Mask"
-@export var movement_speed: float = 50.0
+@export var type: Enum.EntityType
 
-@export var attack: float = 5
-@export var attack_speed: float = 1.0
-@export var attack_range: float = 15.0
-@export var attack_distance: float = 30.0
+@export var _movement_speed: float = 50.0
 
-@export var inventory_size: int = 1
-@export var pickup_distance: float = 30.0
-@export var target_search_cooldown: float = 0.5
+@export_category("Attack")
+@export var _attack: float = 5
+@export var _attack_speed: float = 1.0
+@export var _attack_range: float = 30.0
+@export var _attack_view_distance: float = 15.0
+
+@export_category("Pickup")
+@export var _inventory_size: int = 1
+@export var _pickup_range: float = 30.0
+@export var _target_search_cooldown: float = 2.0
 
 @export var interested_target_types: Array[String] = ["tree", "item"]
 
@@ -38,8 +41,8 @@ func apply_mask_properties():
 	if not is_node_ready():
 		return
 
-func get_mask_task() -> Enum.EntityType:
-	return mask_task
+func get_entity_type() -> Enum.EntityType:
+	return type
 
 func get_mask_name() -> String:
 	return mask_name
@@ -58,5 +61,23 @@ func move_to_target():
 	if on_check_distance(distance):
 		return
 
-	velocity = direction * movement_speed
+	velocity = direction * get_movement_speed()
 	move_and_slide()
+
+
+func get_movement_speed() -> float:
+	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.MovementSpeed, _movement_speed)
+func get_attack() -> float:
+	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Attack, _attack)
+func get_attack_speed() -> float:
+	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.AttackSpeed, _attack_speed)
+func get_attack_range() -> float:
+	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.AttackRange, _attack_range)
+func get_attack_view_distance() -> float:
+	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.AttackViewDistance, _attack_view_distance)
+func get_inventory_size() -> int:
+	return SkillTreeManager.get_istat(type, SkillTreeManager.StatType.InventorySize, _inventory_size)
+func get_pickup_range() -> float:
+	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.PickupRange, _pickup_range)
+func get_target_search_cooldown() -> float:
+	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.TargetSearchCooldown, _target_search_cooldown)

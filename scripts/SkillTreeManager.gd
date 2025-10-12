@@ -1,31 +1,42 @@
-class_name SkillTreeManager extends Node
+extends Node
 
 enum StatType {
-	InventorySize,
-	
-	CheckCooldown,
-	PickupDistance,
 	MovementSpeed,
 
 	Attack,
 	AttackSpeed,
 	AttackRange,
-	AttackDistance,
+	AttackViewDistance,
+	
+	InventorySize,
+	PickupRange,
+	TargetSearchCooldown,
 }
 
-var stat_bonuses: Dictionary = {
-	StatType.InventorySize: 0,
-	StatType.CheckCooldown: 0.0,
-	StatType.PickupDistance: 0.0,
+var _bonuses: Dictionary = {
 	StatType.MovementSpeed: 0.0,
+
 	StatType.Attack: 0.0,
 	StatType.AttackSpeed: 0.0,
 	StatType.AttackRange: 0.0,
-	StatType.AttackDistance: 0.0,
+	StatType.AttackViewDistance: 0.0,
+
+	StatType.InventorySize: 0,
+	StatType.PickupRange: 0.0,
+	StatType.TargetSearchCooldown: 0.0,
 }
 
-func get_fstat(stat_type: StatType, value: float) -> float:
-	return stat_bonuses[stat_type] + value
+var stat_bonuses: Dictionary = {}
 
-func get_istat(stat_type: StatType, value: int) -> int:
-	return stat_bonuses[stat_type] + value
+func _ready() -> void:
+	return
+
+func _init() -> void:
+	for entity_type in Enum.EntityType.values():
+		stat_bonuses[entity_type] = _bonuses.duplicate()
+
+func get_fstat(entity_type: Enum.EntityType, stat_type: StatType, value: float) -> float:
+	return stat_bonuses[entity_type][stat_type] + value
+
+func get_istat(entity_type: Enum.EntityType, stat_type: StatType, value: int) -> int:
+	return stat_bonuses[entity_type][stat_type] + value

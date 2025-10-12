@@ -6,9 +6,7 @@
 
 [node name="MaskGreen" instance=ExtResource("1_kjuky")]
 script = ExtResource("2_fm2ip")
-color = Color(0.5019608, 1, 0.5019608, 1)
 mask_name = "Green Lumberjack"
-movement_speed = 100.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 debug_color = Color(0.5019608, 1, 0.5019608, 0.5019608)

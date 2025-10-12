@@ -33,18 +33,21 @@ func _on_damage_timer_timeout():
 		return
 
 	var distance = global_position.distance_to(current_target.global_position)
-	if distance < pickup_distance:
+	if distance < get_pickup_range():
 		var health_comp: HealthComponent = Utils.get_component(current_target, HealthComponent)
 		if not health_comp:
 			return
 
-		if health_comp.on_damage(attack):
+		if health_comp.on_damage(get_attack()):
 			damage_timer.stop()
-			target_search_timer.start(target_search_cooldown)
+			start_target_search()
 
 		return
 
 	damage_timer.stop()
+
+func start_target_search():
+	target_search_timer.start(get_target_search_cooldown())
 
 func _on_target_search_timer_timeout():
 	find_target()
@@ -67,20 +70,19 @@ func find_target():
 		return
 
 	current_target = new_target
-	if target_search_timer.is_stopped():
-		target_search_timer.start(target_search_cooldown)
+	start_target_search()
 
 func _on_target_removed(target: Node) -> void:
 	if current_target == target:
 		current_target = null
 
 func on_check_distance(distance: float) -> bool:
-	if current_target is Item and distance < pickup_distance:
+	if current_target is Item and distance < get_pickup_range():
 		velocity = Vector2.ZERO
 		on_touch_item()
 		return true
 	
-	if current_target is ResourceProps and distance < attack_distance:
+	if current_target is ResourceProps and distance < get_attack_range():
 		velocity = Vector2.ZERO
 		on_touch_resource()
 		return true
@@ -90,7 +92,8 @@ func on_check_distance(distance: float) -> bool:
 func on_touch_item():
 	current_target.queue_free()
 	current_target = null
+	start_target_search()
 
 func on_touch_resource():
 	if damage_timer.is_stopped():
-		damage_timer.start(attack_speed)
+		damage_timer.start(get_attack_speed())

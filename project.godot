@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Utils="*res://scripts/Utils.gd"
 TargetManager="*res://scripts/TargetManager.gd"
 Enum="*res://scripts/Enum.gd"
+SkillTreeManager="*res://scripts/SkillTreeManager.gd"
 
 [rendering]
 
