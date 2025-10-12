@@ -30,15 +30,19 @@ texture = ExtResource("1_60rri")
 [node name="DayNightCycler" type="CanvasModulate" parent="Plains"]
 position = Vector2(-583, -338)
 script = ExtResource("2_5powy")
-time_to_switch = 60.0
+day_lenght = 0.5
+time_to_switch = 10.0
 time_curve = SubResource("Curve_5powy")
 time_curve_reversed = SubResource("Curve_j6wwd")
 moon_normal = SubResource("GradientTexture1D_5powy")
 
+[node name="Timer" type="Timer" parent="Plains/DayNightCycler"]
+
 [node name="GameMaster" type="Node2D" parent="." groups=["Master"]]
 script = ExtResource("3_5powy")
+day_lenght = 1.0
 
 [connection signal="midday" from="Plains/DayNightCycler" to="GameMaster" method="_on_day_night_cycler_midday"]
 [connection signal="midnight" from="Plains/DayNightCycler" to="GameMaster" method="_on_day_night_cycler_midnight"]
-[connection signal="end_day" from="GameMaster" to="Plains/DayNightCycler" method="_on_game_master_end_day"]
+[connection signal="timeout" from="Plains/DayNightCycler/Timer" to="Plains/DayNightCycler" method="_on_timer_timeout"]
 [connection signal="end_night" from="GameMaster" to="Plains/DayNightCycler" method="_on_game_master_end_night"]
