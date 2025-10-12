@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnoupnbe0nfrg"]
+
+[ext_resource type="Script" uid="uid://dm8f6c55f85ho" path="res://scripts/Spawner.gd" id="1_6qdsd"]
+[ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://entities/mask/mask_red/mask_red.tscn" id="2_bpdck"]
+
+[node name="spawner" type="Node2D"]
+script = ExtResource("1_6qdsd")
+ennemies = Array[PackedScene]([ExtResource("2_bpdck")])

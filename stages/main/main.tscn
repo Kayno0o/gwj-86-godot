@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwy0xgki0ltex"]
+
+[ext_resource type="Texture2D" uid="uid://3f7j4kjthqkh" path="res://stages/main/plains.jpg" id="1_60rri"]
+[ext_resource type="Script" uid="uid://dfmfgpth0lafo" path="res://scripts/DayNightCycle.gd" id="2_5powy"]
+[ext_resource type="Script" uid="uid://d1pnuushvfayr" path="res://scripts/GameMaster.gd" id="3_5powy"]
+
+[sub_resource type="Curve" id="Curve_5powy"]
+_limits = [0.0, 1.0, 0.0, 30.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_j6wwd"]
+_limits = [0.0, 1.0, 0.0, 30.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Gradient" id="Gradient_60rri"]
+offsets = PackedFloat32Array(0, 0.38690478, 0.5654762, 1)
+colors = PackedColorArray(0.024774149, 0.5279563, 0.74482995, 1, 0.5187932, 0.5192656, 0.608364, 1, 0.97650987, 0.7617685, 0.744628, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5powy"]
+gradient = SubResource("Gradient_60rri")
+
+[node name="Main" type="Node2D"]
+
+[node name="Plains" type="Sprite2D" parent="."]
+position = Vector2(583, 338)
+texture = ExtResource("1_60rri")
+
+[node name="DayNightCycler" type="CanvasModulate" parent="Plains"]
+position = Vector2(-583, -338)
+script = ExtResource("2_5powy")
+time_to_switch = 60.0
+time_curve = SubResource("Curve_5powy")
+time_curve_reversed = SubResource("Curve_j6wwd")
+moon_normal = SubResource("GradientTexture1D_5powy")
+
+[node name="GameMaster" type="Node2D" parent="." groups=["Master"]]
+script = ExtResource("3_5powy")
+
+[connection signal="midday" from="Plains/DayNightCycler" to="GameMaster" method="_on_day_night_cycler_midday"]
+[connection signal="midnight" from="Plains/DayNightCycler" to="GameMaster" method="_on_day_night_cycler_midnight"]
+[connection signal="end_day" from="GameMaster" to="Plains/DayNightCycler" method="_on_game_master_end_day"]
+[connection signal="end_night" from="GameMaster" to="Plains/DayNightCycler" method="_on_game_master_end_night"]
