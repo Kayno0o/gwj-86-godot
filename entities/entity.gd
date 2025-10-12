@@ -27,6 +27,11 @@ var current_target: Node = null
 
 func _ready() -> void:
 	TargetManager.target_removed.connect(_on_target_removed)
+	health_component.death.connect(on_death)
+
+func on_death():
+	TargetManager.unregister_target(self, [target_type])
+	queue_free()
 
 func _on_target_removed(target: Node) -> void:
 	if current_target == target:
