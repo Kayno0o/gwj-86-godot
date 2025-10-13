@@ -20,7 +20,7 @@ class_name Entity extends CharacterBody2D
 
 @export var health_component: HealthComponent
 
-var components: Dictionary[Component.Type, Component] = {
+@onready var components: Dictionary[Component.Type, Component] = {
 	Component.Type.Health: health_component,
 }
 
