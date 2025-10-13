@@ -1,16 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://yttupk6ktjv"]
+[gd_scene load_steps=3 format=3 uid="uid://yttupk6ktjv"]
 
 [ext_resource type="Script" uid="uid://dhnuuyiy4vn3l" path="res://props/resource/resource_props.gd" id="1_xiw2d"]
-[ext_resource type="Script" uid="uid://bkxvgh7mco8ws" path="res://scripts/components/HealthComponent.gd" id="2_u28t8"]
-[ext_resource type="Script" uid="uid://blo7u0vfyxo7d" path="res://scripts/components/LootComponent.gd" id="4_b0ddn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohewn"]
 radius = 16.0
 
-[node name="ResourceProps" type="StaticBody2D" node_paths=PackedStringArray("health_component", "loot_component")]
+[node name="ResourceProps" type="StaticBody2D"]
 script = ExtResource("1_xiw2d")
-health_component = NodePath("Components/HealthComponent")
-loot_component = NodePath("Components/LootComponent")
 metadata/_custom_type_script = "uid://dhnuuyiy4vn3l"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,13 +14,3 @@ shape = SubResource("CircleShape2D_ohewn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-
-[node name="Components" type="Node" parent="."]
-
-[node name="HealthComponent" type="Node" parent="Components"]
-script = ExtResource("2_u28t8")
-metadata/_custom_type_script = "uid://bkxvgh7mco8ws"
-
-[node name="LootComponent" type="Node" parent="Components"]
-script = ExtResource("4_b0ddn")
-metadata/_custom_type_script = "uid://blo7u0vfyxo7d"

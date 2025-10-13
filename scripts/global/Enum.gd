@@ -1,5 +1,10 @@
 extends Node
 
+enum ItemType {
+	Wood = 0,
+	Stone = 1,
+}
+
 enum EntityType {
 	MaskLumberjack = 0,
 	MaskMiner = 1,

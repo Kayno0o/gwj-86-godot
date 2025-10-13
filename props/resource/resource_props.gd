@@ -1,9 +1,15 @@
 class_name ResourceProps extends StaticBody2D
 
 @export var target_types: Array[Enum.TargetType]
+@export var health: float
 
-@export var health_component: HealthComponent
-@export var loot_component: LootComponent
+@export_category("Loot")
+@export var loot_scene: PackedScene
+@export var loot_amount: int
+@export var spawn_spread: float = 16.0
+
+@onready var health_component: HealthComponent = HealthComponent.new(health)
+@onready var loot_component: LootComponent = LootComponent.new(loot_scene, loot_amount, spawn_spread)
 
 @onready var components = {
 	Component.Type.Health: health_component,
@@ -21,6 +27,6 @@ func on_damage(damage: float):
 func on_death():
 	TargetManager.unregister_target(self, target_types)
 
-	if loot_component:
-		if loot_component.spawn_loot(global_position, get_parent()):
-			queue_free()
+	print(global_position, get_parent())
+	if loot_component.spawn_loot(global_position, get_parent()):
+		queue_free()

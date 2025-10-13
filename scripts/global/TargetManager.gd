@@ -187,3 +187,31 @@ func print_debug_info() -> void:
 	print("Targets by type:")
 	for type in info["targets_by_type"]:
 		print("  ", type, ": ", info["targets_by_type"][type])
+
+func get_target_types(target: Node) -> Array[Enum.TargetType]:
+	if not is_instance_valid(target):
+		return []
+
+	if target.get("target_types") != null:
+		var types = target.get("target_types")
+		if types is Array:
+			return types
+
+	if target.get("target_type") != null:
+		return [target.get("target_type")]
+
+	return []
+
+func target_has_type(target: Node, target_type_to_check: Enum.TargetType) -> bool:
+	if not is_instance_valid(target):
+		return false
+
+	if target.get("target_types") != null:
+		var types = target.get("target_types")
+		if types is Array:
+			return target_type_to_check in types
+
+	if target.get("target_type") != null:
+		return target.get("target_type") == target_type_to_check
+
+	return false

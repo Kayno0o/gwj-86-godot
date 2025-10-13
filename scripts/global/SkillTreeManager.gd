@@ -16,6 +16,7 @@ enum StatType {
 
 var _bonuses: Dictionary = {
 	StatType.MovementSpeed: 0.0,
+	StatType.Health: 0.0,
 
 	StatType.Attack: 0.0,
 	StatType.AttackSpeed: 0.0,
