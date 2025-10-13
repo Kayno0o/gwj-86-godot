@@ -21,6 +21,9 @@ func enter() -> void:
 		if target and TargetManager.assign_target(target, parent):
 			parent.current_target = target
 
+func exit() -> void:
+	deposit_timer.stop()
+
 func process(_delta: float):
 	if not parent.current_target or \
 		 not is_instance_valid(parent.current_target) or \

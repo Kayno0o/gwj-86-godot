@@ -1,4 +1,4 @@
-class_name ResourceProps extends StaticBody2D
+class_name ResourceProps extends Node2D
 
 @export var target_types: Array[Enum.TargetType]
 @export var health: float

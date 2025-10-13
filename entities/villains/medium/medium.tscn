@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfbk8dxxtktpi" path="res://entities/villains/medium/Armor_03.png" id="2_emccu"]
 
 [node name="Villain" instance=ExtResource("1_hkpc8")]
+health = 10.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_emccu")

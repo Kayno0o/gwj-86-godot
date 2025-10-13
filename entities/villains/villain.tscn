@@ -6,20 +6,24 @@
 [ext_resource type="Script" uid="uid://dudcbadfbrqyy" path="res://scripts/states/MoveToTargetState.gd" id="4_ffb5f"]
 [ext_resource type="Script" uid="uid://b6f3y6w2jpbkn" path="res://scripts/states/AttackState.gd" id="5_rivn4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lojml"]
-radius = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptnth"]
+radius = 8.0
 
 [node name="Villain" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 6
 script = ExtResource("1_lojml")
 type = 10
 target_type = 10
+target_search_cooldown = 0.1
 metadata/_custom_type_script = "uid://cdyc56cbxg0v2"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_lojml")
+shape = SubResource("CircleShape2D_ptnth")
+debug_color = Color(0.5, 0.5, 0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_ptnth")

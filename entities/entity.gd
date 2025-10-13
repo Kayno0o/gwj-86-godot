@@ -12,14 +12,14 @@ var current_target: Node = null
 
 @export_category("Pickup")
 @export var inventory_size: int = 1
-@export var pickup_range: float = 30.0
+@export var pickup_range: float = 42.0
 @export var target_search_cooldown: float = 2.0
 @export var deposit_speed: float = 0.2
 
 @export_category("Attack")
 @export var attack: float = 5
 @export var attack_speed: float = 1.0
-@export var attack_range: float = 30.0
+@export var attack_range: float = 42.0
 @export var attack_view_distance: float = 300.0
 
 @onready var health_component: HealthComponent = HealthComponent.new(SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Health, health))

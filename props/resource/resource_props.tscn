@@ -1,16 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://yttupk6ktjv"]
+[gd_scene load_steps=2 format=3 uid="uid://yttupk6ktjv"]
 
 [ext_resource type="Script" uid="uid://dhnuuyiy4vn3l" path="res://props/resource/resource_props.gd" id="1_xiw2d"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ohewn"]
-radius = 16.0
-
-[node name="ResourceProps" type="StaticBody2D"]
+[node name="ResourceProps" type="Node2D"]
 script = ExtResource("1_xiw2d")
 metadata/_custom_type_script = "uid://dhnuuyiy4vn3l"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ohewn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
