@@ -5,7 +5,7 @@ class_name ResourceProps extends StaticBody2D
 @export var health_component: HealthComponent
 @export var loot_component: LootComponent
 
-@onready var components = {
+var components = {
 	Component.Type.Health: health_component,
 	Component.Type.Loot: loot_component,
 }
