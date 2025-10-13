@@ -120,7 +120,7 @@ func assign_target(target: Node2D, node: Node2D) -> bool:
 		return false
 
 	# skip assignment tracking, totems can be targeted by multiple nodes
-	if target_has_type(target, Enum.TargetType.Totem):
+	if target_has_types(target, [Enum.TargetType.Totem, Enum.TargetType.Enemy, Enum.TargetType.Mask]):
 		return true
 
 	# check if already assigned to another node
@@ -196,16 +196,12 @@ func get_target_types(target: Node) -> Array[Enum.TargetType]:
 
 	return []
 
-func target_has_type(target: Node, target_type_to_check: Enum.TargetType) -> bool:
-	if not is_instance_valid(target):
-		return false
+func target_has_type(target: Node, type: Enum.TargetType) -> bool:
+	return type in get_target_types(target)
 
-	if target.get("target_types") != null:
-		var types = target.get("target_types")
-		if types is Array:
-			return target_type_to_check in types
-
-	if target.get("target_type") != null:
-		return target.get("target_type") == target_type_to_check
-
+func target_has_types(target: Node, types: Array[Enum.TargetType]) -> bool:
+	for type in types:
+		if type in get_target_types(target):
+			return true
+	
 	return false

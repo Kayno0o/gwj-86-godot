@@ -47,6 +47,7 @@ const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {
 	],
 	EntityType.Enemy: [
 		[Enum.TargetType.Mask],
+		[Enum.TargetType.Totem],
 	],
 }
 

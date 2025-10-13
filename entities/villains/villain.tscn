@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1p3mgauwt5yi"]
+
+[ext_resource type="Script" uid="uid://cdyc56cbxg0v2" path="res://entities/villains/villains.gd" id="1_lojml"]
+[ext_resource type="Script" uid="uid://dhok4le2y7g76" path="res://scripts/StateMachine.gd" id="2_ptnth"]
+[ext_resource type="Script" uid="uid://cs6mo4uj7p6vt" path="res://scripts/states/IdleState.gd" id="3_k3j4r"]
+[ext_resource type="Script" uid="uid://dudcbadfbrqyy" path="res://scripts/states/MoveToTargetState.gd" id="4_ffb5f"]
+[ext_resource type="Script" uid="uid://b6f3y6w2jpbkn" path="res://scripts/states/AttackState.gd" id="5_rivn4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lojml"]
+radius = 16.0
+
+[node name="Villain" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_lojml")
+type = 10
+target_type = 10
+metadata/_custom_type_script = "uid://cdyc56cbxg0v2"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lojml")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_ptnth")
+metadata/_custom_type_script = "uid://dhok4le2y7g76"
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("3_k3j4r")
+metadata/_custom_type_script = "uid://cs6mo4uj7p6vt"
+
+[node name="MoveToTargetState" type="Node" parent="StateMachine"]
+script = ExtResource("4_ffb5f")
+metadata/_custom_type_script = "uid://dudcbadfbrqyy"
+
+[node name="AttackState" type="Node" parent="StateMachine"]
+script = ExtResource("5_rivn4")
+metadata/_custom_type_script = "uid://b6f3y6w2jpbkn"

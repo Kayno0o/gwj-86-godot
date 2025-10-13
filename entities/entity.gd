@@ -20,7 +20,7 @@ var current_target: Node = null
 @export var attack: float = 5
 @export var attack_speed: float = 1.0
 @export var attack_range: float = 30.0
-@export var attack_view_distance: float = 15.0
+@export var attack_view_distance: float = 300.0
 
 @onready var health_component: HealthComponent = HealthComponent.new(SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Health, health))
 @onready var inventory_component: InventoryComponent = InventoryComponent.new(self, SkillTreeManager.get_istat(type, SkillTreeManager.StatType.InventorySize, inventory_size))
@@ -31,6 +31,7 @@ var current_target: Node = null
 }
 
 func _ready() -> void:
+	TargetManager.register_target(self, [target_type])
 	TargetManager.target_removed.connect(_on_target_removed)
 	health_component.death.connect(on_death)
 	inventory_component._ready()
