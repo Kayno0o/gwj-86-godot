@@ -22,7 +22,7 @@ var current_target: Node = null
 @export var attack_view_distance: float = 15.0
 
 @onready var health_component: HealthComponent = HealthComponent.new(SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Health, health))
-@onready var inventory_component: InventoryComponent = InventoryComponent.new(self)
+@onready var inventory_component: InventoryComponent = InventoryComponent.new(self, SkillTreeManager.get_istat(type, SkillTreeManager.StatType.InventorySize, inventory_size))
 
 @onready var components: Dictionary[Component.Type, Component] = {
 	Component.Type.Health: health_component,
