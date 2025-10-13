@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bfhwvj28jnhvo" path="res://props/item/log/log.tscn" id="2_ni0tv"]
 
 [node name="Tree" groups=["trees"] instance=ExtResource("1_olndm")]
-target_types = Array[String](["tree"])
 collision_layer = 2
+target_types = Array[int]([0, 1])
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("1_13syr")
@@ -14,6 +14,6 @@ texture = ExtResource("1_13syr")
 [node name="HealthComponent" parent="Components" index="0"]
 health = 12.0
 
-[node name="LootComponent" parent="Components" index="2"]
+[node name="LootComponent" parent="Components" index="1"]
 loot_scene = ExtResource("2_ni0tv")
 loot_amount = 3

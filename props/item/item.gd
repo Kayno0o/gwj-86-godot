@@ -1,6 +1,6 @@
 class_name Item extends Node2D
 
-@export var type: ItemType.Type
+var target_type: Enum.TargetType = Enum.TargetType.Item
 
 func _ready() -> void:
-	TargetManager.register_target(self, ["item"])
+	TargetManager.register_target(self, [target_type])

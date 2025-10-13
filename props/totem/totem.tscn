@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cps5jjnch8vi4"]
+
+[ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
+[ext_resource type="Texture2D" uid="uid://cuymfckcbvxwr" path="res://props/totem/Crafting_36.png" id="2_v2ani"]
+
+[node name="Totem" type="Node2D"]
+script = ExtResource("1_7ndw4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v2ani")

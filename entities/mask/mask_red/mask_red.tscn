@@ -4,9 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://c7cl0lhvk4rph" path="res://entities/mask/mask_red/mask_red.tres" id="2_oj8or"]
 
 [node name="MaskRed" instance=ExtResource("1_base")]
-mask_task = 3
-color = Color(1, 0.5019608, 0.5019608, 1)
-mask_name = "Red Warrior"
+type = 2
+entity_name = "Red Warrior"
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("2_oj8or")

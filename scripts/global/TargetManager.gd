@@ -1,10 +1,10 @@
 extends Node
 
 # signal emitted when a new target becomes available
-signal target_available(target: Node, target_types: Array[String])
+signal target_available(target: Node2D, target_types: Array[Enum.TargetType])
 
 # signal emitted when a target is destroyed/removed
-signal target_removed(target: Node)
+signal target_removed(target: Node2D)
 
 # dictionary to store targets by type
 # format: { "tree": [target1, target2], "item": [item1, item2] }
@@ -14,15 +14,11 @@ var _targets_by_type: Dictionary = {}
 # format: { target_node: node }
 var _target_assignments: Dictionary = {}
 
-func _ready() -> void:
-	# initialize common target types
-	_targets_by_type["tree"] = []
-	_targets_by_type["rock"] = []
-	_targets_by_type["item"] = []
+func init() -> void:
+	_targets_by_type = {}
+	_target_assignments = {}
 
-## register a target that can be interacted with
-## target_types: Array of strings like ["tree", "wood_resource"]
-func register_target(target: Node, target_types: Array[String]) -> void:
+func register_target(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
 	if not is_instance_valid(target):
 		return
 	
@@ -42,7 +38,7 @@ func register_target(target: Node, target_types: Array[String]) -> void:
 		target.tree_exiting.connect(_on_target_destroyed.bind(target, target_types))
 
 ## unregister a target (called automatically on destruction)
-func unregister_target(target: Node, target_types: Array[String]) -> void:
+func unregister_target(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
 	if not is_instance_valid(target):
 		return
 	
@@ -58,8 +54,8 @@ func unregister_target(target: Node, target_types: Array[String]) -> void:
 	target_removed.emit(target)
 
 ## get all targets of specific types (returns unique targets only)
-func get_targets_of_type(target_types: Array[String]) -> Array[Node]:
-	var results: Array[Node] = []
+func get_targets_of_type(target_types: Array[Enum.TargetType]) -> Array[Node2D]:
+	var results: Array[Node2D] = []
 	var seen: Dictionary = {}
 
 	for type in target_types:
@@ -73,12 +69,12 @@ func get_targets_of_type(target_types: Array[String]) -> Array[Node]:
 
 ## get the nearest available target to a position
 func get_nearest_available_target(
-	position: Vector2,
-	target_types: Array[String],
-	requester: Node
-) -> Node:
+	current_position: Vector2,
+	target_types: Array[Enum.TargetType],
+	requester: Node2D,
+) -> Node2D:
 	var candidates = get_targets_of_type(target_types)
-	var nearest: Node = null
+	var nearest: Node2D = null
 	var nearest_distance: float = INF
 
 	for candidate in candidates:
@@ -98,7 +94,7 @@ func get_nearest_available_target(
 				# target is assigned to a different valid node
 				continue
 
-		var distance = position.distance_to(candidate.global_position)
+		var distance = current_position.distance_to(candidate.global_position)
 		if distance < nearest_distance:
 			nearest = candidate
 			nearest_distance = distance
@@ -106,7 +102,9 @@ func get_nearest_available_target(
 	return nearest
 
 ## internal: Clean up an invalid target from all tracking dictionaries
-func _cleanup_invalid_target(target: Node) -> void:
+func _cleanup_invalid_target(target: Node2D) -> void:
+	# TODO: remove target that are outside the mad
+
 	# remove from type categories
 	for type in _targets_by_type.keys():
 		if target in _targets_by_type[type]:
@@ -117,7 +115,7 @@ func _cleanup_invalid_target(target: Node) -> void:
 		_target_assignments.erase(target)
 
 ## assign a node to a target (updates tracking)
-func assign_target(target: Node, node: Node) -> bool:
+func assign_target(target: Node2D, node: Node2D) -> bool:
 	if not is_instance_valid(target) or not is_instance_valid(node):
 		return false
 
@@ -134,7 +132,7 @@ func assign_target(target: Node, node: Node) -> bool:
 	return true
 
 ## release a target assignment (optionally specify which node to release from)
-func release_target(target: Node, node: Node = null) -> void:
+func release_target(target: Node2D, node: Node2D = null) -> void:
 	if not is_instance_valid(target):
 		return
 
@@ -147,21 +145,21 @@ func release_target(target: Node, node: Node = null) -> void:
 		_target_assignments.erase(target)
 
 ## get the node currently targeting a specific target
-func get_target_owner(target: Node) -> Node:
+func get_target_owner(target: Node2D) -> Node2D:
 	if _target_assignments.has(target):
 		return _target_assignments[target]
 	return null
 
 ## check if a target is available (not assigned to anyone)
-func is_target_available(target: Node) -> bool:
+func is_target_available(target: Node2D) -> bool:
 	return not _target_assignments.has(target)
 
 ## called automatically when a target is destroyed
-func _on_target_destroyed(target: Node, target_types: Array[String]) -> void:
+func _on_target_destroyed(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
 	unregister_target(target, target_types)
 
 ## called automatically when a node is destroyed
-func _on_node_destroyed(target: Node, node: Node) -> void:
+func _on_node_destroyed(target: Node2D, node: Node2D) -> void:
 	if is_instance_valid(target):
 		release_target(target, node)
 

@@ -4,6 +4,7 @@
 
 [node name="Item" type="Node2D" groups=["items"]]
 script = ExtResource("1_qnvdu")
+metadata/_custom_type_script = "uid://7c0q4inr1s3g"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

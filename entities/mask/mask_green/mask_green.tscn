@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bakv343je48nt"]
+[gd_scene load_steps=3 format=3 uid="uid://bwr7ygt2ff7hq"]
 
 [ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_kjuky"]
-[ext_resource type="Script" uid="uid://bihsm0gl6t5vp" path="res://entities/mask/mask_green/mask_green.gd" id="2_fm2ip"]
 [ext_resource type="SpriteFrames" uid="uid://ca6vdp6830gst" path="res://entities/mask/mask_green/mask_green.tres" id="3_y2eoy"]
 
 [node name="MaskGreen" instance=ExtResource("1_kjuky")]
-script = ExtResource("2_fm2ip")
-color = Color(0.5019608, 1, 0.5019608, 1)
-mask_name = "Green Lumberjack"
+entity_name = "Green Lumberjack"
+type = 0
 movement_speed = 100.0
 
 [node name="CollisionShape2D" parent="." index="0"]

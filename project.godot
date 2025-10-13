@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ItemType="*res://scripts/ItemType.gd"
-MaskTask="*res://scripts/MaskTask.gd"
-Utils="*res://scripts/Utils.gd"
-TargetManager="*res://scripts/TargetManager.gd"
+Utils="*res://scripts/global/Utils.gd"
+TargetManager="*res://scripts/global/TargetManager.gd"
+Enum="*res://scripts/global/Enum.gd"
+SkillTreeManager="*res://scripts/global/SkillTreeManager.gd"
 
 [rendering]
 
