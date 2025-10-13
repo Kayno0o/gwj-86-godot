@@ -1,6 +1,8 @@
 class_name DepositItemState extends State
 
 var deposit_timer: Timer
+var search_timer: Timer
+
 var is_depositing: bool = false
 
 func init(p_parent: Entity) -> void:
@@ -13,6 +15,11 @@ func init(p_parent: Entity) -> void:
 	deposit_timer.timeout.connect(_on_deposit_timeout)
 	add_child(deposit_timer)
 
+	search_timer = Timer.new()
+	search_timer.one_shot = true
+	search_timer.timeout.connect(_on_search_timeout)
+	add_child(search_timer)
+
 func enter() -> void:
 	is_depositing = false
 
@@ -20,6 +27,9 @@ func enter() -> void:
 		var target = TargetManager.get_nearest_available_target(parent.global_position, [Enum.TargetType.Totem], parent)
 		if target and TargetManager.assign_target(target, parent):
 			parent.current_target = target
+	
+	if not parent.inventory_component.is_inventory_full():
+		search_timer.start(parent.get_target_search_cooldown())
 
 func exit() -> void:
 	deposit_timer.stop()
@@ -30,6 +40,9 @@ func process(_delta: float):
 		 parent.inventory_component.is_empty():
 		parent.current_target = null
 		return State.Type.Idle
+	
+	if not TargetManager.target_has_type(parent.current_target, Enum.TargetType.Totem):
+		return State.Type.MoveToTarget
 
 	var distance = parent.global_position.distance_to(parent.current_target.global_position)
 
@@ -52,6 +65,22 @@ func move_to_totem() -> void:
 	var direction = (parent.current_target.global_position - parent.global_position).normalized()
 	parent.velocity = direction * parent.get_movement_speed()
 	parent.move_and_slide()
+
+func search_target() -> void:
+	var new_target = parent.find_target()
+
+	if new_target:
+		if parent.current_target:
+			TargetManager.release_target(parent.current_target, parent)
+
+		if not TargetManager.assign_target(new_target, parent):
+			return
+
+		parent.current_target = new_target
+
+func _on_search_timeout() -> void:
+	search_target()
+	search_timer.start(parent.get_target_search_cooldown())
 
 func _on_deposit_timeout():
 	if not parent.current_target or not is_instance_valid(parent.current_target):
