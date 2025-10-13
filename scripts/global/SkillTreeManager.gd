@@ -30,9 +30,6 @@ var _bonuses: Dictionary = {
 
 var stat_bonuses: Dictionary = {}
 
-func _ready() -> void:
-	return
-
 func _init() -> void:
 	for entity_type in Enum.EntityType.values():
 		stat_bonuses[entity_type] = _bonuses.duplicate()
