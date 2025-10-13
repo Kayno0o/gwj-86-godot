@@ -15,14 +15,15 @@ collision_mask = 6
 script = ExtResource("1_lojml")
 type = 10
 target_type = 10
-target_search_cooldown = 0.1
+target_search_cooldown = 0.5
+attack_speed = 2.0
 metadata/_custom_type_script = "uid://cdyc56cbxg0v2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ptnth")
 debug_color = Color(0.5, 0.5, 0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 
 [node name="StateMachine" type="Node" parent="."]

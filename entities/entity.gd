@@ -65,9 +65,9 @@ func find_target() -> Node:
 		if target:
 			# check if should fight
 			var is_mask = target_type == Enum.TargetType.Mask
-			var is_enemy = target_type == Enum.TargetType.Enemy
+			var is_villain = target_type == Enum.TargetType.Villain
 
-			if is_mask and TargetManager.target_has_type(target, Enum.TargetType.Enemy) or is_enemy and TargetManager.target_has_type(target, Enum.TargetType.Mask):
+			if is_mask and TargetManager.target_has_type(target, Enum.TargetType.Villain) or is_villain and TargetManager.target_has_type(target, Enum.TargetType.Mask):
 				var distance = global_position.distance_to(target.global_position)
 				if distance > get_attack_view_distance():
 					continue

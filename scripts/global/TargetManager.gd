@@ -120,7 +120,7 @@ func assign_target(target: Node2D, node: Node2D) -> bool:
 		return false
 
 	# skip assignment tracking, totems can be targeted by multiple nodes
-	if target_has_types(target, [Enum.TargetType.Totem, Enum.TargetType.Enemy, Enum.TargetType.Mask]):
+	if target_has_types(target, [Enum.TargetType.Totem, Enum.TargetType.Villain, Enum.TargetType.Mask]):
 		return true
 
 	# check if already assigned to another node
