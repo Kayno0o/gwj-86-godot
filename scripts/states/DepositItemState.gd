@@ -27,7 +27,7 @@ func exit() -> void:
 func process(_delta: float):
 	if not parent.current_target or \
 		 not is_instance_valid(parent.current_target) or \
-		 parent.inventory_component.inventory.is_empty():
+		 parent.inventory_component.is_empty():
 		parent.current_target = null
 		return State.Type.Idle
 
@@ -62,5 +62,5 @@ func _on_deposit_timeout():
 	var item = parent.inventory_component.pop_item()
 	print("deposited item: ", item)
 
-	if not parent.inventory_component.inventory.is_empty():
+	if not parent.inventory_component.is_empty():
 		deposit_timer.start(parent.deposit_speed)

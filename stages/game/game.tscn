@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=7 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="Script" uid="uid://d2fi4g2tmqqkc" path="res://scripts/global/SkillTreeManager.gd" id="2_a5xyx"]
@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://entities/mask/mask_red/mask_red.tscn" id="5_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
-[ext_resource type="PackedScene" uid="uid://ttj4vn1j4dn5" path="res://entities/villains/medium/medium.tscn" id="8_mqy30"]
-[ext_resource type="PackedScene" uid="uid://bawyj38vr3rwc" path="res://entities/villains/strong/strong.tscn" id="8_w77vm"]
-[ext_resource type="PackedScene" uid="uid://b5vp204l0464x" path="res://entities/villains/weak/weak.tscn" id="9_51ysb"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7h61r")
@@ -18,150 +15,27 @@ script = ExtResource("2_a5xyx")
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Tree" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(981, 375)
-
 [node name="Tree2" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(980, 273)
+position = Vector2(768, 389)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Tree3" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(931, 192)
-
-[node name="Tree4" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(935, 482)
-
-[node name="Tree5" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(898, 355)
-
-[node name="Tree6" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(881, 596)
-
-[node name="Tree7" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(1050, 518)
-
-[node name="Tree8" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(1051, 59)
-
-[node name="Tree9" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(899, 101)
+position = Vector2(719, 308)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="MaskRed" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(758, 248)
-
 [node name="MaskRed2" parent="Characters" instance=ExtResource("5_5i0tg")]
 position = Vector2(741, 499)
-
-[node name="MaskRed3" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(753, 126)
-
-[node name="MaskRed6" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(638, 264)
-
-[node name="MaskRed7" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(655, 148)
-
-[node name="MaskRed8" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(698, 202)
-
-[node name="MaskRed17" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(577, 541)
-
-[node name="MaskRed18" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(589, 168)
-
-[node name="MaskRed19" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(474, 306)
-
-[node name="MaskRed20" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(491, 190)
-
-[node name="MaskRed21" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(534, 244)
-
-[node name="MaskRed9" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(693, 80)
-
-[node name="MaskRed12" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(771, 429)
-
-[node name="MaskRed13" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(766, 307)
-
-[node name="MaskRed14" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(646, 323)
-
-[node name="MaskRed15" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(711, 383)
-
-[node name="MaskRed16" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(706, 261)
-
-[node name="MaskRed10" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(650, 574)
-
-[node name="MaskRed11" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(645, 452)
-
-[node name="MaskRed4" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(670, 506)
-
-[node name="MaskRed5" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(665, 384)
-
-[node name="MaskGreen" parent="Characters" instance=ExtResource("4_lfrn8")]
-position = Vector2(696, 321)
-
-[node name="MaskGreen3" parent="Characters" instance=ExtResource("4_lfrn8")]
-position = Vector2(687, 432)
+collision_mask = 2
 
 [node name="MaskGreen2" parent="Characters" instance=ExtResource("4_lfrn8")]
 position = Vector2(767, 351)
+collision_mask = 2
 
 [node name="Villains" type="Node" parent="."]
-
-[node name="Villain" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(61, 79)
-
-[node name="Villain2" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(96, 238)
-
-[node name="Villain5" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(108, 347)
-
-[node name="Villain6" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(103, 156)
-
-[node name="Villain7" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(75, 547)
-
-[node name="Villain3" parent="Villains" instance=ExtResource("8_w77vm")]
-position = Vector2(100, 605)
-
-[node name="Villain4" parent="Villains" instance=ExtResource("9_51ysb")]
-position = Vector2(124, 478)
-
-[node name="Villain8" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(144, 70)
-
-[node name="Villain9" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(179, 229)
-
-[node name="Villain10" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(191, 338)
-
-[node name="Villain11" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(186, 147)
-
-[node name="Villain12" parent="Villains" instance=ExtResource("8_mqy30")]
-position = Vector2(158, 538)
-
-[node name="Villain13" parent="Villains" instance=ExtResource("8_w77vm")]
-position = Vector2(183, 596)
-
-[node name="Villain14" parent="Villains" instance=ExtResource("9_51ysb")]
-position = Vector2(207, 469)
 
 [node name="Totem" parent="." instance=ExtResource("6_rsoik")]
 position = Vector2(869, 261)

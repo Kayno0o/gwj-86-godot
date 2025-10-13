@@ -52,3 +52,6 @@ func pop_item() -> Item:
 
 func is_inventory_full() -> bool:
 	return inventory.size() >= inventory_size
+
+func is_empty() -> bool:
+	return inventory.is_empty()
