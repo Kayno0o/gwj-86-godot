@@ -27,6 +27,5 @@ func on_damage(damage: float):
 func on_death():
 	TargetManager.unregister_target(self, target_types)
 
-	print(global_position, get_parent())
 	if loot_component.spawn_loot(global_position, get_parent()):
 		queue_free()

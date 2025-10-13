@@ -14,6 +14,7 @@ var current_target: Node = null
 @export var inventory_size: int = 1
 @export var pickup_range: float = 30.0
 @export var target_search_cooldown: float = 2.0
+@export var deposit_speed: float = 0.2
 
 @export_category("Attack")
 @export var attack: float = 5

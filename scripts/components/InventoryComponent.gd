@@ -27,7 +27,7 @@ func set_items_position() -> void:
 		item.position = previous_position
 
 func add_item(item: Item) -> bool:
-	if inventory.size() >= inventory_size:
+	if is_inventory_full():
 		return false
 
 	inventory.push_back(item)
@@ -35,7 +35,8 @@ func add_item(item: Item) -> bool:
 	inventory_node.add_child(item)
 	set_items_position()
 
-	inventory_full.emit()
+	if is_inventory_full():
+		inventory_full.emit()
 
 	return true
 
@@ -48,3 +49,6 @@ func pop_item() -> Item:
 	set_items_position()
 
 	return item
+
+func is_inventory_full() -> bool:
+	return inventory.size() >= inventory_size

@@ -7,9 +7,16 @@ func init(p_parent: Entity) -> void:
 
 func enter() -> void:
 	parent.velocity = Vector2.ZERO
+
+	if parent.inventory_component.is_inventory_full():
+		return
+
 	pickup()
 
 func process(_delta: float):
+	if parent.inventory_component.is_inventory_full():
+		return State.Type.DepositItem
+
 	return State.Type.Idle
 
 func pickup() -> void:
@@ -18,7 +25,7 @@ func pickup() -> void:
 		parent.current_target = null
 		return
 
-	TargetManager.release_target(item, parent)
-	TargetManager.unregister_target(item, TargetManager.get_target_types(item))
-	parent.inventory_component.add_item(item)
-	parent.current_target = null
+	if parent.inventory_component.add_item(item):
+		TargetManager.release_target(item, parent)
+		TargetManager.unregister_target(item, TargetManager.get_target_types(item))
+		parent.current_target = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyshqk03h8wqg"]
+[gd_scene load_steps=9 format=3 uid="uid://dyshqk03h8wqg"]
 
 [ext_resource type="Script" uid="uid://20wyg6v86aum" path="res://entities/mask/mask.gd" id="1_wo7wq"]
 [ext_resource type="Script" uid="uid://dhok4le2y7g76" path="res://scripts/StateMachine.gd" id="2_p0has"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dudcbadfbrqyy" path="res://scripts/states/MoveToTargetState.gd" id="4_n8v8d"]
 [ext_resource type="Script" uid="uid://c71etamalrqcg" path="res://scripts/states/PickupState.gd" id="5_nwnoh"]
 [ext_resource type="Script" uid="uid://b6f3y6w2jpbkn" path="res://scripts/states/AttackState.gd" id="6_5adr3"]
+[ext_resource type="Script" uid="uid://d16d732w83vjp" path="res://scripts/states/DepositItemState.gd" id="7_deposit"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixog2"]
 radius = 16.0
@@ -39,3 +40,7 @@ script = ExtResource("5_nwnoh")
 
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("6_5adr3")
+
+[node name="DepositItemState" type="Node" parent="StateMachine"]
+script = ExtResource("7_deposit")
+metadata/_custom_type_script = "uid://d16d732w83vjp"
