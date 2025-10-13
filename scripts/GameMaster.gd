@@ -1,51 +1,57 @@
 extends Node
 
-signal end_night()
-signal spawn_enemy()
-signal kill_villain()
-
-@export var day_lenght = 5.0
-@export var difficulty : int = 1
-@export var map_size : Array[Vector2]
-
+#region @Onready
 @onready var is_midnight : bool = false
+#endregion
 
-func _unhandled_input(event):
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_D:
-			spawn_enemy.emit()
-		if event.pressed and event.keycode == KEY_W:
-			kill_villain.emit()
+#region @Export
+@export var difficulty : int = 1 # Augmente chaque matin
+@export var map_size : Array[Vector2] # connecte chaque point au precedent et le dernier au premier
+#endregion
 
-func _place_spawner() :
-	var rand_choice = randi_range(0, 3)
-	var location_choice = Vector2(randf_range(map_size[rand_choice].x, map_size[(rand_choice + 1) % 4].x), randf_range(map_size[rand_choice].y, map_size[(rand_choice + 1) % 4].y))
-	var spawner = preload("res://stages/main/spawner.tscn").instantiate()
-	spawner.position = location_choice
-	add_child(spawner)
-	self.get_child(0).spawner_ded.connect(_spawner_is_ded)
+#region Signals
+signal end_night()
+signal kill_villain() # Dev purpose
+#endregion
 
-func _on_day_night_cycler_midday() -> void:
-	#var spawner = preload("res://stages/main/spawner.tscn").instantiate()
-	#add_child(spawner)
-	#self.get_child(0).spawner_ded.connect(_spawner_is_ded)
-	#_place_spawner()
-	#spawn_enemy.emit()
-	pass
+# Feat du GameMaster : 
+# Gere la difficulté ainsi que le placement du spawner de villain
+# Selection de zone modulable
+# Communique avec le Day/Night cycler
 
+#region Signal Catching
+# Si la nuit se termine apres la mort du spawner, commencer la journée
 func _on_day_night_cycler_midnight() -> void:
 	is_midnight = true
 	if self.get_child_count() == 0 :
 		is_midnight = false
 		end_night.emit()
-	pass # Replace with function body.
 
+# Augmente la difficulté a la mort du spawner et commence la journée si la lune est au zenith
 func _spawner_is_ded() :
 	difficulty += 1
 	if is_midnight == true :
 		is_midnight = false
 		end_night.emit()
 
+# Catch les action du joueurs, sert uniquement a tuer les villains pour des test (pour le moment)
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_K:
+			kill_villain.emit()
+
+# Ajoute un spawner lors de la fin de la journée
 func _on_timer_timeout() -> void:
 	_place_spawner()
-	spawn_enemy.emit()
+#endregion
+
+#region Fonctions
+# Selectionne l'une des lignes virtuelles de map_size et place le spawner dessus, se connecte egalement au signal pour savoir quand le spawner meurt
+func _place_spawner() :
+	var rand_choice = randi_range(0, map_size.size())
+	var location_choice = Vector2(randf_range(map_size[rand_choice].x, map_size[(rand_choice + 1) % 4].x), randf_range(map_size[rand_choice].y, map_size[(rand_choice + 1) % 4].y))
+	var spawner = preload("res://stages/main/spawner.tscn").instantiate()
+	spawner.position = location_choice
+	add_child(spawner)
+	self.get_child(0).spawner_ded.connect(_spawner_is_ded)
+#endregion
