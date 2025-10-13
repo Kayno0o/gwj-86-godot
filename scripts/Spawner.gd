@@ -1,44 +1,65 @@
 extends Node
 
-@export var ennemies : Array[PackedScene]
-@export var offset : float
-
+#region @Onready
 @onready var threat_cost :int = 50
 @onready var world = get_tree().get_nodes_in_group("Master")[0]
-@onready var spawned : bool = false
+#endregion
 
+#region @Export
+@export var villains : Array[PackedScene]
+@export var offset : float
+#endregion
+
+#region Signals
 signal spawner_ded
+#endregion
 
+# Feat du Spawner :
+# Dispose d'un budget de spawn qui augmente en fonction de la difficulté
+# Possede un Array de Villains, le plus couteux étant rangé en 0 manuellement et le moins couteux en "villains.size() - 1"
+# L'offset permet de definir une zone dans laquelle les villains spawn autour du spawner
+# Depense comme un grand son budget aléatoirement et dans la totalité :
+# - Regarde combien il peu acheter d'unité la plus cher
+# - En achete un nombre aleatoire dans ses capacitées
+# - Fait de meme pour chaque unité jusqu'à la moins cher
+# - Depense le reste de ses economies reservé a soigné sa mamie dans l'achat d'unité faible
+
+#region _Ready / _Process
+# Se connecte a la commande dev pour tout tuer et lance la selection / spawn des villains
 func _ready() -> void:
-	world.spawn_enemy.connect(_on_game_master_spawn_enemy)
 	world.kill_villain.connect(_on_game_master_kill_villain)
+	print("we are here")
+	_villain_picker()
+#endregion
 
-func _ennemi_picker() :
+#region Fonctions
+# Selectionne les villains a spawn selon son budget
+func _villain_picker() :
 	var allowed = 0
 	var spawn_budget = world.difficulty * threat_cost
-	for current_ennemi in ennemies :
-		var ennemi_instance = current_ennemi.instantiate()
-		if spawn_budget > ennemi_instance.cost :
-			if current_ennemi == ennemies[ennemies.size()- 1] :
-				allowed = spawn_budget / ennemi_instance.cost
+	for current_villain in villains :
+		var villain_instance = current_villain.instantiate()
+		if spawn_budget > villain_instance.cost :
+			if current_villain == villains[villains.size()- 1] :
+				allowed = spawn_budget / villain_instance.cost
 			else :
-				allowed = randi_range(0, spawn_budget / ennemi_instance.cost)
+				allowed = randi_range(0, spawn_budget / villain_instance.cost)
 			for i in allowed :
-				ennemi_instance = current_ennemi.instantiate()
-				spawn_budget -= ennemi_instance.cost
-				ennemi_instance.position = Vector2(randf_range(offset, -offset), randf_range(offset, -offset))
-				add_child(ennemi_instance)
+				villain_instance = current_villain.instantiate()
+				spawn_budget -= villain_instance.cost
+				villain_instance.position = Vector2(randf_range(offset, -offset), randf_range(offset, -offset))
+				add_child(villain_instance)
+#endregion
 
-func _on_game_master_spawn_enemy() -> void:
-	print("we are here")
-	_ennemi_picker()
-	spawned = true
+#region Signal catching
+# Tue le spawner si tout les villains sont mort
+func _on_child_exiting_tree(_node: Node) -> void:
+	if self.get_child_count() == 1:
+		spawner_ded.emit()
+		self.queue_free()
 
+# Tue tout les enfants du spawner suite a la demande du Dev
 func _on_game_master_kill_villain() -> void:
 	for childrens in self.get_children() :
 		childrens.free()
-
-func _on_child_exiting_tree(_node: Node) -> void:
-	if self.get_child_count() == 1 and spawned == true:
-		spawner_ded.emit()
-		self.queue_free()
+#endregion

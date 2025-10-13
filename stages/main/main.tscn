@@ -40,10 +40,8 @@ moon_normal = SubResource("GradientTexture1D_5powy")
 
 [node name="GameMaster" type="Node2D" parent="." groups=["Master"]]
 script = ExtResource("3_5powy")
-day_lenght = 1.0
 map_size = Array[Vector2]([Vector2(-100, -100), Vector2(1200, -100), Vector2(1200, 700), Vector2(-100, 700)])
 
-[connection signal="midday" from="Plains/DayNightCycler" to="GameMaster" method="_on_day_night_cycler_midday"]
 [connection signal="midnight" from="Plains/DayNightCycler" to="GameMaster" method="_on_day_night_cycler_midnight"]
 [connection signal="timeout" from="Plains/DayNightCycler/Timer" to="Plains/DayNightCycler" method="_on_timer_timeout"]
 [connection signal="timeout" from="Plains/DayNightCycler/Timer" to="GameMaster" method="_on_timer_timeout"]
