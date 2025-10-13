@@ -1,25 +1,31 @@
 extends CanvasModulate
 
-#region @Onready
-@onready var gamemaster = $"../../GameMaster"
-@onready var time = 0
-@onready var actual_state = null
-@onready var timer = 0.0
-#endregion
-
-#region @Export
+#region @export
 @export var day_lenght : float = 5.0
 @export var time_to_switch : float
 @export var time_curve : Curve
 @export var time_curve_reversed : Curve
 #endregion
 
-#region Signals
-signal midnight()
-#endregion
+enum MoonType {
+	Normal = 0,
+	Blood = 1,
+}
 
 #region Cycle lunaire
-@export var moon_normal : GradientTexture1D
+@export var current_moon: MoonType = MoonType.Normal
+@export var moons: Dictionary[MoonType, GradientTexture1D] = {}
+#endregion
+
+#region @onready
+@onready var gamemaster = $"../../GameMaster"
+@onready var time = 0
+@onready var actual_state = null
+@onready var timer = 0.0
+#endregion
+
+#region signals
+signal midnight()
 #endregion
 
 # Feat du Day/Night cycler :
@@ -29,7 +35,7 @@ signal midnight()
 # change d'etat selon passage au jour et à la nuit. (Hardcord, a changer)
 # communique avec le GameMaster par le biais de signaux.
 
-#region _Ready / _Process
+#region _ready / _process
 # Setup la curve, et active le timer pour la durée "day_lenght"
 func _ready() -> void:
 	time_curve.max_domain = time_to_switch
@@ -48,12 +54,15 @@ func _process(delta: float) -> void:
 #endregion
 
 #region Etats du Cycler
+func set_moon(new_moon: MoonType) -> void:
+	current_moon = new_moon
+
 # Change la couleur général du terrain (filtre) graduellement pour simuler la tombé de la nuit
 # Signal egalement le Zenith de la lune à Gamemaster :
 # GameMaster diras au Cycler qu'il faut passer au jours si le spawner est mort
 func _day_to_night_state(delta):
 	timer = timer + delta
-	self.color = moon_normal.gradient.sample(time_curve_reversed.sample(timer))
+	self.color = moons[current_moon].gradient.sample(time_curve_reversed.sample(timer))
 	if timer >= time_to_switch :
 		timer = 0
 		actual_state = null
@@ -63,7 +72,7 @@ func _day_to_night_state(delta):
 # Redemarre également le timer 
 func _night_to_day_state(delta):
 	timer = timer + delta
-	self.color = moon_normal.gradient.sample(time_curve.sample(timer))
+	self.color = moons[current_moon].gradient.sample(time_curve.sample(timer))
 	if timer >= time_to_switch :
 		timer = 0
 		actual_state = null
