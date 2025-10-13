@@ -68,7 +68,6 @@ func _night_to_day_state(delta):
 		timer = 0
 		actual_state = null
 		$Timer.start(day_lenght)
-	pass
 #endregion
 
 #region Signal catching
