@@ -10,10 +10,13 @@ Dans l'ordre :
 3. var
 4. @onready
 5. signal
-6. func _init
-7. func _ready
-8. func _process
-9. func _physics_process
-10. func _unhandled_input
-11. autres fonctions
-12. fonction de signaux
+
+### Fonctions
+
+1. func _init
+2. func _ready
+3. func _process
+4. func _physics_process
+5. func _unhandled_input
+6. autres fonctions
+7. fonction de signaux
