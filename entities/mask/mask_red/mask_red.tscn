@@ -8,5 +8,5 @@ type = 2
 entity_name = "Red Warrior"
 health = 10.0
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="Sprite" parent="." index="1"]
 sprite_frames = ExtResource("2_oj8or")
