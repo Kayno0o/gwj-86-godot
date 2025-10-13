@@ -15,6 +15,7 @@ radius = 16.0
 collision_layer = 2
 script = ExtResource("1_wo7wq")
 target_type = 4
+inventory_size = 2
 metadata/_custom_type_script = "uid://20wyg6v86aum"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
