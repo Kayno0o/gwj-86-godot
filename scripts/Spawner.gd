@@ -1,6 +1,7 @@
 extends Node
 
 @export var ennemies : Array[PackedScene]
+@export var offset : float
 
 @onready var threat_cost :int = 50
 @onready var world = get_tree().get_nodes_in_group("Master")[0]
@@ -11,11 +12,6 @@ signal spawner_ded
 func _ready() -> void:
 	world.spawn_enemy.connect(_on_game_master_spawn_enemy)
 	world.kill_villain.connect(_on_game_master_kill_villain)
-
-func _process(_delta: float) -> void:
-	if self.get_child_count() == 0 and spawned == true:
-		spawner_ded.emit()
-		self.free()
 
 func _ennemi_picker() :
 	var allowed = 0
@@ -30,6 +26,7 @@ func _ennemi_picker() :
 			for i in allowed :
 				ennemi_instance = current_ennemi.instantiate()
 				spawn_budget -= ennemi_instance.cost
+				ennemi_instance.position = Vector2(randf_range(offset, -offset), randf_range(offset, -offset))
 				add_child(ennemi_instance)
 
 func _on_game_master_spawn_enemy() -> void:
@@ -38,4 +35,10 @@ func _on_game_master_spawn_enemy() -> void:
 	spawned = true
 
 func _on_game_master_kill_villain() -> void:
-	self.get_child(0).free()
+	for childrens in self.get_children() :
+		childrens.free()
+
+func _on_child_exiting_tree(_node: Node) -> void:
+	if self.get_child_count() == 1 and spawned == true:
+		spawner_ded.emit()
+		self.queue_free()
