@@ -14,6 +14,10 @@ var _targets_by_type: Dictionary = {}
 # format: { target_node: node }
 var _target_assignments: Dictionary = {}
 
+func init() -> void:
+	_targets_by_type = {}
+	_target_assignments = {}
+
 func register_target(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
 	if not is_instance_valid(target):
 		return
