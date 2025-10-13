@@ -1,4 +1,4 @@
 extends Node
 
-func _ready() -> void:
+func _init() -> void:
 	TargetManager.init()
