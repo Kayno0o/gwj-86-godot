@@ -17,6 +17,9 @@ func enter() -> void:
 
 	attack_timer.start(parent.get_attack_speed())
 
+func exit() -> void:
+	attack_timer.stop()
+
 func process(_delta: float):
 	if not parent.current_target or not is_instance_valid(parent.current_target):
 		parent.current_target = null
@@ -36,7 +39,6 @@ func _on_attack_timeout():
 
 	var health_comp: HealthComponent = Utils.get_component(target, Component.Type.Health)
 	if health_comp.on_damage(parent.get_attack()):
-		# Target died - release and clear it
 		TargetManager.release_target(parent.current_target, parent)
 		parent.current_target = null
 		return

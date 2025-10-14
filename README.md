@@ -6,8 +6,8 @@
 
 Dans l'ordre :
 1. enum
-2. @export
-3. var
+2. var
+3. @export
 4. @onready
 5. signal
 

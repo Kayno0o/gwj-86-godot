@@ -1,34 +1,40 @@
 class_name Entity extends CharacterBody2D
 
+var current_target: Node = null
+
 @export_category("Base")
 @export var type: Enum.EntityType
 @export var target_type: Enum.TargetType
 @export var entity_name: String = "Entity"
 @export var movement_speed: float = 50.0
 @export var totem_approach_distance: float = 100.0
+@export var health: float = 5.0
 
 @export_category("Pickup")
 @export var inventory_size: int = 1
-@export var pickup_range: float = 30.0
+@export var pickup_range: float = 42.0
 @export var target_search_cooldown: float = 2.0
+@export var deposit_speed: float = 0.2
 
 @export_category("Attack")
 @export var attack: float = 5
 @export var attack_speed: float = 1.0
-@export var attack_range: float = 30.0
-@export var attack_view_distance: float = 15.0
+@export var attack_range: float = 42.0
+@export var attack_view_distance: float = 300.0
 
-@export var health_component: HealthComponent
+@onready var health_component: HealthComponent = HealthComponent.new(SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Health, health))
+@onready var inventory_component: InventoryComponent = InventoryComponent.new(self, SkillTreeManager.get_istat(type, SkillTreeManager.StatType.InventorySize, inventory_size))
 
 @onready var components: Dictionary[Component.Type, Component] = {
 	Component.Type.Health: health_component,
+	Component.Type.Inventory: inventory_component,
 }
 
-var current_target: Node = null
-
 func _ready() -> void:
+	TargetManager.register_target(self, [target_type])
 	TargetManager.target_removed.connect(_on_target_removed)
 	health_component.death.connect(on_death)
+	inventory_component._ready()
 
 func on_death():
 	TargetManager.unregister_target(self, [target_type])
@@ -37,20 +43,6 @@ func on_death():
 func _on_target_removed(target: Node) -> void:
 	if current_target == target:
 		current_target = null
-
-func target_has_type(target: Node, target_type_to_check: Enum.TargetType) -> bool:
-	if not is_instance_valid(target):
-		return false
-
-	if target.get("target_types") != null:
-		var types = target.get("target_types")
-		if types is Array:
-			return target_type_to_check in types
-
-	if target.get("target_type") != null:
-		return target.get("target_type") == target_type_to_check
-
-	return false
 
 func find_target() -> Node:
 	var priorities_group = Enum.get_target_priorities(type)
@@ -73,9 +65,9 @@ func find_target() -> Node:
 		if target:
 			# check if should fight
 			var is_mask = target_type == Enum.TargetType.Mask
-			var is_enemy = target_type == Enum.TargetType.Enemy
+			var is_villain = target_type == Enum.TargetType.Villain
 
-			if is_mask and target_has_type(target, Enum.TargetType.Enemy) or is_enemy and target_has_type(target, Enum.TargetType.Mask):
+			if is_mask and TargetManager.target_has_type(target, Enum.TargetType.Villain) or is_villain and TargetManager.target_has_type(target, Enum.TargetType.Mask):
 				var distance = global_position.distance_to(target.global_position)
 				if distance > get_attack_view_distance():
 					continue
@@ -83,9 +75,6 @@ func find_target() -> Node:
 			return target
 
 	return null
-
-func get_health() -> float:
-	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Health, health_component.health)
 
 func get_movement_speed() -> float:
 	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.MovementSpeed, movement_speed)

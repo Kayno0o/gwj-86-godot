@@ -40,7 +40,7 @@ func can_interact(distance: float) -> bool:
 	if not target or not is_instance_valid(target):
 		return false
 
-	if parent.type == Enum.EntityType.MaskTank and parent.target_has_type(target, Enum.TargetType.Totem):
+	if parent.type == Enum.EntityType.MaskTank and TargetManager.target_has_type(target, Enum.TargetType.Totem):
 		return distance < parent.totem_approach_distance
 
 	if target is Item:
@@ -76,7 +76,7 @@ func get_interaction_state():
 	if not target or not is_instance_valid(target):
 		return null
 
-	if parent.type == Enum.EntityType.MaskTank and parent.target_has_type(target, Enum.TargetType.Totem):
+	if parent.type == Enum.EntityType.MaskTank and TargetManager.target_has_type(target, Enum.TargetType.Totem):
 		return State.Type.Idle
 
 	if target is Item:

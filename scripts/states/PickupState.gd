@@ -7,17 +7,25 @@ func init(p_parent: Entity) -> void:
 
 func enter() -> void:
 	parent.velocity = Vector2.ZERO
+
+	if parent.inventory_component.is_inventory_full():
+		return
+
 	pickup()
 
 func process(_delta: float):
+	if parent.inventory_component.is_inventory_full():
+		return State.Type.DepositItem
+
 	return State.Type.Idle
 
 func pickup() -> void:
-	if not parent.current_target or not is_instance_valid(parent.current_target) or not parent.current_target is Item:
+	var item = parent.current_target
+	if not item or not is_instance_valid(item) or not item is Item:
 		parent.current_target = null
 		return
 
-	# TODO: inventory logic, remove item desctruction
-	TargetManager.release_target(parent.current_target, parent)
-	parent.current_target.queue_free()
-	parent.current_target = null
+	if parent.inventory_component.add_item(item):
+		TargetManager.release_target(item, parent)
+		TargetManager.unregister_target(item, TargetManager.get_target_types(item))
+		parent.current_target = null

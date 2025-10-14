@@ -7,5 +7,5 @@
 type = 3
 entity_name = "Blue Tank"
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="Sprite" parent="." index="1"]
 sprite_frames = ExtResource("2_542vy")
