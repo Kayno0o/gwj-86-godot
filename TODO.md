@@ -1,3 +1,9 @@
+# Kaynooo
+
+- [ ] refactor/simplify and document state machine
+
+# Global
+
 - [ ] les ennemies drop des souls
 - [ ] animation de la récolte d'item
 - [ ] animation du déposit d'item
