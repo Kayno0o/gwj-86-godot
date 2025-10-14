@@ -8,24 +8,18 @@ func init(p_parent: Entity) -> void:
 func enter() -> void:
 	parent.velocity = Vector2.ZERO
 
-	if parent.inventory_component.is_inventory_full():
-		return
-
-	pickup()
-
 func process(_delta: float):
-	if parent.inventory_component.is_inventory_full():
-		return State.Type.DepositItem
-
-	return State.Type.Idle
-
-func pickup() -> void:
 	var item = parent.current_target
 	if not item or not is_instance_valid(item) or not item is Item:
 		parent.current_target = null
 		return
 
 	if parent.inventory_component.add_item(item):
-		TargetManager.release_target(item, parent)
+		TargetManager.stop_targeting(item, parent)
 		TargetManager.unregister_target(item, TargetManager.get_target_types(item))
 		parent.current_target = null
+
+	if parent.inventory_component.is_inventory_full():
+		return State.Type.DepositItem
+
+	return State.Type.Idle

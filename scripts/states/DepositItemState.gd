@@ -25,7 +25,7 @@ func enter() -> void:
 
 	if not parent.current_target or not TargetManager.target_has_type(parent.current_target, Enum.TargetType.Totem):
 		var target = TargetManager.get_nearest_available_target(parent.global_position, [Enum.TargetType.Totem], parent)
-		if target and TargetManager.assign_target(target, parent):
+		if target and TargetManager.start_targeting(target, parent):
 			parent.current_target = target
 	
 	if not parent.inventory_component.is_inventory_full():
@@ -35,28 +35,36 @@ func exit() -> void:
 	deposit_timer.stop()
 
 func process(_delta: float):
-	if not parent.current_target or \
-		 not is_instance_valid(parent.current_target) or \
-		 parent.inventory_component.is_empty():
+	if not parent.current_target or not is_instance_valid(parent.current_target) \
+	or parent.inventory_component.is_empty():
 		parent.current_target = null
 		return State.Type.Idle
 	
+	# if current target is not totem, we should not be in deposit state
 	if not TargetManager.target_has_type(parent.current_target, Enum.TargetType.Totem):
 		return State.Type.MoveToTarget
 
 	var distance = parent.global_position.distance_to(parent.current_target.global_position)
 
+	# are we close enough to the totem to deposit?
 	if distance < parent.totem_approach_distance:
-		if not is_depositing:
-			parent.velocity = Vector2.ZERO
-			is_depositing = true
-			deposit_timer.start(parent.deposit_speed)
-	else:
-		is_depositing = false
-		deposit_timer.stop()
-		move_to_totem()
+		start_depositing()
+		return
 
-	return null
+	stop_depositing()
+
+func start_depositing():
+	if is_depositing:
+		return
+
+	parent.velocity = Vector2.ZERO
+	is_depositing = true
+	deposit_timer.start(parent.deposit_speed)
+
+func stop_depositing():
+	is_depositing = false
+	deposit_timer.stop()
+	move_to_totem()
 
 func move_to_totem() -> void:
 	if not parent.current_target or not is_instance_valid(parent.current_target):
@@ -67,27 +75,36 @@ func move_to_totem() -> void:
 	parent.move_and_slide()
 
 func search_target() -> void:
-	var new_target = parent.find_target()
+	var new_target = parent.find_closer_target()
 
-	if new_target:
-		if parent.current_target:
-			TargetManager.release_target(parent.current_target, parent)
+	if not new_target:
+		return
 
-		if not TargetManager.assign_target(new_target, parent):
-			return
+	if parent.current_target:
+		TargetManager.stop_targeting(parent.current_target, parent)
 
-		parent.current_target = new_target
+	if not TargetManager.start_targeting(new_target, parent):
+		return
+
+	parent.current_target = new_target
 
 func _on_search_timeout() -> void:
 	search_target()
 	search_timer.start(parent.get_target_search_cooldown())
 
 func _on_deposit_timeout():
-	if not parent.current_target or not is_instance_valid(parent.current_target):
+	if not parent.current_target or not is_instance_valid(parent.current_target) \
+	or parent.inventory_component.is_empty():
 		parent.current_target = null
 		return
 
 	var item = parent.inventory_component.pop_item()
+	parent.current_target.add_child(item)
+
+	var distance: Vector2 = parent.global_position - parent.current_target.global_position + item.position
+	item.position = distance
+	
+	item.fly_to(parent.current_target.global_position)
 	parent.current_target.deposit_item(Enum.ItemType.find_key(item.item_type), 1)
 
 	if not parent.inventory_component.is_empty():

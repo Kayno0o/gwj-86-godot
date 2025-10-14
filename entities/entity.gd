@@ -1,6 +1,6 @@
 class_name Entity extends CharacterBody2D
 
-var current_target: Node = null
+var current_target: Node2D = null
 
 @export_category("Base")
 @export var type: Enum.EntityType
@@ -44,15 +44,17 @@ func _on_target_removed(target: Node) -> void:
 	if current_target == target:
 		current_target = null
 
-func find_target() -> Node:
+func find_closer_target() -> Node:
 	var priorities_group = Enum.get_target_priorities(type)
 	if priorities_group.is_empty():
 		return null
 
+	# check target by priorities, from first to last
 	for priorities in priorities_group:
 		if priorities.is_empty():
 			continue
 
+		# enforce type
 		var typed_priorities: Array[Enum.TargetType] = []
 		typed_priorities.assign(priorities)
 
@@ -62,17 +64,21 @@ func find_target() -> Node:
 			self,
 		)
 
-		if target:
-			# check if should fight
-			var is_mask = target_type == Enum.TargetType.Mask
-			var is_villain = target_type == Enum.TargetType.Villain
+		if not target:
+			continue
 
-			if is_mask and TargetManager.target_has_type(target, Enum.TargetType.Villain) or is_villain and TargetManager.target_has_type(target, Enum.TargetType.Mask):
-				var distance = global_position.distance_to(target.global_position)
-				if distance > get_attack_view_distance():
-					continue
+		var distance = global_position.distance_to(target.global_position)
 
-			return target
+		# check if should fight mask/villain
+		var is_mask = target_type == Enum.TargetType.Mask
+		var is_villain = target_type == Enum.TargetType.Villain
+
+		if is_mask and TargetManager.target_has_type(target, Enum.TargetType.Villain) \
+		or is_villain and TargetManager.target_has_type(target, Enum.TargetType.Mask):
+			if distance > get_attack_view_distance():
+				continue
+
+		return target
 
 	return null
 

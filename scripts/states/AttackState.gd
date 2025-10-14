@@ -39,7 +39,7 @@ func _on_attack_timeout():
 
 	var health_comp: HealthComponent = Utils.get_component(target, Component.Type.Health)
 	if health_comp.on_damage(parent.get_attack()):
-		TargetManager.release_target(parent.current_target, parent)
+		TargetManager.stop_targeting(parent.current_target, parent)
 		parent.current_target = null
 		return
 

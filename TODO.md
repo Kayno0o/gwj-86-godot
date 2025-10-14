@@ -1,12 +1,12 @@
 # Kaynooo
 
-- [ ] refactor/simplify and document state machine
+- [x] refactor/simplify and document state machine
 
 # Global
 
 - [ ] les ennemies drop des souls
 - [ ] animation de la récolte d'item
-- [ ] animation du déposit d'item
+- [x] animation du déposit d'item
 - [ ] animation d'attaque
 - [ ] particules de mort
 - [x] stone
@@ -20,3 +20,5 @@
 - [ ] state saccrifice des mask pour payer une upgrade
 - [ ] les unités se heal pendant la journée
 - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
+
+- [ ] camera
