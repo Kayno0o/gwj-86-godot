@@ -18,23 +18,41 @@ var inventory: Dictionary = {}
 #region signal
 #endregion
 
+# Le totem est basiquement l'inventaire.
+# il stocke les objets du joueurs sous forme de Dictionnary {"ressource": quantité, ...., "ressource": quantité}
+# Lors d'un achats d'upgrade, c'est ici que les transactions se font :
+# le skill tree envoie une liste de course exemple : {"Wood" : 3, "Stone": 4}
+# Le totem check si il a les font, si c'est le cas : il demande a une unité de remplir les condition d'achats
+# ( emmener les ressources requise a l'achat ) 
 
+#region init/ready/process
+# Créer un inventire vide, contenant chaque type d'objet recoltable
 func _init() -> void:
 	for itemtype in Enum.ItemType :
 		inventory[itemtype] = 0
 
+# Se donne une Target pour le target manager
 func _ready() -> void:
 	TargetManager.register_target(self, [target_type])
+#endregion
 
+#region Fonctions
+# Depose un item dans l'inventaire
 func deposit_item(itemtype: String, amount: int) -> void :
 	print_debug("Added 1 ", itemtype, " to inventory, Well done !")
 	inventory[itemtype] += amount
 
-func command(shopping_list: Dictionary) -> void :
-	for item in shopping_list :
-		if is_item_an_entity(item) == false :
-			Enum.ongoing_shopping_list.get_or_add(item, shopping_list[item])
-	for entity in shopping_list :
+# Mets la liste des "courses" dans la queu
+# la queu sert a lancer plusieurs commande a la suite
+func add_queu(shopping_list: Dictionary) -> void :
+	Enum.ongoing_shopping_list.append(shopping_list)
+	if Enum.ongoing_shopping_list.size() == 1 :
+		queu_start(Enum.ongoing_shopping_list)
+	
+func queu_start(shopping_list: Array[Dictionary]) -> void :
+	var current_list = shopping_list[0]
+	Enum.current_shopping_list = current_list
+	for entity in current_list :
 		if is_item_an_entity(entity) == true :
 			var sacrificed = get_tree().get_nodes_in_group(entity)
 			if sacrificed :
@@ -44,12 +62,20 @@ func command(shopping_list: Dictionary) -> void :
 					#Vérifier si sacrificed[sacrificed number] est dejà sous cette states, sinon le changer en state sacrifié
 #endregion
 
+func queu_remove_and_reboot() -> void :
+	Enum.ongoing_shopping_list.remove_at(0)
+	if Enum.ongoing_shopping_list[0] :
+		queu_start(Enum.ongoing_shopping_list)
+	
 func pay(itemtype: String, amount: int) -> void :
 	inventory[itemtype] -= amount
 
 func has_fund_for_list(shopping_list: Dictionary) -> bool :
 	for item in shopping_list :
 		if inventory[item] < shopping_list[item] :
+			return(false)
+	for entity in shopping_list :
+		if is_item_an_entity(entity) == true and inventory[entity] < shopping_list[entity]:
 			return(false)
 	return(true)
 
@@ -63,7 +89,9 @@ func is_item_an_entity(item : String) -> bool :
 		if item == entity :
 			return(true)
 	return(false)
+#endregion
 
+#region Outils dev
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_M:
@@ -77,3 +105,4 @@ func _unhandled_input(event):
 			print_debug("+1 wood")
 		if event.pressed and event.keycode == KEY_N:
 			print_debug(" vous avez : ", inventory["Wood"], " wood")
+#endregion

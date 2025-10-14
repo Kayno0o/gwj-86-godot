@@ -29,7 +29,8 @@ enum TargetType {
 	Totem = 30,
 }
 
-var ongoing_shopping_list : Dictionary # Dictionnary full of Enums, it counts
+var ongoing_shopping_list : Array[Dictionary] # Array of Dictionnary full of Enums, it counts
+var current_shopping_list : Dictionary
 
 ## highest to lowest priority
 const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {
