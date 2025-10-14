@@ -14,14 +14,16 @@ func init(p_parent: Entity) -> void:
 	add_child(search_timer)
 
 func enter() -> void:
-	parent.velocity = Vector2.ZERO
 	search_timer.start(parent.get_target_search_cooldown())
+
+	parent.velocity = Vector2.ZERO
 	should_deposit = false
 
 func exit() -> void:
 	search_timer.stop()
 
 func process(_delta):
+	# target found, move to it
 	if parent.current_target and is_instance_valid(parent.current_target):
 		return State.Type.MoveToTarget
 	
@@ -46,5 +48,6 @@ func search_target() -> void:
 
 		return
 
+	# entity did not find any target, and has item in inventory, go deposit
 	if not parent.current_target and not parent.inventory_component.is_empty():
 		should_deposit = true
