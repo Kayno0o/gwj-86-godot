@@ -24,39 +24,38 @@ func _init() -> void:
 		inventory[itemtype] = 0
 
 func _ready() -> void:
-	for entity in entities :
-		if is_item_an_entity(entity) == true :
-			var sacrificed = get_tree().get_nodes_in_group(entity)
-			for sacrifice_number in 3 - 1:
-				print_debug(sacrificed[sacrifice_number])
-			print_debug("they ded")
-	#for item in entities :
-		#if is_item_an_entity(item) :
-			#Enum.ongoing_shopping_list.get_or_add(item, entities[item])
-			#pass
-		#else :
-			#pass
-	#print_debug(Enum.ongoing_shopping_list)
 	TargetManager.register_target(self, [target_type])
 
 func deposit_item(itemtype: Enum.ItemType, amount: int) -> void :
 	inventory[itemtype] += amount
 
 func command(shopping_list: Dictionary) -> void :
-	Enum.ongoing_shopping_list = shopping_list
 	for item in shopping_list :
 		if is_item_an_entity(item) == false :
 			Enum.ongoing_shopping_list.get_or_add(item, shopping_list[item])
 	for entity in shopping_list :
 		if is_item_an_entity(entity) == true :
 			var sacrificed = get_tree().get_nodes_in_group(entity)
-			for sacrifice_number in shopping_list[entities] - 1 :
-				
-				sacrificed[sacrifice_number] = null #Changer le states du sacrifié
+			if sacrificed :
+				for sacrifice_number in shopping_list[entity]:
+#region Code à ajouter ici
+					pass
+					#Vérifier si sacrificed[sacrificed number] est dejà sous cette states, sinon le changer en state sacrifié
+#endregion
 
-func has_fund(shopping_list: Dictionary) -> bool :
+func pay(itemtype: String, amount: int) -> void :
+	print_debug("Vous avez payé ", amount, " de ",itemtype )
+	inventory[itemtype] -= amount
+	print_debug("Il vous reste : ", inventory[itemtype], " de ", itemtype, "dans votre inventaire")
+
+func has_fund_for_list(shopping_list: Dictionary) -> bool :
 	for item in shopping_list :
 		if inventory[item] < shopping_list[item] :
+			return(false)
+	return(true)
+
+func has_fund_for_item(itemtype: String, amount: int) -> bool :
+	if inventory[itemtype] < amount :
 			return(false)
 	return(true)
 
@@ -65,3 +64,17 @@ func is_item_an_entity(item : String) -> bool :
 		if item == entity :
 			return(true)
 	return(false)
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_M:
+			var shoplist = {"Wood": 2}
+			if has_fund_for_list(shoplist) :
+				print_debug("Je possede des thunes, je suis a l'aise financierement")
+			else :
+				print_debug("t'es pauvres batard")
+		if event.pressed and event.keycode == KEY_K:
+			inventory["Wood"] += 1
+			print_debug("+1 wood")
+		if event.pressed and event.keycode == KEY_N:
+			print_debug(" vous avez : ", inventory["Wood"], " wood")
