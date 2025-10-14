@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://boaxrcqnla75u"]
+
+[ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_6j8o0"]
+[ext_resource type="Texture2D" uid="uid://b0c2tvrdjvgjo" path="res://entities/mask/mask_grey/mask_grey.png" id="2_ed4fd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgna5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ed4fd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="mask_grey" instance=ExtResource("1_6j8o0")]
+type = 1
+entity_name = "Grey Miner"
+
+[node name="Sprite" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bgna5")

@@ -5,6 +5,7 @@ enum EntityType {
 	MaskMiner = 1,
 	MaskAttacker = 2,
 	MaskTank = 3,
+	MaskFarmer = 4,
 
 	Villain = 10,
 }
@@ -12,7 +13,7 @@ enum EntityType {
 enum ItemType {
 	Wood = 0,
 	Stone = 1,
-	Food = 2,
+	Wheat = 2,
 	Soul = 3,
 }
 
@@ -20,6 +21,7 @@ enum TargetType {
 	Resource = 0,
 	Tree = 1,
 	Rock = 2,
+	Wheat = 3,
 
 	Villain = 10,
 	Mask = 11,
@@ -41,6 +43,10 @@ const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {
 	EntityType.MaskMiner: [
 		[Enum.TargetType.Villain],
 		[Enum.TargetType.Rock, Enum.TargetType.Item],
+	],
+		EntityType.MaskFarmer: [
+		[Enum.TargetType.Villain],
+		[Enum.TargetType.Wheat, Enum.TargetType.Item],
 	],
 	EntityType.MaskAttacker: [
 		[Enum.TargetType.Villain],

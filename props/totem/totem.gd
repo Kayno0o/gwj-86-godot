@@ -42,14 +42,14 @@ func deposit_item(itemtype: String, amount: int) -> void :
 	print_debug("Added 1 ", itemtype, " to inventory, Well done !")
 	inventory[itemtype] += amount
 
-# Mets la liste des "courses" dans la queu
-# la queu sert a lancer plusieurs commande a la suite
-func add_queu(shopping_list: Dictionary) -> void :
+# Mets la liste des "courses" dans la queue
+func add_queue(shopping_list: Dictionary) -> void :
 	Enum.ongoing_shopping_list.append(shopping_list)
 	if Enum.ongoing_shopping_list.size() == 1 :
-		queu_start(Enum.ongoing_shopping_list)
+		queue_start(Enum.ongoing_shopping_list)
 	
-func queu_start(shopping_list: Array[Dictionary]) -> void :
+# Mets la liste des course en "current_list" et demande au Masked d'aller travailler 
+func queue_start(shopping_list: Array[Dictionary]) -> void :
 	var current_list = shopping_list[0]
 	Enum.current_shopping_list = current_list
 	for entity in current_list :
@@ -62,14 +62,17 @@ func queu_start(shopping_list: Array[Dictionary]) -> void :
 					#Vérifier si sacrificed[sacrificed number] est dejà sous cette states, sinon le changer en state sacrifié
 #endregion
 
-func queu_remove_and_reboot() -> void :
+# Enleve la liste effectué et relance la queue si elle n'est pas vide
+func queue_remove_and_reboot() -> void :
 	Enum.ongoing_shopping_list.remove_at(0)
 	if Enum.ongoing_shopping_list[0] :
-		queu_start(Enum.ongoing_shopping_list)
+		queue_start(Enum.ongoing_shopping_list)
 	
+# Paye en ressource (Enleve "amount" "itemtype" de l'inventaire
 func pay(itemtype: String, amount: int) -> void :
 	inventory[itemtype] -= amount
 
+# Verifie si les fond necessaire pour la liste sont dans l'inventaire
 func has_fund_for_list(shopping_list: Dictionary) -> bool :
 	for item in shopping_list :
 		if inventory[item] < shopping_list[item] :
@@ -79,11 +82,13 @@ func has_fund_for_list(shopping_list: Dictionary) -> bool :
 			return(false)
 	return(true)
 
+# Verifie si on a les fonds necessaire pour 1 item
 func has_fund_for_item(itemtype: String, amount: int) -> bool :
 	if inventory[itemtype] < amount :
 			return(false)
 	return(true)
 
+#verifie si l'item est une entité
 func is_item_an_entity(item : String) -> bool :
 	for entity in entities :
 		if item == entity :
@@ -104,5 +109,5 @@ func _unhandled_input(event):
 			inventory["Wood"] += 1
 			print_debug("+1 wood")
 		if event.pressed and event.keycode == KEY_N:
-			print_debug(" vous avez : ", inventory["Wood"], " wood")
+			print_debug(inventory)
 #endregion

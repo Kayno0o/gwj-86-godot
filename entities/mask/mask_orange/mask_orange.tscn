@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0x6jgtd4wswl"]
+
+[ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_dqggb"]
+[ext_resource type="Texture2D" uid="uid://c68b44hibn641" path="res://entities/mask/mask_orange/mask_orange.png" id="2_jdvhr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6mqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jdvhr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Mask_orange" instance=ExtResource("1_dqggb")]
+type = 4
+entity_name = "Orange Farmer"
+
+[node name="Sprite" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_i6mqx")

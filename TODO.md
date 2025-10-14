@@ -9,10 +9,10 @@
 - [ ] animation du déposit d'item
 - [ ] animation d'attaque
 - [ ] particules de mort
-- [ ] stone
-- [ ] blé
-- [ ] mask gris récolte la pierre
-- [ ] mask orange récolte le blé
+- [x] stone
+- [x] blé
+- [X] mask gris récolte la pierre
+- [X] mask orange récolte le blé
 
 - [ ] pour payer, les mask doivent transporter les items du totem vers le feu
 
