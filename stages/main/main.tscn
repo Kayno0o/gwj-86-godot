@@ -36,7 +36,7 @@ time_to_switch = 10.0
 time_curve = SubResource("Curve_5powy")
 time_curve_reversed = SubResource("Curve_j6wwd")
 moons = Dictionary[int, GradientTexture1D]({
-0: SubResource("GradientTexture1D_5powy"),
+0: SubResource("GradientTexture1D_5powy")
 })
 
 [node name="Timer" type="Timer" parent="Plains/DayNightCycler"]

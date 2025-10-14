@@ -9,6 +9,13 @@ enum EntityType {
 	Enemy = 10,
 }
 
+enum ItemType {
+	Wood = 0,
+	Stone = 1,
+	Food = 2,
+	Soul = 3,
+}
+
 enum TargetType {
 	Resource = 0,
 	Tree = 1,
@@ -21,6 +28,8 @@ enum TargetType {
 
 	Totem = 30,
 }
+
+var ongoing_shopping_list : Dictionary # Dictionnary full of Enums, it counts
 
 ## highest to lowest priority
 const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {

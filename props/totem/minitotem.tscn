@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3kkq6puo5mrg"]
+
+[ext_resource type="Script" uid="uid://1ttmpsfgh8hx" path="res://props/totem/minitotem.gd" id="1_cmhrq"]
+
+[node name="Minitotem" type="Node2D"]
+script = ExtResource("1_cmhrq")
+metadata/_custom_type_script = "uid://1ttmpsfgh8hx"
+
+[node name="Sprite" type="Sprite2D" parent="."]
