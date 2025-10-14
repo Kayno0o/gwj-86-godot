@@ -77,11 +77,6 @@ func find_closer_target() -> Node:
 		or is_villain and TargetManager.target_has_type(target, Enum.TargetType.Mask):
 			if distance > get_attack_view_distance():
 				continue
-		
-		if current_target and is_instance_valid(current_target):
-			var current_distance = global_position.distance_to(current_target.global_position)
-			if distance > current_distance:
-				continue
 
 		return target
 
