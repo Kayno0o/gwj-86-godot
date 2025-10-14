@@ -1,0 +1,12 @@
+- les ennemies drop des souls
+- animation de la récolte d'item
+- animation du déposit d'item
+- animation d'attaque
+- particules de mort
+- stone
+- blé
+- mask gris récolte la pierre
+- mask orange récolte le blé
+
+- skill tree
+- saccrifice des mask
