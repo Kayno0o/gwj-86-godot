@@ -1,6 +1,6 @@
 # Kaynooo
 
-- [ ] refactor/simplify and document state machine
+- [x] refactor/simplify and document state machine
 
 # Global
 
@@ -20,3 +20,5 @@
 - [ ] state saccrifice des mask pour payer une upgrade
 - [ ] les unités se heal pendant la journée
 - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
+
+- [ ] camera
