@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://chlm7ig6hfol0"]
+
+[ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_0urcv"]
+[ext_resource type="Texture2D" uid="uid://c5ia2d8bjvybj" path="res://entities/mask/mask_white/Armor_134.png" id="2_ixak3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5r2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ixak3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Mask White" instance=ExtResource("1_0urcv")]
+type = 5
+entity_name = "Mask Transporter"
+health = 4.0
+inventory_size = 3
+target_search_cooldown = 1.5
+movement_speed = 100.0
+
+[node name="Sprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_u5r2y")

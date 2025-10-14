@@ -13,7 +13,7 @@ radius = 8.0
 
 [node name="Mask" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 6
+collision_mask = 4
 script = ExtResource("1_wo7wq")
 target_type = 11
 inventory_size = 2
@@ -23,6 +23,7 @@ metadata/_custom_type_script = "uid://20wyg6v86aum"
 shape = SubResource("CircleShape2D_p0has")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_p0has")

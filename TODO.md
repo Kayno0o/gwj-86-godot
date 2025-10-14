@@ -25,6 +25,12 @@
 
 - [ ] camera
 
+# skill tree
+
+- transporter
+  - débloquer l'affichage des stats
+
+
 # Later
 
 - [ ] drag and drop new totems to positions

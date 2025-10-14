@@ -11,4 +11,5 @@ movement_speed = 100.0
 debug_color = Color(0.5019608, 1, 0.5019608, 0.5019608)
 
 [node name="Sprite" parent="." index="1"]
+scale = Vector2(1, 1)
 sprite_frames = ExtResource("3_y2eoy")

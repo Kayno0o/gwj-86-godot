@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=11 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="Script" uid="uid://d2fi4g2tmqqkc" path="res://scripts/global/SkillTreeManager.gd" id="2_a5xyx"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="4_mqy30"]
 [ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="5_navwl"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
-[ext_resource type="PackedScene" uid="uid://boaxrcqnla75u" path="res://entities/mask/mask_grey/mask_grey.tscn" id="8_w77vm"]
+[ext_resource type="PackedScene" uid="uid://boaxrcqnla75u" path="res://entities/mask/mask_black/mask_black.tscn" id="8_w77vm"]
 [ext_resource type="PackedScene" uid="uid://c0x6jgtd4wswl" path="res://entities/mask/mask_orange/mask_orange.tscn" id="9_51ysb"]
+[ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="10_w77vm"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7h61r")
@@ -139,13 +140,30 @@ position = Vector2(229, 347)
 
 [node name="MaskGreen2" parent="Characters" instance=ExtResource("4_lfrn8")]
 position = Vector2(566, 477)
-collision_mask = 2
 
-[node name="mask_grey" parent="Characters" instance=ExtResource("8_w77vm")]
+[node name="mask_black" parent="Characters" instance=ExtResource("8_w77vm")]
 position = Vector2(299, 277)
+
+[node name="Mask White" parent="Characters" instance=ExtResource("10_w77vm")]
+position = Vector2(642, 404)
 
 [node name="Mask_orange" parent="Characters" instance=ExtResource("9_51ysb")]
 position = Vector2(569, 189)
+
+[node name="Mask White2" parent="Characters" instance=ExtResource("10_w77vm")]
+position = Vector2(532, 403)
+
+[node name="Mask White3" parent="Characters" instance=ExtResource("10_w77vm")]
+position = Vector2(618, 206)
+
+[node name="Mask White4" parent="Characters" instance=ExtResource("10_w77vm")]
+position = Vector2(508, 205)
+
+[node name="Mask White5" parent="Characters" instance=ExtResource("10_w77vm")]
+position = Vector2(390, 218)
+
+[node name="Mask White6" parent="Characters" instance=ExtResource("10_w77vm")]
+position = Vector2(367, 339)
 
 [node name="Villains" type="Node" parent="."]
 
