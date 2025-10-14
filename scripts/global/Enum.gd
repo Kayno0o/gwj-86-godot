@@ -1,10 +1,5 @@
 extends Node
 
-enum ItemType {
-	Wood = 0,
-	Stone = 1,
-}
-
 enum EntityType {
 	MaskLumberjack = 0,
 	MaskMiner = 1,
@@ -12,6 +7,13 @@ enum EntityType {
 	MaskTank = 3,
 
 	Villain = 10,
+}
+
+enum ItemType {
+	Wood = 0,
+	Stone = 1,
+	Food = 2,
+	Soul = 3,
 }
 
 enum TargetType {
@@ -26,6 +28,8 @@ enum TargetType {
 
 	Totem = 30,
 }
+
+var ongoing_shopping_list : Dictionary # Dictionnary full of Enums, it counts
 
 ## highest to lowest priority
 const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {

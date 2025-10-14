@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ypvcy411pc06"]
+
+[ext_resource type="PackedScene" uid="uid://d3kkq6puo5mrg" path="res://props/totem/minitotem.tscn" id="1_t2ede"]
+[ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="2_2wwra"]
+
+[node name="Minitotem" instance=ExtResource("1_t2ede")]
+mask_to_invok = ExtResource("2_2wwra")

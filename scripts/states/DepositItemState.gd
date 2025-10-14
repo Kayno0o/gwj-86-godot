@@ -89,7 +89,7 @@ func _on_deposit_timeout():
 
 	# TODO deposit to totem
 	var item = parent.inventory_component.pop_item()
-	print("deposited item: ", item)
+	parent.current_target.deposit_item(Enum.ItemType.find_key(item.item_type), 1)
 
 	if not parent.inventory_component.is_empty():
 		deposit_timer.start(parent.deposit_speed)

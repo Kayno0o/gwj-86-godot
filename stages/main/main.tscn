@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwy0xgki0ltex"]
+[gd_scene load_steps=9 format=3 uid="uid://cwy0xgki0ltex"]
 
 [ext_resource type="Texture2D" uid="uid://3f7j4kjthqkh" path="res://stages/main/plains.jpg" id="1_60rri"]
 [ext_resource type="Script" uid="uid://dfmfgpth0lafo" path="res://scripts/DayNightCycle.gd" id="2_5powy"]
 [ext_resource type="Script" uid="uid://d1pnuushvfayr" path="res://scripts/GameMaster.gd" id="3_5powy"]
+[ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="4_j6wwd"]
 
 [sub_resource type="Curve" id="Curve_5powy"]
 _limits = [0.0, 1.0, 0.0, 30.0]
@@ -35,7 +36,7 @@ time_to_switch = 10.0
 time_curve = SubResource("Curve_5powy")
 time_curve_reversed = SubResource("Curve_j6wwd")
 moons = Dictionary[int, GradientTexture1D]({
-0: SubResource("GradientTexture1D_5powy"),
+0: SubResource("GradientTexture1D_5powy")
 })
 
 [node name="Timer" type="Timer" parent="Plains/DayNightCycler"]
@@ -43,6 +44,9 @@ moons = Dictionary[int, GradientTexture1D]({
 [node name="GameMaster" type="Node2D" parent="." groups=["Master"]]
 script = ExtResource("3_5powy")
 map_size = Array[Vector2]([Vector2(-100, -100), Vector2(1200, -100), Vector2(1200, 700), Vector2(-100, 700)])
+
+[node name="Totem" parent="." instance=ExtResource("4_j6wwd")]
+position = Vector2(588, 334)
 
 [connection signal="midnight" from="Plains/DayNightCycler" to="GameMaster" method="_on_day_night_cycler_midnight"]
 [connection signal="timeout" from="Plains/DayNightCycler/Timer" to="Plains/DayNightCycler" method="_on_timer_timeout"]

@@ -1,16 +1,21 @@
 extends CanvasModulate
 
+#region Enums
+enum MoonType {
+	Normal = 0,
+	Blood = 1,
+}
+#endregion
+
+#region var
+#endregion
+
 #region @export
 @export var day_lenght : float = 5.0
 @export var time_to_switch : float
 @export var time_curve : Curve
 @export var time_curve_reversed : Curve
 #endregion
-
-enum MoonType {
-	Normal = 0,
-	Blood = 1,
-}
 
 #region Cycle lunaire
 @export var current_moon: MoonType = MoonType.Normal
