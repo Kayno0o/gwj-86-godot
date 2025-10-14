@@ -8,7 +8,6 @@ var wandering_spot: Vector2 = Vector2.ZERO
 
 func init(p_parent: Entity) -> void:
 	type = State.Type.Idle
-
 	super.init(p_parent)
 
 	search_timer = Timer.new()
