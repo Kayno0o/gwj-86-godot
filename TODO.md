@@ -4,18 +4,19 @@
 
 # Global
 
-- [ ] les ennemies drop des souls
 - [x] animation de la récolte d'item
 - [x] animation du déposit d'item
-- [ ] animation d'attaque
-- [ ] particules de mort
 - [x] stone
 - [x] blé
 - [X] mask gris récolte la pierre
 - [X] mask orange récolte le blé
 - [x] idle trop longtemps -> wandering
+- [ ] les ennemies drop des souls
+- [ ] animation d'attaque
+- [ ] particules de mort
+- [ ] transporters
 
-- [ ] pour payer, les mask doivent transporter les items du totem vers le feu
+- [ ] pour payer, les transporteurs doivent transporter les items du totem vers le feu
 
 - [ ] skill tree (en mode nodes)
 - [ ] state saccrifice des mask pour payer une upgrade
@@ -23,3 +24,7 @@
 - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
 
 - [ ] camera
+
+# Later
+
+- [ ] drag and drop new totems to positions

@@ -6,6 +6,7 @@ enum EntityType {
 	MaskAttacker = 2,
 	MaskTank = 3,
 	MaskFarmer = 4,
+	MaskTransporter = 5,
 
 	Villain = 10,
 }
@@ -36,21 +37,27 @@ var current_shopping_list : Dictionary
 
 ## highest to lowest priority
 const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {
+	EntityType.MaskTransporter: [
+		[Enum.TargetType.Villain],
+		[Enum.TargetType.Item],
+	],
 	EntityType.MaskLumberjack: [
 		[Enum.TargetType.Villain],
-		[Enum.TargetType.Tree, Enum.TargetType.Item],
+		[Enum.TargetType.Tree],
+		[Enum.TargetType.Item],
 	],
 	EntityType.MaskMiner: [
 		[Enum.TargetType.Villain],
-		[Enum.TargetType.Rock, Enum.TargetType.Item],
+		[Enum.TargetType.Rock],
+		[Enum.TargetType.Item],
 	],
 		EntityType.MaskFarmer: [
 		[Enum.TargetType.Villain],
-		[Enum.TargetType.Wheat, Enum.TargetType.Item],
+		[Enum.TargetType.Wheat],
+		[Enum.TargetType.Item],
 	],
 	EntityType.MaskAttacker: [
 		[Enum.TargetType.Villain],
-		[Enum.TargetType.Item],
 	],
 	EntityType.MaskTank: [
 		[Enum.TargetType.Villain],
