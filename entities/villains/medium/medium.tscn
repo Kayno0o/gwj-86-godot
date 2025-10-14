@@ -6,5 +6,5 @@
 [node name="Villain" instance=ExtResource("1_hkpc8")]
 health = 10.0
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 texture = ExtResource("2_emccu")

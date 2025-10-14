@@ -13,6 +13,7 @@
 - [ ] blé
 - [ ] mask gris récolte la pierre
 - [ ] mask orange récolte le blé
+- [x] idle trop longtemps -> wandering
 
 - [ ] pour payer, les mask doivent transporter les items du totem vers le feu
 

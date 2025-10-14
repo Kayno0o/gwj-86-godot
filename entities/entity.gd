@@ -6,8 +6,6 @@ var current_target: Node2D = null
 @export var type: Enum.EntityType
 @export var target_type: Enum.TargetType
 @export var entity_name: String = "Entity"
-@export var movement_speed: float = 50.0
-@export var totem_approach_distance: float = 100.0
 @export var health: float = 5.0
 
 @export_category("Pickup")
@@ -22,6 +20,14 @@ var current_target: Node2D = null
 @export var attack_range: float = 42.0
 @export var attack_view_distance: float = 300.0
 
+@export_category("Movement")
+@export var movement_speed: float = 50.0
+@export var totem_approach_distance: float = 100.0
+@export var wandering_distance: float = 48.0
+@export var wandering_cooldown: float = 4.0
+
+@onready var sprite: Node2D = $Sprite
+
 @onready var health_component: HealthComponent = HealthComponent.new(SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Health, health))
 @onready var inventory_component: InventoryComponent = InventoryComponent.new(self, SkillTreeManager.get_istat(type, SkillTreeManager.StatType.InventorySize, inventory_size))
 
@@ -31,6 +37,7 @@ var current_target: Node2D = null
 }
 
 func _ready() -> void:
+	print(sprite)
 	TargetManager.register_target(self, [target_type])
 	TargetManager.target_removed.connect(_on_target_removed)
 	health_component.death.connect(on_death)

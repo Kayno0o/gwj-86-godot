@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=8 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="Script" uid="uid://d2fi4g2tmqqkc" path="res://scripts/global/SkillTreeManager.gd" id="2_a5xyx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://entities/mask/mask_red/mask_red.tscn" id="5_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
+[ext_resource type="PackedScene" uid="uid://b5vp204l0464x" path="res://entities/villains/weak/weak.tscn" id="7_a5xyx"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7h61r")
@@ -33,3 +34,6 @@ position = Vector2(690, 210)
 
 [node name="Totem" parent="." instance=ExtResource("6_rsoik")]
 position = Vector2(869, 261)
+
+[node name="Villain" parent="." instance=ExtResource("7_a5xyx")]
+position = Vector2(852, 434)
