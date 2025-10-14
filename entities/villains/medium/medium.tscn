@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd5aauhivh5py"]
+[gd_scene load_steps=3 format=3 uid="uid://ttj4vn1j4dn5"]
 
-[ext_resource type="Script" uid="uid://crod0pyw6moh8" path="res://entities/villains/medium/medium.gd" id="1_hkpc8"]
+[ext_resource type="PackedScene" uid="uid://c1p3mgauwt5yi" path="res://entities/villains/villain.tscn" id="1_hkpc8"]
+[ext_resource type="Texture2D" uid="uid://bfbk8dxxtktpi" path="res://entities/villains/medium/Armor_03.png" id="2_emccu"]
 
-[node name="medium" type="CharacterBody2D"]
-script = ExtResource("1_hkpc8")
-cost = 60
-metadata/_custom_type_script = "uid://cdyc56cbxg0v2"
+[node name="Villain" instance=ExtResource("1_hkpc8")]
+health = 10.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_emccu")

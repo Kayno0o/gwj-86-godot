@@ -119,6 +119,10 @@ func assign_target(target: Node2D, node: Node2D) -> bool:
 	if not is_instance_valid(target) or not is_instance_valid(node):
 		return false
 
+	# skip assignment tracking, totems can be targeted by multiple nodes
+	if target_has_types(target, [Enum.TargetType.Totem, Enum.TargetType.Villain, Enum.TargetType.Mask]):
+		return true
+
 	# check if already assigned to another node
 	if _target_assignments.has(target) and _target_assignments[target] != node:
 		return false
@@ -178,12 +182,26 @@ func get_debug_info() -> Dictionary:
 
 	return info
 
-## debug: Print current state to console
-func print_debug_info() -> void:
-	var info = get_debug_info()
-	print("=== TargetManager Debug Info ===")
-	print("Total targets: ", info["total_targets"])
-	print("Total assignments: ", info["total_assignments"])
-	print("Targets by type:")
-	for type in info["targets_by_type"]:
-		print("  ", type, ": ", info["targets_by_type"][type])
+func get_target_types(target: Node) -> Array[Enum.TargetType]:
+	if not is_instance_valid(target):
+		return []
+
+	if target.get("target_types") != null:
+		var types = target.get("target_types")
+		if types is Array:
+			return types
+
+	if target.get("target_type") != null:
+		return [target.get("target_type")]
+
+	return []
+
+func target_has_type(target: Node, type: Enum.TargetType) -> bool:
+	return type in get_target_types(target)
+
+func target_has_types(target: Node, types: Array[Enum.TargetType]) -> bool:
+	for type in types:
+		if type in get_target_types(target):
+			return true
+	
+	return false

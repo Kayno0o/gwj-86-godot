@@ -1,8 +1,9 @@
-class_name Component extends Node
+class_name Component extends RefCounted
 
 enum Type {
 	Health = 0,
 	Loot = 1,
+	Inventory = 2,
 }
 
 var type: Type

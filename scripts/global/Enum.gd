@@ -1,12 +1,17 @@
 extends Node
 
+enum ItemType {
+	Wood = 0,
+	Stone = 1,
+}
+
 enum EntityType {
 	MaskLumberjack = 0,
 	MaskMiner = 1,
 	MaskAttacker = 2,
 	MaskTank = 3,
 
-	Enemy = 10,
+	Villain = 10,
 }
 
 enum TargetType {
@@ -14,7 +19,7 @@ enum TargetType {
 	Tree = 1,
 	Rock = 2,
 
-	Enemy = 10,
+	Villain = 10,
 	Mask = 11,
 
 	Item = 20,
@@ -25,23 +30,24 @@ enum TargetType {
 ## highest to lowest priority
 const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {
 	EntityType.MaskLumberjack: [
-		[Enum.TargetType.Enemy],
+		[Enum.TargetType.Villain],
 		[Enum.TargetType.Tree, Enum.TargetType.Item],
 	],
 	EntityType.MaskMiner: [
-		[Enum.TargetType.Enemy],
+		[Enum.TargetType.Villain],
 		[Enum.TargetType.Rock, Enum.TargetType.Item],
 	],
 	EntityType.MaskAttacker: [
-		[Enum.TargetType.Enemy],
+		[Enum.TargetType.Villain],
 		[Enum.TargetType.Item],
 	],
 	EntityType.MaskTank: [
-		[Enum.TargetType.Enemy],
+		[Enum.TargetType.Villain],
 		[Enum.TargetType.Totem],
 	],
-	EntityType.Enemy: [
+	EntityType.Villain: [
 		[Enum.TargetType.Mask],
+		[Enum.TargetType.Totem],
 	],
 }
 

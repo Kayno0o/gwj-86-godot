@@ -16,6 +16,7 @@ enum StatType {
 
 var _bonuses: Dictionary = {
 	StatType.MovementSpeed: 0.0,
+	StatType.Health: 0.0,
 
 	StatType.Attack: 0.0,
 	StatType.AttackSpeed: 0.0,
@@ -28,9 +29,6 @@ var _bonuses: Dictionary = {
 }
 
 var stat_bonuses: Dictionary = {}
-
-func _ready() -> void:
-	return
 
 func _init() -> void:
 	for entity_type in Enum.EntityType.values():

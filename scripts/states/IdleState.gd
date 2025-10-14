@@ -1,6 +1,7 @@
 class_name IdleState extends State
 
 var search_timer: Timer
+var should_deposit: bool = false
 
 func init(p_parent: Entity) -> void:
 	type = State.Type.Idle
@@ -15,6 +16,7 @@ func init(p_parent: Entity) -> void:
 func enter() -> void:
 	parent.velocity = Vector2.ZERO
 	search_timer.start(parent.get_target_search_cooldown())
+	should_deposit = false
 
 func exit() -> void:
 	search_timer.stop()
@@ -22,6 +24,9 @@ func exit() -> void:
 func process(_delta):
 	if parent.current_target and is_instance_valid(parent.current_target):
 		return State.Type.MoveToTarget
+	
+	if should_deposit:
+		return State.Type.DepositItem
 
 func _on_search_timeout() -> void:
 	search_target()
@@ -38,3 +43,8 @@ func search_target() -> void:
 			return
 
 		parent.current_target = new_target
+
+		return
+
+	if not parent.current_target and not parent.inventory_component.is_empty():
+		should_deposit = true

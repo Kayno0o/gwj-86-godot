@@ -7,5 +7,3 @@ script = ExtResource("1_qnvdu")
 metadata/_custom_type_script = "uid://7c0q4inr1s3g"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Components" type="Node" parent="."]
