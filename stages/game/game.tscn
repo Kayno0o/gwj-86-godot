@@ -17,23 +17,17 @@ script = ExtResource("2_a5xyx")
 
 [node name="Tree2" parent="Objects" instance=ExtResource("3_navwl")]
 position = Vector2(768, 389)
-collision_layer = 2
-collision_mask = 2
 
 [node name="Tree3" parent="Objects" instance=ExtResource("3_navwl")]
 position = Vector2(719, 308)
-collision_layer = 2
-collision_mask = 2
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="MaskRed2" parent="Characters" instance=ExtResource("5_5i0tg")]
 position = Vector2(741, 499)
-collision_mask = 2
 
 [node name="MaskGreen2" parent="Characters" instance=ExtResource("4_lfrn8")]
 position = Vector2(767, 351)
-collision_mask = 2
 
 [node name="Villains" type="Node" parent="."]
 
