@@ -93,11 +93,18 @@ func _on_search_timeout() -> void:
 	search_timer.start(parent.get_target_search_cooldown())
 
 func _on_deposit_timeout():
-	if not parent.current_target or not is_instance_valid(parent.current_target):
+	if not parent.current_target or not is_instance_valid(parent.current_target) \
+	or parent.inventory_component.is_empty():
 		parent.current_target = null
 		return
 
 	var item = parent.inventory_component.pop_item()
+	parent.current_target.add_child(item)
+
+	var distance: Vector2 = parent.global_position - parent.current_target.global_position + item.position
+	item.position = distance
+	
+	item.fly_to(parent.current_target.global_position)
 	parent.current_target.deposit_item(Enum.ItemType.find_key(item.item_type), 1)
 
 	if not parent.inventory_component.is_empty():

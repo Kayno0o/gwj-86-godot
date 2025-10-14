@@ -45,7 +45,7 @@ func pop_item() -> Item:
 		return null
 
 	var item = inventory.pop_front()
-	item.queue_free()
+	inventory_node.remove_child(item)
 	set_items_position()
 
 	return item
