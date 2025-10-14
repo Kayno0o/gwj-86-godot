@@ -33,13 +33,13 @@ func _on_search_timeout() -> void:
 	search_timer.start(parent.get_target_search_cooldown())
 
 func search_target() -> void:
-	var new_target = parent.find_target()
+	var new_target = parent.find_closer_target()
 
 	if new_target:
 		if parent.current_target:
-			TargetManager.release_target(parent.current_target, parent)
+			TargetManager.stop_targeting(parent.current_target, parent)
 
-		if not TargetManager.assign_target(new_target, parent):
+		if not TargetManager.start_targeting(new_target, parent):
 			return
 
 		parent.current_target = new_target

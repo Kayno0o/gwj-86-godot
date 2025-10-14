@@ -15,7 +15,7 @@ func process(_delta: float):
 		return
 
 	if parent.inventory_component.add_item(item):
-		TargetManager.release_target(item, parent)
+		TargetManager.stop_targeting(item, parent)
 		TargetManager.unregister_target(item, TargetManager.get_target_types(item))
 		parent.current_target = null
 
