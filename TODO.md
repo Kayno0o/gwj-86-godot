@@ -5,7 +5,7 @@
 # Global
 
 - [ ] les ennemies drop des souls
-- [ ] animation de la récolte d'item
+- [x] animation de la récolte d'item
 - [x] animation du déposit d'item
 - [ ] animation d'attaque
 - [ ] particules de mort
