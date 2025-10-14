@@ -99,12 +99,10 @@ func _on_deposit_timeout():
 		return
 
 	var item = parent.inventory_component.pop_item()
-	parent.current_target.add_child(item)
-
-	var distance: Vector2 = parent.global_position - parent.current_target.global_position + item.position
-	item.position = distance
+	Utils.reparent_without_moving(item, parent, parent.current_target)
 	
 	item.fly_to(parent.current_target.global_position)
+
 	parent.current_target.deposit_item(Enum.ItemType.find_key(item.item_type), 1)
 
 	if not parent.inventory_component.is_empty():

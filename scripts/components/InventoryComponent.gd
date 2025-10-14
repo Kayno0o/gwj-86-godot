@@ -20,19 +20,19 @@ func _ready() -> void:
 
 func set_items_position() -> void:
 	var offset = Vector2(0, -8)
-	var previous_position = Vector2(16, 0)
+	var current_position = Vector2(16, 0)
 
 	for item in inventory:
-		previous_position += offset
-		item.position = previous_position
+		current_position += offset
+		item.tween_to(current_position, .25, "position")
 
 func add_item(item: Item) -> bool:
 	if is_inventory_full():
 		return false
 
 	inventory.push_back(item)
-	item.get_parent().remove_child(item)
-	inventory_node.add_child(item)
+	Utils.reparent_without_moving(item, item.get_parent(), inventory_node)
+
 	set_items_position()
 
 	if is_inventory_full():

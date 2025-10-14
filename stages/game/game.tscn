@@ -16,18 +16,18 @@ script = ExtResource("2_a5xyx")
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Tree2" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(768, 389)
+position = Vector2(726, 400)
 
 [node name="Tree3" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(719, 308)
+position = Vector2(618, 274)
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="MaskRed2" parent="Characters" instance=ExtResource("5_5i0tg")]
-position = Vector2(741, 499)
+position = Vector2(773, 453)
 
 [node name="MaskGreen2" parent="Characters" instance=ExtResource("4_lfrn8")]
-position = Vector2(767, 351)
+position = Vector2(690, 210)
 
 [node name="Villains" type="Node" parent="."]
 
