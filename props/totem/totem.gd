@@ -1,4 +1,4 @@
-extends Node2D
+class_name Totem extends Node2D
 
 #region Enums
 #endregion
@@ -63,10 +63,17 @@ func queue_start(shopping_list: Array[Dictionary]) -> void :
 #endregion
 
 # Enleve la liste effectué et relance la queue si elle n'est pas vide
-func queue_remove_and_reboot() -> void :
+func queue_remove_and_reboot() -> bool:
+	if Enum.ongoing_shopping_list.is_empty():
+		return false
+
 	Enum.ongoing_shopping_list.remove_at(0)
-	if Enum.ongoing_shopping_list[0] :
+	if not Enum.ongoing_shopping_list.is_empty():
 		queue_start(Enum.ongoing_shopping_list)
+
+		return true
+	
+	return false
 	
 # Paye en ressource (Enleve "amount" "itemtype" de l'inventaire
 func pay(itemtype: String, amount: int) -> void :
