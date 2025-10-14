@@ -26,7 +26,8 @@ func _init() -> void:
 func _ready() -> void:
 	TargetManager.register_target(self, [target_type])
 
-func deposit_item(itemtype: Enum.ItemType, amount: int) -> void :
+func deposit_item(itemtype: String, amount: int) -> void :
+	print_debug("Added 1 ", itemtype, " to inventory, Well done !")
 	inventory[itemtype] += amount
 
 func command(shopping_list: Dictionary) -> void :
@@ -44,9 +45,7 @@ func command(shopping_list: Dictionary) -> void :
 #endregion
 
 func pay(itemtype: String, amount: int) -> void :
-	print_debug("Vous avez payé ", amount, " de ",itemtype )
 	inventory[itemtype] -= amount
-	print_debug("Il vous reste : ", inventory[itemtype], " de ", itemtype, "dans votre inventaire")
 
 func has_fund_for_list(shopping_list: Dictionary) -> bool :
 	for item in shopping_list :
