@@ -6,9 +6,8 @@ func init(p_parent: Entity) -> void:
 	type = State.Type.Sacrifice
 	super.init(p_parent)
 
-	InventoryManager.current_shopping_list.is_empty()
-
 func enter() -> void:
+	TargetManager.unregister_target(parent, [parent.target_type])
 	pass
 
 func exit() -> void:

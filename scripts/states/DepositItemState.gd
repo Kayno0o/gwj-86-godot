@@ -103,7 +103,7 @@ func _on_deposit_timeout():
 	
 	item.fly_to(parent.current_target.global_position)
 
-	parent.current_target.deposit_item(Enum.ItemType.find_key(item.item_type), 1)
+	InventoryManager.deposit_item(Enum.ItemType.find_key(item.item_type), 1)
 
 	if not parent.inventory_component.is_empty():
 		deposit_timer.start(parent.deposit_speed)

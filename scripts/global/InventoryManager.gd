@@ -24,16 +24,24 @@ func init() -> void:
 		inventory[itemtype] = 0
 
 	TargetManager.target_available.connect(_on_target_available)
+	TargetManager.target_removed.connect(_on_target_removed)
+
+	update_inventory.emit()
 
 # Depose un item dans l'inventaire
 func deposit_item(itemtype: String, amount: int) -> void:
-	print_debug("Added 1 ", itemtype, " to inventory, Well done !")
 	inventory[itemtype] += amount
+	update_inventory.emit()
 
 # Mets la liste des "courses" dans la queue
-func add_queue(shopping_list: Dictionary[Enum.ItemType, int]) -> void:
+func add_shopping_list(shopping_list: Dictionary[String, int]) -> bool:
+	if not can_pay(shopping_list):
+		return false
+
 	shopping_lists.append(shopping_list)
 	queue_start()
+
+	return true
 	
 # Mets la liste des course en "current_list" et demande au Masked d'aller travailler 
 func queue_start() -> void:
@@ -41,60 +49,92 @@ func queue_start() -> void:
 		return
 
 	current_list = shopping_lists.pop_front()
-	for entity in current_list:
-		if is_item_an_entity(entity):
-			# TODO
-			pass
+	pay_current_list()
 
-# Paye en ressource (Enleve "amount" "itemtype" de l'inventaire
-func pay(itemtype: String, amount: int) -> void:
-	inventory[itemtype] -= amount
+func has_item_to_remove() -> bool:
+	for item in current_list:
+		if current_list[item] > 0:
+			return true
+		
+		current_list.erase(item)
+
+	return false
+
+# enlève les ressources de l'inventaire, et sélectionne les entités à sacrifier
+func pay_current_list() -> void:
+	for item in current_list:
+		if is_item_an_entity(item):
+			# TODO select random entities for sacrifice
+			# remove them from the current shopping list
+			var entities: Array = inventory[item]
+			for i in range(current_list[item]):
+				var rand = randi_range(0, entities.size() - 1)
+				var entity: Mask = entities.get(rand)
+				entity.state_machine.change_state_type(State.Type.Sacrifice)
+
+			current_list.erase(item)
+			continue
+		
+		inventory[item] -= current_list[item]
 
 # Verifie si les fond necessaire pour la liste sont dans l'inventaire
-func has_fund_for_list(shopping_list: Dictionary) -> bool:
+func can_pay(shopping_list: Dictionary) -> bool:
 	for item in shopping_list:
-		if is_item_an_entity(item):
-			if inventory[item].size() < shopping_list[item]:
-				return false
-			continue
-
-		if inventory[item] < shopping_list[item]:
+		if not has_fund_for_item(item, shopping_list[item]):
 			return false
 
 	return true
 
 # Verifie si on a les fonds necessaire pour 1 item
-func has_fund_for_item(itemtype: String, amount: int) -> bool:
-	if inventory[itemtype] < amount:
-			return false
+func has_fund_for_item(item: String, amount: int) -> bool:
+	if is_item_an_entity(item):
+		return inventory[item].size() >= amount
 
-	return true
+	return inventory[item] >= amount
 
 # verifie si l'item est une entité
 func is_item_an_entity(item: String) -> bool:
 	return entities_keys.has(item)
 
 func _on_target_available(target: Node2D, target_types: Array[Enum.TargetType]):
-	if not target_types.has(Enum.TargetType.Mask) or target is not Entity:
+	if not target_types.has(Enum.TargetType.Mask):
+		return
+	
+	if target is not Mask:
 		return
 
-	var entity_type_string = Enum.EntityType.find_key(target.entity_type)
+	var entity_type_string = Enum.EntityType.find_key(target.type)
 	if inventory[entity_type_string].has(target):
 		return
 
-	inventory[entity_type_string].push(target)
+	inventory[entity_type_string].push_back(target)
 	update_inventory.emit()
 
 	return
 
 func _on_target_removed(target: Node2D):
 	var target_types = TargetManager.get_target_types(target)
-	if not target_types.has(Enum.TargetType.Mask) or target is not Entity:
+	if not target_types.has(Enum.TargetType.Mask):
+		return
+	
+	if target is not Mask:
 		return
 
-	var entity_type_string = Enum.EntityType.find_key(target.entity_type)
+	var entity_type_string = Enum.EntityType.find_key(target.type)
 	if not inventory[entity_type_string].has(target):
 		return
 
 	inventory[entity_type_string].erase(target)
 	update_inventory.emit()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if not event.pressed: return
+		if event.keycode == KEY_T:
+			print_debug(can_pay({
+				"MaskTransporter": 2
+			}))
+		if event.keycode == KEY_P:
+			print_debug(add_shopping_list({
+				"MaskTransporter": 2
+			}))

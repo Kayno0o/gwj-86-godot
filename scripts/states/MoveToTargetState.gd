@@ -13,7 +13,9 @@ func init(p_parent: Entity) -> void:
 	add_child(search_timer)
 
 func enter() -> void:
-	search_timer.start(parent.get_target_search_cooldown())
+	# transporter do not try to find closer targets
+	if parent.type != Enum.EntityType.MaskTransporter:
+		search_timer.start(parent.get_target_search_cooldown())
 
 func exit() -> void:
 	search_timer.stop()

@@ -21,7 +21,6 @@ func init(p_parent: Entity) -> void:
 	add_child(wandering_timer)
 
 func enter() -> void:
-	print("enter idle")
 	search_timer.start(parent.get_target_search_cooldown())
 
 	parent.velocity = Vector2.ZERO
