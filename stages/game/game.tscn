@@ -169,7 +169,7 @@ position = Vector2(367, 339)
 [node name="Villains" type="Node" parent="."]
 
 [node name="Totem" parent="." instance=ExtResource("6_rsoik")]
-position = Vector2(476, 332)
+position = Vector2(479, 342)
 
 [node name="rock2" parent="." instance=ExtResource("5_navwl")]
 position = Vector2(246, 306)

@@ -28,7 +28,7 @@ func _on_button_pressed() -> void:
 
 func _on_price_changed():
 	var mask_instance = get_parent().mask_to_invok.instantiate()
-	var new_text= Enum.EntityType.find_key(mask_instance.type) + "\n"
+	var new_text= Enum.EntityType.find_key(mask_instance.type)
 	for item in current_price :
-		new_text =new_text + item + ": " + str(current_price[item])
+		new_text =new_text + "\n"+ item + ": " + str(current_price[item])
 	$Button.text = new_text

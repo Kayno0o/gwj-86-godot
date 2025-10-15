@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=11 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://cuymfckcbvxwr" path="res://props/totem/Crafting_36.png" id="2_v2ani"]
 [ext_resource type="PackedScene" uid="uid://ypvcy411pc06" path="res://props/totem/mini_totem/mini_totem_wood.tscn" id="3_v2ani"]
 [ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="4_b3en4"]
+[ext_resource type="PackedScene" uid="uid://d3kkq6puo5mrg" path="res://props/totem/minitotem.tscn" id="5_xabt0"]
+[ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://entities/mask/mask_red/mask_red.tscn" id="6_k4i2k"]
+[ext_resource type="PackedScene" uid="uid://c0x6jgtd4wswl" path="res://entities/mask/mask_orange/mask_orange.tscn" id="7_k4i2k"]
+[ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="8_h5uus"]
+[ext_resource type="PackedScene" uid="uid://bqk8yh7c2vn8p" path="res://entities/mask/mask_blue/mask_blue.tscn" id="9_a0348"]
+[ext_resource type="PackedScene" uid="uid://boaxrcqnla75u" path="res://entities/mask/mask_black/mask_black.tscn" id="10_fmo0m"]
 
 [node name="Totem" type="Node2D"]
 script = ExtResource("1_7ndw4")
@@ -12,12 +18,62 @@ script = ExtResource("1_7ndw4")
 scale = Vector2(5, 5)
 texture = ExtResource("2_v2ani")
 
-[node name="Minitotem" parent="." instance=ExtResource("3_v2ani")]
-position = Vector2(-157, 53)
+[node name="whitetotem" parent="." instance=ExtResource("3_v2ani")]
+position = Vector2(503, -270)
 mask_to_invok = ExtResource("4_b3en4")
+main_ressources = {
+"Soul": 0,
+"Stone": 1,
+"Wheat": 1,
+"Wood": 1
+}
+
+[node name="redtotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(506, -164)
+mask_to_invok = ExtResource("6_k4i2k")
+main_ressources = {
+"Soul": 0,
+"Stone": 1,
+"Wheat": 1,
+"Wood": 3
+}
+
+[node name="orangetotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(390, -329)
+mask_to_invok = ExtResource("7_k4i2k")
+main_ressources = {
+"Soul": 0,
+"Stone": 0,
+"Wheat": 2,
+"Wood": 0
+}
+
+[node name="greentotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(502, -330)
+mask_to_invok = ExtResource("8_h5uus")
 main_ressources = {
 "Soul": 0,
 "Stone": 0,
 "Wheat": 0,
 "Wood": 2
+}
+
+[node name="bluetotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(507, -49)
+mask_to_invok = ExtResource("9_a0348")
+main_ressources = {
+"Soul": 0,
+"Stone": 3,
+"Wheat": 1,
+"Wood": 1
+}
+
+[node name="blacktotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(268, -328)
+mask_to_invok = ExtResource("10_fmo0m")
+main_ressources = {
+"Soul": 0,
+"Stone": 2,
+"Wheat": 0,
+"Wood": 0
 }
