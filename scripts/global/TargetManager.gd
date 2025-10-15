@@ -20,18 +20,18 @@ func init() -> void:
 func register_target(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
 	if not is_instance_valid(target):
 		return
-
+	
 	# add to each type category
 	for type in target_types:
 		if not targets.has(type):
 			targets[type] = []
-
+		
 		if target not in targets[type]:
 			targets[type].append(target)
-
+	
 	# emit signal so interested nodes can react
 	target_available.emit(target, target_types)
-
+	
 	# connect to the target's tree_exiting signal to auto-unregister
 	if not target.tree_exiting.is_connected(_on_target_destroyed):
 		target.tree_exiting.connect(_on_target_destroyed.bind(target, target_types))
@@ -40,12 +40,12 @@ func register_target(target: Node2D, target_types: Array[Enum.TargetType]) -> vo
 func unregister_target(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
 	if not is_instance_valid(target):
 		return
-
+	
 	# remove from all type categories
 	for type in target_types:
 		if targets.has(type) and target in targets[type]:
 			targets[type].erase(target)
-
+	
 	# clear assignment if this target was being targeted
 	if assigned_targets.has(target):
 		assigned_targets.erase(target)
@@ -184,5 +184,5 @@ func target_has_types(target: Node, types: Array[Enum.TargetType]) -> bool:
 	for type in types:
 		if type in get_target_types(target):
 			return true
-
+	
 	return false

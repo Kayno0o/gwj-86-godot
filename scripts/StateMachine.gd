@@ -19,7 +19,7 @@ func ready(node: Entity) -> void:
 
 		child.init(parent)
 		states[child.type] = child
-
+	
 	if not init_state:
 		return
 
@@ -40,12 +40,6 @@ func process(delta: float) -> void:
 	var type = current_state.process(delta)
 	if type != null and states.has(type):
 		change_state(states[type])
-
-func change_state_type(type: State.Type) -> bool:
-	if type == null or not states.has(type): return false
-
-	change_state(states[type])
-	return true
 
 func change_state(new_state: State) -> void:
 	if current_state:

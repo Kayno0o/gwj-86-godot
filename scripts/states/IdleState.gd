@@ -8,6 +8,7 @@ var wandering_spot: Vector2 = Vector2.ZERO
 
 func init(p_parent: Entity) -> void:
 	type = State.Type.Idle
+
 	super.init(p_parent)
 
 	search_timer = Timer.new()
@@ -21,6 +22,7 @@ func init(p_parent: Entity) -> void:
 	add_child(wandering_timer)
 
 func enter() -> void:
+	print("enter idle")
 	search_timer.start(parent.get_target_search_cooldown())
 
 	parent.velocity = Vector2.ZERO
@@ -33,12 +35,10 @@ func exit() -> void:
 	wandering_timer.stop()
 
 func process(_delta):
-	# TODO check if inventory has items to be moved
-
 	# target found, move to it
 	if parent.current_target and is_instance_valid(parent.current_target):
 		return State.Type.MoveToTarget
-
+	
 	if should_deposit:
 		return State.Type.DepositItem
 
@@ -47,7 +47,7 @@ func process(_delta):
 		move_to_wandering_spot()
 
 		return
-
+	
 	if wandering_timer.is_stopped():
 		wandering_timer.start(randf_range(parent.wandering_cooldown, parent.wandering_cooldown * 2))
 

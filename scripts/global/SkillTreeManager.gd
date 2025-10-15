@@ -28,9 +28,9 @@ var _bonuses: Dictionary = {
 	StatType.TargetSearchCooldown: 0.0,
 }
 
-var stat_bonuses: Dictionary[Enum.EntityType, Dictionary] = {}
+var stat_bonuses: Dictionary = {}
 
-func init() -> void:
+func _init() -> void:
 	for entity_type in Enum.EntityType.values():
 		stat_bonuses[entity_type] = _bonuses.duplicate()
 

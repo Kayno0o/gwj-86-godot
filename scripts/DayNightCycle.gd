@@ -90,7 +90,7 @@ func _night_to_day_state(delta):
 func _on_timer_timeout() -> void:
 	$Timer.stop()
 	_new_state("day_to_night")
-
+	
 # Change l'etat du cycler vers Nuit -> Jour
 # Reset du timer (oui, redondant, mais curieusement j'me sens en securité avec un timer reset
 func _on_game_master_end_night() -> void:
