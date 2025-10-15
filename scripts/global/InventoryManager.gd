@@ -49,7 +49,7 @@ func queue_start() -> void:
 		return
 
 	current_list = shopping_lists.pop_front()
-	pay_current_list()
+	_pay_current_list()
 
 func has_item_to_remove() -> bool:
 	for item in current_list:
@@ -60,10 +60,30 @@ func has_item_to_remove() -> bool:
 
 	return false
 
+# Verifie si les fond necessaire pour la liste sont dans l'inventaire
+func can_pay(shopping_list: Dictionary) -> bool:
+	for item in shopping_list:
+		if not _has_fund_for_item(item, shopping_list[item]):
+			return false
+
+	return true
+
+#region internal methods
+# Verifie si on a les fonds necessaire pour 1 item
+func _has_fund_for_item(item: String, amount: int) -> bool:
+	if _is_item_an_entity(item):
+		return inventory[item].size() >= amount
+
+	return inventory[item] >= amount
+
+# verifie si l'item est une entité
+func _is_item_an_entity(item: String) -> bool:
+	return entities_keys.has(item)
+
 # enlève les ressources de l'inventaire, et sélectionne les entités à sacrifier
-func pay_current_list() -> void:
+func _pay_current_list() -> void:
 	for item in current_list:
-		if is_item_an_entity(item):
+		if _is_item_an_entity(item):
 			# TODO select random entities for sacrifice
 			# remove them from the current shopping list
 			var entities: Array = inventory[item]
@@ -76,25 +96,7 @@ func pay_current_list() -> void:
 			continue
 		
 		inventory[item] -= current_list[item]
-
-# Verifie si les fond necessaire pour la liste sont dans l'inventaire
-func can_pay(shopping_list: Dictionary) -> bool:
-	for item in shopping_list:
-		if not has_fund_for_item(item, shopping_list[item]):
-			return false
-
-	return true
-
-# Verifie si on a les fonds necessaire pour 1 item
-func has_fund_for_item(item: String, amount: int) -> bool:
-	if is_item_an_entity(item):
-		return inventory[item].size() >= amount
-
-	return inventory[item] >= amount
-
-# verifie si l'item est une entité
-func is_item_an_entity(item: String) -> bool:
-	return entities_keys.has(item)
+#endregion
 
 func _on_target_available(target: Node2D, target_types: Array[Enum.TargetType]):
 	if not target_types.has(Enum.TargetType.Mask):
