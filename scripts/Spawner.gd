@@ -28,7 +28,6 @@ signal spawner_ded
 # Se connecte a la commande dev pour tout tuer et lance la selection / spawn des villains
 func _ready() -> void:
 	world.kill_villain.connect(_on_game_master_kill_villain)
-	print("we are here")
 	_villain_picker()
 #endregion
 

@@ -11,7 +11,7 @@ func _test() :
 	var _texte : String
 	var number = 0
 	for item in InventoryManager.inventory :
-		print_debug(item)
+		
 		if InventoryManager.entities_keys.has(item) :
 			number = InventoryManager.inventory[item].size()
 		elif InventoryManager.inventory[item] == null :

@@ -8,9 +8,8 @@ extends Node
 
 var totem: Totem
 
-var shopping_lists: Array[Dictionary] # Array of Dictionnary full of Enums, it counts
-
-var current_list: Dictionary[String, int] = {}
+# items waiting to be transported
+var pending_items: Dictionary[String, int] = {}
 
 # { [ItemType]: int, [EntityType]: Array[Mask] }
 var inventory: Dictionary = {}
@@ -24,39 +23,46 @@ func init() -> void:
 	for entityType in entities_keys:
 		inventory[entityType] = []
 
-	for itemtype in items_keys:
-		inventory[itemtype] = 0
+	for itemType in items_keys:
+		inventory[itemType] = 0
+		pending_items[itemType] = 0
 
 	TargetManager.target_available.connect(_on_target_available)
 	TargetManager.target_removed.connect(_on_target_removed)
 
 	update_inventory.emit()
 
-# dépose un item dans l'inventaire
-func deposit_item(itemtype: String, amount: float) -> void:
-	inventory[itemtype] += amount
+# deposit item to inventory
+func deposit_item(type: String, amount: float) -> void:
+	inventory[type] += amount
 	update_inventory.emit()
 
-# instantly pay given shopping list
+# instantly pay given shopping list and move items to pending
 func pay_shopping_list(shopping_list: Dictionary[String, int]) -> bool:
 	if shopping_list.is_empty(): return false
 	if not can_pay(shopping_list): return false
 
-	_pay_given_list(shopping_list, true)
+	for type in shopping_list:
+		if _is_item_an_entity(type):
+			# sacrifice random entities of given type
+			for i in range(shopping_list[type]):
+				var rand: int = randi_range(0, inventory[type].size() - 1)
+				var entity: Mask = inventory[type].get(rand)
+				entity.state_machine.change_state_type(State.Type.Sacrifice)
+				inventory[type].erase(entity)
+			continue
+		else:
+			# remove items from inventory
+			inventory[type] -= shopping_list[type]
+
+		# add to pending
+		pending_items[type] += shopping_list[type]
+
+	update_inventory.emit()
 
 	return true
 
-# ajoute la liste d'achat
-func add_shopping_list(shopping_list: Dictionary[String, int]) -> bool:
-	if shopping_list.is_empty(): return false
-	if not can_pay(shopping_list): return false
-
-	shopping_lists.append(shopping_list)
-	_queue_start()
-
-	return true
-
-# vérifie si les fond necessaire pour la liste sont dans l'inventaire
+# check if can pay from inventory
 func can_pay(shopping_list: Dictionary[String, int]) -> bool:
 	for item in shopping_list:
 		if not _has_fund_for_item(item, shopping_list[item]):
@@ -64,84 +70,45 @@ func can_pay(shopping_list: Dictionary[String, int]) -> bool:
 
 	return true
 
-# current list is not empty
-func has_sacrifice() -> bool:
-	for item in current_list:
-		if current_list[item] > 0:
+# check if there are pending items
+func has_pending_items() -> bool:
+	for item in pending_items:
+		if pending_items[item] > 0:
 			return true
-
-		current_list.erase(item)
-
-	current_list = {}
 
 	return false
 
-func sacrifice_item(item: Item):
-	current_list[Enum.ItemType.find_key(item.item_type)] -= 1
-	item.queue_free()
+# transporter delivered an item
+func complete_pending_item(item_type: String):
+	if not pending_items.has(item_type):
+		return
 
-	if _is_current_list_paid():
-		_queue_start()
+	pending_items[item_type] -= 1
 
-func sacrifice_mask(entity: Entity):
-	current_list[Enum.EntityType.find_key(entity.type)] -= 1
-	entity.queue_free()
+	if pending_items[item_type] <= 0:
+		pending_items.erase(item_type)
 
-	if _is_current_list_paid():
-		_queue_start()
+# # transporter sacrificed a mask
+# func complete_pending_mask(entity_type: String):
+# 	if not pending_items.has(entity_type):
+# 		return
+
+# 	pending_items[entity_type] -= 1
+
+# 	if pending_items[entity_type] <= 0:
+# 		pending_items.erase(entity_type)
 
 #region internal methods
-# put first element of queue in current list
-func _queue_start() -> bool:
-	if not current_list.is_empty(): return false
-	if shopping_lists.is_empty(): return false
+# check if has enough of a given type
+func _has_fund_for_item(type: String, amount: int) -> bool:
+	if _is_item_an_entity(type):
+		return inventory[type].size() >= amount
 
-	current_list = shopping_lists.pop_front()
-	_pay_current_list()
+	return inventory[type] >= amount
 
-	return true
-
-# vérifie si on a les fonds necessaire pour 1 item ou entité
-func _has_fund_for_item(item: String, amount: int) -> bool:
-	if _is_item_an_entity(item):
-		return inventory[item].size() >= amount
-
-	return inventory[item] >= amount
-
-func _is_current_list_paid() -> bool:
-	for item in current_list:
-		if current_list[item] > 0:
-			return false
-		
-		current_list.erase(item)
-
-	return true
-
-# vérifie si l'item est une entité
-func _is_item_an_entity(item: String) -> bool:
-	return entities_keys.has(item)
-
-# enlève les ressources de l'inventaire, et sélectionne les entités à sacrifier
-func _pay_current_list() -> void:
-	_pay_given_list(current_list)
-
-func _pay_given_list(given_list: Dictionary[String, int], instantly: bool = false) -> void:
-	print_debug(given_list)
-	for item in given_list:
-		if _is_item_an_entity(item):
-			# send random entities of given type to sacrifice
-			for i in range(given_list[item]):
-				var rand: int = randi_range(0, inventory[item].size() - 1)
-				var entity: Mask = inventory[item].get(rand)
-				entity.state_machine.change_state_type(State.Type.Sacrifice)
-				inventory[item].erase(entity)
-
-			continue
-
-		inventory[item] -= given_list[item]
-
-		if instantly:
-			given_list.erase(item)
+# check if type is an EntityType
+func _is_item_an_entity(type: String) -> bool:
+	return entities_keys.has(type)
 #endregion
 
 #region signal methods
@@ -184,7 +151,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				"Stone": 2
 			}))
 		if event.keycode == KEY_P:
-			print_debug(add_shopping_list({
+			print_debug(pay_shopping_list({
 				"MaskTransporter": 2
 			}))
 #endregion

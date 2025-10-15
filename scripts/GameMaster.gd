@@ -55,6 +55,6 @@ func _place_spawner() :
 	spawner.position = location_choice
 	spawner.spawner_ded.connect(_spawner_is_ded)
 	add_child(spawner)
-	print_debug(spawner)
+	
 	#self.get_child(0).spawner_ded.connect(_spawner_is_ded)
 #endregion

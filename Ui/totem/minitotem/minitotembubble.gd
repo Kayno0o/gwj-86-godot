@@ -19,14 +19,11 @@ func _on_update_inventory() :
 	#pass
 
 func _on_button_pressed() -> void:
-	if InventoryManager.can_pay(current_price) :
-		InventoryManager.add_shopping_list(current_price)
+	if InventoryManager.pay_shopping_list(current_price):
 		get_parent().spawn()
 		for item in current_price :
 			if current_price[item] != 0 :
 				current_price[item] += 1
-			print_debug("current price : " + str(current_price[item]))
-			print_debug("item : " + item)
 		price_changed.emit()
 
 func _on_price_changed():
