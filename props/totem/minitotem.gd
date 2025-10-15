@@ -29,3 +29,4 @@ func _ready() -> void:
 func spawn() -> void:
 	var mask_instance = mask_to_invok.instantiate()
 	self.add_child(mask_instance)
+	mask_instance.global_position = get_parent().global_position
