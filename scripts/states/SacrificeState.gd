@@ -18,6 +18,8 @@ func enter() -> void:
 
 	tween.finished.connect(_on_tween_finished)
 
+	# TODO drop items (add method to InventoryComponent)
+
 	pass
 
 func exit() -> void:
