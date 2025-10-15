@@ -1,29 +1,32 @@
 extends Control
 
-var current_price : Dictionary
+var current_price : Dictionary[String, int]
 
 signal price_changed()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_parent().get_parent().inventorychanged.connect(_on_inventory_changed)
+	InventoryManager.update_inventory.connect(_on_update_inventory)
 	for ressource in get_parent().main_ressources :
 		if get_parent().main_ressources[ressource] > 0 :
 			current_price.get_or_add(ressource, get_parent().main_ressources[ressource])
 	price_changed.connect(_on_price_changed)
 	price_changed.emit()
 
-func _on_inventory_changed(inventory : Dictionary) :
-	print_debug(inventory)
+func _on_update_inventory() :
 	pass
+	#print_debug(InventoryManager.inventory)
+	#pass
 
 func _on_button_pressed() -> void:
-	if get_parent().get_parent().has_fund_for_list(current_price) :
-		get_parent().get_parent().pay_list(current_price)
+	if InventoryManager.can_pay(current_price) :
+		InventoryManager.add_shopping_list(current_price)
 		get_parent().spawn()
 		for item in current_price :
 			if current_price[item] != 0 :
 				current_price[item] += 1
+			print_debug("current price : " + str(current_price[item]))
+			print_debug("item : " + item)
 		price_changed.emit()
 
 func _on_price_changed():

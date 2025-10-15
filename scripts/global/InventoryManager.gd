@@ -18,7 +18,7 @@ var inventory: Dictionary = {}
 var entities_keys = Enum.EntityType.keys()
 var items_keys = Enum.ItemType.keys()
 
-signal update_inventory
+signal update_inventory()
 
 func init() -> void:
 	for entityType in entities_keys:
@@ -33,7 +33,7 @@ func init() -> void:
 	update_inventory.emit()
 
 # dépose un item dans l'inventaire
-func deposit_item(itemtype: String, amount: int) -> void:
+func deposit_item(itemtype: String, amount: float) -> void:
 	inventory[itemtype] += amount
 	update_inventory.emit()
 
@@ -126,6 +126,7 @@ func _pay_current_list() -> void:
 	_pay_given_list(current_list)
 
 func _pay_given_list(given_list: Dictionary[String, int], instantly: bool = false) -> void:
+	print_debug(given_list)
 	for item in given_list:
 		if _is_item_an_entity(item):
 			# send random entities of given type to sacrifice
@@ -180,7 +181,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not event.pressed: return
 		if event.keycode == KEY_T:
 			print_debug(can_pay({
-				"MaskTransporter": 2
+				"Stone": 2
 			}))
 		if event.keycode == KEY_P:
 			print_debug(add_shopping_list({
