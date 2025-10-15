@@ -23,6 +23,10 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
+func process(_delta: float):
+	# TODO move to fire or move items from totem to fire, and then move to fire
+	return
+
 func move_to_target() -> void:
 	var direction = (totem.global_position - parent.global_position).normalized()
 	parent.velocity = direction * parent.get_movement_speed()

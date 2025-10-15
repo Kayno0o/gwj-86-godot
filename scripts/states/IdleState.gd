@@ -33,6 +33,8 @@ func exit() -> void:
 	wandering_timer.stop()
 
 func process(_delta):
+	# TODO check if inventory has items to be moved
+
 	# target found, move to it
 	if parent.current_target and is_instance_valid(parent.current_target):
 		return State.Type.MoveToTarget
