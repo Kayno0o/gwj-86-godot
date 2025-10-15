@@ -9,4 +9,5 @@ entity_name = "Red Warrior"
 health = 10.0
 
 [node name="Sprite" parent="." index="1"]
+scale = Vector2(1, 1)
 sprite_frames = ExtResource("2_oj8or")

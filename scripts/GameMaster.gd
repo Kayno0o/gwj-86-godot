@@ -7,6 +7,7 @@ extends Node
 #region @Export
 @export var difficulty : int = 1 # Augmente chaque matin
 @export var map_size : Array[Vector2] # connecte chaque point au precedent et le dernier au premier
+@export var day_lenght : float # durée de la journée en SECONDE
 #endregion
 
 #region Signals

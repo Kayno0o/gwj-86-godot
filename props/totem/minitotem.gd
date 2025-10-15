@@ -25,7 +25,6 @@ var mask_name : String
 func _ready() -> void:
 	var mask_instance = mask_to_invok.instantiate()
 	mask_name = Enum.EntityType.find_key(mask_instance.type)
-	print(mask_name + "<<<<<<<<<<------------------ ICI")
 	
 func spawn() -> void:
 	var mask_instance = mask_to_invok.instantiate()

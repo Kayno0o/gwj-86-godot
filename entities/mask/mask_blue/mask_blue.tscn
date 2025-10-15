@@ -8,4 +8,5 @@ type = 3
 entity_name = "Blue Tank"
 
 [node name="Sprite" parent="." index="1"]
+scale = Vector2(1, 1)
 sprite_frames = ExtResource("2_542vy")

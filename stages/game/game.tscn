@@ -175,3 +175,4 @@ position = Vector2(479, 342)
 position = Vector2(246, 306)
 
 [node name="GameMaster" parent="." instance=ExtResource("11_51ysb")]
+day_lenght = 60.0
