@@ -36,7 +36,7 @@ func process(_delta):
 	# target found, move to it
 	if parent.current_target and is_instance_valid(parent.current_target):
 		return State.Type.MoveToTarget
-	
+
 	if should_deposit:
 		return State.Type.DepositItem
 
@@ -45,7 +45,7 @@ func process(_delta):
 		move_to_wandering_spot()
 
 		return
-	
+
 	if wandering_timer.is_stopped():
 		wandering_timer.start(randf_range(parent.wandering_cooldown, parent.wandering_cooldown * 2))
 

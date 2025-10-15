@@ -19,7 +19,7 @@ func enter() -> void:
 
 func exit() -> void:
 	search_timer.stop()
-	
+
 func process(_delta: float):
 	if not parent.current_target or not is_instance_valid(parent.current_target):
 		parent.current_target = null

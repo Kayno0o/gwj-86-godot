@@ -19,7 +19,7 @@ func ready(node: Entity) -> void:
 
 		child.init(parent)
 		states[child.type] = child
-	
+
 	if not init_state:
 		return
 

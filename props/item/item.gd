@@ -20,7 +20,7 @@ func tween_to(target_pos: Vector2, duration: float = 0.5, property: String = "gl
 	tween.tween_property(self, property, target_pos, duration) \
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(Tween.EASE_IN_OUT)
-	
+
 	current_tween = tween
 	current_tween.finished.connect(_on_current_tween_finished)
 
