@@ -27,7 +27,7 @@ func enter() -> void:
 		var target = TargetManager.get_nearest_available_target(parent.global_position, [Enum.TargetType.Totem], parent)
 		if target and TargetManager.start_targeting(target, parent):
 			parent.current_target = target
-	
+
 	if not parent.inventory_component.is_inventory_full():
 		search_timer.start(parent.get_target_search_cooldown())
 
@@ -39,7 +39,7 @@ func process(_delta: float):
 	or parent.inventory_component.is_empty():
 		parent.current_target = null
 		return State.Type.Idle
-	
+
 	# if current target is not totem, we should not be in deposit state
 	if not TargetManager.target_has_type(parent.current_target, Enum.TargetType.Totem):
 		return State.Type.MoveToTarget
@@ -100,10 +100,10 @@ func _on_deposit_timeout():
 
 	var item = parent.inventory_component.pop_item()
 	Utils.reparent_without_moving(item, parent, parent.current_target)
-	
+
 	item.fly_to(parent.current_target.global_position)
 
-	parent.current_target.deposit_item(Enum.ItemType.find_key(item.item_type), 1)
+	InventoryManager.deposit_item(Enum.ItemType.find_key(item.item_type), 1)
 
 	if not parent.inventory_component.is_empty():
 		deposit_timer.start(parent.deposit_speed)
