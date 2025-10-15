@@ -6,6 +6,7 @@ enum Type {
 	Pickup = 2,
 	Attack = 3,
 	DepositItem = 4,
+	Sacrifice = 5,
 }
 
 var parent: Entity
