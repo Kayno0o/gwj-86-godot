@@ -15,6 +15,9 @@
 - [ ] animation d'attaque
 - [ ] particules de mort
 - [ ] transporters
+- [ ] Lacher l'inventaire du masked quand il meurt
+- [ ] Regler le bug "baston + inventaire plein = sais plus ou aller"
+- [ ] Rendre les white mask pacifiste
 
 - [ ] pour payer, les transporteurs doivent transporter les items du totem vers le feu
 

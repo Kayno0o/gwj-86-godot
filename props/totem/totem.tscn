@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=5 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://cuymfckcbvxwr" path="res://props/totem/Crafting_36.png" id="2_v2ani"]
-[ext_resource type="PackedScene" uid="uid://ypvcy411pc06" path="res://props/totem/mini_totem/wood/mini_totem_wood.tscn" id="3_v2ani"]
+[ext_resource type="PackedScene" uid="uid://ypvcy411pc06" path="res://props/totem/mini_totem/mini_totem_wood.tscn" id="3_v2ani"]
+[ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="4_b3en4"]
 
 [node name="Totem" type="Node2D"]
 script = ExtResource("1_7ndw4")
@@ -12,3 +13,11 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_v2ani")
 
 [node name="Minitotem" parent="." instance=ExtResource("3_v2ani")]
+position = Vector2(-157, 53)
+mask_to_invok = ExtResource("4_b3en4")
+main_ressources = {
+"Soul": 0,
+"Stone": 0,
+"Wheat": 0,
+"Wood": 2
+}

@@ -16,6 +16,7 @@ var inventory: Dictionary = {}
 #endregion
 
 #region signal
+signal inventorychanged(inventory : Dictionary)
 #endregion
 
 # Le totem est basiquement l'inventaire.
@@ -30,6 +31,7 @@ var inventory: Dictionary = {}
 func _init() -> void:
 	for itemtype in Enum.ItemType :
 		inventory[itemtype] = 0
+	inventorychanged.emit(inventory)
 
 # Se donne une Target pour le target manager
 func _ready() -> void:
@@ -41,6 +43,7 @@ func _ready() -> void:
 func deposit_item(itemtype: String, amount: int) -> void :
 	print_debug("Added 1 ", itemtype, " to inventory, Well done !")
 	inventory[itemtype] += amount
+	inventorychanged.emit(inventory)
 
 # Mets la liste des "courses" dans la queue
 func add_queue(shopping_list: Dictionary) -> void :
@@ -71,6 +74,12 @@ func queue_remove_and_reboot() -> void :
 # Paye en ressource (Enleve "amount" "itemtype" de l'inventaire
 func pay(itemtype: String, amount: int) -> void :
 	inventory[itemtype] -= amount
+	inventorychanged.emit(inventory)
+
+func pay_list(liste : Dictionary) -> void :
+	for item in liste :
+		inventory[item] -= liste[item]
+	inventorychanged.emit(inventory)
 
 # Verifie si les fond necessaire pour la liste sont dans l'inventaire
 func has_fund_for_list(shopping_list: Dictionary) -> bool :
@@ -99,15 +108,8 @@ func is_item_an_entity(item : String) -> bool :
 #region Outils dev
 func _unhandled_input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_M:
-			var shoplist = {"Wood": 2}
-			if has_fund_for_list(shoplist) :
-				print_debug("Je possede des thunes, je suis a l'aise financierement")
-			else :
-				print_debug("t'es pauvres batard")
-		if event.pressed and event.keycode == KEY_K:
-			inventory["Wood"] += 1
-			print_debug("+1 wood")
 		if event.pressed and event.keycode == KEY_N:
 			print_debug(inventory)
+		if event.pressed and event.keycode == KEY_M:
+			deposit_item("Wood", 1)
 #endregion

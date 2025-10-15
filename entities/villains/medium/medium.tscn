@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfbk8dxxtktpi" path="res://entities/villains/medium/Armor_03.png" id="2_emccu"]
 
 [node name="Villain" instance=ExtResource("1_hkpc8")]
+cost = 60
 health = 10.0
 
 [node name="Sprite" parent="." index="1"]

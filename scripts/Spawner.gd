@@ -40,7 +40,7 @@ func _villain_picker() :
 	for current_villain in villains :
 		var villain_instance = current_villain.instantiate()
 		if spawn_budget > villain_instance.cost :
-			if current_villain == villains[villains.size()- 1] :
+			if current_villain == villains.back() :
 				allowed = spawn_budget / villain_instance.cost
 			else :
 				allowed = randi_range(0, spawn_budget / villain_instance.cost)
