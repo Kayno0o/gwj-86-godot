@@ -7,6 +7,7 @@ var states: Dictionary = {}
 
 func ready(node: Entity) -> void:
 	parent = node
+	parent.tree_exiting.connect(_on_parent_tree_exited)
 
 	var init_state: State = null
 
@@ -53,3 +54,7 @@ func change_state(new_state: State) -> void:
 
 	current_state = new_state
 	new_state.enter()
+
+func _on_parent_tree_exited():
+	if current_state:
+		current_state.exit()
