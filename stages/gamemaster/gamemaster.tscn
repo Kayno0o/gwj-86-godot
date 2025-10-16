@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwy0xgki0ltex"]
+
+[ext_resource type="Script" uid="uid://d1pnuushvfayr" path="res://scripts/GameMaster.gd" id="1_8ji5e"]
+[ext_resource type="Script" uid="uid://dfmfgpth0lafo" path="res://scripts/DayNightCycle.gd" id="2_tdqy3"]
+
+[sub_resource type="Curve" id="Curve_5powy"]
+_limits = [0.0, 1.0, 0.0, 30.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_j6wwd"]
+_limits = [0.0, 1.0, 0.0, 30.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Gradient" id="Gradient_60rri"]
+offsets = PackedFloat32Array(0, 0.38690478, 0.5654762, 1)
+colors = PackedColorArray(0.024774149, 0.5279563, 0.74482995, 1, 0.5187932, 0.5192656, 0.608364, 1, 0.97650987, 0.7617685, 0.744628, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5powy"]
+gradient = SubResource("Gradient_60rri")
+
+[node name="GameMaster" type="Node2D" groups=["Master"]]
+script = ExtResource("1_8ji5e")
+map_size = Array[Vector2]([Vector2(-100, -100), Vector2(1200, -100), Vector2(1200, 700), Vector2(-100, 700)])
+
+[node name="DayNightCycler" type="CanvasModulate" parent="."]
+script = ExtResource("2_tdqy3")
+time_to_switch = 10.0
+time_curve = SubResource("Curve_5powy")
+time_curve_reversed = SubResource("Curve_j6wwd")
+moons = Dictionary[int, GradientTexture1D]({
+0: SubResource("GradientTexture1D_5powy")
+})
+
+[node name="Timer" type="Timer" parent="DayNightCycler"]
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="end_night" from="." to="DayNightCycler" method="_on_game_master_end_night"]
+[connection signal="midnight" from="DayNightCycler" to="." method="_on_day_night_cycler_midnight"]
+[connection signal="timeout" from="DayNightCycler/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DayNightCycler/Timer" to="DayNightCycler" method="_on_timer_timeout"]

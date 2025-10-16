@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnoupnbe0nfrg"]
+
+[ext_resource type="Script" uid="uid://dm8f6c55f85ho" path="res://scripts/Spawner.gd" id="1_h5yvs"]
+[ext_resource type="PackedScene" uid="uid://bawyj38vr3rwc" path="res://entities/villains/strong/strong.tscn" id="2_3la0t"]
+[ext_resource type="PackedScene" uid="uid://ttj4vn1j4dn5" path="res://entities/villains/medium/medium.tscn" id="3_jj44w"]
+[ext_resource type="PackedScene" uid="uid://b5vp204l0464x" path="res://entities/villains/weak/weak.tscn" id="4_0roro"]
+
+[node name="spawner" type="Node2D"]
+script = ExtResource("1_h5yvs")
+villains = Array[PackedScene]([ExtResource("2_3la0t"), ExtResource("3_jj44w"), ExtResource("4_0roro")])
+offset = 50.0
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

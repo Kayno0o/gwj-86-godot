@@ -1,9 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3kkq6puo5mrg"]
+[gd_scene load_steps=6 format=3 uid="uid://d3kkq6puo5mrg"]
 
 [ext_resource type="Script" uid="uid://1ttmpsfgh8hx" path="res://props/totem/minitotem.gd" id="1_cmhrq"]
+[ext_resource type="PackedScene" uid="uid://boaxrcqnla75u" path="res://entities/mask/mask_black/mask_black.tscn" id="2_8f8rj"]
+[ext_resource type="PackedScene" uid="uid://caor0thuoxowv" path="res://Ui/totem/minitotem/minitotembubble.tscn" id="2_jscbx"]
+[ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="3_xnw2e"]
+[ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="4_j55ir"]
 
 [node name="Minitotem" type="Node2D"]
 script = ExtResource("1_cmhrq")
+mask_to_invok = ExtResource("2_8f8rj")
 metadata/_custom_type_script = "uid://1ttmpsfgh8hx"
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 31.000008)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_xnw2e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_j55ir")
+
+[node name="minitotembubble" parent="." instance=ExtResource("2_jscbx")]

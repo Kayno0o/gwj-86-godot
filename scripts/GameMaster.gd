@@ -7,6 +7,7 @@ extends Node
 #region @Export
 @export var difficulty : int = 1 # Augmente chaque matin
 @export var map_size : Array[Vector2] # connecte chaque point au precedent et le dernier au premier
+@export var day_lenght : float # durée de la journée en SECONDE
 #endregion
 
 #region Signals
@@ -50,8 +51,10 @@ func _on_timer_timeout() -> void:
 func _place_spawner() :
 	var rand_choice = randi_range(0, map_size.size() - 1)
 	var location_choice = Vector2(randf_range(map_size[rand_choice].x, map_size[(rand_choice + 1) % 4].x), randf_range(map_size[rand_choice].y, map_size[(rand_choice + 1) % 4].y))
-	var spawner = preload("res://stages/main/spawner.tscn").instantiate()
+	var spawner = preload("uid://cnoupnbe0nfrg").instantiate()
 	spawner.position = location_choice
+	spawner.spawner_ded.connect(_spawner_is_ded)
 	add_child(spawner)
-	self.get_child(0).spawner_ded.connect(_spawner_is_ded)
+	
+	#self.get_child(0).spawner_ded.connect(_spawner_is_ded)
 #endregion

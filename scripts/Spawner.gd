@@ -28,7 +28,6 @@ signal spawner_ded
 # Se connecte a la commande dev pour tout tuer et lance la selection / spawn des villains
 func _ready() -> void:
 	world.kill_villain.connect(_on_game_master_kill_villain)
-	print("we are here")
 	_villain_picker()
 #endregion
 
@@ -40,7 +39,7 @@ func _villain_picker() :
 	for current_villain in villains :
 		var villain_instance = current_villain.instantiate()
 		if spawn_budget > villain_instance.cost :
-			if current_villain == villains[villains.size()- 1] :
+			if current_villain == villains.back() :
 				allowed = spawn_budget / villain_instance.cost
 			else :
 				allowed = randi_range(0, spawn_budget / villain_instance.cost)

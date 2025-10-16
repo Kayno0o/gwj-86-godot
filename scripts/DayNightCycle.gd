@@ -8,10 +8,10 @@ enum MoonType {
 #endregion
 
 #region var
+var day_lenght : float
 #endregion
 
 #region @export
-@export var day_lenght : float = 5.0
 @export var time_to_switch : float
 @export var time_curve : Curve
 @export var time_curve_reversed : Curve
@@ -43,6 +43,7 @@ signal midnight()
 #region _ready / _process
 # Setup la curve, et active le timer pour la durée "day_lenght"
 func _ready() -> void:
+	day_lenght = get_parent().day_lenght
 	time_curve.max_domain = time_to_switch
 	time_curve.add_point(Vector2(time_to_switch, 1),0,0,Curve.TANGENT_FREE,Curve.TANGENT_FREE)
 	time_curve_reversed.max_domain = time_to_switch

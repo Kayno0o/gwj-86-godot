@@ -37,7 +37,6 @@ var current_target: Node2D = null
 }
 
 func _ready() -> void:
-	print(sprite)
 	TargetManager.register_target(self, [target_type])
 	TargetManager.target_removed.connect(_on_target_removed)
 	health_component.death.connect(_on_death)
