@@ -76,6 +76,9 @@ func can_pay(shopping_list: Dictionary[String, int]) -> bool:
 # check if there are pending items
 func has_pending_items() -> bool:
 	for item_type in pending_items:
+		if not pending_items.has(item_type):
+			continue
+
 		if pending_items[item_type] > 0:
 			return true
 		
@@ -85,6 +88,9 @@ func has_pending_items() -> bool:
 
 func get_next_pending_item() -> String:
 	for item_type in pending_items:
+		if not pending_items.has(item_type):
+			continue
+
 		if pending_items[item_type] > 0:
 			return item_type
 		
