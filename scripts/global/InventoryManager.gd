@@ -83,6 +83,14 @@ func has_pending_items() -> bool:
 
 	return false
 
+func get_next_pending_item() -> String:
+	for item_type in pending_items:
+		if pending_items[item_type] > 0:
+			return item_type
+		
+		pending_items.erase(item_type)
+	return ""
+
 # transporter delivered an item
 func complete_pending_item(item_type: String):
 	if not pending_items.has(item_type):
