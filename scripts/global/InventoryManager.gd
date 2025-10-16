@@ -7,6 +7,7 @@ extends Node
 # ( emmener les ressources requise a l'achat ) 
 
 var totem: Totem
+var fire: Fire
 
 # items waiting to be transported
 var pending_items: Dictionary[String, int] = {}

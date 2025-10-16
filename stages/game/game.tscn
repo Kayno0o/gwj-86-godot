@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=15 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="Script" uid="uid://d2fi4g2tmqqkc" path="res://scripts/global/SkillTreeManager.gd" id="2_a5xyx"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
 [ext_resource type="Script" uid="uid://b6lpseqjnwf7c" path="res://stages/game/test_inventory.gd" id="12_3saht"]
 [ext_resource type="PackedScene" uid="uid://bawyj38vr3rwc" path="res://entities/villains/strong/strong.tscn" id="13_5ve2p"]
+[ext_resource type="PackedScene" uid="uid://kchp3v55avod" path="res://props/fire/fire.tscn" id="14_js6n3"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7h61r")
@@ -207,3 +208,6 @@ position = Vector2(640, 1121)
 
 [node name="Villain8" parent="." instance=ExtResource("13_5ve2p")]
 position = Vector2(606, 1117)
+
+[node name="Fire" parent="." instance=ExtResource("14_js6n3")]
+position = Vector2(579, 357)
