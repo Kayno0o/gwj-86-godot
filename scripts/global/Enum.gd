@@ -12,9 +12,9 @@ enum EntityType {
 }
 
 enum ItemType {
-	Wood = 0,
-	Stone = 1,
-	Wheat = 2,
+	Log = 0,
+	Pebble = 1,
+	Cereal = 2,
 	Soul = 3,
 }
 

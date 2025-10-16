@@ -31,26 +31,34 @@ func physics_process(delta: float) -> void:
 		return
 
 	var type = current_state.physics_process(delta)
-	if type != null and states.has(type):
-		change_state(states[type])
+	if type == null: return
+
+	change_state_type(type)
 
 func process(delta: float) -> void:
 	if not current_state:
 		return
 
 	var type = current_state.process(delta)
-	if type != null and states.has(type):
-		change_state(states[type])
+	if type == null: return
+
+	change_state_type(type)
 
 func change_state_type(type: State.Type) -> bool:
-	if type == null or not states.has(type): return false
+	if type == null: return false
+	if not states.has(type):
+		push_error("State %s does not exist" % [State.Type.find_key(type)])
+		return false
 
 	change_state(states[type])
 	return true
 
 func change_state(new_state: State) -> void:
 	if current_state:
+		# print_debug("from state %s to state %s" % [State.Type.find_key(current_state.type), State.Type.find_key(new_state.type)])
 		current_state.exit()
+	# else:
+		# print_debug("to state %s" % [State.Type.find_key(new_state.type)])
 
 	current_state = new_state
 	new_state.enter()

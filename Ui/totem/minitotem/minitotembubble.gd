@@ -17,7 +17,8 @@ func _on_update_inventory() :
 	pass
 
 func _on_button_pressed() -> void:
-	if InventoryManager.pay_shopping_list(current_price):
+	# TODO set to pay_shopping_list(current_price)
+	if InventoryManager.pay_shopping_list(current_price, false):
 		get_parent().spawn()
 		for item in current_price :
 			if current_price[item] != 0 :

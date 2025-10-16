@@ -11,6 +11,10 @@ var fire: Fire
 
 # items waiting to be transported
 var pending_items: Dictionary[String, int] = {}
+# items being transported
+var transfering_items: Dictionary[String, Array] = {}
+
+var current_mask_transfering: Array[Mask] = []
 
 # { [ItemType]: int, [EntityType]: Array[Mask] }
 var inventory: Dictionary = {}
@@ -19,6 +23,7 @@ var entities_keys = Enum.EntityType.keys()
 var items_keys = Enum.ItemType.keys()
 
 signal update_inventory()
+signal has_paid()
 
 func init() -> void:
 	for entityType in entities_keys:
@@ -30,11 +35,6 @@ func init() -> void:
 	TargetManager.target_available.connect(_on_target_available)
 	TargetManager.target_removed.connect(_on_target_removed)
 
-	update_inventory.emit()
-
-# deposit item to inventory
-func deposit_item(type: String, amount: float) -> void:
-	inventory[type] += amount
 	update_inventory.emit()
 
 # instantly pay given shopping list and move items to pending
@@ -50,17 +50,48 @@ func pay_shopping_list(shopping_list: Dictionary[String, int], instantly = true)
 				var entity: Mask = inventory[type].get(rand)
 				entity.state_machine.change_state_type(State.Type.Sacrifice)
 				inventory[type].erase(entity)
+
 			continue
 
-		# remove items from inventory
-		inventory[type] -= shopping_list[type]
+		# remove items from inventory if paying instantly
+		if instantly:
+			inventory[type] -= shopping_list[type]
+
+			continue
 
 		# add to pending
-		if not instantly:
-			if not pending_items.has(type):
-				pending_items[type] = 0
-			pending_items[type] += shopping_list[type]
+		pending_items.get_or_add(type, shopping_list[type])
 
+	update_inventory.emit()
+
+	return true
+
+# deposit item to inventory
+func deposit_item_to_inventory(type: String, amount: int) -> void:
+	inventory[type] += amount
+	update_inventory.emit()
+
+func sacrifice_item_to_fire(type: String, amount: int, mask: Mask) -> bool:
+	if not pending_items.has(type): return false
+	if pending_items.get(type) <= 0:
+		pending_items.erase(type)
+		return false
+
+	pending_items[type] -= amount
+
+	if transfering_items.has(type):
+		transfering_items[type].erase(mask)
+
+	if not has_pending_items():
+		has_paid.emit()
+
+	return true
+
+func get_from_inventory(type: String, amount: int = 1) -> bool:
+	if not inventory.has(type): return false
+	if inventory.get(type) <= 0: return false
+
+	inventory[type] -= amount
 	update_inventory.emit()
 
 	return true
@@ -78,9 +109,6 @@ func can_pay(shopping_list: Dictionary[String, int]) -> bool:
 # check if there are pending items
 func has_pending_items() -> bool:
 	for item_type in pending_items:
-		if not pending_items.has(item_type):
-			continue
-
 		if pending_items[item_type] > 0:
 			return true
 		
@@ -88,32 +116,47 @@ func has_pending_items() -> bool:
 
 	return false
 
-func get_next_pending_item() -> String:
-	for item_type in pending_items:
-		if not pending_items.has(item_type):
-			continue
+func get_item_scene_from_item_type(item_type: String) -> PackedScene:
+	var item_type_lower = item_type.to_lower()
+	var scene_path = "res://props/item/%s/%s.tscn" % [item_type_lower, item_type_lower]
+	return load(scene_path)
 
-		if pending_items[item_type] > 0:
+func get_item_type_to_transfer(mask: Mask):
+	for item_type in pending_items:
+		if not transfering_items.has(item_type):
+			transfering_items.set(item_type, [])
+
+		if pending_items[item_type] - transfering_items[item_type].size() > 0:
+			transfering_items[item_type].push_back(mask)
 			return item_type
-		
-		pending_items.erase(item_type)
-	return ""
+	
+	return null
 
-func get_total_pending_items() -> int:
-	var total: int = 0
+func total_pending_items() -> int:
+	return Utils.iSum(pending_items.values())
+
+func get_current_transfer_capacity(mask: Mask) -> int:
+	return current_mask_transfering.size() * mask.get_inventory_size()
+
+func can_send_new_mask_to_transfer(mask: Mask):
+	return total_pending_items() > get_current_transfer_capacity(mask)
+
+func has_items_to_transfer() -> bool:
 	for item_type in pending_items:
-		total += pending_items[item_type]
-	return total
+		if not transfering_items.get(item_type):
+			transfering_items.set(item_type, [])
 
-# transporter delivered an item
-func complete_pending_item(item_type: String):
-	if not pending_items.has(item_type):
-		return
+		if pending_items[item_type] - transfering_items[item_type].size() > 0:
+			return true
 
-	pending_items[item_type] -= 1
+	return false
 
-	if pending_items[item_type] <= 0:
-		pending_items.erase(item_type)
+func remove_mask_transfering(mask: Mask):
+	for item_type in transfering_items:
+		while transfering_items[item_type].has(mask):
+			transfering_items[item_type].erase(mask)
+
+	current_mask_transfering.erase(mask)
 
 #region internal methods
 # check if has enough of a given type
@@ -153,6 +196,12 @@ func _on_target_removed(target: Node2D):
 	if target is not Mask:
 		return
 
+	for item_type in transfering_items:
+		while transfering_items[item_type].has(target):
+			transfering_items[item_type].erase(target)
+
+	current_mask_transfering.erase(target)
+
 	var entity_type_string = Enum.EntityType.find_key(target.type)
 	if not inventory[entity_type_string].has(target):
 		return
@@ -165,7 +214,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not event.pressed: return
 		if event.keycode == KEY_T:
 			print_debug(can_pay({
-				"Stone": 2
+				"Pebble": 2
 			}))
 		if event.keycode == KEY_P:
 			print_debug(pay_shopping_list({

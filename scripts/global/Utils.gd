@@ -31,3 +31,11 @@ func dictionnary_from_entries(keys: Array, values: Array) -> Dictionary:
 		dict[key] = value
 
 	return dict
+
+func iSum(array: Array[int]) -> int:
+	var total = 0
+
+	for amount in array:
+		total += amount
+
+	return total

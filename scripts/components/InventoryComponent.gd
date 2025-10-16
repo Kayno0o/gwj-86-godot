@@ -1,23 +1,22 @@
 class_name InventoryComponent extends Component
 
-var parent: Node2D
+var parent: Mask
+
+var drop_spread: float
+
 var inventory_node: Node2D
 var inventory: Array[Item] = []
-var inventory_size: int = 0
-var spawn_spread: float
 
 signal inventory_full
 
 func _init(
-	p_parent: Node2D,
-	p_inventory_size: int,
-	p_spawn_spread: float = 16.0,
+	p_parent: Mask,
+	p_drop_spread: float = 16.0,
 ) -> void:
 	type = Component.Type.Inventory
 
 	parent = p_parent
-	inventory_size = p_inventory_size
-	spawn_spread = p_spawn_spread
+	drop_spread = p_drop_spread
 
 func _ready() -> void:
 	inventory_node = Node2D.new()
@@ -30,8 +29,8 @@ func drop_inventory() -> void:
 		TargetManager.register_target(item, [item.target_type])
 
 		var offset = Vector2(
-			randf_range(-spawn_spread, spawn_spread),
-			randf_range(-spawn_spread, spawn_spread),
+			randf_range(-drop_spread, drop_spread),
+			randf_range(-drop_spread, drop_spread),
 		)
 		item.global_position += offset
 
@@ -68,7 +67,7 @@ func pop_item() -> Item:
 	return item
 
 func is_inventory_full() -> bool:
-	return inventory.size() >= inventory_size
+	return inventory.size() >= parent.get_inventory_size()
 
 func is_empty() -> bool:
 	return inventory.is_empty()
