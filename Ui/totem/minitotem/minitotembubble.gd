@@ -1,6 +1,6 @@
 extends Control
 
-var current_price : Dictionary[String, int]
+var current_price: Dictionary[String, int] = {}
 
 signal price_changed()
 
@@ -15,11 +15,9 @@ func _ready() -> void:
 
 func _on_update_inventory() :
 	pass
-	#print_debug(InventoryManager.inventory)
-	#pass
 
 func _on_button_pressed() -> void:
-	if InventoryManager.pay_shopping_list(current_price, true):
+	if InventoryManager.pay_shopping_list(current_price):
 		get_parent().spawn()
 		for item in current_price :
 			if current_price[item] != 0 :

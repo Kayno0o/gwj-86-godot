@@ -37,9 +37,6 @@ func exit() -> void:
 	wandering_timer.stop()
 
 func process(_delta):
-	if parent.type == Enum.EntityType.MaskTransporter and InventoryManager.has_pending_items():
-		return State.Type.Transfer
-
 	# target found, move to it
 	if parent.current_target and is_instance_valid(parent.current_target):
 		return State.Type.MoveToTarget

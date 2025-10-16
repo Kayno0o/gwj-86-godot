@@ -57,6 +57,8 @@ func pay_shopping_list(shopping_list: Dictionary[String, int], instantly = true)
 
 		# add to pending
 		if not instantly:
+			if not pending_items.has(type):
+				pending_items[type] = 0
 			pending_items[type] += shopping_list[type]
 
 	update_inventory.emit()
@@ -97,6 +99,12 @@ func get_next_pending_item() -> String:
 		pending_items.erase(item_type)
 	return ""
 
+func get_total_pending_items() -> int:
+	var total: int = 0
+	for item_type in pending_items:
+		total += pending_items[item_type]
+	return total
+
 # transporter delivered an item
 func complete_pending_item(item_type: String):
 	if not pending_items.has(item_type):
@@ -106,16 +114,6 @@ func complete_pending_item(item_type: String):
 
 	if pending_items[item_type] <= 0:
 		pending_items.erase(item_type)
-
-# # transporter sacrificed a mask
-# func complete_pending_mask(entity_type: String):
-# 	if not pending_items.has(entity_type):
-# 		return
-
-# 	pending_items[entity_type] -= 1
-
-# 	if pending_items[entity_type] <= 0:
-# 		pending_items.erase(entity_type)
 
 #region internal methods
 # check if has enough of a given type

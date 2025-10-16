@@ -7,7 +7,7 @@ enum Type {
 	Attack = 3,
 	DepositItem = 4,
 	Sacrifice = 5,
-	Transfer = 5,
+	Transfer = 6,
 }
 
 var parent: Entity
