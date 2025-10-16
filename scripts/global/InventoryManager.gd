@@ -38,7 +38,7 @@ func deposit_item(type: String, amount: float) -> void:
 	update_inventory.emit()
 
 # instantly pay given shopping list and move items to pending
-func pay_shopping_list(shopping_list: Dictionary[String, int]) -> bool:
+func pay_shopping_list(shopping_list: Dictionary[String, int], instantly = true) -> bool:
 	if shopping_list.is_empty(): return false
 	if not can_pay(shopping_list): return false
 
@@ -51,12 +51,13 @@ func pay_shopping_list(shopping_list: Dictionary[String, int]) -> bool:
 				entity.state_machine.change_state_type(State.Type.Sacrifice)
 				inventory[type].erase(entity)
 			continue
-		else:
-			# remove items from inventory
-			inventory[type] -= shopping_list[type]
+
+		# remove items from inventory
+		inventory[type] -= shopping_list[type]
 
 		# add to pending
-		pending_items[type] += shopping_list[type]
+		if not instantly:
+			pending_items[type] += shopping_list[type]
 
 	update_inventory.emit()
 
