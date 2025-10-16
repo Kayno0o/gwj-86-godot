@@ -18,12 +18,21 @@
 - [x] state saccrifice des mask pour payer une upgrade
 - [ ] les ennemies drop des souls
 - [ ] particules de mort
-- [ ] Regler le bug "baston + inventaire plein = sais plus ou aller"
+
+- [ ] spawner à ressource
 
 - [ ] skill tree (en mode nodes)
-- [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
+- [ ] Hero
+  - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
 
 - [ ] camera
+
+# BUG
+
+- [ ] baston + inventaire plein = sais plus ou aller
+- [ ] spawner `implicit_ready: Invalid type in function 'new' in base 'GDScript'.`
+  - `The Object-derived class of argument 1 (CharacterBody2D (Villain))`
+  - `entity.gd:32, Spawner.gd:50, Spawner.gd:31`
 
 # skill tree
 
