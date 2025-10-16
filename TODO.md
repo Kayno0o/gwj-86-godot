@@ -13,9 +13,9 @@
 - [x] idle trop longtemps -> wandering
 - [X] animation d'attaque
 - [X] transporters
+- [x] Lacher l'inventaire du masked quand il meurt
 - [ ] les ennemies drop des souls
 - [ ] particules de mort
-- [ ] Lacher l'inventaire du masked quand il meurt
 - [ ] Regler le bug "baston + inventaire plein = sais plus ou aller"
 - [ ] Rendre les white mask pacifiste
 
