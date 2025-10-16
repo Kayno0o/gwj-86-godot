@@ -9,7 +9,7 @@ var mask_name : String
 
 #region @export
 @export var mask_to_invok: PackedScene
-@export var top_sprite : Sprite2D
+@export var top_sprite : Texture
 @export var main_ressources = Enum.ItemType
 #endregion
 
@@ -23,6 +23,7 @@ var mask_name : String
 #	$Sprite.texture = top_sprite
 
 func _ready() -> void:
+	$Sprite2D.texture=top_sprite
 	var mask_instance = mask_to_invok.instantiate()
 	mask_name = Enum.EntityType.find_key(mask_instance.type)
 	
