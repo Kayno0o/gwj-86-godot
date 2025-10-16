@@ -65,6 +65,8 @@ func pay_shopping_list(shopping_list: Dictionary[String, int], instantly = true)
 
 # check if can pay from inventory
 func can_pay(shopping_list: Dictionary[String, int]) -> bool:
+	if not pending_items.is_empty(): return false
+
 	for item in shopping_list:
 		if not _has_fund_for_item(item, shopping_list[item]):
 			return false
