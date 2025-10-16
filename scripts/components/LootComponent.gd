@@ -31,5 +31,3 @@ func spawn_loot(at_position: Vector2, parent: Node) -> bool:
 		parent.add_child(loot_instance)
 
 	return true
-
-# TODO add a method to drop items
