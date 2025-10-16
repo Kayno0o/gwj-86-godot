@@ -21,11 +21,13 @@
 
 - [ ] spawner à ressource
 
+- [ ] camera
+
 - [ ] skill tree (en mode nodes)
 - [ ] Hero
   - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
-
-- [ ] camera
+  - [ ] le hero peut changer de masque pour changer de rôle principal
+  - [ ] le hero respawn 15 secondes après sa mort
 
 # BUG
 
