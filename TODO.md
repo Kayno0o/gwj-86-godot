@@ -11,10 +11,10 @@
 - [X] mask gris récolte la pierre
 - [X] mask orange récolte le blé
 - [x] idle trop longtemps -> wandering
+- [X] animation d'attaque
+- [X] transporters
 - [ ] les ennemies drop des souls
-- [ ] animation d'attaque
 - [ ] particules de mort
-- [ ] transporters
 - [ ] Lacher l'inventaire du masked quand il meurt
 - [ ] Regler le bug "baston + inventaire plein = sais plus ou aller"
 - [ ] Rendre les white mask pacifiste
