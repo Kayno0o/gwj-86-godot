@@ -27,6 +27,7 @@ func _ready() -> void:
 func drop_inventory() -> void:
 	for item in inventory:
 		Utils.reparent_without_moving(item, inventory_node, parent.get_parent())
+		TargetManager.register_target(item, [item.target_type])
 
 		var offset = Vector2(
 			randf_range(-spawn_spread, spawn_spread),
