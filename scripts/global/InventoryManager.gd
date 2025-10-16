@@ -26,7 +26,6 @@ func init() -> void:
 
 	for itemType in items_keys:
 		inventory[itemType] = 0
-		pending_items[itemType] = 0
 
 	TargetManager.target_available.connect(_on_target_available)
 	TargetManager.target_removed.connect(_on_target_removed)
@@ -66,7 +65,7 @@ func pay_shopping_list(shopping_list: Dictionary[String, int], instantly = true)
 
 # check if can pay from inventory
 func can_pay(shopping_list: Dictionary[String, int]) -> bool:
-	if not pending_items.is_empty(): return false
+	if has_pending_items(): return false
 
 	for item in shopping_list:
 		if not _has_fund_for_item(item, shopping_list[item]):
@@ -76,9 +75,11 @@ func can_pay(shopping_list: Dictionary[String, int]) -> bool:
 
 # check if there are pending items
 func has_pending_items() -> bool:
-	for item in pending_items:
-		if pending_items[item] > 0:
+	for item_type in pending_items:
+		if pending_items[item_type] > 0:
 			return true
+		
+		pending_items.erase(item_type)
 
 	return false
 
