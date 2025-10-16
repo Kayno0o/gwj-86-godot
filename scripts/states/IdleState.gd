@@ -28,6 +28,10 @@ func enter() -> void:
 
 	wandering_spot = Vector2.ZERO
 
+	if parent.current_target and is_instance_valid(parent.current_target):
+		TargetManager.stop_targeting(parent.current_target, parent)
+		parent.current_target = null
+
 func exit() -> void:
 	search_timer.stop()
 	wandering_timer.stop()
