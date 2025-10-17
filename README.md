@@ -1,5 +1,7 @@
 # Documentation
 
+https://kayno0o.github.io/gwj-86-godot/GWJ86.html
+
 ## Organization des scripts
 
 ### Variables
