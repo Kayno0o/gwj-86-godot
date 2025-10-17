@@ -1,0 +1,62 @@
+name: Export Game
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  export_game:
+    runs-on: debian
+    name: Export Game
+    steps:
+      - name: Install dependencies
+        run: apt-get update && apt-get install -y unzip git wget p7zip-full
+
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: export game
+        id: export
+        uses: firebelley/godot-export@v7.0.0
+        with:
+          godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.5-stable/Godot_v4.5-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.5-stable/Godot_v4.5-stable_export_templates.tpz
+          relative_project_path: ./
+          presets_to_export: "Windows Desktop,Linux,macOS,Web"
+          archive_output: true
+
+      - name: Deploy to gitea-pages branch
+        run: |
+          # Copy only the Web export
+          mkdir -p deploy
+          cp -r /root/.local/share/godot/builds/Web/* deploy/
+          
+          ls -la deploy
+          
+          cd deploy
+          git init
+          git config user.name "gitea"
+          git config user.email "gitea+noreply@kevyn.fr"
+          git checkout -b gitea-pages
+          git add -A
+          git commit -m "Deploy to gitea-pages"
+          git remote add origin http://server:3000/${{ github.repository }}.git
+          git -c http.extraheader="Authorization: token ${{ secrets.GITHUB_TOKEN }}" push -f origin gitea-pages
+
+      - name: Generate changelog
+        run: bun x @kaynooo/changelogitea@latest \
+          --assets '/root/.local/share/godot/archives/*.zip'
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

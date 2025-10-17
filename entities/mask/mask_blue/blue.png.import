@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://rvbs8w81rmnn"
 path.bptc="res://.godot/imported/blue.png-117e8bdb1881defadca0b64f527288d0.bptc.ctex"
+path.astc="res://.godot/imported/blue.png-117e8bdb1881defadca0b64f527288d0.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://entities/mask/mask_blue/blue.png"
-dest_files=["res://.godot/imported/blue.png-117e8bdb1881defadca0b64f527288d0.bptc.ctex"]
+dest_files=["res://.godot/imported/blue.png-117e8bdb1881defadca0b64f527288d0.bptc.ctex", "res://.godot/imported/blue.png-117e8bdb1881defadca0b64f527288d0.astc.ctex"]
 
 [params]
 

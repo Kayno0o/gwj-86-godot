@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://caipea0ynvebi"
 path.bptc="res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.bptc.ctex"
+path.astc="res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://entities/mask/mask_green/feuille_verte.png"
-dest_files=["res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.bptc.ctex"]
+dest_files=["res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.bptc.ctex", "res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.astc.ctex"]
 
 [params]
 

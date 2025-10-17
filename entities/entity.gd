@@ -37,19 +37,10 @@ var current_target: Node2D = null
 }
 
 func _ready() -> void:
-	print(sprite)
 	TargetManager.register_target(self, [target_type])
 	TargetManager.target_removed.connect(_on_target_removed)
-	health_component.death.connect(on_death)
+	health_component.death.connect(_on_death)
 	inventory_component._ready()
-
-func on_death():
-	TargetManager.unregister_target(self, [target_type])
-	queue_free()
-
-func _on_target_removed(target: Node) -> void:
-	if current_target == target:
-		current_target = null
 
 func find_closer_target() -> Node:
 	var priorities_group = Enum.get_target_priorities(type)
@@ -107,3 +98,12 @@ func get_attack_range() -> float:
 	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.AttackRange, attack_range)
 func get_attack_view_distance() -> float:
 	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.AttackViewDistance, attack_view_distance)
+
+func _on_death():
+	TargetManager.unregister_target(self, [target_type])
+	inventory_component.drop_inventory()
+	queue_free()
+
+func _on_target_removed(target: Node) -> void:
+	if current_target == target:
+		current_target = null

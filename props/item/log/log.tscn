@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfhwvj28jnhvo"]
+[gd_scene load_steps=2 format=3 uid="uid://bfhwvj28jnhvo"]
 
 [ext_resource type="PackedScene" uid="uid://dojasoijlk7mr" path="res://props/item/item.tscn" id="1_xr5kf"]
-[ext_resource type="Texture2D" uid="uid://0uftp8mpwgxn" path="res://props/item/log/Crafting_86.png" id="2_ao4c6"]
 
 [node name="Item" instance=ExtResource("1_xr5kf")]
 
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("2_ao4c6")
+[node name="Sprite2D" parent="." index="0"]
+frame = 1

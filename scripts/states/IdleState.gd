@@ -8,7 +8,6 @@ var wandering_spot: Vector2 = Vector2.ZERO
 
 func init(p_parent: Entity) -> void:
 	type = State.Type.Idle
-
 	super.init(p_parent)
 
 	search_timer = Timer.new()
@@ -22,13 +21,16 @@ func init(p_parent: Entity) -> void:
 	add_child(wandering_timer)
 
 func enter() -> void:
-	print("enter idle")
 	search_timer.start(parent.get_target_search_cooldown())
 
 	parent.velocity = Vector2.ZERO
 	should_deposit = false
 
 	wandering_spot = Vector2.ZERO
+
+	if parent.current_target and is_instance_valid(parent.current_target):
+		TargetManager.stop_targeting(parent.current_target, parent)
+		parent.current_target = null
 
 func exit() -> void:
 	search_timer.stop()
@@ -38,7 +40,7 @@ func process(_delta):
 	# target found, move to it
 	if parent.current_target and is_instance_valid(parent.current_target):
 		return State.Type.MoveToTarget
-	
+
 	if should_deposit:
 		return State.Type.DepositItem
 
@@ -47,11 +49,17 @@ func process(_delta):
 		move_to_wandering_spot()
 
 		return
-	
+
 	if wandering_timer.is_stopped():
 		wandering_timer.start(randf_range(parent.wandering_cooldown, parent.wandering_cooldown * 2))
 
 func search_target() -> void:
+	# if transporter and can send new mask to transfer
+	if parent.type == Enum.EntityType.MaskTransporter \
+	and InventoryManager.can_send_new_mask_to_transfer(parent):
+		print_debug(change_state_type(State.Type.Transfer))
+		return
+
 	var new_target = parent.find_closer_target()
 
 	if new_target:

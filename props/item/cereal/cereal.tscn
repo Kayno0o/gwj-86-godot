@@ -1,10 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://4a50rab01vp2"]
+[gd_scene load_steps=2 format=3 uid="uid://4a50rab01vp2"]
 
 [ext_resource type="PackedScene" uid="uid://dojasoijlk7mr" path="res://props/item/item.tscn" id="1_04y6n"]
-[ext_resource type="Texture2D" uid="uid://bm0bet1e1muxj" path="res://props/item/cereal/cereal.png" id="2_dwp8u"]
 
 [node name="cereal" instance=ExtResource("1_04y6n")]
 item_type = 2
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_dwp8u")
+frame = 2

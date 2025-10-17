@@ -21,6 +21,7 @@ Utils="*res://scripts/global/Utils.gd"
 TargetManager="*res://scripts/global/TargetManager.gd"
 Enum="*res://scripts/global/Enum.gd"
 SkillTreeManager="*res://scripts/global/SkillTreeManager.gd"
+InventoryManager="*res://scripts/global/InventoryManager.gd"
 
 [layer_names]
 
@@ -31,3 +32,4 @@ SkillTreeManager="*res://scripts/global/SkillTreeManager.gd"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
