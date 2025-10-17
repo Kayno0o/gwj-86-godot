@@ -1,6 +1,7 @@
 # Kaynooo
 
 - [x] refactor/simplify and document state machine
+- [ ] skill tree
 
 # Pediluve EN URGENCE
 
@@ -23,13 +24,11 @@
 - [X] pour payer, les transporteurs doivent transporter les items du totem vers le feu
 - [x] state saccrifice des mask pour payer une upgrade
 - [ ] les ennemies drop des souls
-- [ ] particules de mort
 
 - [ ] spawner à ressource
 
 - [ ] camera
 
-- [ ] skill tree (en mode nodes)
 - [ ] Hero
   - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
   - [ ] le hero peut changer de masque pour changer de rôle principal
@@ -51,6 +50,13 @@
 
 - [ ] Rendre les white mask pacifiste
 - [ ] les unités se heal pendant la journée
+
+# QoL bien a avoir mais pas nécessaire
+
+- [ ] particules de mort
+- [ ] animations sur les resources qui se font taper
+- [ ] particules sur les resources qui se font taper
+- [ ] animations sur les masks quand il bougent
 
 # Later
 
