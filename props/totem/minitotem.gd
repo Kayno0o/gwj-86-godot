@@ -23,7 +23,7 @@ var mask_name : String
 #	$Sprite.texture = top_sprite
 
 func _ready() -> void:
-	$Sprite2D.texture=top_sprite
+	$Minitoteminteractable.get_node("totemheadsprite").texture = top_sprite
 	var mask_instance = mask_to_invok.instantiate()
 	mask_name = Enum.EntityType.find_key(mask_instance.type)
 	

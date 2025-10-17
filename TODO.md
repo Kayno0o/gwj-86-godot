@@ -2,6 +2,12 @@
 
 - [x] refactor/simplify and document state machine
 
+# Pediluve EN URGENCE
+
+- [ ] Refactor spawner : faire spawn en dehors de la zone de jeux (path2D ou Area2D) / mettre un effet de brouillard là ou ça peut spawn
+- [ ] Parler à kaynoo a propos d'une state "bodygard" pour les attaquant : ils choisisse un masqué random qu'ils decide de garder, les tank eux reste a coté du totem pour tank et tempo. ça permet au attaquant de pouvoir defendre (oui) les unités et evite qu'ils glande h24 au totem avec les tank
+
+
 # Global
 
 - [x] animation de la récolte d'item

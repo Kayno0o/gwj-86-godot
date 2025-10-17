@@ -20,11 +20,12 @@
 script = ExtResource("1_7ndw4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
+position = Vector2(-22, -1124)
+scale = Vector2(50, 50)
 texture = ExtResource("2_v2ani")
 
 [node name="pinktotem" parent="." instance=ExtResource("3_v2ani")]
-position = Vector2(-80, 275)
+position = Vector2(-450, 550)
 mask_to_invok = ExtResource("4_b3en4")
 top_sprite = ExtResource("5_x5o6e")
 main_ressources = {
@@ -35,7 +36,7 @@ main_ressources = {
 }
 
 [node name="redtotem" parent="." instance=ExtResource("5_xabt0")]
-position = Vector2(80, 275)
+position = Vector2(600, -800)
 mask_to_invok = ExtResource("6_k4i2k")
 top_sprite = ExtResource("8_q76w8")
 main_ressources = {
@@ -46,7 +47,7 @@ main_ressources = {
 }
 
 [node name="orangetotem" parent="." instance=ExtResource("5_xabt0")]
-position = Vector2(-220, 150)
+position = Vector2(-1000, -200)
 mask_to_invok = ExtResource("7_k4i2k")
 top_sprite = ExtResource("10_waqct")
 main_ressources = {
@@ -57,7 +58,7 @@ main_ressources = {
 }
 
 [node name="greentotem" parent="." instance=ExtResource("5_xabt0")]
-position = Vector2(220, 150)
+position = Vector2(450, 550)
 mask_to_invok = ExtResource("8_h5uus")
 top_sprite = ExtResource("12_42wbl")
 main_ressources = {
@@ -68,7 +69,7 @@ main_ressources = {
 }
 
 [node name="bluetotem" parent="." instance=ExtResource("5_xabt0")]
-position = Vector2(120, 10)
+position = Vector2(-600, -800)
 mask_to_invok = ExtResource("9_a0348")
 top_sprite = ExtResource("14_tbapd")
 main_ressources = {
@@ -79,7 +80,7 @@ main_ressources = {
 }
 
 [node name="blacktotem" parent="." instance=ExtResource("5_xabt0")]
-position = Vector2(-120, 10)
+position = Vector2(1000, -200)
 top_sprite = ExtResource("16_yjcm3")
 main_ressources = {
 "Soul": 0,

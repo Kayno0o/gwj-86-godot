@@ -1,19 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=6 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="Script" uid="uid://d2fi4g2tmqqkc" path="res://scripts/global/SkillTreeManager.gd" id="2_a5xyx"]
-[ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="3_navwl"]
-[ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
-[ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="4_mqy30"]
-[ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="5_navwl"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
-[ext_resource type="PackedScene" uid="uid://boaxrcqnla75u" path="res://entities/mask/mask_black/mask_black.tscn" id="8_w77vm"]
-[ext_resource type="PackedScene" uid="uid://c0x6jgtd4wswl" path="res://entities/mask/mask_orange/mask_orange.tscn" id="9_51ysb"]
-[ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="10_w77vm"]
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
 [ext_resource type="Script" uid="uid://b6lpseqjnwf7c" path="res://stages/game/test_inventory.gd" id="12_3saht"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(-8, -1620)
 script = ExtResource("1_7h61r")
 
 [node name="Node" type="Node" parent="."]
@@ -21,159 +15,12 @@ script = ExtResource("2_a5xyx")
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Tree2" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(912, 498)
-
-[node name="Tree3" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(1005, 498)
-
-[node name="wheat" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(153, 87)
-
-[node name="rock" parent="Objects" instance=ExtResource("5_navwl")]
-position = Vector2(150, 481)
-
-[node name="rock2" parent="Objects" instance=ExtResource("5_navwl")]
-position = Vector2(98, 501)
-
-[node name="rock3" parent="Objects" instance=ExtResource("5_navwl")]
-position = Vector2(116, 558)
-
-[node name="wheat2" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(189, 72)
-
-[node name="wheat3" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(157, 48)
-
-[node name="wheat4" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(119, 57)
-
-[node name="Tree4" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(963, 533)
-
-[node name="Tree5" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(881, 533)
-
-[node name="wheat5" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(174, 91)
-
-[node name="wheat6" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(210, 76)
-
-[node name="wheat7" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(178, 52)
-
-[node name="wheat8" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(140, 61)
-
-[node name="wheat9" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(198, 96)
-
-[node name="wheat10" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(234, 81)
-
-[node name="wheat11" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(202, 57)
-
-[node name="wheat12" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(164, 66)
-
-[node name="wheat13" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(219, 100)
-
-[node name="wheat14" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(255, 85)
-
-[node name="wheat15" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(223, 61)
-
-[node name="wheat16" parent="Objects" instance=ExtResource("4_mqy30")]
-position = Vector2(185, 70)
-
-[node name="Tree6" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(1002, 531)
-
-[node name="Tree7" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(940, 543)
-
-[node name="Tree8" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(916, 560)
-
-[node name="Tree9" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(997, 606)
-
-[node name="Tree10" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(809, 556)
-
-[node name="Tree11" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(884, 498)
-
-[node name="Tree12" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(883, 570)
-
-[node name="Tree13" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(961, 568)
-
-[node name="Tree14" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(919, 520)
-
-[node name="Tree15" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(1000, 571)
-
-[node name="Tree16" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(952, 599)
-
-[node name="Tree17" parent="Objects" instance=ExtResource("3_navwl")]
-position = Vector2(914, 595)
-
-[node name="rock4" parent="Objects" instance=ExtResource("5_navwl")]
-position = Vector2(133, 522)
-
-[node name="rock5" parent="Objects" instance=ExtResource("5_navwl")]
-position = Vector2(81, 542)
-
-[node name="rock6" parent="Objects" instance=ExtResource("5_navwl")]
-position = Vector2(99, 599)
-
-[node name="rock7" parent="Objects" instance=ExtResource("5_navwl")]
-position = Vector2(162, 572)
-
 [node name="Characters" type="Node2D" parent="."]
-
-[node name="MaskGreen2" parent="Characters" instance=ExtResource("4_lfrn8")]
-position = Vector2(566, 477)
-
-[node name="mask_black" parent="Characters" instance=ExtResource("8_w77vm")]
-position = Vector2(299, 277)
-
-[node name="Mask White" parent="Characters" instance=ExtResource("10_w77vm")]
-position = Vector2(642, 404)
-
-[node name="Mask_orange" parent="Characters" instance=ExtResource("9_51ysb")]
-position = Vector2(569, 189)
-
-[node name="Mask White2" parent="Characters" instance=ExtResource("10_w77vm")]
-position = Vector2(532, 403)
-
-[node name="Mask White3" parent="Characters" instance=ExtResource("10_w77vm")]
-position = Vector2(618, 206)
-
-[node name="Mask White4" parent="Characters" instance=ExtResource("10_w77vm")]
-position = Vector2(508, 205)
-
-[node name="Mask White5" parent="Characters" instance=ExtResource("10_w77vm")]
-position = Vector2(390, 218)
-
-[node name="Mask White6" parent="Characters" instance=ExtResource("10_w77vm")]
-position = Vector2(367, 339)
 
 [node name="Villains" type="Node" parent="."]
 
 [node name="Totem" parent="." instance=ExtResource("6_rsoik")]
-position = Vector2(567, 211)
-
-[node name="rock2" parent="." instance=ExtResource("5_navwl")]
-position = Vector2(179, 531)
+position = Vector2(5, -6)
 
 [node name="GameMaster" parent="." instance=ExtResource("11_51ysb")]
 day_lenght = 60.0
@@ -182,3 +29,7 @@ day_lenght = 60.0
 offset_right = 185.0
 offset_bottom = 107.0
 script = ExtResource("12_3saht")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.2, 0.2)
