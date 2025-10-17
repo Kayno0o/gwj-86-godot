@@ -33,12 +33,6 @@ jobs:
           presets_to_export: "Windows Desktop,Linux,macOS"
           archive_output: true
 
-      - name: upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: builds
-          path: ${{ steps.export.outputs.archive_directory }}
-
       - name: Deploy to gitea-pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:
