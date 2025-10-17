@@ -1,16 +1,10 @@
 .PHONY: major minor patch
 
-patch: # v0.0.X
-	npm version patch
-	git push
-	git push --tags
+patch:
+	bun version patch && git push --follow-tags
 
-minor: # v0.X.0
-	npm version minor
-	git push
-	git push --tags
+minor:
+	bun version minor && git push --follow-tags
 
-major: # vX.0.0
-	npm version major
-	git push
-	git push --tags
+major:
+	bun version major && git push --follow-tags
