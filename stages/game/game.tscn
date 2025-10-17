@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=14 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="Script" uid="uid://d2fi4g2tmqqkc" path="res://scripts/global/SkillTreeManager.gd" id="2_a5xyx"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="4_mqy30"]
 [ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="5_navwl"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
+[ext_resource type="PackedScene" uid="uid://boaxrcqnla75u" path="res://entities/mask/mask_black/mask_black.tscn" id="8_w77vm"]
+[ext_resource type="PackedScene" uid="uid://c0x6jgtd4wswl" path="res://entities/mask/mask_orange/mask_orange.tscn" id="9_51ysb"]
 [ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="10_w77vm"]
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
 [ext_resource type="Script" uid="uid://b6lpseqjnwf7c" path="res://stages/game/test_inventory.gd" id="12_3saht"]
@@ -32,7 +34,7 @@ position = Vector2(30.000004, -33.99997)
 position = Vector2(5, -6)
 
 [node name="GameMaster" parent="." instance=ExtResource("11_51ysb")]
-day_lenght = 60.0
+day_lenght = 180.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 185.0
@@ -244,4 +246,34 @@ position = Vector2(-121.999985, 1223)
 position = Vector2(189, 1201)
 
 [node name="MaskGreen" parent="." instance=ExtResource("4_lfrn8")]
-position = Vector2(698.9999, 1089)
+position = Vector2(-915.99976, 649)
+
+[node name="MaskGreen2" parent="." instance=ExtResource("4_lfrn8")]
+position = Vector2(-1068, 545)
+
+[node name="MaskGreen3" parent="." instance=ExtResource("4_lfrn8")]
+position = Vector2(-750, 808)
+
+[node name="Mask Black" parent="." instance=ExtResource("8_w77vm")]
+position = Vector2(-1349, 245)
+
+[node name="Mask Black2" parent="." instance=ExtResource("8_w77vm")]
+position = Vector2(-1380, 453)
+
+[node name="Mask White" parent="." instance=ExtResource("10_w77vm")]
+position = Vector2(-444, 56)
+
+[node name="Mask White2" parent="." instance=ExtResource("10_w77vm")]
+position = Vector2(-377, -244)
+
+[node name="Mask White3" parent="." instance=ExtResource("10_w77vm")]
+position = Vector2(-652, -115)
+
+[node name="Mask_orange" parent="." instance=ExtResource("9_51ysb")]
+position = Vector2(64, 521)
+
+[node name="Mask_orange2" parent="." instance=ExtResource("9_51ysb")]
+position = Vector2(620, 1365)
+
+[node name="Mask_orange3" parent="." instance=ExtResource("9_51ysb")]
+position = Vector2(-358, 1279)
