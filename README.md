@@ -32,3 +32,8 @@ https://bun.sh
 `bun pm version patch && git push --follow-tags`
 
 t'attends 5 minutes, et logiquement c'est sur github
+
+ça fonctionne avec `patch`, `minor`, `major`
+- **patch** : `v0.0.X` = fix de bugs
+- **minor** : `v0.X.0` = ajouts mineurs
+- **major** : `vX.0.0` = gros changements
