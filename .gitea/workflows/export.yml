@@ -33,25 +33,31 @@ jobs:
           godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.5-stable/Godot_v4.5-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.5-stable/Godot_v4.5-stable_export_templates.tpz
           relative_project_path: ./
-          presets_to_export: "Windows Desktop,Linux,macOS"
+          presets_to_export: "Windows Desktop,Linux,macOS,Web"
           archive_output: true
 
       - name: Deploy to gitea-pages branch
         run: |
-          cd exports
+          # Copy only the Web export
+          mkdir -p deploy
+          cp -r /root/.local/share/godot/builds/Web/* deploy/
+          
+          ls -la deploy
+          
+          cd deploy
           git init
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "gitea"
+          git config user.email "gitea+noreply@kevyn.fr"
           git checkout -b gitea-pages
           git add -A
           git commit -m "Deploy to gitea-pages"
-          git remote add origin http://gitea-runner:${{ secrets.GITHUB_TOKEN }}@server:3000/${{ github.repository }}.git
-          git push -f origin gitea-pages
+          git remote add origin http://server:3000/${{ github.repository }}.git
+          git -c http.extraheader="Authorization: token ${{ secrets.GITHUB_TOKEN }}" push -f origin gitea-pages
 
       - name: Generate changelog
-        run: bun x @kaynooo/changelogitea@latest\
-          "exports/GWJ86.exe" \
-          "exports/GWJ86.x86_64" \
-          "exports/GWJ86.zip"
+        run: bun x @kaynooo/changelogitea@latest \
+          "/root/.local/share/godot/archives/Windows Desktop.zip" \
+          "/root/.local/share/godot/archives/Linux.zip" \
+          "/root/.local/share/godot/archives/macOS.zip"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
