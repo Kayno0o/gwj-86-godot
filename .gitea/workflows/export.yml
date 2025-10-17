@@ -57,8 +57,6 @@ jobs:
 
       - name: Generate changelog
         run: bun x @kaynooo/changelogitea@latest \
-          "/root/.local/share/godot/archives/Windows Desktop.zip" \
-          "/root/.local/share/godot/archives/Linux.zip" \
-          "/root/.local/share/godot/archives/macOS.zip"
+          --assets '/root/.local/share/godot/archives/*.zip'
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
