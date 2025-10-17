@@ -37,13 +37,16 @@ jobs:
           archive_output: true
 
       - name: Deploy to gitea-pages branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./exports
-          publish_branch: gitea-pages
-          force_orphan: true
-          repository_url: http://server:3000/${{ github.repository }}.git
+        run: |
+          cd exports
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b gitea-pages
+          git add -A
+          git commit -m "Deploy to gitea-pages"
+          git remote add origin http://gitea-runner:${{ secrets.GITHUB_TOKEN }}@server:3000/${{ github.repository }}.git
+          git push -f origin gitea-pages
 
       - name: Generate changelog
         run: bun x @kaynooo/changelogitea@latest\
