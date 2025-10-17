@@ -2,6 +2,7 @@
 name: Export Game
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
