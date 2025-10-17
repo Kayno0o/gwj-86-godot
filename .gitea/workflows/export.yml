@@ -13,7 +13,7 @@ jobs:
     name: Export Game
     steps:
       - name: Install dependencies
-        run: apt-get update && apt-get install -y unzip git
+        run: apt-get update && apt-get install -y unzip git wget
 
       - name: checkout
         uses: actions/checkout@v4
