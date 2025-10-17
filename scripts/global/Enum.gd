@@ -12,9 +12,9 @@ enum EntityType {
 }
 
 enum ItemType {
-	Wood = 0,
-	Stone = 1,
-	Wheat = 2,
+	Log = 0,
+	Pebble = 1,
+	Cereal = 2,
 	Soul = 3,
 }
 
@@ -31,9 +31,6 @@ enum TargetType {
 
 	Totem = 30,
 }
-
-var ongoing_shopping_list : Array[Dictionary] # Array of Dictionnary full of Enums, it counts
-var current_shopping_list : Dictionary
 
 ## highest to lowest priority
 const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {

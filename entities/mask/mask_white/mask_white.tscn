@@ -23,4 +23,5 @@ target_search_cooldown = 1.5
 movement_speed = 100.0
 
 [node name="Sprite" parent="." index="1"]
+z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_u5r2y")

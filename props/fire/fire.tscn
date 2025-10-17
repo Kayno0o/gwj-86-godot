@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://kchp3v55avod"]
+
+[ext_resource type="Script" uid="uid://cqhyds4fvv6u1" path="res://props/fire/fire.gd" id="1_k8na8"]
+[ext_resource type="Texture2D" uid="uid://dow08o5o8bdkl" path="res://props/fire/Crafting_115.png" id="2_r5bdi"]
+[ext_resource type="Script" uid="uid://dpexeggwth04v" path="res://Ui/entitiespriteordering.gd" id="3_rabt4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rabt4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r5bdi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Fire" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_k8na8")
+metadata/_custom_type_script = "uid://cqhyds4fvv6u1"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_rabt4")
+script = ExtResource("3_rabt4")

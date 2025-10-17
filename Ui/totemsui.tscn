@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvakw6a2jrrkk"]
+
+[ext_resource type="Script" uid="uid://brvm4qh13ec6j" path="res://Ui/totemsui.gd" id="1_tb57d"]
+[ext_resource type="PackedScene" uid="uid://caor0thuoxowv" path="res://Ui/totem/minitotem/minitotembubble.tscn" id="2_fkwk8"]
+
+[node name="Window" type="Window"]
+oversampling_override = 1.0
+unresizable = true
+unfocusable = true
+script = ExtResource("1_tb57d")
+
+[node name="minitotembubble" parent="." instance=ExtResource("2_fkwk8")]
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

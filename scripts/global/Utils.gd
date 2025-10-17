@@ -21,3 +21,21 @@ func reparent_without_moving(child: Node2D, parent: Node2D, target: Node2D) -> v
 	target.add_child(child)
 
 	child.position += parent.global_position - target.global_position
+
+func dictionnary_from_entries(keys: Array, values: Array) -> Dictionary:
+	var dict: Dictionary = {}
+
+	for i in range(keys):
+		var key = keys[i]
+		var value = values[i]
+		dict[key] = value
+
+	return dict
+
+func iSum(array: Array[int]) -> int:
+	var total = 0
+
+	for amount in array:
+		total += amount
+
+	return total
