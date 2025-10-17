@@ -8,12 +8,12 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_close_requested() -> void:
 	self.queue_free()
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	pass

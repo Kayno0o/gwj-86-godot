@@ -1,13 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0x6jgtd4wswl"]
+[gd_scene load_steps=7 format=3 uid="uid://c0x6jgtd4wswl"]
 
 [ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_dqggb"]
-[ext_resource type="Texture2D" uid="uid://c68b44hibn641" path="res://entities/mask/mask_orange/mask_orange.png" id="2_jdvhr"]
+[ext_resource type="Texture2D" uid="uid://dt1mnshf7d8j6" path="res://entities/mask/mask_orange/masque_recolte.png" id="2_jdvhr"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_i6mqx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdvhr"]
+atlas = ExtResource("2_jdvhr")
+region = Rect2(0, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6mqx"]
+atlas = ExtResource("2_jdvhr")
+region = Rect2(333, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_062no"]
+atlas = ExtResource("2_jdvhr")
+region = Rect2(666, 0, 333, 455)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bb2a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_jdvhr")
+"texture": SubResource("AtlasTexture_jdvhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6mqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_062no")
 }],
 "loop": true,
 "name": &"default",
@@ -19,5 +37,7 @@ type = 4
 entity_name = "Orange Farmer"
 
 [node name="Sprite" parent="." index="1"]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_i6mqx")
+position = Vector2(-80, 305)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_3bb2a")
+offset = Vector2(40, -152.5)

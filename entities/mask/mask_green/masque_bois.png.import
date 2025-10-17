@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcvrghbmc03xh"
-path="res://.godot/imported/Armor_31.png-acfd290950898e2804549023be1f7d19.ctex"
+uid="uid://copd6vrms21ws"
+path="res://.godot/imported/masque_bois.png-3c640a42d4c39d809850d9a328ead8ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/mask/mask_black/Armor_31.png"
-dest_files=["res://.godot/imported/Armor_31.png-acfd290950898e2804549023be1f7d19.ctex"]
+source_file="res://entities/mask/mask_green/masque_bois.png"
+dest_files=["res://.godot/imported/masque_bois.png-3c640a42d4c39d809850d9a328ead8ae.ctex"]
 
 [params]
 

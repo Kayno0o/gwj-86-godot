@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ia2d8bjvybj"
-path="res://.godot/imported/Armor_134.png-d56090f51c079f0b0ac772f2dc464f00.ctex"
+uid="uid://dqbxys1r2o31w"
+path="res://.godot/imported/masque_pierre.png-e4366107ef2e5867df98d33bd1700fec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/mask/mask_white/Armor_134.png"
-dest_files=["res://.godot/imported/Armor_134.png-d56090f51c079f0b0ac772f2dc464f00.ctex"]
+source_file="res://entities/mask/mask_black/masque_pierre.png"
+dest_files=["res://.godot/imported/masque_pierre.png-e4366107ef2e5867df98d33bd1700fec.ctex"]
 
 [params]
 

@@ -24,7 +24,6 @@ animations = [{
 }]
 
 [node name="ResourceProps" type="Node2D"]
-scale = Vector2(5, 5)
 script = ExtResource("1_xiw2d")
 metadata/_custom_type_script = "uid://dhnuuyiy4vn3l"
 

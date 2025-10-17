@@ -1,13 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://boaxrcqnla75u"]
+[gd_scene load_steps=7 format=3 uid="uid://boaxrcqnla75u"]
 
 [ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_6j8o0"]
-[ext_resource type="Texture2D" uid="uid://dcvrghbmc03xh" path="res://entities/mask/mask_black/Armor_31.png" id="2_3ppcj"]
+[ext_resource type="Texture2D" uid="uid://dqbxys1r2o31w" path="res://entities/mask/mask_black/masque_pierre.png" id="2_3ppcj"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bgna5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fspct"]
+atlas = ExtResource("2_3ppcj")
+region = Rect2(0, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffosi"]
+atlas = ExtResource("2_3ppcj")
+region = Rect2(333, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo3wb"]
+atlas = ExtResource("2_3ppcj")
+region = Rect2(666, 0, 333, 455)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3wrh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3ppcj")
+"texture": SubResource("AtlasTexture_fspct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffosi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo3wb")
 }],
 "loop": true,
 "name": &"default",
@@ -19,5 +37,8 @@ type = 1
 entity_name = "Mask Miner"
 
 [node name="Sprite" parent="." index="1"]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_bgna5")
+position = Vector2(0, 76)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_i3wrh")
+speed_scale = 0.0
+offset = Vector2(0, -152)
