@@ -43,6 +43,7 @@ jobs:
           publish_dir: ./exports
           publish_branch: gitea-pages
           force_orphan: true
+          repository_url: http://server:3000/${{ github.repository }}.git
 
       - name: Generate changelog
         run: bun x @kaynooo/changelogitea@latest\
