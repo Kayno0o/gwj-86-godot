@@ -1,0 +1,56 @@
+name: Export Game
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - feature/export
+
+jobs:
+  export_game:
+    runs-on: debian
+    name: Export Game
+    steps:
+      - name: Install dependencies
+        run: apt-get update && apt-get install -y unzip git
+
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: export game
+        id: export
+        uses: firebelley/godot-export@v7.0.0
+        with:
+          godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.5-stable/Godot_v4.5-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.5-stable/Godot_v4.5-stable_export_templates.tpz
+          relative_project_path: ./
+          presets_to_export: "Windows Desktop,Linux,macOS"
+          archive_output: true
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: builds
+          path: ${{ steps.export.outputs.archive_directory }}
+
+      - name: Deploy to gitea-pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./exports
+          publish_branch: gitea-pages
+          force_orphan: true
+
+      - name: Generate changelog
+        run: bun x @kaynooo/changelogitea@latest\
+          "exports/GWJ86.exe" \
+          "exports/GWJ86.x86_64" \
+          "exports/GWJ86.zip"
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
