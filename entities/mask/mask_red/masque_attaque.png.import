@@ -2,23 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caipea0ynvebi"
-path.bptc="res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.bptc.ctex"
-path.astc="res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.astc.ctex"
+uid="uid://bq66voigje3ns"
+path="res://.godot/imported/masque_attaque.png-cc7fc14f90481eaa191665cae39ee754.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/mask/mask_green/feuille_verte.png"
-dest_files=["res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.bptc.ctex", "res://.godot/imported/feuille_verte.png-65b797d2d2490a8238fe17460a2ee790.astc.ctex"]
+source_file="res://entities/mask/mask_red/masque_attaque.png"
+dest_files=["res://.godot/imported/masque_attaque.png-cc7fc14f90481eaa191665cae39ee754.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=true
+compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

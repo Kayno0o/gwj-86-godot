@@ -1,7 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwr7ygt2ff7hq"]
+[gd_scene load_steps=7 format=3 uid="uid://bwr7ygt2ff7hq"]
 
 [ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_kjuky"]
-[ext_resource type="SpriteFrames" uid="uid://ca6vdp6830gst" path="res://entities/mask/mask_green/mask_green.tres" id="3_y2eoy"]
+[ext_resource type="Texture2D" uid="uid://copd6vrms21ws" path="res://entities/mask/mask_green/masque_bois.png" id="2_e6ulr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48mui"]
+atlas = ExtResource("2_e6ulr")
+region = Rect2(0, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he2vv"]
+atlas = ExtResource("2_e6ulr")
+region = Rect2(333, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i36d"]
+atlas = ExtResource("2_e6ulr")
+region = Rect2(666, 0, 333, 455)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6jpm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48mui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he2vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i36d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MaskGreen" groups=["MaskLumberjack"] instance=ExtResource("1_kjuky")]
 entity_name = "Green Lumberjack"
@@ -11,5 +40,7 @@ movement_speed = 100.0
 debug_color = Color(0.5019608, 1, 0.5019608, 0.5019608)
 
 [node name="Sprite" parent="." index="1"]
+position = Vector2(-41, 152)
 scale = Vector2(1, 1)
-sprite_frames = ExtResource("3_y2eoy")
+sprite_frames = SubResource("SpriteFrames_k6jpm")
+offset = Vector2(41, -152)

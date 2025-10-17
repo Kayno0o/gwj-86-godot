@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c68b44hibn641"
-path="res://.godot/imported/mask_orange.png-e7acad871ac17c950a04b5dd8ca14e4c.ctex"
+uid="uid://snjnri7bbp6n"
+path.bptc="res://.godot/imported/masque_transport.png-1acda77f6c860c239024d469a2c43dc2.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://entities/mask/mask_orange/mask_orange.png"
-dest_files=["res://.godot/imported/mask_orange.png-e7acad871ac17c950a04b5dd8ca14e4c.ctex"]
+source_file="res://entities/mask/mask_white/masque_transport.png"
+dest_files=["res://.godot/imported/masque_transport.png-1acda77f6c860c239024d469a2c43dc2.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

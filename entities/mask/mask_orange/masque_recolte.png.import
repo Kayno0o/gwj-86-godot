@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0c2tvrdjvgjo"
-path="res://.godot/imported/mask_black.png-caa84831d3378a3ec7bf3f3660002b64.ctex"
+uid="uid://dt1mnshf7d8j6"
+path="res://.godot/imported/masque_recolte.png-42a53d627e4d81cf4eefb4d31f00d051.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/mask/mask_black/mask_black.png"
-dest_files=["res://.godot/imported/mask_black.png-caa84831d3378a3ec7bf3f3660002b64.ctex"]
+source_file="res://entities/mask/mask_orange/masque_recolte.png"
+dest_files=["res://.godot/imported/masque_recolte.png-42a53d627e4d81cf4eefb4d31f00d051.ctex"]
 
 [params]
 

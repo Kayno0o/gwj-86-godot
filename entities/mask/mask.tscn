@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyshqk03h8wqg"]
+[gd_scene load_steps=13 format=3 uid="uid://dyshqk03h8wqg"]
 
 [ext_resource type="Script" uid="uid://20wyg6v86aum" path="res://entities/mask/mask.gd" id="1_wo7wq"]
 [ext_resource type="Script" uid="uid://dpexeggwth04v" path="res://Ui/entitiespriteordering.gd" id="2_oeqx8"]
@@ -14,8 +14,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_p0has"]
 radius = 8.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_oeqx8"]
+
 [node name="Mask" type="CharacterBody2D"]
-scale = Vector2(5, 5)
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_wo7wq")
@@ -27,7 +28,9 @@ metadata/_custom_type_script = "uid://20wyg6v86aum"
 shape = SubResource("CircleShape2D_p0has")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_as_relative = false
 scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_oeqx8")
 script = ExtResource("2_oeqx8")
 
 [node name="StateMachine" type="Node" parent="."]

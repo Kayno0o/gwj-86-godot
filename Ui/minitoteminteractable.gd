@@ -10,7 +10,7 @@ func _ready() -> void:
 	add_child(ui_instance)
 	pass # Replace with function body.
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton :
 		if event.button_mask == 1 :
 			ui_instance.switch_state()
