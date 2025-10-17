@@ -36,6 +36,9 @@ jobs:
           presets_to_export: "Windows Desktop,Linux,macOS"
           archive_output: true
 
+      - name: Disable Git SSL Verification
+        run: git config --global http.sslVerify false
+
       - name: Deploy to gitea-pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:
