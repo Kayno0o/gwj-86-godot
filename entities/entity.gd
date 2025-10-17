@@ -101,6 +101,7 @@ func get_attack_view_distance() -> float:
 
 func _on_death():
 	TargetManager.unregister_target(self, [target_type])
+	inventory_component.drop_inventory()
 	queue_free()
 
 func _on_target_removed(target: Node) -> void:

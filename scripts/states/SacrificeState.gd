@@ -18,7 +18,7 @@ func enter() -> void:
 
 	tween.finished.connect(_on_tween_finished)
 
-	# TODO drop items (add method to InventoryComponent)
+	parent.inventory_component.drop_inventory()
 
 	pass
 
@@ -35,5 +35,5 @@ func move_to_target() -> void:
 	parent.move_and_slide()
 
 func _on_tween_finished():
-	InventoryManager.sacrifice_mask(parent)
+	parent.inventory_component.drop_inventory()
 	parent.queue_free()

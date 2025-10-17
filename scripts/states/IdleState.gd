@@ -28,13 +28,15 @@ func enter() -> void:
 
 	wandering_spot = Vector2.ZERO
 
+	if parent.current_target and is_instance_valid(parent.current_target):
+		TargetManager.stop_targeting(parent.current_target, parent)
+		parent.current_target = null
+
 func exit() -> void:
 	search_timer.stop()
 	wandering_timer.stop()
 
 func process(_delta):
-	# TODO check if inventory has items to be moved
-
 	# target found, move to it
 	if parent.current_target and is_instance_valid(parent.current_target):
 		return State.Type.MoveToTarget
@@ -52,6 +54,12 @@ func process(_delta):
 		wandering_timer.start(randf_range(parent.wandering_cooldown, parent.wandering_cooldown * 2))
 
 func search_target() -> void:
+	# if transporter and can send new mask to transfer
+	if parent.type == Enum.EntityType.MaskTransporter \
+	and InventoryManager.can_send_new_mask_to_transfer(parent):
+		print_debug(change_state_type(State.Type.Transfer))
+		return
+
 	var new_target = parent.find_closer_target()
 
 	if new_target:

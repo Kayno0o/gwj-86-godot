@@ -155,12 +155,12 @@ func is_target_available(target: Node2D) -> bool:
 	return not assigned_targets.has(target)
 
 ## called automatically when a target is destroyed
-func _on_target_destroyed(target: Node2D, target_types: Array[Enum.TargetType]) -> void:
+func _on_target_destroyed(target, target_types: Array[Enum.TargetType]) -> void:
 	unregister_target(target, target_types)
 
 ## called automatically when a node is destroyed
-func _on_node_destroyed(target: Node2D, node: Node2D) -> void:
-	if is_instance_valid(target):
+func _on_node_destroyed(target, node) -> void:
+	if target and is_instance_valid(target):
 		stop_targeting(target, node)
 
 func get_target_types(target: Node) -> Array[Enum.TargetType]:

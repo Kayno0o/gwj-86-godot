@@ -7,6 +7,7 @@ enum Type {
 	Attack = 3,
 	DepositItem = 4,
 	Sacrifice = 5,
+	Transfer = 6,
 }
 
 var parent: Entity
@@ -28,3 +29,6 @@ func physics_process(_delta: float):
 
 func process(_delta: float):
 	return null
+
+func change_state_type(p_type: State.Type):
+	return parent.state_machine.change_state_type(p_type)
