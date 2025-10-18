@@ -1,7 +1,10 @@
 # Kaynooo
 
 - [x] refactor/simplify and document state machine
-- [ ] skill tree
+- [x] skill tree
+- [x] faire un vrai sacrifice (pas juste un tween)
+- [ ] hero
+- [ ] buy mini totems
 
 # Pediluve EN URGENCE
 
@@ -43,7 +46,7 @@
 
 # skill tree
 
-- transporter
+- [ ] transporter
   - débloquer l'affichage des stats
 
 # EZ (mais pas prio)
@@ -62,4 +65,3 @@
 
 - [ ] drag and drop new totems to positions
 - [ ] agrandir les mini totem à chaque upgrade
-- [ ] faire un vrai saccrifice (pas juste un tween)
