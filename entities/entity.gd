@@ -30,7 +30,7 @@ var current_target: Node2D = null
 
 var inventory_component: InventoryComponent = null
 
-@onready var health_component: HealthComponent = HealthComponent.new(StatsManager.get_fstat(type, Enum.StatType.Health, health))
+@onready var health_component: HealthComponent = HealthComponent.new(get_health)
 
 @onready var components: Dictionary[Component.Type, Component] = {
 	Component.Type.Health: health_component,
@@ -79,8 +79,8 @@ func find_closer_target() -> Node:
 
 	return null
 
-func get_movement_speed() -> float:
-	return StatsManager.get_fstat(type, Enum.StatType.MovementSpeed, movement_speed)
+func get_health() -> float:
+	return StatsManager.get_fstat(type, Enum.StatType.Health, health)
 
 func get_inventory_size() -> int:
 	return StatsManager.get_istat(type, Enum.StatType.InventorySize, inventory_size)
@@ -97,6 +97,9 @@ func get_attack_range() -> float:
 	return StatsManager.get_fstat(type, Enum.StatType.AttackRange, attack_range)
 func get_attack_view_distance() -> float:
 	return StatsManager.get_fstat(type, Enum.StatType.AttackViewDistance, attack_view_distance)
+
+func get_movement_speed() -> float:
+	return StatsManager.get_fstat(type, Enum.StatType.MovementSpeed, movement_speed)
 
 func _on_death():
 	TargetManager.unregister_target(self, [target_type])

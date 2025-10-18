@@ -8,7 +8,7 @@ class_name ResourceProps extends Node2D
 @export var loot_amount: int
 @export var spawn_spread: float = 16.0
 
-@onready var health_component: HealthComponent = HealthComponent.new(health)
+@onready var health_component: HealthComponent = HealthComponent.new(func(): return health)
 @onready var loot_component: LootComponent = LootComponent.new(loot_scene, loot_amount, spawn_spread)
 
 @onready var components = {
