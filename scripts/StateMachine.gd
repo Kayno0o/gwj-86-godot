@@ -55,10 +55,7 @@ func change_state_type(type: State.Type) -> bool:
 
 func change_state(new_state: State) -> void:
 	if current_state:
-		# print_debug("from state %s to state %s" % [State.Type.find_key(current_state.type), State.Type.find_key(new_state.type)])
 		current_state.exit()
-	# else:
-		# print_debug("to state %s" % [State.Type.find_key(new_state.type)])
 
 	current_state = new_state
 	new_state.enter()

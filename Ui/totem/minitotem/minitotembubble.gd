@@ -14,7 +14,6 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("position : " + str(self.size))
 	self.visible = false
 	minitotem = get_parent().get_parent()
 	InventoryManager.update_inventory.connect(_on_update_inventory)
@@ -26,8 +25,6 @@ func _ready() -> void:
 
 func _on_update_inventory() :
 	pass
-	#print_debug(InventoryManager.inventory)
-	#pass
 
 func _on_button_pressed() -> void:
 	if InventoryManager.pay_shopping_list(current_price):
