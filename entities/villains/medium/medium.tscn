@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ttj4vn1j4dn5"]
+[gd_scene load_steps=2 format=3 uid="uid://ttj4vn1j4dn5"]
 
 [ext_resource type="PackedScene" uid="uid://c1p3mgauwt5yi" path="res://entities/villains/villain.tscn" id="1_hkpc8"]
-[ext_resource type="Texture2D" uid="uid://bfbk8dxxtktpi" path="res://entities/villains/medium/Armor_03.png" id="2_emccu"]
 
 [node name="Villain" instance=ExtResource("1_hkpc8")]
+cost = 60
 health = 10.0
 
 [node name="Sprite" parent="." index="1"]
-texture = ExtResource("2_emccu")
+frame = 1

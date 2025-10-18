@@ -1,14 +1,90 @@
-[gd_scene load_steps=4 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=16 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://cuymfckcbvxwr" path="res://props/totem/Crafting_36.png" id="2_v2ani"]
-[ext_resource type="PackedScene" uid="uid://ypvcy411pc06" path="res://props/totem/mini_totem/wood/mini_totem_wood.tscn" id="3_v2ani"]
+[ext_resource type="PackedScene" uid="uid://ypvcy411pc06" path="res://props/totem/mini_totem/mini_totem_wood.tscn" id="3_v2ani"]
+[ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="4_b3en4"]
+[ext_resource type="Texture2D" uid="uid://d1o7xg8tsia00" path="res://assets/totem/pink_totem.png" id="5_x5o6e"]
+[ext_resource type="PackedScene" uid="uid://d3kkq6puo5mrg" path="res://props/totem/minitotem.tscn" id="5_xabt0"]
+[ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://entities/mask/mask_red/mask_red.tscn" id="6_k4i2k"]
+[ext_resource type="PackedScene" uid="uid://c0x6jgtd4wswl" path="res://entities/mask/mask_orange/mask_orange.tscn" id="7_k4i2k"]
+[ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="8_h5uus"]
+[ext_resource type="Texture2D" uid="uid://dslee6wnr15cf" path="res://assets/totem/red_totem.png" id="8_q76w8"]
+[ext_resource type="PackedScene" uid="uid://bqk8yh7c2vn8p" path="res://entities/mask/mask_blue/mask_blue.tscn" id="9_a0348"]
+[ext_resource type="Texture2D" uid="uid://bekvbetm0lfqw" path="res://assets/totem/orange_totem.png" id="10_waqct"]
+[ext_resource type="Texture2D" uid="uid://bw11mro1e5kd" path="res://assets/totem/green_totem.png" id="12_42wbl"]
+[ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="14_tbapd"]
+[ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
 
 [node name="Totem" type="Node2D"]
 script = ExtResource("1_7ndw4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
+position = Vector2(-22, -1124)
+scale = Vector2(50, 50)
 texture = ExtResource("2_v2ani")
 
-[node name="Minitotem" parent="." instance=ExtResource("3_v2ani")]
+[node name="pinktotem" parent="." instance=ExtResource("3_v2ani")]
+position = Vector2(-450, 550)
+mask_to_invok = ExtResource("4_b3en4")
+top_sprite = ExtResource("5_x5o6e")
+main_ressources = {
+"Soul": 0,
+"Pebble": 1,
+"Cereal": 1,
+"Log": 1
+}
+
+[node name="redtotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(600, -800)
+mask_to_invok = ExtResource("6_k4i2k")
+top_sprite = ExtResource("8_q76w8")
+main_ressources = {
+"Soul": 0,
+"Pebble": 1,
+"Cereal": 1,
+"Log": 3
+}
+
+[node name="orangetotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(-1000, -200)
+mask_to_invok = ExtResource("7_k4i2k")
+top_sprite = ExtResource("10_waqct")
+main_ressources = {
+"Soul": 0,
+"Pebble": 0,
+"Cereal": 2,
+"Log": 0
+}
+
+[node name="greentotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(450, 550)
+mask_to_invok = ExtResource("8_h5uus")
+top_sprite = ExtResource("12_42wbl")
+main_ressources = {
+"Soul": 0,
+"Pebble": 0,
+"Cereal": 0,
+"Log": 2
+}
+
+[node name="bluetotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(-600, -800)
+mask_to_invok = ExtResource("9_a0348")
+top_sprite = ExtResource("14_tbapd")
+main_ressources = {
+"Soul": 0,
+"Pebble": 3,
+"Cereal": 1,
+"Log": 1
+}
+
+[node name="blacktotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(1000, -200)
+top_sprite = ExtResource("16_yjcm3")
+main_ressources = {
+"Soul": 0,
+"Pebble": 2,
+"Cereal": 0,
+"Log": 0
+}

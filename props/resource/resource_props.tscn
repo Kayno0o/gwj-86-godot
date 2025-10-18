@@ -1,10 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://yttupk6ktjv"]
+[gd_scene load_steps=7 format=3 uid="uid://yttupk6ktjv"]
 
 [ext_resource type="Script" uid="uid://dhnuuyiy4vn3l" path="res://props/resource/resource_props.gd" id="1_xiw2d"]
+[ext_resource type="Texture2D" uid="uid://cd7c5s6y8d7gi" path="res://props/resource/rock/rock.png" id="2_ivyfh"]
+[ext_resource type="Script" uid="uid://dpexeggwth04v" path="res://Ui/entitiespriteordering.gd" id="2_wmnqm"]
+[ext_resource type="Texture2D" uid="uid://cyhgsqoaellnb" path="res://props/resource/tree/tree.png" id="3_b0ddn"]
+[ext_resource type="Texture2D" uid="uid://coyi7w4fl5wo5" path="res://props/resource/wheat/wheat.png" id="4_lai3w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hev51"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ivyfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b0ddn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lai3w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ResourceProps" type="Node2D"]
 script = ExtResource("1_xiw2d")
 metadata/_custom_type_script = "uid://dhnuuyiy4vn3l"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hev51")
+script = ExtResource("2_wmnqm")

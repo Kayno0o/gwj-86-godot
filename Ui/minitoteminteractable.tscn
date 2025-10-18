@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjk6udx24xno2"]
+
+[ext_resource type="Script" uid="uid://2uwml8wwao0w" path="res://Ui/minitoteminteractable.gd" id="1_twegl"]
+[ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="1_w3ixe"]
+[ext_resource type="PackedScene" uid="uid://cvakw6a2jrrkk" path="res://Ui/totemsui.tscn" id="2_twegl"]
+[ext_resource type="Script" uid="uid://d4kh2fun7p6px" path="res://Ui/sprite_2d_test.gd" id="3_f54x8"]
+[ext_resource type="Script" uid="uid://tx630oscf57k" path="res://Ui/totembasespritespriteordering.gd" id="5_f54x8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkfae"]
+size = Vector2(382, 548)
+
+[node name="Minitoteminteractable" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_twegl")
+totem_ui = ExtResource("2_twegl")
+
+[node name="totemheadsprite" type="Sprite2D" parent="."]
+z_as_relative = false
+script = ExtResource("3_f54x8")
+
+[node name="totembasesprite" type="Sprite2D" parent="totemheadsprite"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-1, 284)
+texture = ExtResource("1_w3ixe")
+offset = Vector2(1, -84)
+script = ExtResource("5_f54x8")
+
+[node name="Area2D" type="Area2D" parent="totemheadsprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="totemheadsprite/Area2D"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_qkfae")
+
+[connection signal="input_event" from="totemheadsprite/Area2D" to="." method="_on_area_2d_input_event"]

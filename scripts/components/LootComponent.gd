@@ -20,14 +20,13 @@ func spawn_loot(at_position: Vector2, parent: Node) -> bool:
 
 	for i in range(loot_amount):
 		var loot_instance = loot_scene.instantiate()
-		loot_instance.global_position = at_position
 
 		var offset = Vector2(
 			randf_range(-spawn_spread, spawn_spread),
 			randf_range(-spawn_spread, spawn_spread),
 		)
-		loot_instance.global_position += offset
 
 		parent.add_child(loot_instance)
+		loot_instance.global_position = at_position + offset
 
 	return true

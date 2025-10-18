@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dap12e7d4vlk5"]
+[gd_scene load_steps=3 format=3 uid="uid://dap12e7d4vlk5"]
 
 [ext_resource type="PackedScene" uid="uid://yttupk6ktjv" path="res://props/resource/resource_props.tscn" id="1_hdino"]
 [ext_resource type="PackedScene" uid="uid://4a50rab01vp2" path="res://props/item/cereal/cereal.tscn" id="2_stusc"]
-[ext_resource type="Texture2D" uid="uid://coyi7w4fl5wo5" path="res://props/resource/wheat/wheat.png" id="3_wmab0"]
 
 [node name="wheat" instance=ExtResource("1_hdino")]
 target_types = Array[int]([0, 3])
@@ -10,4 +9,4 @@ loot_scene = ExtResource("2_stusc")
 loot_amount = 3
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_wmab0")
+frame = 2
