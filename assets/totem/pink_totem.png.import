@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1o7xg8tsia00"
 path.bptc="res://.godot/imported/pink_totem.png-cdf502476020978ad531abdd12f4953b.bptc.ctex"
-path.astc="res://.godot/imported/pink_totem.png-cdf502476020978ad531abdd12f4953b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/totem/pink_totem.png"
-dest_files=["res://.godot/imported/pink_totem.png-cdf502476020978ad531abdd12f4953b.bptc.ctex", "res://.godot/imported/pink_totem.png-cdf502476020978ad531abdd12f4953b.astc.ctex"]
+dest_files=["res://.godot/imported/pink_totem.png-cdf502476020978ad531abdd12f4953b.bptc.ctex"]
 
 [params]
 

@@ -6,7 +6,7 @@ func _process(_delta: float) -> void:
 	
 	var check = (int(self.global_position.y))
 	if check > 4100 :
-		check = 4100
+		check = 4050
 	elif check < -4100 :
-		check = -4100
+		check = -4050
 	self.z_index = check

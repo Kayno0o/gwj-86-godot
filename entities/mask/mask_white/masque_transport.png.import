@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://snjnri7bbp6n"
 path.bptc="res://.godot/imported/masque_transport.png-1acda77f6c860c239024d469a2c43dc2.bptc.ctex"
-path.astc="res://.godot/imported/masque_transport.png-1acda77f6c860c239024d469a2c43dc2.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://entities/mask/mask_white/masque_transport.png"
-dest_files=["res://.godot/imported/masque_transport.png-1acda77f6c860c239024d469a2c43dc2.bptc.ctex", "res://.godot/imported/masque_transport.png-1acda77f6c860c239024d469a2c43dc2.astc.ctex"]
+dest_files=["res://.godot/imported/masque_transport.png-1acda77f6c860c239024d469a2c43dc2.bptc.ctex"]
 
 [params]
 
