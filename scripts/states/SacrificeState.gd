@@ -11,30 +11,34 @@ func enter() -> void:
 
 	totem = InventoryManager.totem
 
-	var tween = get_tree().create_tween()
-	tween.tween_property(parent, "global_position", totem.global_position, 2) \
-		.set_trans(Tween.TRANS_SINE) \
-		.set_ease(Tween.EASE_IN_OUT)
-
-	tween.finished.connect(_on_tween_finished)
-
+	# leave everything behind, be ready for SACRIFICE
 	parent.inventory_component.drop_inventory()
 
-	pass
+	if not totem:
+		_on_reached_totem()
+		return
 
 func exit() -> void:
-	pass
+	parent.velocity = Vector2.ZERO
 
-func process(_delta: float):
-	# TODO move to fire or move items from totem to fire, and then move to fire
-	return
+func physics_process(_delta: float):
+	if not totem:
+		return
+	
+	if parent.global_position.distance_to(totem.global_position) <= parent.totem_approach_distance:
+		_on_reached_totem()
+		return
+
+	move_to_target()
 
 func move_to_target() -> void:
 	var direction = (totem.global_position - parent.global_position).normalized()
 	parent.velocity = direction * parent.get_movement_speed()
 	parent.move_and_slide()
 
-func _on_tween_finished():
+func _on_reached_totem():
 	if InventoryManager.sacrifice_mask_to_fire(parent):
-		parent.inventory_component.drop_inventory()
 		parent.queue_free()
+	else:
+		# for some reason, sacrifice did not work, go back idle
+		change_state_type(State.Type.Idle)
