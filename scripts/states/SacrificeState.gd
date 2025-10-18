@@ -35,5 +35,6 @@ func move_to_target() -> void:
 	parent.move_and_slide()
 
 func _on_tween_finished():
-	parent.inventory_component.drop_inventory()
-	parent.queue_free()
+	if InventoryManager.sacrifice_mask_to_fire(parent):
+		parent.inventory_component.drop_inventory()
+		parent.queue_free()

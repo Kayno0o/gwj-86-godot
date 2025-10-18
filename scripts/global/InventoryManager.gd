@@ -11,6 +11,8 @@ var fire: Fire
 
 # items waiting to be transported
 var pending_items: Dictionary[String, int] = {}
+# sacrifices waiting to be transported
+var pending_sacrifices: Dictionary[String, Array] = {}
 # items being transported
 var transfering_items: Dictionary[String, Array] = {}
 
@@ -51,6 +53,9 @@ func pay_shopping_list(shopping_list: Dictionary[String, int], instantly = true)
 				entity.state_machine.change_state_type(State.Type.Sacrifice)
 				inventory[type].erase(entity)
 
+				if not pending_sacrifices.has(type): pending_sacrifices[type] = []
+				pending_sacrifices[type].push_back(entity)
+
 			continue
 
 		# remove items from inventory if paying instantly
@@ -64,12 +69,30 @@ func pay_shopping_list(shopping_list: Dictionary[String, int], instantly = true)
 
 	update_inventory.emit()
 
+	print_debug(is_pending())
+	if not is_pending():
+		has_paid.emit()
+
 	return true
 
 # deposit item to inventory
 func deposit_item_to_inventory(type: String, amount: int) -> void:
 	inventory[type] += amount
 	update_inventory.emit()
+
+func sacrifice_mask_to_fire(mask: Mask):
+	var type = Enum.EntityType.find_key(mask.type)
+	if not pending_sacrifices.has(type): return false
+	if pending_sacrifices.get(type).size() <= 0:
+		pending_sacrifices.erase(type)
+		return false
+
+	pending_sacrifices[type].erase(mask)
+
+	if not is_pending():
+		has_paid.emit()
+
+	return true
 
 func sacrifice_item_to_fire(type: String, amount: int, mask: Mask) -> bool:
 	if not pending_items.has(type): return false
@@ -82,7 +105,7 @@ func sacrifice_item_to_fire(type: String, amount: int, mask: Mask) -> bool:
 	if transfering_items.has(type):
 		transfering_items[type].erase(mask)
 
-	if not has_pending_items():
+	if not is_pending():
 		has_paid.emit()
 
 	return true
@@ -105,6 +128,19 @@ func can_pay(shopping_list: Dictionary[String, int]) -> bool:
 			return false
 
 	return true
+
+func is_pending() -> bool:
+	return has_pending_sacrifices() or has_pending_items()
+
+# check if there are pending sacrifice
+func has_pending_sacrifices() -> bool:
+	for item_type in pending_sacrifices:
+		if pending_sacrifices[item_type].size() > 0:
+			return true
+		
+		pending_sacrifices.erase(item_type)
+
+	return false
 
 # check if there are pending items
 func has_pending_items() -> bool:
