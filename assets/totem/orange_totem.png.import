@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bekvbetm0lfqw"
 path.bptc="res://.godot/imported/orange_totem.png-2f7139f9ee7bf0fed5d6571da3e42ad1.bptc.ctex"
+path.astc="res://.godot/imported/orange_totem.png-2f7139f9ee7bf0fed5d6571da3e42ad1.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/totem/orange_totem.png"
-dest_files=["res://.godot/imported/orange_totem.png-2f7139f9ee7bf0fed5d6571da3e42ad1.bptc.ctex"]
+dest_files=["res://.godot/imported/orange_totem.png-2f7139f9ee7bf0fed5d6571da3e42ad1.bptc.ctex", "res://.godot/imported/orange_totem.png-2f7139f9ee7bf0fed5d6571da3e42ad1.astc.ctex"]
 
 [params]
 
