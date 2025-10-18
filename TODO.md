@@ -46,6 +46,7 @@
 
 # skill tree
 
+- [ ] base stats upgrade
 - [ ] transporter
   - débloquer l'affichage des stats
 
@@ -53,6 +54,10 @@
 
 - [ ] Rendre les white mask pacifiste
 - [ ] les unités se heal pendant la journée
+- [ ] trads
+  - [ ] types d'objets dans les skill tree
+  - [ ] descriptions des skill (si besoin)
+  - [ ] types de stats
 
 # QoL bien a avoir mais pas nécessaire
 
