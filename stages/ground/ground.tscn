@@ -7,22 +7,11 @@
 texture = ExtResource("1_3p8xa")
 separation = Vector2i(50, 0)
 texture_region_size = Vector2i(400, 400)
-0:0/0 = 0
-1:0/0 = 0
 2:0/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:1/0 = 0
-3:1/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-6:1/0 = 0
+1:0/0 = 0
+0:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_mmr27"]
+[sub_resource type="TileSet" id="TileSet_mynkt"]
 tile_shape = 1
 tile_layout = 5
 tile_size = Vector2i(400, 200)
@@ -33,6 +22,6 @@ sources/0 = SubResource("TileSetAtlasSource_6ujia")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -4096
 z_as_relative = false
-tile_set = SubResource("TileSet_mmr27")
+tile_set = SubResource("TileSet_mynkt")
 script = ExtResource("2_6ujia")
 map_size = Vector2(16320, 8160)
