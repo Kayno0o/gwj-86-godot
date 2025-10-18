@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://qjlmttnh71iq"]
+[gd_scene load_steps=4 format=3 uid="uid://qjlmttnh71iq"]
 
 [ext_resource type="PackedScene" uid="uid://dojasoijlk7mr" path="res://props/item/item.tscn" id="1_v3ar3"]
 [ext_resource type="Texture2D" uid="uid://cha5h4jfswgd0" path="res://props/item/pebble/pebble.png" id="2_a0iff"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0iff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a0iff")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="pebble" instance=ExtResource("1_v3ar3")]
 item_type = 1
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_a0iff")
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_a0iff")
+offset = Vector2(0, -36)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=19 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
-[ext_resource type="Script" uid="uid://d2fi4g2tmqqkc" path="res://scripts/global/SkillTreeManager.gd" id="2_a5xyx"]
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
 [ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://entities/mask/mask_red/mask_red.tscn" id="7_w77vm"]
@@ -11,7 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://c0x6jgtd4wswl" path="res://entities/mask/mask_orange/mask_orange.tscn" id="11_3saht"]
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
 [ext_resource type="Script" uid="uid://b6lpseqjnwf7c" path="res://stages/game/test_inventory.gd" id="12_3saht"]
+[ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="12_js6n3"]
+[ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="13_oq21h"]
+[ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="14_k5jav"]
 [ext_resource type="PackedScene" uid="uid://ugmne86ko1c3" path="res://stages/ground/ground.tscn" id="14_oq21h"]
+[ext_resource type="PackedScene" uid="uid://d3kkq6puo5mrg" path="res://props/totem/minitotem.tscn" id="14_ourju"]
+[ext_resource type="Texture2D" uid="uid://bw11mro1e5kd" path="res://assets/totem/green_totem.png" id="15_k5jav"]
+[ext_resource type="Script" uid="uid://cnfbofrjenxwn" path="res://stages/game/camera_2d.gd" id="17_ourju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ve2p"]
 size = Vector2(16320, 8160)
@@ -22,10 +27,11 @@ script = ExtResource("1_7h61r")
 [node name="ground" parent="." instance=ExtResource("14_oq21h")]
 
 [node name="game" type="Node2D" parent="."]
-scale = Vector2(0.5, 0.5)
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="Node" type="Node" parent="game"]
-script = ExtResource("2_a5xyx")
 
 [node name="Objects" type="Node2D" parent="game"]
 
@@ -35,9 +41,6 @@ script = ExtResource("2_a5xyx")
 
 [node name="Totem" parent="game" instance=ExtResource("6_rsoik")]
 position = Vector2(5, -6)
-
-[node name="GameMaster" parent="game" instance=ExtResource("11_51ysb")]
-day_lenght = 1.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="game"]
 offset_right = 185.0
@@ -50,23 +53,74 @@ visible = false
 shape = SubResource("RectangleShape2D_5ve2p")
 
 [node name="Mask White" parent="game" instance=ExtResource("10_w77vm")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
 position = Vector2(-164, 312)
 
 [node name="MaskRed" parent="game" instance=ExtResource("7_w77vm")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
 position = Vector2(-490, 97)
 
 [node name="Mask Black2" parent="game" instance=ExtResource("8_w77vm")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
 position = Vector2(-346, -272)
 
 [node name="MaskBlue" parent="game" instance=ExtResource("9_51ysb")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
 position = Vector2(273, -264)
 
 [node name="MaskGreen" parent="game" instance=ExtResource("4_lfrn8")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
 position = Vector2(129, 290)
 
 [node name="Mask_orange" parent="game" instance=ExtResource("11_3saht")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
 position = Vector2(4, -583)
 
-[node name="Camera2D" type="Camera2D" parent="game"]
-scale = Vector2(2, 2)
-zoom = Vector2(0.2, 0.2)
+[node name="rock" parent="game" instance=ExtResource("12_js6n3")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+position = Vector2(-1818, -168)
+
+[node name="Tree" parent="game" instance=ExtResource("13_oq21h")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+position = Vector2(-2082, -398)
+
+[node name="Tree2" parent="game" instance=ExtResource("13_oq21h")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+position = Vector2(-1576, -382)
+
+[node name="wheat" parent="game" instance=ExtResource("14_k5jav")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+position = Vector2(-147, 160)
+
+[node name="Minitotem" parent="game" instance=ExtResource("14_ourju")]
+position = Vector2(1561, -296)
+top_sprite = ExtResource("15_k5jav")
+
+[node name="GameMaster" parent="." instance=ExtResource("11_51ysb")]
+day_lenght = 150.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("17_ourju")
