@@ -17,6 +17,8 @@ var font_size: int = 60
 var border_width_pixels: int = 12
 var corner_radius_pixels: int = 32
 
+signal on_bought()
+
 func _ready():
 	_setup_ui()
 	
@@ -38,6 +40,8 @@ func _on_paid():
 	# Apply stat bonuses to the appropriate entity type
 	var target_entity_type = _get_entity_type()
 	StatsManager.add_bonuses(target_entity_type, bonuses)
+
+	on_bought.emit()
 	
 	for children in get_children():
 		if not children is Button:
