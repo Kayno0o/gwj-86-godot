@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
 
 [node name="Totem" type="Node2D"]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_7ndw4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,10 +32,10 @@ position = Vector2(-450, 550)
 mask_to_invok = ExtResource("4_b3en4")
 top_sprite = ExtResource("5_x5o6e")
 main_ressources = {
-"Soul": 0,
-"Pebble": 1,
 "Cereal": 1,
-"Log": 1
+"Log": 1,
+"Pebble": 1,
+"Soul": 0
 }
 
 [node name="redtotem" parent="." instance=ExtResource("5_xabt0")]
@@ -40,10 +43,10 @@ position = Vector2(600, -800)
 mask_to_invok = ExtResource("6_k4i2k")
 top_sprite = ExtResource("8_q76w8")
 main_ressources = {
-"Soul": 0,
-"Pebble": 1,
 "Cereal": 1,
-"Log": 3
+"Log": 3,
+"Pebble": 1,
+"Soul": 0
 }
 
 [node name="orangetotem" parent="." instance=ExtResource("5_xabt0")]
@@ -51,40 +54,49 @@ position = Vector2(-1000, -200)
 mask_to_invok = ExtResource("7_k4i2k")
 top_sprite = ExtResource("10_waqct")
 main_ressources = {
-"Soul": 0,
-"Pebble": 0,
 "Cereal": 2,
-"Log": 0
+"Log": 0,
+"Pebble": 0,
+"Soul": 0
 }
 
 [node name="greentotem" parent="." instance=ExtResource("5_xabt0")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(450, 550)
 mask_to_invok = ExtResource("8_h5uus")
 top_sprite = ExtResource("12_42wbl")
 main_ressources = {
-"Soul": 0,
-"Pebble": 0,
 "Cereal": 0,
-"Log": 2
+"Log": 2,
+"Pebble": 0,
+"Soul": 0
 }
 
 [node name="bluetotem" parent="." instance=ExtResource("5_xabt0")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(-600, -800)
 mask_to_invok = ExtResource("9_a0348")
 top_sprite = ExtResource("14_tbapd")
 main_ressources = {
-"Soul": 0,
-"Pebble": 3,
 "Cereal": 1,
-"Log": 1
+"Log": 1,
+"Pebble": 3,
+"Soul": 0
 }
 
 [node name="blacktotem" parent="." instance=ExtResource("5_xabt0")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(1000, -200)
 top_sprite = ExtResource("16_yjcm3")
 main_ressources = {
-"Soul": 0,
-"Pebble": 2,
 "Cereal": 0,
-"Log": 0
+"Log": 0,
+"Pebble": 2,
+"Soul": 0
 }

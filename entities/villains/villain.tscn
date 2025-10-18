@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1p3mgauwt5yi"]
+[gd_scene load_steps=11 format=3 uid="uid://c1p3mgauwt5yi"]
 
 [ext_resource type="Script" uid="uid://cdyc56cbxg0v2" path="res://entities/villains/villains.gd" id="1_lojml"]
 [ext_resource type="Texture2D" uid="uid://6pee6d32lmj" path="res://entities/villains/weak/Armor_05.png" id="2_ncrjt"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cs6mo4uj7p6vt" path="res://scripts/states/IdleState.gd" id="3_k3j4r"]
 [ext_resource type="Texture2D" uid="uid://iyevj3b00y2l" path="res://entities/villains/strong/Armor_02.png" id="4_8ya5o"]
 [ext_resource type="Script" uid="uid://dudcbadfbrqyy" path="res://scripts/states/MoveToTargetState.gd" id="4_ffb5f"]
-[ext_resource type="Script" uid="uid://dpexeggwth04v" path="res://Ui/entitiespriteordering.gd" id="5_ncrjt"]
 [ext_resource type="Script" uid="uid://b6f3y6w2jpbkn" path="res://scripts/states/AttackState.gd" id="5_rivn4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ptnth"]
@@ -46,9 +45,11 @@ shape = SubResource("CircleShape2D_ptnth")
 debug_color = Color(0.5, 0.5, 0.5, 0.5)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_hmehl")
-script = ExtResource("5_ncrjt")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_ptnth")
