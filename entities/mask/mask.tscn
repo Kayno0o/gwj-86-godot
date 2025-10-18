@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyshqk03h8wqg"]
+[gd_scene load_steps=14 format=3 uid="uid://dyshqk03h8wqg"]
 
 [ext_resource type="Script" uid="uid://20wyg6v86aum" path="res://entities/mask/mask.gd" id="1_wo7wq"]
 [ext_resource type="Script" uid="uid://dpexeggwth04v" path="res://Ui/entitiespriteordering.gd" id="2_oeqx8"]
@@ -15,6 +15,8 @@
 radius = 8.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oeqx8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeqx8"]
 
 [node name="Mask" type="CharacterBody2D"]
 collision_layer = 2
@@ -62,3 +64,6 @@ metadata/_custom_type_script = "uid://bk7rsikwv3drd"
 [node name="TransferState" type="Node" parent="StateMachine"]
 script = ExtResource("9_wbtl5")
 metadata/_custom_type_script = "uid://dpscxder1vb1k"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_oeqx8")

@@ -41,7 +41,7 @@ target_search_cooldown = 1.5
 movement_speed = 100.0
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2(-19, 151)
+position = Vector2(-45, 0)
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_3057f")
-offset = Vector2(19, -151)
+offset = Vector2(39, -154)

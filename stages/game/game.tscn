@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=14 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="Script" uid="uid://bgdhbmec0mklm" path="res://scripts/global/StatsManager.gd" id="2_a5xyx"]
-[ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="3_navwl"]
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
 [ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://entities/mask/mask_red/mask_red.tscn" id="7_w77vm"]
@@ -38,6 +37,7 @@ script = ExtResource("2_a5xyx")
 position = Vector2(5, -6)
 
 [node name="GameMaster" parent="game" instance=ExtResource("11_51ysb")]
+day_lenght = 180.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="game"]
 offset_right = 185.0
@@ -66,171 +66,6 @@ position = Vector2(129, 290)
 
 [node name="Mask_orange" parent="game" instance=ExtResource("11_3saht")]
 position = Vector2(4, -583)
-
-[node name="Tree" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1636, -1104)
-
-[node name="Tree2" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1842, 696)
-
-[node name="Tree3" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-2145, 111)
-
-[node name="Tree4" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1960, -485)
-
-[node name="Tree5" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1073, -1757)
-
-[node name="Tree6" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1270, -1435)
-
-[node name="Tree7" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-312, -1856)
-
-[node name="Tree8" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(620, -1802)
-
-[node name="Tree9" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(145, -1918)
-
-[node name="Tree10" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1238, -1390)
-
-[node name="Tree11" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1784, -844)
-
-[node name="Tree12" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(2187, -235)
-
-[node name="Tree13" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(2267, 669)
-
-[node name="Tree14" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1730, 1108)
-
-[node name="Tree15" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1358, -1104)
-
-[node name="Tree16" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1564, 696)
-
-[node name="Tree17" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1867, 111)
-
-[node name="Tree18" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1682, -485)
-
-[node name="Tree19" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-795, -1757)
-
-[node name="Tree20" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-992, -1435)
-
-[node name="Tree21" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-34, -1856)
-
-[node name="Tree22" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(898, -1802)
-
-[node name="Tree23" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(423, -1918)
-
-[node name="Tree24" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1516, -1390)
-
-[node name="Tree25" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(2062, -844)
-
-[node name="Tree26" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(2465, -235)
-
-[node name="Tree27" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(2545, 669)
-
-[node name="Tree28" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(2008, 1108)
-
-[node name="Tree29" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1896, -1032)
-
-[node name="Tree30" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-2102, 768)
-
-[node name="Tree31" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-2405, 183)
-
-[node name="Tree32" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-2220, -413)
-
-[node name="Tree33" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1333, -1685)
-
-[node name="Tree34" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-1530, -1363)
-
-[node name="Tree35" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-572, -1784)
-
-[node name="Tree36" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(360, -1730)
-
-[node name="Tree37" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(-115, -1846)
-
-[node name="Tree38" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(978, -1318)
-
-[node name="Tree39" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1524, -772)
-
-[node name="Tree40" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1927, -163)
-
-[node name="Tree41" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(2007, 741)
-
-[node name="Tree42" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1470, 1180)
-
-[node name="Tree43" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1345, -1319)
-
-[node name="Tree44" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1748, -710)
-
-[node name="Tree45" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1828, 194)
-
-[node name="Tree46" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1291, 633)
-
-[node name="Tree47" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1077, -1865)
-
-[node name="Tree48" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1623, -1319)
-
-[node name="Tree49" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(2026, -710)
-
-[node name="Tree50" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(2106, 194)
-
-[node name="Tree51" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1569, 633)
-
-[node name="Tree52" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1085, -1247)
-
-[node name="Tree53" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1488, -638)
-
-[node name="Tree54" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1568, 266)
-
-[node name="Tree55" parent="game" instance=ExtResource("3_navwl")]
-position = Vector2(1031, 705)
 
 [node name="Camera2D" type="Camera2D" parent="game"]
 scale = Vector2(2, 2)

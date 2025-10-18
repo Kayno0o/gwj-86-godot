@@ -10,7 +10,6 @@ loot_scene = ExtResource("2_ni0tv")
 loot_amount = 3
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-23, 659)
 scale = Vector2(1.5, 1.5)
 frame = 1
-offset = Vector2(15.5, -326.33334)
+offset = Vector2(2.166666, -335.6667)

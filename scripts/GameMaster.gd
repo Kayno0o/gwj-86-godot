@@ -52,7 +52,10 @@ func _place_spawner() :
 	var rand_choice = randi_range(0, map_size.size() - 1)
 	var location_choice = Vector2(randf_range(map_size[rand_choice].x, map_size[(rand_choice + 1) % 4].x), randf_range(map_size[rand_choice].y, map_size[(rand_choice + 1) % 4].y))
 	var spawner = preload("uid://cnoupnbe0nfrg").instantiate()
-	spawner.position = location_choice
+	#spawner.position = location_choice
+	var mob_spawn_location = $Path2D/PathFollow2D
+	mob_spawn_location.progress_ratio = randf()
+	spawner.position = mob_spawn_location.position
 	spawner.spawner_ded.connect(_spawner_is_ded)
 	add_child(spawner)
 	
