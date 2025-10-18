@@ -55,9 +55,9 @@
 - [ ] Rendre les white mask pacifiste
 - [ ] les unités se heal pendant la journée
 - [ ] trads
-  - [ ] types d'objets dans les skill tree
+  - [x] types d'objets dans les skill tree
   - [ ] descriptions des skill (si besoin)
-  - [ ] types de stats
+  - [x] types de stats
 
 # QoL bien a avoir mais pas nécessaire
 
