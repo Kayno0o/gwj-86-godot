@@ -8,6 +8,7 @@ class_name SkillNode extends Button
 @export var entity_type: Enum.EntityType
 @export var shopping_list: Dictionary[String, int] = {}
 @export var bonuses: Dictionary[Enum.StatType, float] = {}
+@export var buy_instant: bool = false
 
 var is_unlocked: bool = false
 var description_panel: PanelContainer
@@ -34,7 +35,7 @@ func buy():
 		return
 
 	InventoryManager.has_paid.connect(_on_paid)
-	InventoryManager.pay_shopping_list(shopping_list)
+	InventoryManager.pay_shopping_list(shopping_list, buy_instant)
 
 func _on_paid():
 	# Apply stat bonuses to the appropriate entity type
