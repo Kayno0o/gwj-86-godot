@@ -15,7 +15,7 @@ var inventory: Dictionary = {}
 #endregion
 
 #region @onready
-@onready var health_component: HealthComponent = HealthComponent.new(health)
+@onready var health_component: HealthComponent = HealthComponent.new(func(): return health)
 
 @onready var components: Dictionary[Component.Type, Component] = {
 	Component.Type.Health: health_component,

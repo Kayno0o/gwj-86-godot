@@ -69,7 +69,6 @@ func pay_shopping_list(shopping_list: Dictionary[String, int], instantly = true)
 
 	update_inventory.emit()
 
-	print_debug(is_pending())
 	if not is_pending():
 		has_paid.emit()
 
@@ -244,16 +243,4 @@ func _on_target_removed(target: Node2D):
 
 	inventory[entity_type_string].erase(target)
 	update_inventory.emit()
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if not event.pressed: return
-		if event.keycode == KEY_T:
-			print_debug(can_pay({
-				"Pebble": 2
-			}))
-		if event.keycode == KEY_P:
-			print_debug(pay_shopping_list({
-				"MaskTransporter": 2
-			}))
 #endregion

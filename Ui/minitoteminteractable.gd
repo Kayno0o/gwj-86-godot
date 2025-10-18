@@ -14,7 +14,3 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 	if event is InputEventMouseButton :
 		if event.button_mask == 1 :
 			ui_instance.switch_state()
-			print(event)
-	#print("viewport : " + str(viewport))
-	#print("event : " + str(event))
-	#print("shape idx : " + str(shape_idx))
