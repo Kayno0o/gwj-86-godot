@@ -1,8 +1,7 @@
 class_name SkillNode extends Button
 
 @export_category("Label")
-@export var skill_name: String = "Skill"
-@export_multiline var description: String = ""
+@export var skill_name: String = "health"
 
 @export_category("Stats")
 @export var entity_type: Enum.EntityType
@@ -17,6 +16,11 @@ var description_label: Label
 var font_size: int = 60
 var border_width_pixels: int = 12
 var corner_radius_pixels: int = 32
+
+var title: String:
+	get: return tr("skill.%s.name" % skill_name)
+var description: String:
+	get: return Utils.t("skill.%s.description" % skill_name)
 
 signal on_bought()
 
@@ -79,12 +83,12 @@ func _can_buy() -> bool:
 
 func _setup_ui():
 	# show upgrades/bonuses
-	var upgrades_text = skill_name + "\n"
+	var upgrades_text = title + "\n"
 	if bonuses.size() > 0:
 		for stat_type in bonuses:
 			var bonus_value = bonuses[stat_type]
 			var sign_text = "+" if bonus_value >= 0 else ""
-			upgrades_text += "%s%s %s\n" % [sign_text, bonus_value, Enum.StatType.keys()[stat_type]]
+			upgrades_text += "%s%s %s\n" % [sign_text, bonus_value, tr("stat.%s" % Enum.StatType.find_key(stat_type))]
 	
 	text = upgrades_text.strip_edges()
 	add_theme_font_size_override("font_size", font_size)
@@ -105,9 +109,9 @@ func _setup_ui():
 			full_text += description + "\n\n"
 		
 		if shopping_list.size() > 0:
-			full_text += "Cost:\n"
+			full_text += tr("cost") + tr(":") + "\n"
 			for item in shopping_list:
-				full_text += "- %s: %d\n" % [item, shopping_list[item]]
+				full_text += "- %s%s %d\n" % [tr("item.%s" % item), tr(":"), shopping_list[item]]
 		
 		description_label.text = full_text.strip_edges()
 		description_label.add_theme_font_size_override("font_size", font_size)
