@@ -21,12 +21,13 @@ totem_ui = ExtResource("2_twegl")
 
 [node name="totemheadsprite" type="Sprite2D" parent="."]
 z_as_relative = false
+position = Vector2(0, -286)
 script = ExtResource("3_f54x8")
 
 [node name="totembasesprite" type="Sprite2D" parent="totemheadsprite"]
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(-1, 284)
+position = Vector2(0, 284)
 texture = ExtResource("1_w3ixe")
 offset = Vector2(1, -84)
 script = ExtResource("5_f54x8")

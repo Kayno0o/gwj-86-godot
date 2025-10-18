@@ -37,8 +37,8 @@ type = 1
 entity_name = "Mask Miner"
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2(0, 76)
+position = Vector2(-45, 0)
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_i3wrh")
 speed_scale = 0.0
-offset = Vector2(0, -152)
+offset = Vector2(40, -155)

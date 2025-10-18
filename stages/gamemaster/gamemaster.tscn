@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwy0xgki0ltex"]
+[gd_scene load_steps=9 format=3 uid="uid://cwy0xgki0ltex"]
 
 [ext_resource type="Script" uid="uid://d1pnuushvfayr" path="res://scripts/GameMaster.gd" id="1_8ji5e"]
 [ext_resource type="Script" uid="uid://dfmfgpth0lafo" path="res://scripts/DayNightCycle.gd" id="2_tdqy3"]
+[ext_resource type="Texture2D" uid="uid://cucetx1qqeinf" path="res://assets/gradient.png" id="4_crrro"]
 
 [sub_resource type="Curve" id="Curve_5powy"]
 _limits = [0.0, 1.0, 0.0, 30.0]
@@ -20,6 +21,12 @@ colors = PackedColorArray(0.024774149, 0.5279563, 0.74482995, 1, 0.5187932, 0.51
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_5powy"]
 gradient = SubResource("Gradient_60rri")
 
+[sub_resource type="Curve2D" id="Curve2D_tdqy3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -18532, -9460, 0, 0, 0, 0, 17585, -9279, 0, 0, 0, 0, 17494, 9097, 0, 0, 0, 0, -18441, 9006, 0, 0, 0, 0, -18532, -9460)
+}
+point_count = 5
+
 [node name="GameMaster" type="Node2D" groups=["Master"]]
 script = ExtResource("1_8ji5e")
 map_size = Array[Vector2]([Vector2(-100, -100), Vector2(1200, -100), Vector2(1200, 700), Vector2(-100, 700)])
@@ -34,6 +41,68 @@ moons = Dictionary[int, GradientTexture1D]({
 })
 
 [node name="Timer" type="Timer" parent="DayNightCycler"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tdqy3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-18532, -9460)
+rotation = 0.0050114486
+
+[node name="Node" type="Node2D" parent="."]
+z_index = 4096
+z_as_relative = false
+
+[node name="Gradient" type="Sprite2D" parent="Node"]
+position = Vector2(-399, -8064)
+scale = Vector2(6894.8, 1)
+texture = ExtResource("4_crrro")
+
+[node name="Gradient2" type="Sprite2D" parent="Node"]
+position = Vector2(16403, 13.848633)
+rotation = 1.5707964
+scale = Vector2(3394.9634, 1)
+texture = ExtResource("4_crrro")
+
+[node name="Gradient3" type="Sprite2D" parent="Node"]
+position = Vector2(-400.17822, 8105)
+rotation = -3.1415925
+scale = Vector2(6894.496, 1)
+texture = ExtResource("4_crrro")
+
+[node name="Gradient4" type="Sprite2D" parent="Node"]
+position = Vector2(-17242, -6.723877)
+rotation = -1.5707964
+scale = Vector2(3386.7346, 1)
+texture = ExtResource("4_crrro")
+
+[node name="ColorRect" type="ColorRect" parent="Node"]
+offset_left = -17649.0
+offset_top = -12671.0
+offset_right = 16879.0
+offset_bottom = -8377.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node"]
+offset_left = -17636.0
+offset_top = 8467.0
+offset_right = 16892.0
+offset_bottom = 12761.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Node"]
+offset_left = 16623.0
+offset_top = -12671.0
+offset_right = 21530.0
+offset_bottom = 12775.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Node"]
+offset_left = -22605.0
+offset_top = -12671.0
+offset_right = -17545.0
+offset_bottom = 12760.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="end_night" from="." to="DayNightCycler" method="_on_game_master_end_night"]

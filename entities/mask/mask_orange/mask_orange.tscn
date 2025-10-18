@@ -37,7 +37,7 @@ type = 4
 entity_name = "Orange Farmer"
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2(-80, 305)
+position = Vector2(-53, -4)
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_3bb2a")
 offset = Vector2(40, -152.5)
