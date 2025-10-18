@@ -1,5 +1,19 @@
 extends Node
 
+enum StatType {
+	MovementSpeed = 0,
+	Health = 1,
+
+	Attack = 10,
+	AttackSpeed = 11,
+	AttackRange = 12,
+	AttackViewDistance = 13,
+
+	InventorySize = 20,
+	PickupRange = 21,
+	TargetSearchCooldown = 22,
+}
+
 enum EntityType {
 	MaskLumberjack = 0,
 	MaskMiner = 1,

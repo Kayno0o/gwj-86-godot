@@ -28,19 +28,18 @@ var current_target: Node2D = null
 
 @onready var sprite: Node2D = $Sprite
 
-@onready var health_component: HealthComponent = HealthComponent.new(SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Health, health))
-@onready var inventory_component: InventoryComponent = InventoryComponent.new(self, SkillTreeManager.get_istat(type, SkillTreeManager.StatType.InventorySize, inventory_size))
+var inventory_component: InventoryComponent = null
+
+@onready var health_component: HealthComponent = HealthComponent.new(StatsManager.get_fstat(type, Enum.StatType.Health, health))
 
 @onready var components: Dictionary[Component.Type, Component] = {
 	Component.Type.Health: health_component,
-	Component.Type.Inventory: inventory_component,
 }
 
 func _ready() -> void:
 	TargetManager.register_target(self, [target_type])
 	TargetManager.target_removed.connect(_on_target_removed)
 	health_component.death.connect(_on_death)
-	inventory_component._ready()
 
 func find_closer_target() -> Node:
 	var priorities_group = Enum.get_target_priorities(type)
@@ -81,27 +80,28 @@ func find_closer_target() -> Node:
 	return null
 
 func get_movement_speed() -> float:
-	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.MovementSpeed, movement_speed)
+	return StatsManager.get_fstat(type, Enum.StatType.MovementSpeed, movement_speed)
 
 func get_inventory_size() -> int:
-	return SkillTreeManager.get_istat(type, SkillTreeManager.StatType.InventorySize, inventory_size)
+	return StatsManager.get_istat(type, Enum.StatType.InventorySize, inventory_size)
 func get_pickup_range() -> float:
-	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.PickupRange, pickup_range)
+	return StatsManager.get_fstat(type, Enum.StatType.PickupRange, pickup_range)
 func get_target_search_cooldown() -> float:
-	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.TargetSearchCooldown, target_search_cooldown)
+	return StatsManager.get_fstat(type, Enum.StatType.TargetSearchCooldown, target_search_cooldown)
 
 func get_attack() -> float:
-	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.Attack, attack)
+	return StatsManager.get_fstat(type, Enum.StatType.Attack, attack)
 func get_attack_speed() -> float:
-	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.AttackSpeed, attack_speed)
+	return StatsManager.get_fstat(type, Enum.StatType.AttackSpeed, attack_speed)
 func get_attack_range() -> float:
-	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.AttackRange, attack_range)
+	return StatsManager.get_fstat(type, Enum.StatType.AttackRange, attack_range)
 func get_attack_view_distance() -> float:
-	return SkillTreeManager.get_fstat(type, SkillTreeManager.StatType.AttackViewDistance, attack_view_distance)
+	return StatsManager.get_fstat(type, Enum.StatType.AttackViewDistance, attack_view_distance)
 
 func _on_death():
 	TargetManager.unregister_target(self, [target_type])
-	inventory_component.drop_inventory()
+	if inventory_component:
+		inventory_component.drop_inventory()
 	queue_free()
 
 func _on_target_removed(target: Node) -> void:

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dslee6wnr15cf"
 path.bptc="res://.godot/imported/red_totem.png-6569e59505985c8e1bd06bed54b7d916.bptc.ctex"
+path.astc="res://.godot/imported/red_totem.png-6569e59505985c8e1bd06bed54b7d916.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/totem/red_totem.png"
-dest_files=["res://.godot/imported/red_totem.png-6569e59505985c8e1bd06bed54b7d916.bptc.ctex"]
+dest_files=["res://.godot/imported/red_totem.png-6569e59505985c8e1bd06bed54b7d916.bptc.ctex", "res://.godot/imported/red_totem.png-6569e59505985c8e1bd06bed54b7d916.astc.ctex"]
 
 [params]
 

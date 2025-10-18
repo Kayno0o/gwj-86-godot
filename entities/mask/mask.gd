@@ -3,6 +3,9 @@ class_name Mask extends Entity
 @onready var state_machine: StateMachine = $StateMachine
 
 func _ready():
+	inventory_component = InventoryComponent.new(self, StatsManager.get_istat(type, Enum.StatType.InventorySize, inventory_size))
+	components[Component.Type.Inventory] = inventory_component
+	inventory_component._ready()
 	super._ready()
 	state_machine.ready(self)
 
