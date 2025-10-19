@@ -3,9 +3,13 @@
 - [x] refactor/simplify and document state machine
 - [x] skill tree
 - [x] faire un vrai sacrifice (pas juste un tween)
-- [x] hero
-  - [ ] faire l'intégration avec le totem central
 - [ ] buy mini totems
+
+- [ ] Hero
+  - [x] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
+  - [x] le hero peut changer de masque pour changer de rôle principal
+  - [ ] faire l'intégration avec le totem central
+  - [ ] le hero respawn 15 secondes après sa mort
 
 # Pediluve EN URGENCE
 
@@ -39,10 +43,6 @@
 
 - [ ] camera
 
-- [ ] Hero
-  - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
-  - [ ] le hero peut changer de masque pour changer de rôle principal
-  - [ ] le hero respawn 15 secondes après sa mort
 
 # BUG
 
