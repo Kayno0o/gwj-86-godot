@@ -1,6 +1,7 @@
 class_name MoveToTargetState extends State
 
 var search_timer: Timer
+var rotation_time: float = 0.0
 
 func init(p_parent: Entity) -> void:
 	type = State.Type.MoveToTarget
@@ -20,7 +21,7 @@ func enter() -> void:
 func exit() -> void:
 	search_timer.stop()
 
-func process(_delta: float):
+func process(delta: float):
 	if not parent.current_target or not is_instance_valid(parent.current_target):
 		parent.current_target = null
 		return State.Type.Idle
@@ -32,7 +33,7 @@ func process(_delta: float):
 		return get_interaction_state()
 
 	# we cannot interact with the target, continue following it
-	move_to_target()
+	move_to_target(delta)
 	return null
 
 func _on_search_timeout() -> void:
@@ -74,9 +75,18 @@ func get_interaction_state():
 
 	return State.Type.Idle
 
-func move_to_target() -> void:
+func move_to_target(delta) -> void:
 	var direction = (parent.current_target.global_position - parent.global_position).normalized()
 	parent.velocity = direction * parent.get_movement_speed()
+
+	var base_rotation = direction.angle()
+	
+	rotation_time += delta
+	var rotation_speed = 2.0
+	var angle = sin(rotation_time * rotation_speed) * deg_to_rad(6.0)
+	
+	parent.rotation = base_rotation + angle
+
 	parent.move_and_slide()
 
 # look for closer targets
