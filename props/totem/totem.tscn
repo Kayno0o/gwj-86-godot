@@ -11,16 +11,72 @@
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="8_h5uus"]
 [ext_resource type="Texture2D" uid="uid://dslee6wnr15cf" path="res://assets/totem/red_totem.png" id="8_q76w8"]
 [ext_resource type="PackedScene" uid="uid://bqk8yh7c2vn8p" path="res://entities/mask/mask_blue/mask_blue.tscn" id="9_a0348"]
+[ext_resource type="Texture2D" uid="uid://fwgltuyt6ggj" path="res://assets/hero/totem/héros totem sheet_1.png" id="9_waqct"]
 [ext_resource type="Texture2D" uid="uid://bekvbetm0lfqw" path="res://assets/totem/orange_totem.png" id="10_waqct"]
 [ext_resource type="Script" uid="uid://fik2dpk4ixya" path="res://Ui/skill/skill_tree.gd" id="11_kgfja"]
 [ext_resource type="Texture2D" uid="uid://bw11mro1e5kd" path="res://assets/totem/green_totem.png" id="12_42wbl"]
 [ext_resource type="Script" uid="uid://csujtitx8durp" path="res://Ui/totem/minitotem/minitotembubble.gd" id="12_kgfja"]
 [ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="14_tbapd"]
+[ext_resource type="Script" uid="uid://cvqo4kpgigh15" path="res://props/totem/fire_click.gd" id="16_kgfja"]
+[ext_resource type="Texture2D" uid="uid://dow08o5o8bdkl" path="res://props/fire/Crafting_115.png" id="16_x5o6e"]
 [ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42wbl"]
+atlas = ExtResource("9_waqct")
+region = Rect2(1000, 600, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbapd"]
+atlas = ExtResource("9_waqct")
+region = Rect2(500, 600, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjcm3"]
+atlas = ExtResource("9_waqct")
+region = Rect2(0, 600, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn2fh"]
+atlas = ExtResource("9_waqct")
+region = Rect2(500, 0, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdf54"]
+atlas = ExtResource("9_waqct")
+region = Rect2(1000, 0, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwgo1"]
+atlas = ExtResource("9_waqct")
+region = Rect2(0, 0, 500, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bhy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42wbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbapd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjcm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn2fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdf54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwgo1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q76w8"]
 radius = 161.5
 height = 1989.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_waqct"]
+radius = 218.66183
 
 [node name="TotemZone" type="Node2D"]
 z_index = 1
@@ -112,6 +168,11 @@ z_index = 1
 position = Vector2(1, 0)
 texture = ExtResource("2_q76w8")
 offset = Vector2(-1, -827)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base"]
+z_index = 1
+position = Vector2(-3, -1027)
+sprite_frames = SubResource("SpriteFrames_1bhy3")
 
 [node name="Area2D" type="Area2D" parent="Totem"]
 collision_mask = 0
@@ -380,6 +441,25 @@ items_shopping_list = Dictionary[int, int]({
 buy_instant = true
 metadata/_custom_type_script = "uid://csujtitx8durp"
 
+[node name="fire" type="Node2D" parent="."]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+script = ExtResource("16_kgfja")
+
+[node name="Sprite2D" type="Sprite2D" parent="fire"]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+scale = Vector2(30, 30)
+texture = ExtResource("16_x5o6e")
+
+[node name="Area2D" type="Area2D" parent="fire"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fire/Area2D"]
+shape = SubResource("CircleShape2D_waqct")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="input_event" from="Totem/Area2D" to="Totem" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="fire/Area2D" to="fire" method="_on_area_2d_input_event"]

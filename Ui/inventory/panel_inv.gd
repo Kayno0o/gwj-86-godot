@@ -4,8 +4,12 @@ extends Panel
 @export var item_type : Enum.ItemType
 @export var entity_type : Enum.EntityType
 @export var is_entity : bool
+@export var unique_scale : float
 
 func _ready() -> void:
+	$text/Sprite.scale *= unique_scale
+	if is_entity :
+		$text/Sprite.position.y -= ($text/Sprite.texture.get_height() * $text/Sprite.scale.y) / 3
 	InventoryManager.update_inventory.connect(_update_slot)
 	$text/Sprite.texture = item_sprite
 	if is_entity :

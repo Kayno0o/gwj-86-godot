@@ -19,60 +19,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
 
 [node name="GridContainer" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-columns = 3
 
 [node name="green" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("5_xgnnb")
 is_entity = true
+unique_scale = 0.6
 
 [node name="black" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("6_ko5sv")
 entity_type = 1
 is_entity = true
+unique_scale = 0.6
 
 [node name="orange" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("7_3od21")
 entity_type = 4
 is_entity = true
+unique_scale = 0.6
 
 [node name="red" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("8_ob40m")
 entity_type = 2
 is_entity = true
+unique_scale = 0.6
 
 [node name="blue" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("9_klxej")
 entity_type = 3
 is_entity = true
+unique_scale = 0.6
 
 [node name="pink" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("10_wpfui")
 entity_type = 5
 is_entity = true
+unique_scale = 0.6
 
 [node name="log" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("2_q7l56")
+unique_scale = 1.0
 
 [node name="pebble" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("2_4bnb7")
 item_type = 1
+unique_scale = 1.0
 
 [node name="wheat" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("4_asrnv")
 item_type = 2
+unique_scale = 1.0

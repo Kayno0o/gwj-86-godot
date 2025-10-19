@@ -102,8 +102,15 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("17_ourju")
 
-[node name="Control" parent="." instance=ExtResource("16_k5jav")]
-offset_left = -926.0
-offset_top = -2187.0
-offset_right = -926.0
-offset_bottom = -2187.0
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = 5000
+
+[node name="Control" parent="Camera2D/CanvasLayer" instance=ExtResource("16_k5jav")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1, 1)
