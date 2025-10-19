@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=31 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="2_q76w8"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://csujtitx8durp" path="res://Ui/totem/minitotem/minitotembubble.gd" id="12_kgfja"]
 [ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="14_tbapd"]
 [ext_resource type="Script" uid="uid://cvqo4kpgigh15" path="res://props/totem/fire_click.gd" id="16_kgfja"]
+[ext_resource type="Script" uid="uid://ca0dgeimti308" path="res://Ui/skill/skill_node.gd" id="16_wn2fh"]
 [ext_resource type="Texture2D" uid="uid://dow08o5o8bdkl" path="res://props/fire/Crafting_115.png" id="16_x5o6e"]
 [ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
 
@@ -181,50 +182,6 @@ collision_mask = 0
 position = Vector2(-1.5, -1548.5)
 shape = SubResource("CapsuleShape2D_q76w8")
 
-[node name="pinktotem" parent="." instance=ExtResource("3_v2ani")]
-position = Vector2(-450, 940)
-mask_to_invok = ExtResource("4_b3en4")
-top_sprite = ExtResource("5_x5o6e")
-main_ressources = Dictionary[int, int]({
-0: 1,
-1: 1,
-2: 1
-})
-totem_type = 5
-
-[node name="PinkSkillTree" type="Control" parent="pinktotem"]
-z_index = 500
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -148.5
-offset_top = -587.0
-offset_right = 148.5
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("11_kgfja")
-default_entity_type = 5
-metadata/_custom_type_script = "uid://fik2dpk4ixya"
-
-[node name="MiniTotemBubble" type="Button" parent="pinktotem/PinkSkillTree"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-script = ExtResource("12_kgfja")
-infinite = true
-skill_name = "pink_transporter"
-entity_type = 5
-items_shopping_list = Dictionary[int, int]({
-0: 1,
-1: 1,
-2: 1
-})
-buy_instant = true
-metadata/_custom_type_script = "uid://csujtitx8durp"
-
 [node name="redtotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(600, -410)
 mask_to_invok = ExtResource("6_k4i2k")
@@ -264,6 +221,50 @@ entity_type = 2
 items_shopping_list = Dictionary[int, int]({
 0: 3,
 1: 1,
+2: 1
+})
+buy_instant = true
+metadata/_custom_type_script = "uid://csujtitx8durp"
+
+[node name="bluetotem" parent="." instance=ExtResource("5_xabt0")]
+position = Vector2(-600, -410)
+mask_to_invok = ExtResource("9_a0348")
+top_sprite = ExtResource("14_tbapd")
+main_ressources = Dictionary[int, int]({
+0: 1,
+1: 3,
+2: 1
+})
+totem_type = 3
+
+[node name="BlueSkillTree" type="Control" parent="bluetotem"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -587.0
+offset_right = 148.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_kgfja")
+default_entity_type = 3
+metadata/_custom_type_script = "uid://fik2dpk4ixya"
+
+[node name="MiniTotemBubble" type="Button" parent="bluetotem/BlueSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("12_kgfja")
+infinite = true
+skill_name = "blue_tank"
+entity_type = 3
+items_shopping_list = Dictionary[int, int]({
+0: 1,
+1: 3,
 2: 1
 })
 buy_instant = true
@@ -313,6 +314,35 @@ items_shopping_list = Dictionary[int, int]({
 buy_instant = true
 metadata/_custom_type_script = "uid://csujtitx8durp"
 
+[node name="Small Inventory" type="Button" parent="orangetotem/OrangeSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "small_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+20: 1.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Medium Inventory" type="Button" parent="orangetotem/OrangeSkillTree/Small Inventory"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "medium_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+2: 1
+})
+bonuses = Dictionary[int, float]({
+20: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
 [node name="greentotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(450, 940)
 mask_to_invok = ExtResource("8_h5uus")
@@ -354,49 +384,34 @@ items_shopping_list = Dictionary[int, int]({
 buy_instant = true
 metadata/_custom_type_script = "uid://csujtitx8durp"
 
-[node name="bluetotem" parent="." instance=ExtResource("5_xabt0")]
-position = Vector2(-600, -410)
-mask_to_invok = ExtResource("9_a0348")
-top_sprite = ExtResource("14_tbapd")
-main_ressources = Dictionary[int, int]({
-0: 1,
-1: 3,
-2: 1
-})
-totem_type = 3
-
-[node name="BlueSkillTree" type="Control" parent="bluetotem"]
-z_index = 500
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -148.5
-offset_top = -587.0
-offset_right = 148.5
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("11_kgfja")
-default_entity_type = 3
-metadata/_custom_type_script = "uid://fik2dpk4ixya"
-
-[node name="MiniTotemBubble" type="Button" parent="bluetotem/BlueSkillTree"]
+[node name="Small Inventory" type="Button" parent="greentotem/GreenSkillTree"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-script = ExtResource("12_kgfja")
-infinite = true
-skill_name = "blue_tank"
-entity_type = 3
+script = ExtResource("16_wn2fh")
+skill_name = "small_inventory"
 items_shopping_list = Dictionary[int, int]({
-0: 1,
-1: 3,
+0: 2
+})
+bonuses = Dictionary[int, float]({
+20: 1.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Medium Inventory" type="Button" parent="greentotem/GreenSkillTree/Small Inventory"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "medium_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
 2: 1
 })
-buy_instant = true
-metadata/_custom_type_script = "uid://csujtitx8durp"
+bonuses = Dictionary[int, float]({
+20: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
 
 [node name="blacktotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(1000, 190)
@@ -440,6 +455,155 @@ items_shopping_list = Dictionary[int, int]({
 })
 buy_instant = true
 metadata/_custom_type_script = "uid://csujtitx8durp"
+
+[node name="Small Inventory" type="Button" parent="blacktotem/BlackSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "small_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+20: 1.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Medium Inventory" type="Button" parent="blacktotem/BlackSkillTree/Small Inventory"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "medium_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+2: 1
+})
+bonuses = Dictionary[int, float]({
+20: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="pinktotem" parent="." instance=ExtResource("3_v2ani")]
+position = Vector2(-450, 940)
+mask_to_invok = ExtResource("4_b3en4")
+top_sprite = ExtResource("5_x5o6e")
+main_ressources = Dictionary[int, int]({
+0: 1,
+1: 1,
+2: 1
+})
+totem_type = 5
+
+[node name="PinkSkillTree" type="Control" parent="pinktotem"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -587.0
+offset_right = 148.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_kgfja")
+default_entity_type = 5
+metadata/_custom_type_script = "uid://fik2dpk4ixya"
+
+[node name="MiniTotemBubble" type="Button" parent="pinktotem/PinkSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("12_kgfja")
+infinite = true
+skill_name = "pink_transporter"
+entity_type = 5
+items_shopping_list = Dictionary[int, int]({
+0: 1,
+1: 1,
+2: 1
+})
+buy_instant = true
+metadata/_custom_type_script = "uid://csujtitx8durp"
+
+[node name="Small Inventory" type="Button" parent="pinktotem/PinkSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "small_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+20: 1.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Medium Inventory" type="Button" parent="pinktotem/PinkSkillTree/Small Inventory"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "medium_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+2: 1
+})
+bonuses = Dictionary[int, float]({
+20: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Large Inventory" type="Button" parent="pinktotem/PinkSkillTree/Small Inventory/Medium Inventory"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "large_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 4,
+2: 3
+})
+bonuses = Dictionary[int, float]({
+20: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Huge Inventory" type="Button" parent="pinktotem/PinkSkillTree/Small Inventory/Medium Inventory/Large Inventory"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "huge_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 6,
+1: 2,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+20: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Infinite Inventory" type="Button" parent="pinktotem/PinkSkillTree/Small Inventory/Medium Inventory/Large Inventory/Huge Inventory"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "infinite_inventory"
+items_shopping_list = Dictionary[int, int]({
+0: 8,
+1: 4,
+2: 6
+})
+bonuses = Dictionary[int, float]({
+20: 1.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
 
 [node name="fire" type="Node2D" parent="."]
 z_index = 1

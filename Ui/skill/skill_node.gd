@@ -6,6 +6,7 @@ class_name SkillNode extends Button
 @export var skill_name: String = "health"
 
 @export_category("Stats")
+@export var inherit_entity_type: bool = true
 @export var entity_type: Enum.EntityType
 @export var items_shopping_list: Dictionary[Enum.ItemType, int] = {}
 @export var entities_shopping_list: Dictionary[Enum.EntityType, int] = {}
@@ -73,7 +74,7 @@ func _on_paid():
 	queue_free()
 
 func _get_entity_type() -> Enum.EntityType:
-	if not entity_type:
+	if inherit_entity_type:
 		var parent_node: SkillTree = get_parent()
 		if parent_node.default_entity_type:
 			return parent_node.entity_type

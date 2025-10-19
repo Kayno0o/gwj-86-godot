@@ -12,14 +12,31 @@ stat.PickupRange,Portée Collecte,Pickup Range
 stat.TargetSearchCooldown,Cooldown Recherche,Search CD
 
 skill.pink_transporter.name,Transporter,Transporter
+skill.pink_transporter.description,Spécialisé dans le transport d'objets,Specialized in fast item transport
 skill.red_attacker.name,Attaquant,Attacker
+skill.red_attacker.description,Spécialisé dans le combat,Specialized in combat
 skill.orange_farmer.name,Fermier,Farmer
+skill.orange_farmer.description,Récolte les céréales,Gathers cereals
 skill.green_lumberjack.name,Bûcheron,Lumberjack
+skill.green_lumberjack.description,Coupe le bois,Chops wood
 skill.blue_tank.name,Tank,Tank
+skill.blue_tank.description,Robuste et résistant aux dégâts,Sturdy and resistant to damage
 skill.black_miner.name,Mineur,Miner
+skill.black_miner.description,Mine la pierre,Mines stone
 
 skill.health.name,PV !,HP!
 skill.health.description,Plus de PV !,More HP!
+
+skill.small_inventory.name,Petit inventaire,Small Inventory
+skill.small_inventory.description,Augmente légèrement la taille de l'inventaire,Slightly increases inventory size
+skill.medium_inventory.name,Inventaire moyen,Medium Inventory
+skill.medium_inventory.description,Augmente la taille de l'inventaire,Increases inventory size
+skill.large_inventory.name,Grand inventaire,Large Inventory
+skill.large_inventory.description,Augmente grandement la taille de l'inventaire,Greatly increases inventory size
+skill.huge_inventory.name,Inventaire énorme,Huge Inventory
+skill.huge_inventory.description,Augmente énormément la taille de l'inventaire,Massively increases inventory size
+skill.infinite_inventory.name,Inventaire infini,Infinite Inventory
+skill.infinite_inventory.description,Capacité d'inventaire illimitée,Unlimited inventory capacity
 
 item.MaskTransporter,Transporter,Transporter
 item.MaskAttacker,Attaquant,Attacker
