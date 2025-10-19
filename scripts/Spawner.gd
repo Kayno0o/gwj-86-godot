@@ -1,13 +1,14 @@
 extends Node
 
 #region @Onready
-@onready var threat_cost :int = 50
+@onready var threat_cost :int = 10
 @onready var world = get_tree().get_nodes_in_group("Master")[0]
 #endregion
 
 #region @Export
 @export var villains : Array[PackedScene]
 @export var offset : float
+@export var difficulty_curve : Curve
 #endregion
 
 #region Signals
@@ -35,7 +36,7 @@ func _ready() -> void:
 # Selectionne les villains a spawn selon son budget
 func _villain_picker() :
 	var allowed = 0
-	var spawn_budget = world.difficulty * threat_cost
+	var spawn_budget = world.difficulty * threat_cost * difficulty_curve.sample(world.difficulty)
 	for current_villain in villains :
 		var villain_instance = current_villain.instantiate()
 		if spawn_budget > villain_instance.cost :

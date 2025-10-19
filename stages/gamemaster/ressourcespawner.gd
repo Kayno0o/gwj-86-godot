@@ -12,6 +12,8 @@ extends CollisionShape2D
 
 func _ready() -> void:
 	$Timer.start(spawn_rate)
+	for x in 20 :
+		_on_timer_timeout()
 	
 func gen_random_pos():
 	var x = randf_range(origin.x, spawnArea.x)
