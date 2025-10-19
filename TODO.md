@@ -75,6 +75,7 @@
 
 # Later
 
-- [ ] pouvoir cliquer sur les props pour faire des ptites particules/les faire bouger -- peut occuper le joueur
+- [x] pouvoir cliquer sur les props pour les faire bouger -- peut occuper le joueur
+  - [ ] faire des ptites particules
 - [ ] drag and drop new totems to positions
 - [ ] agrandir les mini totem à chaque upgrade
