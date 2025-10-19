@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=18 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
@@ -14,8 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="13_oq21h"]
 [ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="14_k5jav"]
 [ext_resource type="PackedScene" uid="uid://ugmne86ko1c3" path="res://stages/ground/ground.tscn" id="14_oq21h"]
-[ext_resource type="PackedScene" uid="uid://d3kkq6puo5mrg" path="res://props/totem/minitotem.tscn" id="14_ourju"]
-[ext_resource type="Texture2D" uid="uid://bw11mro1e5kd" path="res://assets/totem/green_totem.png" id="15_k5jav"]
+[ext_resource type="PackedScene" uid="uid://b4vw5vuiqtoh8" path="res://Ui/inventory_wip.tscn" id="16_k5jav"]
 [ext_resource type="Script" uid="uid://cnfbofrjenxwn" path="res://stages/game/camera_2d.gd" id="17_ourju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ve2p"]
@@ -112,10 +111,6 @@ z_as_relative = true
 y_sort_enabled = false
 position = Vector2(-147, 160)
 
-[node name="Minitotem" parent="game" instance=ExtResource("14_ourju")]
-position = Vector2(1561, -296)
-top_sprite = ExtResource("15_k5jav")
-
 [node name="GameMaster" parent="." instance=ExtResource("11_51ysb")]
 day_lenght = 150.0
 
@@ -124,3 +119,5 @@ scale = Vector2(1e-05, 1e-05)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("17_ourju")
+
+[node name="Control" parent="." instance=ExtResource("16_k5jav")]
