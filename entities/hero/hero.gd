@@ -23,6 +23,7 @@ func _ready():
 	respawn_timer = Timer.new()
 	respawn_timer.one_shot = true
 	respawn_timer.wait_time = respawn_cooldown
+	respawn_timer.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(respawn_timer)
 	respawn_timer.timeout.connect(_on_respawn)
 
