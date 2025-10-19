@@ -15,7 +15,7 @@
 - [ ] skill tree
   - [ ] base stats upgrade
   - [ ] transporter
-	- débloquer l'affichage des stats
+	  - débloquer l'affichage des stats
 
 # Pediluve EN URGENCE
 

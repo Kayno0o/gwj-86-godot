@@ -11,15 +11,63 @@ stat.InventorySize,Inventaire,Inventory
 stat.PickupRange,Portée Collecte,Pickup Range
 stat.TargetSearchCooldown,Cooldown Recherche,Search CD
 
-skill.pink_transporter.name,Transporter,Transporter
-skill.red_attacker.name,Attaquant,Attacker
-skill.orange_farmer.name,Fermier,Farmer
-skill.green_lumberjack.name,Bûcheron,Lumberjack
-skill.blue_tank.name,Tank,Tank
-skill.black_miner.name,Mineur,Miner
+skill.pink_transporter.name,Acheter Transporter,Buy Transporter
+skill.pink_transporter.description,Spécialisé dans le transport d'objets,Specialized in fast item transport
+skill.red_attacker.name,Acheter Attaquant,Buy Attacker
+skill.red_attacker.description,Spécialisé dans le combat,Specialized in combat
+skill.orange_farmer.name,Acheter Fermier,Buy Farmer
+skill.orange_farmer.description,Récolte les céréales,Gathers cereals
+skill.green_lumberjack.name,Acheter Bûcheron,Buy Lumberjack
+skill.green_lumberjack.description,Coupe le bois,Chops wood
+skill.blue_tank.name,Acheter Tank,Buy Tank
+skill.blue_tank.description,Robuste et résistant aux dégâts,Sturdy and resistant to damage
+skill.black_miner.name,Acheter Mineur,Buy Miner
+skill.black_miner.description,Mine la pierre,Mines stone
 
 skill.health.name,PV !,HP!
 skill.health.description,Plus de PV !,More HP!
+
+skill.small_inventory.name,Petit inventaire,Small Inventory
+skill.small_inventory.description,Augmente légèrement la taille de l'inventaire,Slightly increases inventory size
+skill.medium_inventory.name,Inventaire moyen,Medium Inventory
+skill.medium_inventory.description,Augmente la taille de l'inventaire,Increases inventory size
+skill.large_inventory.name,Grand inventaire,Large Inventory
+skill.large_inventory.description,Augmente grandement la taille de l'inventaire,Greatly increases inventory size
+skill.huge_inventory.name,Inventaire énorme,Huge Inventory
+skill.huge_inventory.description,Augmente énormément la taille de l'inventaire,Massively increases inventory size
+skill.infinite_inventory.name,Inventaire infini,Infinite Inventory
+skill.infinite_inventory.description,Capacité d'inventaire illimitée,Unlimited inventory capacity
+
+skill.wooden_sword.name,Épée en bois,Wooden Sword
+skill.wooden_sword.description,Augmente légèrement l'attaque,Slightly increases attack
+skill.stone_sword.name,Épée en pierre,Stone Sword
+skill.stone_sword.description,Augmente l'attaque,Increases attack
+skill.iron_sword.name,Épée en fer,Iron Sword
+skill.iron_sword.description,Augmente grandement l'attaque,Greatly increases attack
+skill.battle_axe.name,Hache de combat,Battle Axe
+skill.battle_axe.description,Augmente énormément l'attaque,Massively increases attack
+skill.infinite_sword.name,Épée infinie,Infinite Sword
+skill.infinite_sword.description,Attaque illimitée,Unlimited attack
+
+skill.wooden_shield.name,Bouclier en bois,Wooden Shield
+skill.wooden_shield.description,Augmente légèrement la vie max,Slightly increases max health
+skill.stone_shield.name,Bouclier en pierre,Stone Shield
+skill.stone_shield.description,Augmente la vie max,Increases max health
+skill.iron_shield.name,Bouclier en fer,Iron Shield
+skill.iron_shield.description,Augmente grandement la vie max,Greatly increases max health
+skill.obsidian_shield.name,Bouclier en obsidienne,Obsidian Shield
+skill.obsidian_shield.description,Augmente énormément la vie max,Massively increases max health
+skill.infinite_shield.name,Bouclier infini,Infinite Shield
+skill.infinite_shield.description,Vie illimitée,Unlimited health
+
+skill.leather_boots.name,Bottes en cuir,Leather Boots
+skill.leather_boots.description,Augmente légèrement la vitesse,Slightly increases move speed
+skill.copper_boots.name,Bottes en cuivre,Copper Boots
+skill.copper_boots.description,Augmente la vitesse,Increases move speed
+skill.iron_boots.name,Bottes en fer,Iron Boots
+skill.iron_boots.description,Augmente grandement la vitesse,Greatly increases move speed
+skill.wings.name,Ailes,Wings
+skill.wings.description,Vitesse de déplacement illimitée,Unlimited move speed
 
 item.MaskTransporter,Transporter,Transporter
 item.MaskAttacker,Attaquant,Attacker
