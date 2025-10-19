@@ -9,7 +9,7 @@
   - [x] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
   - [x] le hero peut changer de masque pour changer de rôle principal
   - [ ] faire l'intégration avec le totem central
-  - [ ] le hero respawn 15 secondes après sa mort
+  - [x] le hero respawn 15 secondes après sa mort
 
 # Pediluve EN URGENCE
 
