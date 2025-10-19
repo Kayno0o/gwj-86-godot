@@ -54,7 +54,7 @@ func _on_paid():
 		remove_child(children)
 		get_parent().add_child(children)
 
-	tree_exited.connect(get_parent()._place_skill.bind())
+	tree_exited.connect(get_parent()._expand_skills.bind())
 	queue_free()
 
 func _get_entity_type() -> Enum.EntityType:
