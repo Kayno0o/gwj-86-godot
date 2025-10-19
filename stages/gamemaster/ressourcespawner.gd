@@ -32,5 +32,4 @@ func _on_timer_timeout():
 		2 :
 			ressource_instance = wheat.instantiate()
 	ressource_instance.position = gen_random_pos()
-	print("done")
 	$"../../game".add_child(ressource_instance)

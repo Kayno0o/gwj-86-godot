@@ -10,10 +10,8 @@ func set_language(language: String):
 	current_language_setting = language
 	if language == "automatic":
 		var preferred_language = OS.get_locale_language()
-		print("No language set, detecting OS language: ", preferred_language)
 		TranslationServer.set_locale(preferred_language)
 	else:
-		print("Loaded language from settings: ", language)
 		TranslationServer.set_locale(language)
 
 func load_and_set_language() -> String:
@@ -26,7 +24,6 @@ func load_and_set_language() -> String:
 	var err = config.load(SETTINGS_FILE)
 
 	if err != OK:
-		print("Settings file not found. Using default language detection.")
 		return "automatic"
 
 	var language = config.get_value("user", "language", "automatic")
