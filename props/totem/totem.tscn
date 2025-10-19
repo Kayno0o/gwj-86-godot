@@ -19,9 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="14_tbapd"]
 [ext_resource type="Script" uid="uid://cvqo4kpgigh15" path="res://props/totem/fire_click.gd" id="16_kgfja"]
 [ext_resource type="Script" uid="uid://ca0dgeimti308" path="res://Ui/skill/skill_node.gd" id="16_wn2fh"]
-[ext_resource type="Texture2D" uid="uid://dow08o5o8bdkl" path="res://props/fire/Crafting_115.png" id="16_x5o6e"]
 [ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
-[ext_resource type="Script" uid="uid://c6fwb73mxxhgy" path="res://Ui/window.gd" id="22_wn2fh"]
+[ext_resource type="Texture2D" uid="uid://densh2u1mkjil" path="res://assets/fire.png" id="21_wn2fh"]
+[ext_resource type="Script" path="res://Ui/window.gd" id="22_wn2fh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42wbl"]
 atlas = ExtResource("9_waqct")
@@ -1461,8 +1461,9 @@ script = ExtResource("16_kgfja")
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
-scale = Vector2(30, 30)
-texture = ExtResource("16_x5o6e")
+position = Vector2(4, 0)
+texture = ExtResource("21_wn2fh")
+offset = Vector2(-184, -151)
 
 [node name="Area2D" type="Area2D" parent="fire"]
 
