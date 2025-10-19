@@ -1465,6 +1465,15 @@ position = Vector2(4, 0)
 texture = ExtResource("21_wn2fh")
 offset = Vector2(-184, -151)
 
+[node name="PointLight2D" type="PointLight2D" parent="fire/Sprite2D"]
+position = Vector2(-1067.9999, -1276.4996)
+scale = Vector2(5.1125, 10.4383335)
+color = Color(0.654902, 0.4862745, 0.18431373, 0.57254905)
+energy = 2.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("21_wn2fh")
+
 [node name="Area2D" type="Area2D" parent="fire"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fire/Area2D"]
