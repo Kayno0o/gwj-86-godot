@@ -3,9 +3,13 @@
 - [x] refactor/simplify and document state machine
 - [x] skill tree
 - [x] faire un vrai sacrifice (pas juste un tween)
-- [x] hero
-  - [ ] faire l'intégration avec le totem central
 - [ ] buy mini totems
+
+- [ ] Hero
+  - [x] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
+  - [x] le hero peut changer de masque pour changer de rôle principal
+  - [ ] faire l'intégration avec le totem central
+  - [x] le hero respawn 15 secondes après sa mort
 
 # Pediluve EN URGENCE
 
@@ -39,10 +43,6 @@
 
 - [X] camera
 
-- [ ] Hero
-  - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
-  - [ ] le hero peut changer de masque pour changer de rôle principal
-  - [ ] le hero respawn 15 secondes après sa mort
 
 # BUG
 
@@ -69,13 +69,14 @@
 # QoL bien a avoir mais pas nécessaire
 
 - [ ] particules de mort
-- [ ] animations sur les resources qui se font taper
+- [x] animations sur les resources qui se font taper
 - [ ] particules sur les resources qui se font taper
 - [ ] animations sur les masks quand il bougent
 
 # Later
 
-- [ ] pouvoir cliquer sur les props pour faire des ptites particules/les faire bouger -- peut occuper le joueur
+- [x] pouvoir cliquer sur les props pour les faire bouger -- peut occuper le joueur
+  - [ ] faire des ptites particules
 - [ ] drag and drop new totems to positions
 - [ ] drag and drop des petit objet sur les masqués
 - [ ] agrandir les mini totem à chaque upgrade

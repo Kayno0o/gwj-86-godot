@@ -73,7 +73,8 @@ func search_target() -> void:
 		return
 
 	# entity did not find any target, and has item in inventory, go deposit
-	if not parent.current_target and not parent.inventory_component.is_empty():
+	var inventory = Utils.get_component(parent, Component.Type.Inventory)
+	if not parent.current_target and inventory and not inventory.is_empty():
 		should_deposit = true
 
 func move_to_wandering_spot() -> void:

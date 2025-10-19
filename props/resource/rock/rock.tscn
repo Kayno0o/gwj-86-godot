@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://nvsgrq2s67sj"]
+[gd_scene load_steps=9 format=3 uid="uid://nvsgrq2s67sj"]
 
 [ext_resource type="PackedScene" uid="uid://yttupk6ktjv" path="res://props/resource/resource_props.tscn" id="1_1m2ui"]
 [ext_resource type="PackedScene" uid="uid://qjlmttnh71iq" path="res://props/item/pebble/pebble.tscn" id="2_17yxs"]
@@ -33,6 +33,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17yxs"]
+size = Vector2(314, 243)
+
 [node name="rock" instance=ExtResource("1_1m2ui")]
 target_types = Array[int]([0, 2])
 loot_scene = ExtResource("2_17yxs")
@@ -44,3 +47,7 @@ scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_qte6s")
 frame = 1
 offset = Vector2(1.5, -114.5)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-4, -124.5)
+shape = SubResource("RectangleShape2D_17yxs")

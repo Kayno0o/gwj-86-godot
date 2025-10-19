@@ -10,13 +10,13 @@ var current_target: Node2D = null
 @export var stats: Dictionary[Enum.Stat, float] = {
 	Enum.Stat.Health: 5.0,
 	Enum.Stat.InventorySize: 1.0,
-	Enum.Stat.PickupRange: 42.0,
+	Enum.Stat.PickupRange: 150.0,
 	Enum.Stat.TargetSearchCooldown: 2.0,
-	Enum.Stat.Attack: 5,
+	Enum.Stat.Attack: 5.0,
 	Enum.Stat.AttackSpeed: 1.0,
-	Enum.Stat.AttackRange: 42.0,
-	Enum.Stat.AttackViewDistance: 300.0,
-	Enum.Stat.MovementSpeed: 50.0,
+	Enum.Stat.AttackRange: 200.0,
+	Enum.Stat.AttackViewDistance: 700.0,
+	Enum.Stat.MovementSpeed: 150.0,
 }
 
 @export_category("Pickup")
@@ -27,7 +27,7 @@ var current_target: Node2D = null
 @export var wandering_distance: float = 48.0
 @export var wandering_cooldown: float = 4.0
 
-@onready var sprite: Node2D = $Sprite
+@onready var sprite: AnimatedSprite2D = $Sprite
 
 var inventory_component: InventoryComponent = null
 
@@ -109,11 +109,13 @@ func get_attack_view_distance() -> float:
 func get_movement_speed() -> float:
 	return get_stat(Enum.Stat.MovementSpeed)
 
-func _on_death():
+func _on_death(die: bool = true):
 	TargetManager.unregister_target(self, [target_type])
 	if inventory_component:
 		inventory_component.drop_inventory()
-	queue_free()
+
+	if die:
+		queue_free()
 
 func _on_target_removed(target: Node) -> void:
 	if current_target == target:

@@ -49,7 +49,7 @@ func _on_attack_timeout():
 		.set_ease(Tween.EASE_IN_OUT)
 
 	var health_comp: HealthComponent = Utils.get_component(target, Component.Type.Health)
-	if health_comp.on_damage(parent.get_attack()):
+	if health_comp.hit(parent.get_attack()):
 		TargetManager.stop_targeting(parent.current_target, parent)
 		parent.current_target = null
 		return

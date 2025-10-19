@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dap12e7d4vlk5"]
+[gd_scene load_steps=6 format=3 uid="uid://dap12e7d4vlk5"]
 
 [ext_resource type="PackedScene" uid="uid://yttupk6ktjv" path="res://props/resource/resource_props.tscn" id="1_hdino"]
 [ext_resource type="PackedScene" uid="uid://4a50rab01vp2" path="res://props/item/cereal/cereal.tscn" id="2_stusc"]
@@ -15,6 +15,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stusc"]
+size = Vector2(351, 396)
+
 [node name="wheat" instance=ExtResource("1_hdino")]
 target_types = Array[int]([0, 3])
 loot_scene = ExtResource("2_stusc")
@@ -25,3 +28,7 @@ position = Vector2(-3, 1)
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_wmab0")
 offset = Vector2(1.5, -188)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-2, -201)
+shape = SubResource("RectangleShape2D_stusc")
