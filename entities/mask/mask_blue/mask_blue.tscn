@@ -6,6 +6,19 @@
 [node name="MaskBlue" instance=ExtResource("1_base")]
 type = 3
 entity_name = "Blue Tank"
+stats = Dictionary[int, float]({
+0: 125.0,
+1: 12.0,
+10: 4.0,
+11: 1.25,
+12: 200.0,
+13: 800.0,
+20: 1.0,
+21: 42.0,
+22: 2.0
+})
+deposit_speed = 0.3
+totem_approach_distance = 400.0
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2(-45, 0)

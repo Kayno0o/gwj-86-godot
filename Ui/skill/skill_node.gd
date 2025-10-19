@@ -5,13 +5,23 @@ class_name SkillNode extends Button
 
 @export_category("Stats")
 @export var entity_type: Enum.EntityType
-@export var shopping_list: Dictionary[String, int] = {}
+@export var items_shopping_list: Dictionary[Enum.ItemType, int] = {}
+@export var entities_shopping_list: Dictionary[Enum.EntityType, int] = {}
 @export var bonuses: Dictionary[Enum.Stat, float] = {}
 @export var buy_instant: bool = false
 
 var is_unlocked: bool = false
 var description_panel: PanelContainer
 var description_label: Label
+
+var shopping_list: Dictionary[String, int]:
+	get:
+		var new_shopping_list: Dictionary[String, int] = {}
+		for item in items_shopping_list:
+			new_shopping_list[Enum.ItemType.find_key(item)] = items_shopping_list[item]
+		for entity in entities_shopping_list:
+			new_shopping_list[Enum.EntityType.find_key(entity)] = entities_shopping_list[entity]
+		return new_shopping_list
 
 var font_size: int = 60
 var border_width_pixels: int = 12
@@ -26,6 +36,8 @@ signal on_bought()
 
 func _ready():
 	_setup_ui()
+	
+	print_debug(shopping_list)
 	
 	pressed.connect(_on_pressed)
 	mouse_entered.connect(_on_mouse_entered)
@@ -54,7 +66,7 @@ func _on_paid():
 		remove_child(children)
 		get_parent().add_child(children)
 
-	tree_exited.connect(get_parent()._place_skill.bind())
+	tree_exited.connect(get_parent()._expand_skills.bind())
 	queue_free()
 
 func _get_entity_type() -> Enum.EntityType:

@@ -14,6 +14,15 @@ class_name Hero extends Mask
 var spawn_position: Vector2
 var respawn_timer: Timer
 
+var available_masks: Array[Enum.EntityType] = [
+	Enum.EntityType.MaskLumberjack,
+	Enum.EntityType.MaskMiner,
+	Enum.EntityType.MaskAttacker,
+	Enum.EntityType.MaskTank,
+	Enum.EntityType.MaskFarmer,
+	Enum.EntityType.MaskTransporter,
+]
+
 func _ready():
 	super._ready()
 	_on_mask_change(type)
@@ -26,6 +35,8 @@ func _ready():
 	respawn_timer.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(respawn_timer)
 	respawn_timer.timeout.connect(_on_respawn)
+
+	InventoryManager.totem.hero_switch.connect(_on_switch_mask)
 
 func get_health() -> float:
 	return stats[Enum.Stat.Health] + (StatsManager.sum_bonuses(Enum.Stat.Health) / 2)
@@ -49,6 +60,11 @@ func get_attack_view_distance() -> float:
 func get_movement_speed() -> float:
 	return stats[Enum.Stat.MovementSpeed] + get_bonus(Enum.Stat.MovementSpeed) * 2.0
 
+func _on_switch_mask():
+	var index = available_masks.find(type)
+	var new_type = available_masks.get((index + 1) % available_masks.size())
+	_on_mask_change(new_type)
+
 func _on_mask_change(new_type: Enum.EntityType) -> void:
 	type = new_type
 	
@@ -58,14 +74,7 @@ func _on_mask_change(new_type: Enum.EntityType) -> void:
 	state_machine.change_state_type(State.Type.Idle)
 
 func _on_death(_die = false):
-	super._on_death(false)
-
-	var tween: Tween = get_tree().create_tween()
-	tween.tween_property(self, "rotation_degrees", rotation_degrees+80, 0.5) \
-		.set_trans(Tween.TRANS_SINE) \
-		.set_ease(Tween.EASE_IN)
-
-	TargetManager.unregister_target(self, [target_type])
+	var tween = super._on_death(false)
 	
 	tween.finished.connect(func():
 		visible = false

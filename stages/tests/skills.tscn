@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="5_c1oe0"]
 [ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="6_x3je3"]
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="7_jgt3j"]
-[ext_resource type="PackedScene" uid="uid://l5egrao65xp6" path="res://entities/hero/hero.tscn" id="7_mypfp"]
+[ext_resource type="PackedScene" uid="uid://cuv8yu4lkrvyx" path="res://entities/hero/hero.tscn" id="7_mypfp"]
 [ext_resource type="PackedScene" uid="uid://kchp3v55avod" path="res://props/fire/fire.tscn" id="8_x3je3"]
 
 [node name="Skills" type="Node2D"]
@@ -37,25 +37,26 @@ position = Vector2(12.999999, -564.99994)
 position = Vector2(-10, 39)
 
 [node name="Hero" parent="All" instance=ExtResource("7_mypfp")]
+respawn_cooldown = 20.0
 
 [node name="SkillTree" type="Control" parent="."]
 light_mask = 16
 visibility_layer = 16
 layout_mode = 3
 anchors_preset = 0
-offset_left = -78.0
-offset_top = -674.0
-offset_right = 159.0
-offset_bottom = -460.0
+offset_left = 979.0
+offset_top = -796.0
+offset_right = 1476.0
+offset_bottom = -482.0
 script = ExtResource("2_g3txa")
 
-[node name="SkillNode" type="Button" parent="SkillTree"]
+[node name="SkillNode5" type="Button" parent="SkillTree"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
+entities_shopping_list = Dictionary[int, int]({
+5: 1
 })
 bonuses = Dictionary[int, float]({
 1: 3.0
@@ -67,113 +68,86 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
-})
 bonuses = Dictionary[int, float]({
 1: 3.0
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
-[node name="SkillNode9" type="Button" parent="SkillTree"]
+[node name="SkillNode9" type="Button" parent="SkillTree/SkillNode2"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
-})
 bonuses = Dictionary[int, float]({
 1: 3.0
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
-[node name="SkillNode10" type="Button" parent="SkillTree"]
+[node name="SkillNode10" type="Button" parent="SkillTree/SkillNode2"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
-})
 bonuses = Dictionary[int, float]({
 1: 3.0
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
-[node name="SkillNode3" type="Button" parent="SkillTree"]
+[node name="SkillNode" type="Button" parent="SkillTree/SkillNode2"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
-})
 bonuses = Dictionary[int, float]({
 1: 3.0
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
-[node name="SkillNode4" type="Button" parent="SkillTree"]
+[node name="SkillNode3" type="Button" parent="SkillTree/SkillNode2"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
-})
 bonuses = Dictionary[int, float]({
 1: 3.0
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
-[node name="SkillNode5" type="Button" parent="SkillTree"]
+[node name="SkillNode4" type="Button" parent="SkillTree/SkillNode2/SkillNode3"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
-})
 bonuses = Dictionary[int, float]({
 1: 3.0
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
-[node name="SkillNode6" type="Button" parent="SkillTree"]
+[node name="SkillNode6" type="Button" parent="SkillTree/SkillNode2/SkillNode3"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
-})
 bonuses = Dictionary[int, float]({
 1: 3.0
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
-[node name="SkillNode7" type="Button" parent="SkillTree"]
+[node name="SkillNode7" type="Button" parent="SkillTree/SkillNode2/SkillNode3"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
-})
 bonuses = Dictionary[int, float]({
 1: 3.0
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
-[node name="SkillNode8" type="Button" parent="SkillTree"]
+[node name="SkillNode8" type="Button" parent="SkillTree/SkillNode2/SkillNode3"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("3_865pd")
-shopping_list = Dictionary[String, int]({
-"MaskTransporter": 1
-})
 bonuses = Dictionary[int, float]({
 1: 3.0
 })

@@ -28,6 +28,7 @@ var current_target: Node2D = null
 @export var wandering_cooldown: float = 4.0
 
 @onready var sprite: AnimatedSprite2D = $Sprite
+@onready var state_machine: StateMachine = $StateMachine
 
 var inventory_component: InventoryComponent = null
 
@@ -41,6 +42,31 @@ func _ready() -> void:
 	TargetManager.register_target(self, [target_type])
 	TargetManager.target_removed.connect(_on_target_removed)
 	health_component.death.connect(_on_death)
+
+	state_machine.ready(self)
+
+func _physics_process(delta: float):
+	state_machine.physics_process(delta)
+
+func _process(delta: float):
+	state_machine.process(delta)
+
+	update_sprite_direction()
+
+func update_sprite_direction():
+	if velocity.length() > 10:
+		# going to left/right
+		if abs(velocity.x) > abs(velocity.y):
+			sprite.frame = 2
+			sprite.flip_h = velocity.x < 0
+		else:
+			# going to bottom
+			if velocity.y > 0:
+				sprite.frame = 0
+			else:
+				# going to top
+				sprite.frame = 1
+			sprite.flip_h = false
 
 func find_closer_target() -> Node:
 	var priorities_group = Enum.get_target_priorities(type)
@@ -109,13 +135,22 @@ func get_attack_view_distance() -> float:
 func get_movement_speed() -> float:
 	return get_stat(Enum.Stat.MovementSpeed)
 
-func _on_death(die: bool = true):
+func _on_death(die: bool = true) -> Tween:
 	TargetManager.unregister_target(self, [target_type])
 	if inventory_component:
 		inventory_component.drop_inventory()
 
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "rotation_degrees", rotation_degrees+80, 0.75) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_IN)
+
+	TargetManager.unregister_target(self, [target_type])
+
 	if die:
-		queue_free()
+		tween.finished.connect(queue_free.bind())
+
+	return tween
 
 func _on_target_removed(target: Node) -> void:
 	if current_target == target:
