@@ -14,8 +14,11 @@ func _ready() -> void:
 
 		# their child are non-available upgrades
 		for sub_child in child.get_children():
-			sub_child.set_process(false)
-			sub_child.visible = false
+			if sub_child is SkillNode:
+				sub_child.set_process(false)
+				sub_child.visible = false
+
+	_collapse_skills()
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

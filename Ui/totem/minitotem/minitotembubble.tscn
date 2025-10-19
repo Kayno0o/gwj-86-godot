@@ -8,7 +8,6 @@ z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_xarsw")
-time_to_tween = 0.2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

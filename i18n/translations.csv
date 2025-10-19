@@ -11,15 +11,22 @@ stat.InventorySize,Inventaire,Inventory
 stat.PickupRange,Portée Collecte,Pickup Range
 stat.TargetSearchCooldown,Cooldown Recherche,Search CD
 
+skill.pink_transporter.name,Transporter,Transporter
+skill.red_attacker.name,Attaquant,Attacker
+skill.orange_farmer.name,Fermier,Farmer
+skill.green_lumberjack.name,Bûcheron,Lumberjack
+skill.blue_tank.name,Tank,Tank
+skill.black_miner.name,Mineur,Miner
+
 skill.health.name,PV !,HP!
 skill.health.description,Plus de PV !,More HP!
 
-item.MaskLumberjack,Bûcheron,Lumberjack
-item.MaskMiner,Mineur,Miner
-item.MaskAttacker,Attaquant,Attacker
-item.MaskTank,Tank,Tank
-item.MaskFarmer,Fermier,Farmer
 item.MaskTransporter,Transporter,Transporter
+item.MaskAttacker,Attaquant,Attacker
+item.MaskFarmer,Fermier,Farmer
+item.MaskLumberjack,Bûcheron,Lumberjack
+item.MaskTank,Tank,Tank
+item.MaskMiner,Mineur,Miner
 
 item.Log,Bûche,Log
 item.Pebble,Caillou,Pebble

@@ -1,6 +1,10 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://rk7n5yn304v"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://rk7n5yn304v"]
 
+[ext_resource type="StyleBox" uid="uid://dn6wn602s13d2" path="res://Ui/textures/sign_disabled.tres" id="1_1blfp"]
 [ext_resource type="StyleBox" uid="uid://ikqbuw2jn5wf" path="res://Ui/textures/sign.tres" id="1_cwxp2"]
 
 [resource]
+Button/styles/disabled = ExtResource("1_1blfp")
+Button/styles/normal = ExtResource("1_cwxp2")
 Panel/styles/panel = ExtResource("1_cwxp2")
+PanelContainer/styles/panel = ExtResource("1_cwxp2")
