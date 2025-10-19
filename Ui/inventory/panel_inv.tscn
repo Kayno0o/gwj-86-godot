@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bkgd00vcrbif7" path="res://props/item/log/log.png" id="2_y8tun"]
 
 [node name="Panel" type="Panel"]
-custom_minimum_size = Vector2(300, 100)
-offset_right = 300.0
-offset_bottom = 100.0
+custom_minimum_size = Vector2(175, 50)
+offset_right = 175.0
+offset_bottom = 50.0
 theme_override_styles/panel = ExtResource("1_mkw8a")
 script = ExtResource("1_ur5q1")
 
@@ -18,22 +18,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Sprite" type="Sprite2D" parent="text"]
-position = Vector2(76, 51)
+position = Vector2(36.750004, 26.5)
 scale = Vector2(0.37309644, 0.3923077)
 texture = ExtResource("2_y8tun")
 
 [node name="equal" type="Label" parent="text"]
 layout_mode = 0
-offset_left = 131.0
-offset_top = 37.0
-offset_right = 136.0
-offset_bottom = 60.0
+offset_left = 83.0
+offset_top = 12.5
+offset_right = 88.0
+offset_bottom = 35.5
 text = ":"
 
 [node name="number" type="Label" parent="text"]
 layout_mode = 0
-offset_left = 163.0
-offset_top = 37.0
-offset_right = 234.0
-offset_bottom = 60.0
+offset_left = 97.0
+offset_top = 13.0
+offset_right = 168.0
+offset_bottom = 36.0
 text = "number"
