@@ -9,7 +9,7 @@ class_name Hero extends Mask
 	Enum.EntityType.MaskTransporter: null,
 }
 
-@export var respawn_cooldown: float = 20.0
+@export var respawn_cooldown: float = 2.0
 
 var spawn_position: Vector2
 var respawn_timer: Timer
@@ -58,23 +58,27 @@ func _on_mask_change(new_type: Enum.EntityType) -> void:
 
 func _on_death(_die = false):
 	super._on_death(false)
-	respawn_timer.start()
 
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "rotation_degrees", rotation_degrees+80, 0.5) \
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(Tween.EASE_IN)
+
+	TargetManager.unregister_target(self, [target_type])
 	
 	tween.finished.connect(func():
 		visible = false
 		process_mode = Node.PROCESS_MODE_DISABLED
 		respawn_timer.start()
+		print_debug("tween finished, respawn started")
 	)
 
 func _on_respawn():
+	print_debug("RESPAWN")
 	global_position = spawn_position
 	rotation_degrees = 0
 	visible = true
 	process_mode = Node.PROCESS_MODE_INHERIT
 
 	health_component.reset()
+	TargetManager.register_target(self, [target_type])

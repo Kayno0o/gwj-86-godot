@@ -17,8 +17,6 @@ func enter() -> void:
 
 	attack_timer.start(parent.get_attack_speed())
 
-	print_debug(parent, "ATTACK", parent.current_target)
-
 func exit() -> void:
 	attack_timer.stop()
 
