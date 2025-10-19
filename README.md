@@ -1,6 +1,6 @@
 # Documentation
 
-https://kayno0o.github.io/gwj-86-godot/GWJ86.html
+https://kayno0o.github.io/gwj-86-godot/index.html
 
 ## Organization des scripts
 
