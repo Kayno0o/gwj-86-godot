@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2rpenrej1232"]
 
-[ext_resource type="Script" uid="uid://evsr75awokk0" path="res://Ui/panel_inv.gd" id="1_ur5q1"]
+[ext_resource type="Script" uid="uid://evsr75awokk0" path="res://Ui/inventory/panel_inv.gd" id="1_ur5q1"]
 [ext_resource type="Texture2D" uid="uid://bkgd00vcrbif7" path="res://props/item/log/log.png" id="2_y8tun"]
 
 [node name="Panel" type="Panel"]

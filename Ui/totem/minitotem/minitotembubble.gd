@@ -4,6 +4,7 @@ var current_price : Dictionary[String, int]
 var minitotem : Node2D
 var current_state : bool = false
 var tween :Tween
+var base_price : Dictionary[String, int]
 
 @export var time_to_tween : float
 
@@ -20,6 +21,7 @@ func _ready() -> void:
 	for ressource in minitotem.main_ressources :
 		if minitotem.main_ressources[ressource] > 0 :
 			current_price.get_or_add(ressource, minitotem.main_ressources[ressource])
+	base_price = current_price
 	price_changed.connect(_on_price_changed)
 	price_changed.emit()
 
@@ -31,7 +33,7 @@ func _on_button_pressed() -> void:
 		minitotem.spawn()
 		for item in current_price :
 			if current_price[item] != 0 :
-				current_price[item] += 1
+				current_price[item] += InventoryManager.inventory[Enum.EntityType.find_key(minitotem.totem_type)].size() / base_price[item]
 		price_changed.emit()
 
 func _on_price_changed() -> void:
@@ -46,7 +48,7 @@ func _open_anim() -> void:
 		tween.kill()
 	tween = get_tree().create_tween()
 	tween.set_parallel()
-	tween.tween_property(self, "position", Vector2(- $Button.size.x / 2, 300), time_to_tween)
+	tween.tween_property(self, "position", Vector2(- self.global_position), time_to_tween)
 	tween.tween_property(self, "scale", Vector2(1, 1), time_to_tween)
 	pass
 

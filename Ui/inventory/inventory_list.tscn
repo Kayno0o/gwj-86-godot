@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b4vw5vuiqtoh8"]
 
-[ext_resource type="PackedScene" uid="uid://c2rpenrej1232" path="res://Ui/panel_inv.tscn" id="1_bfcj6"]
+[ext_resource type="PackedScene" uid="uid://c2rpenrej1232" path="res://Ui/inventory/panel_inv.tscn" id="1_bfcj6"]
 [ext_resource type="Texture2D" uid="uid://cha5h4jfswgd0" path="res://props/item/pebble/pebble.png" id="2_4bnb7"]
 [ext_resource type="Texture2D" uid="uid://bkgd00vcrbif7" path="res://props/item/log/log.png" id="2_q7l56"]
 [ext_resource type="Texture2D" uid="uid://bm0bet1e1muxj" path="res://props/item/cereal/cereal.png" id="4_asrnv"]
@@ -28,51 +28,51 @@ offset_right = 40.0
 offset_bottom = 40.0
 columns = 3
 
-[node name="Panel" parent="GridContainer" instance=ExtResource("1_bfcj6")]
-layout_mode = 2
-item_sprite = ExtResource("2_q7l56")
-
-[node name="Panel2" parent="GridContainer" instance=ExtResource("1_bfcj6")]
-layout_mode = 2
-item_sprite = ExtResource("2_4bnb7")
-item_type = 1
-
-[node name="Panel3" parent="GridContainer" instance=ExtResource("1_bfcj6")]
-layout_mode = 2
-item_sprite = ExtResource("4_asrnv")
-item_type = 2
-
-[node name="Panel4" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+[node name="green" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("5_xgnnb")
 is_entity = true
 
-[node name="Panel5" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+[node name="black" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("6_ko5sv")
 entity_type = 1
 is_entity = true
 
-[node name="Panel6" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+[node name="orange" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("7_3od21")
 entity_type = 4
 is_entity = true
 
-[node name="Panel7" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+[node name="red" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("8_ob40m")
 entity_type = 2
 is_entity = true
 
-[node name="Panel8" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+[node name="blue" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("9_klxej")
 entity_type = 3
 is_entity = true
 
-[node name="Panel9" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+[node name="pink" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
 item_sprite = ExtResource("10_wpfui")
 entity_type = 5
 is_entity = true
+
+[node name="log" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("2_q7l56")
+
+[node name="pebble" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("2_4bnb7")
+item_type = 1
+
+[node name="wheat" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("4_asrnv")
+item_type = 2

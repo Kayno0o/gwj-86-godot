@@ -1,11 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjk6udx24xno2"]
 
-[ext_resource type="Script" uid="uid://2uwml8wwao0w" path="res://Ui/minitoteminteractable.gd" id="1_twegl"]
+[ext_resource type="Script" uid="uid://2uwml8wwao0w" path="res://Ui/totem/minitotem/minitoteminteractable.gd" id="1_twegl"]
 [ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="1_w3ixe"]
 [ext_resource type="PackedScene" uid="uid://cvakw6a2jrrkk" path="res://Ui/totemsui.tscn" id="2_twegl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkfae"]
-size = Vector2(382, 592)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3ixe"]
+radius = 169.0
+height = 596.0
 
 [node name="Minitotem" type="Control"]
 layout_mode = 3
@@ -45,6 +46,6 @@ position = Vector2(0, -286)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -11)
-shape = SubResource("RectangleShape2D_qkfae")
+shape = SubResource("CapsuleShape2D_w3ixe")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -17,5 +17,13 @@ func _update_slot() -> void :
 		if is_entity :
 			if InventoryManager._is_item_an_entity(item) and item == Enum.EntityType.find_key(entity_type):
 				$text/number.text = str(InventoryManager.inventory[item].size())
+				if str(InventoryManager.inventory[item].size()) == "0" :
+					$".".visible = false
+				else :
+					$".".visible = true
 		elif item == Enum.ItemType.find_key(item_type) :
 			$text/number.text = str(InventoryManager.inventory[item])
+			if str(InventoryManager.inventory[item]) == "0" :
+				$".".visible = false
+			else :
+				$".".visible = true
