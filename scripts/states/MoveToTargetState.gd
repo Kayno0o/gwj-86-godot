@@ -2,6 +2,7 @@ class_name MoveToTargetState extends State
 
 var search_timer: Timer
 var rotation_time: float = 0.0
+var base_rotation: float
 
 func init(p_parent: Entity) -> void:
 	type = State.Type.MoveToTarget
@@ -17,6 +18,8 @@ func enter() -> void:
 	# transporter do not try to find closer targets
 	if parent.type != Enum.EntityType.MaskTransporter:
 		search_timer.start(parent.get_target_search_cooldown())
+	
+	base_rotation = parent.rotation_degrees
 
 func exit() -> void:
 	search_timer.stop()
@@ -78,14 +81,12 @@ func get_interaction_state():
 func move_to_target(delta) -> void:
 	var direction = (parent.current_target.global_position - parent.global_position).normalized()
 	parent.velocity = direction * parent.get_movement_speed()
-
-	var base_rotation = direction.angle()
 	
 	rotation_time += delta
 	var rotation_speed = 2.0
-	var angle = sin(rotation_time * rotation_speed) * deg_to_rad(6.0)
+	var angle = rad_to_deg(sin(rotation_time * rotation_speed))
 	
-	parent.rotation = base_rotation + angle
+	parent.rotation_degrees = base_rotation + angle
 
 	parent.move_and_slide()
 
