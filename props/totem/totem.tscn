@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=30 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="2_q76w8"]
