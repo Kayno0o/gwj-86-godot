@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://setwk61da4ei"]
+
+[ext_resource type="Script" uid="uid://cil7hln12c8mb" path="res://stages/gamemaster/ressourcespawner.gd" id="1_igqhv"]
+[ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="2_yqmgc"]
+[ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="3_rw6rv"]
+[ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="4_triek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crrro"]
+size = Vector2(33164, 15388)
+
+[node name="CollisionShape2D" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_crrro")
+script = ExtResource("1_igqhv")
+spawn_rate = 5
+tree = ExtResource("2_yqmgc")
+rock = ExtResource("3_rw6rv")
+wheat = ExtResource("4_triek")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -195,6 +195,9 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.23921569, 0.23921569, 0.23921569, 0.8039216)
 
+[node name="game" type="Node2D" parent="."]
+scale = Vector2(0.05, 0.05)
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="quit_credits" to="." method="_on_quit_credits_pressed"]
