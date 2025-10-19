@@ -14,12 +14,13 @@ func init(p_parent: Entity) -> void:
 	search_timer.timeout.connect(_on_search_timeout)
 	add_child(search_timer)
 
+	base_rotation = parent.rotation_degrees
+
 func enter() -> void:
 	# transporter do not try to find closer targets
 	if parent.type != Enum.EntityType.MaskTransporter:
 		search_timer.start(parent.get_target_search_cooldown())
 	
-	base_rotation = parent.rotation_degrees
 
 func exit() -> void:
 	search_timer.stop()
@@ -83,8 +84,7 @@ func move_to_target(delta) -> void:
 	parent.velocity = direction * parent.get_movement_speed()
 	
 	rotation_time += delta
-	var rotation_speed = 2.0
-	var angle = rad_to_deg(sin(rotation_time * rotation_speed))
+	var angle = sin(rotation_time * parent.get_movement_speed() / 35) * 4.0
 	
 	parent.rotation_degrees = base_rotation + angle
 
