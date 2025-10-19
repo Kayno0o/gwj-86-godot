@@ -2,19 +2,14 @@
 
 [ext_resource type="Script" uid="uid://3yonqdkae5jm" path="res://Ui/i18n/lang_switcher.gd" id="1_ynh7y"]
 
-[node name="LangSwitcher" type="Control"]
-layout_mode = 3
+[node name="OptionButton" type="OptionButton"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ynh7y")
-
-[node name="OptionButton" type="OptionButton" parent="."]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
+theme_override_font_sizes/font_size = 32
+alignment = 1
 item_count = 3
 popup/item_0/text = "Automatic"
 popup/item_0/id = 0
@@ -22,3 +17,4 @@ popup/item_1/text = "English"
 popup/item_1/id = 1
 popup/item_2/text = "Français"
 popup/item_2/id = 2
+script = ExtResource("1_ynh7y")

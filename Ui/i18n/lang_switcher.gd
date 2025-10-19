@@ -1,32 +1,36 @@
-extends Control
+extends OptionButton
 
 
 var languages = {
 	"Automatic": "automatic",
 	"English": "en",
-	"Français": "fr"
+	"Français": "fr",
 }
 
-@onready var option_button: OptionButton = $OptionButton
+var ids = {
+	"Automatic": 0,
+	"English": 1,
+	"Français": 2,
+}
 
 func _ready() -> void:
-	option_button.item_selected.connect(_on_language_selected)
+	item_selected.connect(_on_language_selected)
 
-	option_button.clear()
+	clear()
 	
 	for lang_name in languages.keys():
-		option_button.add_item(lang_name)
+		add_item(lang_name)
 	
 	var current_locale = TranslationServer.get_locale()
 	var current_lang_name = languages.find_key(current_locale)
 	if current_lang_name:
-		var item_index = option_button.get_item_index_from_text(current_lang_name)
-		option_button.select(item_index)
+		var item_index = get_item_index(ids[current_lang_name])
+		select(item_index)
 	else:
-		option_button.select(0)
+		select(0)
 
 func _on_language_selected(index: int) -> void:
-	var selected_lang_name = $OptionButton.get_item_text(index)
+	var selected_lang_name = get_item_text(index)
 	
 	var new_locale = languages[selected_lang_name]
 	

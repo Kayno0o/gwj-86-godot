@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqsvgqoto3mhp"]
+[gd_scene load_steps=9 format=3 uid="uid://bqsvgqoto3mhp"]
 
 [ext_resource type="Texture2D" uid="uid://bm8cevkvp12oy" path="res://assets/ground/image.png" id="1_phs36"]
 [ext_resource type="Script" uid="uid://c11urxphddj8w" path="res://stages/main_menu/main_menu.gd" id="1_wxx16"]
-[ext_resource type="Theme" path="res://Ui/textures/theme.tres" id="2_owbi8"]
+[ext_resource type="Theme" uid="uid://rk7n5yn304v" path="res://Ui/textures/theme.tres" id="2_owbi8"]
 [ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="4_mcab4"]
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="5_onbu3"]
 [ext_resource type="Texture2D" uid="uid://coyi7w4fl5wo5" path="res://props/resource/wheat/wheat.png" id="6_hqqfy"]
 [ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="7_ee1t4"]
+[ext_resource type="PackedScene" uid="uid://56unkmeursdm" path="res://Ui/i18n/lang_switcher.tscn" id="8_onbu3"]
 
 [node name="Main menu" type="Control"]
 layout_mode = 3
@@ -40,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_owbi8")
 theme_override_font_sizes/font_size = 32
-text = "play
+text = "Play
 "
 
 [node name="ColorRect" type="ColorRect" parent="Play"]
@@ -248,6 +249,30 @@ position = Vector2(5679.9995, 2759.9998)
 
 [node name="rock5" parent="game" instance=ExtResource("7_ee1t4")]
 position = Vector2(3919.9995, 2429.9998)
+
+[node name="LangSwitcher" parent="." instance=ExtResource("8_onbu3")]
+layout_mode = 1
+offset_left = 680.0
+offset_top = 518.0
+offset_right = -681.0
+offset_bottom = -313.0
+
+[node name="ColorRect" type="ColorRect" parent="LangSwitcher"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -27.25
+offset_right = 138.0
+offset_bottom = 52.75
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.23921569, 0.23921569, 0.23921569, 0.8039216)
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
