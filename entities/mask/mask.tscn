@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyshqk03h8wqg"]
+[gd_scene load_steps=14 format=3 uid="uid://dyshqk03h8wqg"]
 
 [ext_resource type="Script" uid="uid://20wyg6v86aum" path="res://entities/mask/mask.gd" id="1_wo7wq"]
 [ext_resource type="Script" uid="uid://dhok4le2y7g76" path="res://scripts/StateMachine.gd" id="2_p0has"]
 [ext_resource type="Script" uid="uid://cs6mo4uj7p6vt" path="res://scripts/states/IdleState.gd" id="3_xmf0i"]
+[ext_resource type="Texture2D" uid="uid://clonkrbbgi0jw" path="res://Ui/textures/sign_hover.png" id="3_xonkq"]
+[ext_resource type="Texture2D" uid="uid://gooju1jtcekh" path="res://Ui/textures/sign_disabled.png" id="4_7ij5a"]
 [ext_resource type="Script" uid="uid://dudcbadfbrqyy" path="res://scripts/states/MoveToTargetState.gd" id="4_n8v8d"]
 [ext_resource type="Script" uid="uid://c71etamalrqcg" path="res://scripts/states/PickupState.gd" id="5_nwnoh"]
 [ext_resource type="Script" uid="uid://b6f3y6w2jpbkn" path="res://scripts/states/AttackState.gd" id="6_5adr3"]
@@ -76,3 +78,24 @@ script = ExtResource("8_xmf0i")
 [node name="TransferState" type="Node" parent="StateMachine"]
 script = ExtResource("9_wbtl5")
 metadata/_custom_type_script = "uid://dpscxder1vb1k"
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -395.0
+offset_right = 149.0
+offset_bottom = -375.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("3_xonkq")
+texture_progress = ExtResource("4_7ij5a")

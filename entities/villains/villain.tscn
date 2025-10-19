@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1p3mgauwt5yi"]
+[gd_scene load_steps=10 format=3 uid="uid://c1p3mgauwt5yi"]
 
 [ext_resource type="Script" uid="uid://cdyc56cbxg0v2" path="res://entities/villains/villains.gd" id="1_lojml"]
 [ext_resource type="Script" uid="uid://dhok4le2y7g76" path="res://scripts/StateMachine.gd" id="2_ptnth"]
 [ext_resource type="Script" uid="uid://cs6mo4uj7p6vt" path="res://scripts/states/IdleState.gd" id="3_k3j4r"]
 [ext_resource type="Script" uid="uid://dudcbadfbrqyy" path="res://scripts/states/MoveToTargetState.gd" id="4_ffb5f"]
 [ext_resource type="Script" uid="uid://b6f3y6w2jpbkn" path="res://scripts/states/AttackState.gd" id="5_rivn4"]
+[ext_resource type="Texture2D" uid="uid://clonkrbbgi0jw" path="res://Ui/textures/sign_hover.png" id="6_ffb5f"]
+[ext_resource type="Texture2D" uid="uid://gooju1jtcekh" path="res://Ui/textures/sign_disabled.png" id="7_rivn4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ptnth"]
 radius = 8.0
@@ -44,3 +46,24 @@ metadata/_custom_type_script = "uid://dudcbadfbrqyy"
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("5_rivn4")
 metadata/_custom_type_script = "uid://b6f3y6w2jpbkn"
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -316.0
+offset_right = 107.0
+offset_bottom = -296.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("6_ffb5f")
+texture_progress = ExtResource("7_rivn4")

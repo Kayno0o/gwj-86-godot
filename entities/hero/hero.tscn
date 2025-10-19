@@ -35,3 +35,7 @@ stats = Dictionary[int, float]({
 
 [node name="Sprite" parent="." index="1"]
 sprite_frames = ExtResource("3_rpktq")
+
+[node name="HealthBar" parent="." index="3"]
+offset_top = -454.0
+offset_bottom = -434.0
