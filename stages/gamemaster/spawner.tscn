@@ -7,8 +7,8 @@
 
 [sub_resource type="Curve" id="Curve_h5yvs"]
 _limits = [1.0, 100.0, 0.0, 200.0]
-_data = [Vector2(0, 1.1235962), 0.0, 0.0, 0, 0, Vector2(116.831696, 19.10112), 0.0, 0.0, 0, 0, Vector2(200, 100), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 1.1235962), 0.0, 0.0, 0, 0, Vector2(2.9702988, 1), 0.0, 0.0, 0, 0, Vector2(116.831696, 19.10112), 0.0, 0.0, 0, 0, Vector2(200, 100), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [node name="spawner" type="Node2D"]
 script = ExtResource("1_h5yvs")

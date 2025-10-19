@@ -859,9 +859,9 @@ script = ExtResource("12_kgfja")
 infinite = true
 skill_name = "green_lumberjack"
 items_shopping_list = Dictionary[int, int]({
-0: 0,
+0: 2,
 1: 0,
-2: 2
+2: 0
 })
 buy_instant = true
 metadata/_custom_type_script = "uid://csujtitx8durp"
