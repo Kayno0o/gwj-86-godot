@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=20 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="2_q76w8"]
@@ -14,11 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://bekvbetm0lfqw" path="res://assets/totem/orange_totem.png" id="10_waqct"]
 [ext_resource type="Texture2D" uid="uid://bw11mro1e5kd" path="res://assets/totem/green_totem.png" id="12_42wbl"]
 [ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="14_tbapd"]
+[ext_resource type="Script" uid="uid://cvqo4kpgigh15" path="res://props/totem/fire_click.gd" id="16_kgfja"]
+[ext_resource type="Texture2D" uid="uid://dow08o5o8bdkl" path="res://props/fire/Crafting_115.png" id="16_x5o6e"]
 [ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q76w8"]
 radius = 161.5
 height = 1989.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_waqct"]
+radius = 218.66183
 
 [node name="TotemZone" type="Node2D"]
 z_index = 1
@@ -187,6 +192,23 @@ main_ressources = {
 }
 totem_type = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="fire" type="Node2D" parent="."]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+script = ExtResource("16_kgfja")
+
+[node name="Sprite2D" type="Sprite2D" parent="fire"]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+scale = Vector2(30, 30)
+texture = ExtResource("16_x5o6e")
+
+[node name="Area2D" type="Area2D" parent="fire"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fire/Area2D"]
+shape = SubResource("CircleShape2D_waqct")
 
 [connection signal="input_event" from="Totem/Area2D" to="Totem" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="fire/Area2D" to="fire" method="_on_area_2d_input_event"]
