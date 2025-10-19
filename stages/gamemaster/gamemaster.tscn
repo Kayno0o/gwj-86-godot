@@ -113,10 +113,11 @@ offset_bottom = 12760.0
 color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-366, -37)
 shape = SubResource("RectangleShape2D_crrro")
 script = ExtResource("4_2gu0r")
-spawn_rate = 1
+spawn_rate = 5
 tree = ExtResource("5_bt8ya")
 rock = ExtResource("6_sufog")
 wheat = ExtResource("7_yc55y")
