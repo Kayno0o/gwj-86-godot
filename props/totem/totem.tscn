@@ -17,9 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://bw11mro1e5kd" path="res://assets/totem/green_totem.png" id="12_42wbl"]
 [ext_resource type="Script" uid="uid://csujtitx8durp" path="res://Ui/totem/minitotem/minitotembubble.gd" id="12_kgfja"]
 [ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="14_tbapd"]
-[ext_resource type="Script" uid="uid://cvqo4kpgigh15" path="res://props/totem/fire_click.gd" id="16_kgfja"]
 [ext_resource type="Script" uid="uid://ca0dgeimti308" path="res://Ui/skill/skill_node.gd" id="16_wn2fh"]
 [ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
+[ext_resource type="Script" uid="uid://cqhyds4fvv6u1" path="res://props/fire/fire.gd" id="20_wn2fh"]
 [ext_resource type="Texture2D" uid="uid://densh2u1mkjil" path="res://assets/fire.png" id="21_wn2fh"]
 [ext_resource type="Script" path="res://Ui/window.gd" id="22_wn2fh"]
 
@@ -1455,7 +1455,7 @@ metadata/_custom_type_script = "uid://ca0dgeimti308"
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
-script = ExtResource("16_kgfja")
+script = ExtResource("20_wn2fh")
 
 [node name="Sprite2D" type="Sprite2D" parent="fire"]
 z_index = 1
