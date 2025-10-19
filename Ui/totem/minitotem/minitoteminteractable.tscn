@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjk6udx24xno2"]
+[gd_scene load_steps=2 format=3 uid="uid://cjk6udx24xno2"]
 
-[ext_resource type="Script" uid="uid://2uwml8wwao0w" path="res://Ui/totem/minitotem/minitoteminteractable.gd" id="1_twegl"]
 [ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="1_w3ixe"]
 
 [node name="Minitotem" type="Control"]
@@ -10,7 +9,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_twegl")
 
 [node name="totembasesprite" type="Sprite2D" parent="."]
 z_index = 1
