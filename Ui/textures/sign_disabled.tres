@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dn6wn602s13d2"]
+
+[ext_resource type="Texture2D" uid="uid://gooju1jtcekh" path="res://Ui/textures/sign_disabled.png" id="1_xwygy"]
+
+[resource]
+texture = ExtResource("1_xwygy")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 16, 16)

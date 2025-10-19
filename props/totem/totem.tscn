@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=30 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="2_q76w8"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bqk8yh7c2vn8p" path="res://entities/mask/mask_blue/mask_blue.tscn" id="9_a0348"]
 [ext_resource type="Texture2D" uid="uid://fwgltuyt6ggj" path="res://assets/hero/totem/héros totem sheet_1.png" id="9_waqct"]
 [ext_resource type="Texture2D" uid="uid://bekvbetm0lfqw" path="res://assets/totem/orange_totem.png" id="10_waqct"]
+[ext_resource type="Script" uid="uid://fik2dpk4ixya" path="res://Ui/skill/skill_tree.gd" id="11_kgfja"]
 [ext_resource type="Texture2D" uid="uid://bw11mro1e5kd" path="res://assets/totem/green_totem.png" id="12_42wbl"]
+[ext_resource type="Script" uid="uid://csujtitx8durp" path="res://Ui/totem/minitotem/minitotembubble.gd" id="12_kgfja"]
 [ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="14_tbapd"]
 [ext_resource type="Script" uid="uid://cvqo4kpgigh15" path="res://props/totem/fire_click.gd" id="16_kgfja"]
 [ext_resource type="Texture2D" uid="uid://dow08o5o8bdkl" path="res://props/fire/Crafting_115.png" id="16_x5o6e"]
@@ -183,71 +185,261 @@ shape = SubResource("CapsuleShape2D_q76w8")
 position = Vector2(-450, 940)
 mask_to_invok = ExtResource("4_b3en4")
 top_sprite = ExtResource("5_x5o6e")
-main_ressources = {
-"Cereal": 1,
-"Log": 1,
-"Pebble": 1,
-"Soul": 0
-}
+main_ressources = Dictionary[int, int]({
+0: 1,
+1: 1,
+2: 1
+})
 totem_type = 5
+
+[node name="PinkSkillTree" type="Control" parent="pinktotem"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -587.0
+offset_right = 148.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_kgfja")
+default_entity_type = 5
+metadata/_custom_type_script = "uid://fik2dpk4ixya"
+
+[node name="MiniTotemBubble" type="Button" parent="pinktotem/PinkSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("12_kgfja")
+infinite = true
+skill_name = "pink_transporter"
+entity_type = 5
+items_shopping_list = Dictionary[int, int]({
+0: 1,
+1: 1,
+2: 1
+})
+buy_instant = true
+metadata/_custom_type_script = "uid://csujtitx8durp"
 
 [node name="redtotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(600, -410)
 mask_to_invok = ExtResource("6_k4i2k")
 top_sprite = ExtResource("8_q76w8")
-main_ressources = {
-"Cereal": 1,
-"Log": 3,
-"Pebble": 1,
-"Soul": 0
-}
+main_ressources = Dictionary[int, int]({
+0: 3,
+1: 1,
+2: 1
+})
 totem_type = 2
+
+[node name="RedSkillTree" type="Control" parent="redtotem"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -587.0
+offset_right = 148.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_kgfja")
+default_entity_type = 2
+metadata/_custom_type_script = "uid://fik2dpk4ixya"
+
+[node name="MiniTotemBubble" type="Button" parent="redtotem/RedSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("12_kgfja")
+infinite = true
+skill_name = "red_attacker"
+entity_type = 2
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 1,
+2: 1
+})
+buy_instant = true
+metadata/_custom_type_script = "uid://csujtitx8durp"
 
 [node name="orangetotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(-1000, 190)
 mask_to_invok = ExtResource("7_k4i2k")
 top_sprite = ExtResource("10_waqct")
-main_ressources = {
-"Cereal": 2,
-"Log": 0,
-"Pebble": 0,
-"Soul": 0
-}
+main_ressources = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 2
+})
 totem_type = 4
+
+[node name="OrangeSkillTree" type="Control" parent="orangetotem"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -587.0
+offset_right = 148.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_kgfja")
+default_entity_type = 4
+metadata/_custom_type_script = "uid://fik2dpk4ixya"
+
+[node name="MiniTotemBubble" type="Button" parent="orangetotem/OrangeSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("12_kgfja")
+infinite = true
+skill_name = "orange_farmer"
+entity_type = 4
+items_shopping_list = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 2
+})
+buy_instant = true
+metadata/_custom_type_script = "uid://csujtitx8durp"
 
 [node name="greentotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(450, 940)
 mask_to_invok = ExtResource("8_h5uus")
 top_sprite = ExtResource("12_42wbl")
-main_ressources = {
-"Cereal": 0,
-"Log": 2,
-"Pebble": 0,
-"Soul": 0
-}
+main_ressources = Dictionary[int, int]({
+0: 2,
+1: 0,
+2: 0
+})
+
+[node name="GreenSkillTree" type="Control" parent="greentotem"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -587.0
+offset_right = 148.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_kgfja")
+metadata/_custom_type_script = "uid://fik2dpk4ixya"
+
+[node name="MiniTotemBubble" type="Button" parent="greentotem/GreenSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("12_kgfja")
+infinite = true
+skill_name = "green_lumberjack"
+items_shopping_list = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 2
+})
+buy_instant = true
+metadata/_custom_type_script = "uid://csujtitx8durp"
 
 [node name="bluetotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(-600, -410)
 mask_to_invok = ExtResource("9_a0348")
 top_sprite = ExtResource("14_tbapd")
-main_ressources = {
-"Cereal": 1,
-"Log": 1,
-"Pebble": 3,
-"Soul": 0
-}
+main_ressources = Dictionary[int, int]({
+0: 1,
+1: 3,
+2: 1
+})
 totem_type = 3
+
+[node name="BlueSkillTree" type="Control" parent="bluetotem"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -587.0
+offset_right = 148.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_kgfja")
+default_entity_type = 3
+metadata/_custom_type_script = "uid://fik2dpk4ixya"
+
+[node name="MiniTotemBubble" type="Button" parent="bluetotem/BlueSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("12_kgfja")
+infinite = true
+skill_name = "blue_tank"
+entity_type = 3
+items_shopping_list = Dictionary[int, int]({
+0: 1,
+1: 3,
+2: 1
+})
+buy_instant = true
+metadata/_custom_type_script = "uid://csujtitx8durp"
 
 [node name="blacktotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(1000, 190)
 top_sprite = ExtResource("16_yjcm3")
-main_ressources = {
-"Cereal": 0,
-"Log": 0,
-"Pebble": 2,
-"Soul": 0
-}
+main_ressources = Dictionary[int, int]({
+0: 0,
+1: 2,
+2: 0
+})
 totem_type = 1
+
+[node name="BlackSkillTree" type="Control" parent="blacktotem"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -587.0
+offset_right = 148.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_kgfja")
+default_entity_type = 1
+metadata/_custom_type_script = "uid://fik2dpk4ixya"
+
+[node name="MiniTotemBubble" type="Button" parent="blacktotem/BlackSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("12_kgfja")
+infinite = true
+skill_name = "black_miner"
+entity_type = 1
+items_shopping_list = Dictionary[int, int]({
+0: 0,
+1: 2,
+2: 0
+})
+buy_instant = true
+metadata/_custom_type_script = "uid://csujtitx8durp"
 
 [node name="fire" type="Node2D" parent="."]
 z_index = 1
@@ -266,6 +458,8 @@ texture = ExtResource("16_x5o6e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fire/Area2D"]
 shape = SubResource("CircleShape2D_waqct")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="input_event" from="Totem/Area2D" to="Totem" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="fire/Area2D" to="fire" method="_on_area_2d_input_event"]
