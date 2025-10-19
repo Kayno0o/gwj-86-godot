@@ -12,6 +12,12 @@
 - [X] Refactor spawner : faire spawn en dehors de la zone de jeux (path2D ou Area2D) / mettre un effet de brouillard là ou ça peut spawn
 - [ ] Parler à kaynoo a propos d'une state "bodygard" pour les attaquant : ils choisisse un masqué random qu'ils decide de garder, les tank eux reste a coté du totem pour tank et tempo. ça permet au attaquant de pouvoir defendre (oui) les unités et evite qu'ils glande h24 au totem avec les tank
 
+# Pédiluve (quand tu veux)
+
+- [ ] Caméra :
+  - [ ] bug - quand on middle click en dehors de la zone de jeu, ça bouge pas, et on peut se retrouver stuck en dehors de la zone
+    - [ ] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
+  - [ ] déplacement via `w/z` `a/q` `s` `d`
 
 # Global
 
@@ -69,5 +75,6 @@
 
 # Later
 
+- [ ] pouvoir cliquer sur les props pour faire des ptites particules/les faire bouger -- peut occuper le joueur
 - [ ] drag and drop new totems to positions
 - [ ] agrandir les mini totem à chaque upgrade
