@@ -49,7 +49,6 @@ enum TargetType {
 ## highest to lowest priority
 const BEHAVIOR_PROFILES: Dictionary[EntityType, Array] = {
 	EntityType.MaskTransporter: [
-		[Enum.TargetType.Villain],
 		[Enum.TargetType.Item],
 	],
 	EntityType.MaskLumberjack: [
