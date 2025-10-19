@@ -69,7 +69,7 @@
 # QoL bien a avoir mais pas nécessaire
 
 - [ ] particules de mort
-- [ ] animations sur les resources qui se font taper
+- [x] animations sur les resources qui se font taper
 - [ ] particules sur les resources qui se font taper
 - [ ] animations sur les masks quand il bougent
 
