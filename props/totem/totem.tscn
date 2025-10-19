@@ -18,7 +18,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q76w8"]
 radius = 161.5
-height = 1215.0
+height = 1989.0
 
 [node name="TotemZone" type="Node2D"]
 z_index = 1
@@ -188,3 +188,5 @@ main_ressources = {
 totem_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="input_event" from="Totem/Area2D" to="Totem" method="_on_area_2d_input_event"]
