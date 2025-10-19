@@ -40,3 +40,9 @@ func _on_death():
 	# TODO totem death
 	TargetManager.unregister_target(self, [target_type])
 	queue_free()
+
+
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+		if event is InputEventMouseButton :
+			if event.button_mask == 1 :
+				pass # TODO Changer le masque du heros

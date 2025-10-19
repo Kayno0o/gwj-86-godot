@@ -18,10 +18,10 @@
 
 # Pédiluve (quand tu veux)
 
-- [ ] Caméra :
-  - [ ] bug - quand on middle click en dehors de la zone de jeu, ça bouge pas, et on peut se retrouver stuck en dehors de la zone
-    - [ ] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
-  - [ ] déplacement via `w/z` `a/q` `s` `d`
+- [X] Caméra :
+  - [X] bug - quand on middle click en dehors de la zone de jeu, ça bouge pas, et on peut se retrouver stuck en dehors de la zone
+	- [X] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
+  - [X] déplacement via `w/z` `a/q` `s` `d`
 
 # Global
 
@@ -39,9 +39,9 @@
 - [x] state saccrifice des mask pour payer une upgrade
 - [ ] les ennemies drop des souls
 
-- [ ] spawner à ressource
+- [X] spawner à ressource
 
-- [ ] camera
+- [X] camera
 
 
 # BUG
@@ -78,4 +78,5 @@
 - [x] pouvoir cliquer sur les props pour les faire bouger -- peut occuper le joueur
   - [ ] faire des ptites particules
 - [ ] drag and drop new totems to positions
+- [ ] drag and drop des petit objet sur les masqués
 - [ ] agrandir les mini totem à chaque upgrade

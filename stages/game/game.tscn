@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=19 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
@@ -9,16 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="10_w77vm"]
 [ext_resource type="PackedScene" uid="uid://c0x6jgtd4wswl" path="res://entities/mask/mask_orange/mask_orange.tscn" id="11_3saht"]
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
-[ext_resource type="Script" path="res://stages/game/test_inventory.gd" id="12_3saht"]
 [ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="12_js6n3"]
+[ext_resource type="PackedScene" uid="uid://ttj4vn1j4dn5" path="res://entities/villains/medium/medium.tscn" id="13_lc2mq"]
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="13_oq21h"]
+[ext_resource type="PackedScene" uid="uid://bawyj38vr3rwc" path="res://entities/villains/strong/strong.tscn" id="14_83g8f"]
 [ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="14_k5jav"]
 [ext_resource type="PackedScene" uid="uid://ugmne86ko1c3" path="res://stages/ground/ground.tscn" id="14_oq21h"]
-[ext_resource type="PackedScene" uid="uid://b4vw5vuiqtoh8" path="res://Ui/inventory_wip.tscn" id="16_k5jav"]
+[ext_resource type="PackedScene" uid="uid://b5vp204l0464x" path="res://entities/villains/weak/weak.tscn" id="15_8w1pv"]
+[ext_resource type="PackedScene" uid="uid://b4vw5vuiqtoh8" path="res://Ui/inventory/inventory_list.tscn" id="16_k5jav"]
 [ext_resource type="Script" uid="uid://cnfbofrjenxwn" path="res://stages/game/camera_2d.gd" id="17_ourju"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ve2p"]
-size = Vector2(16320, 8160)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7h61r")
@@ -40,16 +39,6 @@ y_sort_enabled = true
 
 [node name="Totem" parent="game" instance=ExtResource("6_rsoik")]
 position = Vector2(5, -6)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="game"]
-offset_right = 185.0
-offset_bottom = 107.0
-script = ExtResource("12_3saht")
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game"]
-visible = false
-shape = SubResource("RectangleShape2D_5ve2p")
 
 [node name="Mask White" parent="game" instance=ExtResource("10_w77vm")]
 z_index = 0
@@ -79,7 +68,7 @@ position = Vector2(273, -264)
 z_index = 0
 z_as_relative = true
 y_sort_enabled = false
-position = Vector2(-1369, -236)
+position = Vector2(-1029, 271)
 
 [node name="Mask_orange" parent="game" instance=ExtResource("11_3saht")]
 z_index = 0
@@ -111,6 +100,15 @@ z_as_relative = true
 y_sort_enabled = false
 position = Vector2(-147, 160)
 
+[node name="Villain" parent="game" instance=ExtResource("13_lc2mq")]
+position = Vector2(1444, 1462)
+
+[node name="Villain2" parent="game" instance=ExtResource("14_83g8f")]
+position = Vector2(-325, 1996)
+
+[node name="Villain3" parent="game" instance=ExtResource("15_8w1pv")]
+position = Vector2(-1271, 1626)
+
 [node name="GameMaster" parent="." instance=ExtResource("11_51ysb")]
 day_lenght = 150.0
 
@@ -121,3 +119,7 @@ position_smoothing_speed = 10.0
 script = ExtResource("17_ourju")
 
 [node name="Control" parent="." instance=ExtResource("16_k5jav")]
+offset_left = -926.0
+offset_top = -2187.0
+offset_right = -926.0
+offset_bottom = -2187.0

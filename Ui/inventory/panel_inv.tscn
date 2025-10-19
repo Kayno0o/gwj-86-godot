@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2rpenrej1232"]
+
+[ext_resource type="Script" uid="uid://evsr75awokk0" path="res://Ui/inventory/panel_inv.gd" id="1_ur5q1"]
+[ext_resource type="Texture2D" uid="uid://bkgd00vcrbif7" path="res://props/item/log/log.png" id="2_y8tun"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(300, 100)
+offset_right = 300.0
+offset_bottom = 100.0
+script = ExtResource("1_ur5q1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+color = Color(0.32216856, 0.23663688, 0.05539748, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 295.0
+offset_bottom = 95.0
+color = Color(0.60299146, 0.4270936, 0.19443822, 1)
+
+[node name="text" type="Control" parent="."]
+z_index = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite" type="Sprite2D" parent="text"]
+position = Vector2(76, 51)
+scale = Vector2(0.37309644, 0.3923077)
+texture = ExtResource("2_y8tun")
+
+[node name="equal" type="Label" parent="text"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 37.0
+offset_right = 136.0
+offset_bottom = 60.0
+text = ":"
+
+[node name="number" type="Label" parent="text"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 37.0
+offset_right = 234.0
+offset_bottom = 60.0
+text = "number"

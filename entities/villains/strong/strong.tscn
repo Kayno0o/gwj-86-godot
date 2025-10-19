@@ -1,8 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://bawyj38vr3rwc"]
+[gd_scene load_steps=7 format=3 uid="uid://bawyj38vr3rwc"]
 
 [ext_resource type="PackedScene" uid="uid://c1p3mgauwt5yi" path="res://entities/villains/villain.tscn" id="1_dpay7"]
+[ext_resource type="Texture2D" uid="uid://bvq1u6nkk04hq" path="res://entities/villains/strong/sprisheet_villains__2.png" id="2_8g442"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrhog"]
+atlas = ExtResource("2_8g442")
+region = Rect2(0, 0, 500, 533)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aifpe"]
+atlas = ExtResource("2_8g442")
+region = Rect2(500, 0, 500, 533)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iel35"]
+atlas = ExtResource("2_8g442")
+region = Rect2(1000, 0, 500, 533)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ht5b4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrhog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aifpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iel35")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Villain" instance=ExtResource("1_dpay7")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 cost = 120
 stats = Dictionary[int, float]({
 0: 150.0,
@@ -17,4 +50,5 @@ stats = Dictionary[int, float]({
 })
 
 [node name="Sprite" parent="." index="1"]
-frame = 2
+sprite_frames = SubResource("SpriteFrames_ht5b4")
+offset = Vector2(0, -205)
