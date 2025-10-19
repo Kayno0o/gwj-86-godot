@@ -14,3 +14,20 @@ func _physics_process(delta: float):
 
 func _process(delta: float):
 	state_machine.process(delta)
+
+	update_sprite_direction()
+
+func update_sprite_direction():
+	if velocity.length() > 10:
+		# going to left/right
+		if abs(velocity.x) > abs(velocity.y):
+			sprite.frame = 2
+			sprite.flip_h = velocity.x < 0
+		else:
+			# going to bottom
+			if velocity.y > 0:
+				sprite.frame = 0
+			else:
+				# going to top
+				sprite.frame = 1
+			sprite.flip_h = false

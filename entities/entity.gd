@@ -27,7 +27,7 @@ var current_target: Node2D = null
 @export var wandering_distance: float = 48.0
 @export var wandering_cooldown: float = 4.0
 
-@onready var sprite: Node2D = $Sprite
+@onready var sprite: AnimatedSprite2D = $Sprite
 
 var inventory_component: InventoryComponent = null
 
