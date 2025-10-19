@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfbk8dxxtktpi"
-path="res://.godot/imported/Armor_03.png-c473272a34903124218193817d7d5860.ctex"
+uid="uid://bnu72y67tedev"
+path="res://.godot/imported/enemies_8.png-eaa0d1b089dd4810b263e3f1c7049f8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/villains/medium/Armor_03.png"
-dest_files=["res://.godot/imported/Armor_03.png-c473272a34903124218193817d7d5860.ctex"]
+source_file="res://assets/villains/enemies_8.png"
+dest_files=["res://.godot/imported/enemies_8.png-eaa0d1b089dd4810b263e3f1c7049f8d.ctex"]
 
 [params]
 

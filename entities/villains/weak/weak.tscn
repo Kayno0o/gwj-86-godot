@@ -1,9 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5vp204l0464x"]
+[gd_scene load_steps=7 format=3 uid="uid://b5vp204l0464x"]
 
 [ext_resource type="PackedScene" uid="uid://c1p3mgauwt5yi" path="res://entities/villains/villain.tscn" id="1_ex2au"]
-[ext_resource type="Texture2D" uid="uid://6pee6d32lmj" path="res://entities/villains/weak/Armor_05.png" id="2_wqxls"]
+[ext_resource type="Texture2D" uid="uid://dsv0ewfsmsd03" path="res://entities/villains/weak/sprisheet_villains__3.png" id="2_wqxls"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ll2a"]
+atlas = ExtResource("2_wqxls")
+region = Rect2(0, 0, 500, 533)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8hy5"]
+atlas = ExtResource("2_wqxls")
+region = Rect2(500, 0, 500, 533)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjslx"]
+atlas = ExtResource("2_wqxls")
+region = Rect2(1000, 0, 500, 533)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bx2f1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ll2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8hy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjslx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Villain" instance=ExtResource("1_ex2au")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="Sprite" parent="." index="1"]
-texture = ExtResource("2_wqxls")
+sprite_frames = SubResource("SpriteFrames_bx2f1")
+offset = Vector2(0, -182)

@@ -42,7 +42,7 @@ func _on_death():
 	queue_free()
 
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 		if event is InputEventMouseButton :
 			if event.button_mask == 1 :
 				pass # TODO Changer le masque du heros
