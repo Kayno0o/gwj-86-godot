@@ -9,7 +9,7 @@ class_name Hero extends Mask
 	Enum.EntityType.MaskTransporter: null,
 }
 
-@export var respawn_cooldown: float = 2.0
+@export var respawn_cooldown: float = 20.0
 
 var spawn_position: Vector2
 var respawn_timer: Timer
