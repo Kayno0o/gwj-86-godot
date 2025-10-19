@@ -6,31 +6,33 @@ var current_target: Node2D = null
 @export var type: Enum.EntityType
 @export var target_type: Enum.TargetType
 @export var entity_name: String = "Entity"
-@export var health: float = 5.0
+
+@export var stats: Dictionary[Enum.Stat, float] = {
+	Enum.Stat.Health: 5.0,
+	Enum.Stat.InventorySize: 1.0,
+	Enum.Stat.PickupRange: 150.0,
+	Enum.Stat.TargetSearchCooldown: 2.0,
+	Enum.Stat.Attack: 5.0,
+	Enum.Stat.AttackSpeed: 1.0,
+	Enum.Stat.AttackRange: 200.0,
+	Enum.Stat.AttackViewDistance: 700.0,
+	Enum.Stat.MovementSpeed: 150.0,
+}
 
 @export_category("Pickup")
-@export var inventory_size: int = 1
-@export var pickup_range: float = 42.0
-@export var target_search_cooldown: float = 2.0
 @export var deposit_speed: float = 0.2
 
-@export_category("Attack")
-@export var attack: float = 5
-@export var attack_speed: float = 1.0
-@export var attack_range: float = 42.0
-@export var attack_view_distance: float = 300.0
-
 @export_category("Movement")
-@export var movement_speed: float = 50.0
 @export var totem_approach_distance: float = 100.0
 @export var wandering_distance: float = 48.0
 @export var wandering_cooldown: float = 4.0
 
-@onready var sprite: Node2D = $Sprite
+@onready var sprite: AnimatedSprite2D = $Sprite
+@onready var state_machine: StateMachine = $StateMachine
 
 var inventory_component: InventoryComponent = null
 
-@onready var health_component: HealthComponent = HealthComponent.new(StatsManager.get_fstat(type, Enum.StatType.Health, health))
+@onready var health_component: HealthComponent = HealthComponent.new(get_health)
 
 @onready var components: Dictionary[Component.Type, Component] = {
 	Component.Type.Health: health_component,
@@ -40,6 +42,31 @@ func _ready() -> void:
 	TargetManager.register_target(self, [target_type])
 	TargetManager.target_removed.connect(_on_target_removed)
 	health_component.death.connect(_on_death)
+
+	state_machine.ready(self)
+
+func _physics_process(delta: float):
+	state_machine.physics_process(delta)
+
+func _process(delta: float):
+	state_machine.process(delta)
+
+	update_sprite_direction()
+
+func update_sprite_direction():
+	if velocity.length() > 10:
+		# going to left/right
+		if abs(velocity.x) > abs(velocity.y):
+			sprite.frame = 2
+			sprite.flip_h = velocity.x < 0
+		else:
+			# going to bottom
+			if velocity.y > 0:
+				sprite.frame = 0
+			else:
+				# going to top
+				sprite.frame = 1
+			sprite.flip_h = false
 
 func find_closer_target() -> Node:
 	var priorities_group = Enum.get_target_priorities(type)
@@ -79,30 +106,51 @@ func find_closer_target() -> Node:
 
 	return null
 
-func get_movement_speed() -> float:
-	return StatsManager.get_fstat(type, Enum.StatType.MovementSpeed, movement_speed)
+func get_bonus(stat: Enum.Stat) -> float:
+	return StatsManager.get_bonus(type, stat)
 
-func get_inventory_size() -> int:
-	return StatsManager.get_istat(type, Enum.StatType.InventorySize, inventory_size)
+func get_stat(stat: Enum.Stat) -> float:
+	return StatsManager.get_stat(type, stat, stats[stat])
+
+
+func get_health() -> float:
+	return get_stat(Enum.Stat.Health)
+
+func get_inventory_size() -> float:
+	return get_stat(Enum.Stat.InventorySize)
 func get_pickup_range() -> float:
-	return StatsManager.get_fstat(type, Enum.StatType.PickupRange, pickup_range)
+	return get_stat(Enum.Stat.PickupRange)
 func get_target_search_cooldown() -> float:
-	return StatsManager.get_fstat(type, Enum.StatType.TargetSearchCooldown, target_search_cooldown)
+	return get_stat(Enum.Stat.TargetSearchCooldown)
 
 func get_attack() -> float:
-	return StatsManager.get_fstat(type, Enum.StatType.Attack, attack)
+	return get_stat(Enum.Stat.Attack)
 func get_attack_speed() -> float:
-	return StatsManager.get_fstat(type, Enum.StatType.AttackSpeed, attack_speed)
+	return get_stat(Enum.Stat.AttackSpeed)
 func get_attack_range() -> float:
-	return StatsManager.get_fstat(type, Enum.StatType.AttackRange, attack_range)
+	return get_stat(Enum.Stat.AttackRange)
 func get_attack_view_distance() -> float:
-	return StatsManager.get_fstat(type, Enum.StatType.AttackViewDistance, attack_view_distance)
+	return get_stat(Enum.Stat.AttackViewDistance)
 
-func _on_death():
+func get_movement_speed() -> float:
+	return get_stat(Enum.Stat.MovementSpeed)
+
+func _on_death(die: bool = true) -> Tween:
 	TargetManager.unregister_target(self, [target_type])
 	if inventory_component:
 		inventory_component.drop_inventory()
-	queue_free()
+
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "rotation_degrees", rotation_degrees+80, 0.75) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_IN)
+
+	TargetManager.unregister_target(self, [target_type])
+
+	if die:
+		tween.finished.connect(queue_free.bind())
+
+	return tween
 
 func _on_target_removed(target: Node) -> void:
 	if current_target == target:

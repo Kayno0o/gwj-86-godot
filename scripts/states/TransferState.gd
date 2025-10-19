@@ -149,5 +149,5 @@ func _handle_collect_tick():
 
 		return
 
-	push_error("Scene for item type %s was not found" % [item_type_key])
+	printerr("Scene for item type %s was not found" % [item_type_key])
 	change_state_type(State.Type.Idle)

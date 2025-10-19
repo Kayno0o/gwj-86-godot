@@ -1,15 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnp5j6tutmm3o"]
+[gd_scene load_steps=6 format=3 uid="uid://dnp5j6tutmm3o"]
 
 [ext_resource type="PackedScene" uid="uid://yttupk6ktjv" path="res://props/resource/resource_props.tscn" id="1_olndm"]
 [ext_resource type="PackedScene" uid="uid://bfhwvj28jnhvo" path="res://props/item/log/log.tscn" id="2_ni0tv"]
+[ext_resource type="Texture2D" uid="uid://cyhgsqoaellnb" path="res://props/resource/tree/tree.png" id="3_ni0tv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0au72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ni0tv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni0tv"]
+size = Vector2(869, 1204)
 
 [node name="Tree" groups=["trees"] instance=ExtResource("1_olndm")]
 target_types = Array[int]([0, 1])
-health = 5.0
+health = 10.0
 loot_scene = ExtResource("2_ni0tv")
 loot_amount = 3
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(199, -72)
 scale = Vector2(1.5, 1.5)
-frame = 1
-offset = Vector2(2.166666, -335.6667)
+sprite_frames = SubResource("SpriteFrames_0au72")
+offset = Vector2(-130.5, -335)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(38.5, -592)
+shape = SubResource("RectangleShape2D_ni0tv")

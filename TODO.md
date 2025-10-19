@@ -1,13 +1,35 @@
 # Kaynooo
 
 - [x] refactor/simplify and document state machine
+- [x] skill tree
+- [x] faire un vrai sacrifice (pas juste un tween)
+- [ ] buy mini totems
+
+- [x] Hero
+  - [x] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
+  - [x] le hero peut changer de masque pour changer de rôle principal
+  - [x] faire l'intégration avec le totem central
+  - [x] le hero respawn 15 secondes après sa mort
+- [ ] theme des panels/buttons
+
 - [ ] skill tree
+  - [ ] base stats upgrade
+  - [ ] transporter
+    - débloquer l'affichage des stats
 
 # Pediluve EN URGENCE
 
-- [ ] Refactor spawner : faire spawn en dehors de la zone de jeux (path2D ou Area2D) / mettre un effet de brouillard là ou ça peut spawn
+- [X] Refactor spawner : faire spawn en dehors de la zone de jeux (path2D ou Area2D) / mettre un effet de brouillard là ou ça peut spawn
 - [ ] Parler à kaynoo a propos d'une state "bodygard" pour les attaquant : ils choisisse un masqué random qu'ils decide de garder, les tank eux reste a coté du totem pour tank et tempo. ça permet au attaquant de pouvoir defendre (oui) les unités et evite qu'ils glande h24 au totem avec les tank
 
+# Pédiluve (quand tu veux)
+
+- [X] Caméra :
+  - [X] bug - quand on middle click en dehors de la zone de jeu, ça bouge pas, et on peut se retrouver stuck en dehors de la zone
+	- [X] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
+  - [X] déplacement via `w/z` `a/q` `s` `d`
+- [ ] UI
+- [ ] totem principal
 
 # Global
 
@@ -23,43 +45,37 @@
 - [x] Lacher l'inventaire du masked quand il meurt
 - [X] pour payer, les transporteurs doivent transporter les items du totem vers le feu
 - [x] state saccrifice des mask pour payer une upgrade
-- [ ] les ennemies drop des souls
-
-- [ ] spawner à ressource
-
-- [ ] camera
-
-- [ ] Hero
-  - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
-  - [ ] le hero peut changer de masque pour changer de rôle principal
-  - [ ] le hero respawn 15 secondes après sa mort
+- [X] spawner à ressource
+- [X] camera
 
 # BUG
 
 - [ ] baston + inventaire plein = sais plus ou aller
-- [ ] spawner `implicit_ready: Invalid type in function 'new' in base 'GDScript'.`
+- [X] spawner `implicit_ready: Invalid type in function 'new' in base 'GDScript'.`
   - `The Object-derived class of argument 1 (CharacterBody2D (Villain))`
   - `entity.gd:32, Spawner.gd:50, Spawner.gd:31`
 
-# skill tree
-
-- transporter
-  - débloquer l'affichage des stats
-
 # EZ (mais pas prio)
 
-- [ ] Rendre les white mask pacifiste
+- [x] Rendre les white mask pacifiste
 - [ ] les unités se heal pendant la journée
+- [ ] trads
+  - [x] types d'objets dans les skill tree
+  - [ ] descriptions des skill (si besoin)
+  - [x] types de stats
 
 # QoL bien a avoir mais pas nécessaire
 
 - [ ] particules de mort
-- [ ] animations sur les resources qui se font taper
+- [x] animations sur les resources qui se font taper
 - [ ] particules sur les resources qui se font taper
 - [ ] animations sur les masks quand il bougent
 
 # Later
 
+- [ ] les ennemies drop des souls
+- [x] pouvoir cliquer sur les props pour les faire bouger -- peut occuper le joueur
+  - [ ] faire des ptites particules
 - [ ] drag and drop new totems to positions
+- [ ] drag and drop des petit objet sur les masqués
 - [ ] agrandir les mini totem à chaque upgrade
-- [ ] faire un vrai saccrifice (pas juste un tween)

@@ -1,27 +1,43 @@
 class_name SkillNode extends Button
 
 @export_category("Label")
-@export var skill_name: String = "Skill"
-@export_multiline var description: String = ""
+@export var skill_name: String = "health"
 
 @export_category("Stats")
 @export var entity_type: Enum.EntityType
-@export var shopping_list: Dictionary[String, int] = {}
-@export var bonuses: Dictionary[Enum.StatType, float] = {}
+@export var items_shopping_list: Dictionary[Enum.ItemType, int] = {}
+@export var entities_shopping_list: Dictionary[Enum.EntityType, int] = {}
+@export var bonuses: Dictionary[Enum.Stat, float] = {}
 @export var buy_instant: bool = false
 
 var is_unlocked: bool = false
 var description_panel: PanelContainer
 var description_label: Label
 
+var shopping_list: Dictionary[String, int]:
+	get:
+		var new_shopping_list: Dictionary[String, int] = {}
+		for item in items_shopping_list:
+			new_shopping_list[Enum.ItemType.find_key(item)] = items_shopping_list[item]
+		for entity in entities_shopping_list:
+			new_shopping_list[Enum.EntityType.find_key(entity)] = entities_shopping_list[entity]
+		return new_shopping_list
+
 var font_size: int = 60
 var border_width_pixels: int = 12
 var corner_radius_pixels: int = 32
+
+var title: String:
+	get: return tr("skill.%s.name" % skill_name)
+var description: String:
+	get: return Utils.t("skill.%s.description" % skill_name)
 
 signal on_bought()
 
 func _ready():
 	_setup_ui()
+	
+	print_debug(shopping_list)
 	
 	pressed.connect(_on_pressed)
 	mouse_entered.connect(_on_mouse_entered)
@@ -50,7 +66,7 @@ func _on_paid():
 		remove_child(children)
 		get_parent().add_child(children)
 
-	tree_exited.connect(get_parent()._place_skill.bind())
+	tree_exited.connect(get_parent()._expand_skills.bind())
 	queue_free()
 
 func _get_entity_type() -> Enum.EntityType:
@@ -79,12 +95,12 @@ func _can_buy() -> bool:
 
 func _setup_ui():
 	# show upgrades/bonuses
-	var upgrades_text = skill_name + "\n"
+	var upgrades_text = title + "\n"
 	if bonuses.size() > 0:
 		for stat_type in bonuses:
 			var bonus_value = bonuses[stat_type]
 			var sign_text = "+" if bonus_value >= 0 else ""
-			upgrades_text += "%s%s %s\n" % [sign_text, bonus_value, Enum.StatType.keys()[stat_type]]
+			upgrades_text += "%s%s %s\n" % [sign_text, bonus_value, tr("stat.%s" % Enum.Stat.find_key(stat_type))]
 	
 	text = upgrades_text.strip_edges()
 	add_theme_font_size_override("font_size", font_size)
@@ -105,9 +121,9 @@ func _setup_ui():
 			full_text += description + "\n\n"
 		
 		if shopping_list.size() > 0:
-			full_text += "Cost:\n"
+			full_text += tr("cost") + tr(":") + "\n"
 			for item in shopping_list:
-				full_text += "- %s: %d\n" % [item, shopping_list[item]]
+				full_text += "- %s%s %d\n" % [tr("item.%s" % item), tr(":"), shopping_list[item]]
 		
 		description_label.text = full_text.strip_edges()
 		description_label.add_theme_font_size_override("font_size", font_size)

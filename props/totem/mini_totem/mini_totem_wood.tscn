@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://d3kkq6puo5mrg" path="res://props/totem/minitotem.tscn" id="1_t2ede"]
 
 [node name="Minitotem" instance=ExtResource("1_t2ede")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true

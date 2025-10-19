@@ -39,3 +39,9 @@ func iSum(array: Array[int]) -> int:
 		total += amount
 
 	return total
+
+## return empty string if translation is not found
+func t(key: String) -> String:
+	var value = tr(key)
+	if value == key: return ""
+	return value

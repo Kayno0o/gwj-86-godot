@@ -15,7 +15,7 @@ var inventory: Dictionary = {}
 #endregion
 
 #region @onready
-@onready var health_component: HealthComponent = HealthComponent.new(health)
+@onready var health_component: HealthComponent = HealthComponent.new(func(): return health)
 
 @onready var components: Dictionary[Component.Type, Component] = {
 	Component.Type.Health: health_component,
@@ -23,6 +23,7 @@ var inventory: Dictionary = {}
 #endregion
 
 #region signal
+signal hero_switch
 #endregion
 
 #region init/ready/process
@@ -40,3 +41,8 @@ func _on_death():
 	# TODO totem death
 	TargetManager.unregister_target(self, [target_type])
 	queue_free()
+
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton :
+		if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
+			hero_switch.emit()

@@ -11,6 +11,7 @@ var mask_name : String
 @export var mask_to_invok: PackedScene
 @export var top_sprite : Texture
 @export var main_ressources = Enum.ItemType
+@export var totem_type : Enum.EntityType
 #endregion
 
 #region @onready

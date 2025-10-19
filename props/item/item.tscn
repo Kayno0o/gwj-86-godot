@@ -1,33 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dojasoijlk7mr"]
+[gd_scene load_steps=3 format=3 uid="uid://dojasoijlk7mr"]
 
 [ext_resource type="Script" uid="uid://7c0q4inr1s3g" path="res://props/item/item.gd" id="1_qnvdu"]
-[ext_resource type="Script" uid="uid://dpexeggwth04v" path="res://Ui/entitiespriteordering.gd" id="2_2ji1m"]
-[ext_resource type="Texture2D" uid="uid://cha5h4jfswgd0" path="res://props/item/pebble/pebble.png" id="2_vv2vg"]
-[ext_resource type="Texture2D" uid="uid://0uftp8mpwgxn" path="res://props/item/log/Crafting_86.png" id="3_bdpug"]
-[ext_resource type="Texture2D" uid="uid://bm0bet1e1muxj" path="res://props/item/cereal/cereal.png" id="4_qvmcq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ji1m"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_vv2vg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_bdpug")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_qvmcq")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Item" type="Node2D" groups=["items"]]
-scale = Vector2(5, 5)
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_qnvdu")
 metadata/_custom_type_script = "uid://7c0q4inr1s3g"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_2ji1m")
-script = ExtResource("2_2ji1m")

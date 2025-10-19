@@ -1,31 +1,33 @@
 [gd_scene load_steps=14 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
-[ext_resource type="Script" uid="uid://d2fi4g2tmqqkc" path="res://scripts/global/StatsManager.gd" id="2_a5xyx"]
-[ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="4_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
 [ext_resource type="PackedScene" uid="uid://qc4kdv7yak4b" path="res://entities/mask/mask_red/mask_red.tscn" id="7_w77vm"]
-[ext_resource type="PackedScene" uid="uid://boaxrcqnla75u" path="res://entities/mask/mask_black/mask_black.tscn" id="8_w77vm"]
-[ext_resource type="PackedScene" uid="uid://bqk8yh7c2vn8p" path="res://entities/mask/mask_blue/mask_blue.tscn" id="9_51ysb"]
-[ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="10_w77vm"]
 [ext_resource type="PackedScene" uid="uid://c0x6jgtd4wswl" path="res://entities/mask/mask_orange/mask_orange.tscn" id="11_3saht"]
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
-[ext_resource type="Script" uid="uid://b6lpseqjnwf7c" path="res://stages/game/test_inventory.gd" id="12_3saht"]
+[ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="12_js6n3"]
+[ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="13_oq21h"]
+[ext_resource type="PackedScene" uid="uid://bawyj38vr3rwc" path="res://entities/villains/strong/strong.tscn" id="14_83g8f"]
+[ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="14_k5jav"]
 [ext_resource type="PackedScene" uid="uid://ugmne86ko1c3" path="res://stages/ground/ground.tscn" id="14_oq21h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ve2p"]
-size = Vector2(16320, 8160)
+[ext_resource type="PackedScene" uid="uid://cuv8yu4lkrvyx" path="res://entities/hero/hero.tscn" id="14_ourju"]
+[ext_resource type="PackedScene" uid="uid://b4vw5vuiqtoh8" path="res://Ui/inventory/inventory_list.tscn" id="16_k5jav"]
+[ext_resource type="Script" uid="uid://cnfbofrjenxwn" path="res://stages/game/camera_2d.gd" id="17_ourju"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7h61r")
 
+[node name="GameMaster" parent="." instance=ExtResource("11_51ysb")]
+day_lenght = 150.0
+
 [node name="ground" parent="." instance=ExtResource("14_oq21h")]
 
 [node name="game" type="Node2D" parent="."]
-scale = Vector2(0.5, 0.5)
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="Node" type="Node" parent="game"]
-script = ExtResource("2_a5xyx")
 
 [node name="Objects" type="Node2D" parent="game"]
 
@@ -36,37 +38,72 @@ script = ExtResource("2_a5xyx")
 [node name="Totem" parent="game" instance=ExtResource("6_rsoik")]
 position = Vector2(5, -6)
 
-[node name="GameMaster" parent="game" instance=ExtResource("11_51ysb")]
-day_lenght = 1.0
+[node name="rock" parent="game" instance=ExtResource("12_js6n3")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+position = Vector2(-1818, -168)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="game"]
-offset_right = 185.0
-offset_bottom = 107.0
-script = ExtResource("12_3saht")
-metadata/_edit_use_anchors_ = true
+[node name="Tree" parent="game" instance=ExtResource("13_oq21h")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+position = Vector2(-2082, -398)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game"]
-visible = false
-shape = SubResource("RectangleShape2D_5ve2p")
+[node name="Tree2" parent="game" instance=ExtResource("13_oq21h")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+position = Vector2(-1576, -382)
 
-[node name="Mask White" parent="game" instance=ExtResource("10_w77vm")]
-position = Vector2(-164, 312)
+[node name="wheat" parent="game" instance=ExtResource("14_k5jav")]
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+position = Vector2(-147, 160)
 
-[node name="MaskRed" parent="game" instance=ExtResource("7_w77vm")]
-position = Vector2(-490, 97)
+[node name="Hero" parent="game" instance=ExtResource("14_ourju")]
+position = Vector2(1145, -606)
+respawn_cooldown = 20.0
 
-[node name="Mask Black2" parent="game" instance=ExtResource("8_w77vm")]
-position = Vector2(-346, -272)
+[node name="Villain" parent="game" instance=ExtResource("14_83g8f")]
+position = Vector2(1733, -281)
 
-[node name="MaskBlue" parent="game" instance=ExtResource("9_51ysb")]
-position = Vector2(273, -264)
+[node name="Villain2" parent="game" instance=ExtResource("14_83g8f")]
+position = Vector2(1511, 286)
 
-[node name="MaskGreen" parent="game" instance=ExtResource("4_lfrn8")]
-position = Vector2(129, 290)
+[node name="Villain3" parent="game" instance=ExtResource("14_83g8f")]
+position = Vector2(1606, -782)
 
 [node name="Mask_orange" parent="game" instance=ExtResource("11_3saht")]
-position = Vector2(4, -583)
+position = Vector2(2106, -675)
 
-[node name="Camera2D" type="Camera2D" parent="game"]
-scale = Vector2(2, 2)
-zoom = Vector2(0.2, 0.2)
+[node name="MaskRed" parent="game" instance=ExtResource("7_w77vm")]
+position = Vector2(1433, -209)
+
+[node name="MaskRed2" parent="game" instance=ExtResource("7_w77vm")]
+position = Vector2(1778, -3)
+
+[node name="MaskRed3" parent="game" instance=ExtResource("7_w77vm")]
+position = Vector2(1939, 130)
+
+[node name="MaskRed4" parent="game" instance=ExtResource("7_w77vm")]
+position = Vector2(1800, 430)
+
+[node name="MaskRed5" parent="game" instance=ExtResource("7_w77vm")]
+position = Vector2(1516, 530)
+
+[node name="MaskRed6" parent="game" instance=ExtResource("7_w77vm")]
+position = Vector2(1232, 324)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("17_ourju")
+
+[node name="Control" parent="." instance=ExtResource("16_k5jav")]
+offset_left = -926.0
+offset_top = -2187.0
+offset_right = -926.0
+offset_bottom = -2187.0

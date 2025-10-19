@@ -1,0 +1,25 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuv8yu4lkrvyx"]
+
+[ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_chcl2"]
+[ext_resource type="Script" uid="uid://c36infawwlr1x" path="res://entities/hero/hero.gd" id="1_veknu"]
+[ext_resource type="SpriteFrames" uid="uid://dgkvud6dethdg" path="res://entities/mask/mask_green/mask_green.tres" id="2_xvw14"]
+[ext_resource type="SpriteFrames" uid="uid://dlyj70aaxueje" path="res://entities/mask/mask_black/mask_black.tres" id="3_rpktq"]
+[ext_resource type="SpriteFrames" uid="uid://bhdv1al33sxco" path="res://entities/mask/mask_red/mask_red.tres" id="4_6emtr"]
+[ext_resource type="SpriteFrames" uid="uid://dv8xgmhs8yftv" path="res://entities/mask/mask_blue/mask_blue.tres" id="5_w51kg"]
+[ext_resource type="SpriteFrames" uid="uid://dm2ff6lm557vq" path="res://entities/mask/mask_orange/mask_orange.tres" id="6_3cwou"]
+[ext_resource type="SpriteFrames" uid="uid://bm1l0rrkwsg83" path="res://entities/mask/mask_white/mask_white.tres" id="7_7nqo0"]
+
+[node name="Hero" instance=ExtResource("1_chcl2")]
+script = ExtResource("1_veknu")
+sprites = Dictionary[int, SpriteFrames]({
+0: ExtResource("2_xvw14"),
+1: ExtResource("3_rpktq"),
+2: ExtResource("4_6emtr"),
+3: ExtResource("5_w51kg"),
+4: ExtResource("6_3cwou"),
+5: ExtResource("7_7nqo0")
+})
+entity_name = "Hero"
+
+[node name="Sprite" parent="." index="1"]
+sprite_frames = ExtResource("3_rpktq")

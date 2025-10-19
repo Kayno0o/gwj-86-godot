@@ -1,6 +1,8 @@
 class_name MoveToTargetState extends State
 
 var search_timer: Timer
+var rotation_time: float = 0.0
+var base_rotation: float
 
 func init(p_parent: Entity) -> void:
 	type = State.Type.MoveToTarget
@@ -12,15 +14,18 @@ func init(p_parent: Entity) -> void:
 	search_timer.timeout.connect(_on_search_timeout)
 	add_child(search_timer)
 
+	base_rotation = parent.rotation_degrees
+
 func enter() -> void:
 	# transporter do not try to find closer targets
 	if parent.type != Enum.EntityType.MaskTransporter:
 		search_timer.start(parent.get_target_search_cooldown())
+	
 
 func exit() -> void:
 	search_timer.stop()
 
-func process(_delta: float):
+func process(delta: float):
 	if not parent.current_target or not is_instance_valid(parent.current_target):
 		parent.current_target = null
 		return State.Type.Idle
@@ -32,7 +37,7 @@ func process(_delta: float):
 		return get_interaction_state()
 
 	# we cannot interact with the target, continue following it
-	move_to_target()
+	move_to_target(delta)
 	return null
 
 func _on_search_timeout() -> void:
@@ -74,9 +79,15 @@ func get_interaction_state():
 
 	return State.Type.Idle
 
-func move_to_target() -> void:
+func move_to_target(delta) -> void:
 	var direction = (parent.current_target.global_position - parent.global_position).normalized()
 	parent.velocity = direction * parent.get_movement_speed()
+	
+	rotation_time += delta
+	var angle = sin(rotation_time * parent.get_movement_speed() / 35) * 4.0
+	
+	parent.rotation_degrees = base_rotation + angle
+
 	parent.move_and_slide()
 
 # look for closer targets
