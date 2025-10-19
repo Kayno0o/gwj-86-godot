@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://1ttmpsfgh8hx" path="res://props/totem/minitotem.gd" id="1_cmhrq"]
 [ext_resource type="PackedScene" uid="uid://boaxrcqnla75u" path="res://entities/mask/mask_black/mask_black.tscn" id="2_8f8rj"]
 [ext_resource type="PackedScene" uid="uid://cjk6udx24xno2" path="res://Ui/totem/minitotem/minitoteminteractable.tscn" id="3_eqrxa"]
-[ext_resource type="PackedScene" uid="uid://caor0thuoxowv" path="res://Ui/totem/minitotem/minitotembubble.tscn" id="4_8f8rj"]
 
 [node name="Minitotem" type="Node2D"]
 z_index = 1
@@ -17,4 +16,3 @@ metadata/_custom_type_script = "uid://1ttmpsfgh8hx"
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
-totem_ui = ExtResource("4_8f8rj")
