@@ -80,7 +80,7 @@ position = Vector2(273, -264)
 z_index = 0
 z_as_relative = true
 y_sort_enabled = false
-position = Vector2(129, 290)
+position = Vector2(-1369, -236)
 
 [node name="Mask_orange" parent="game" instance=ExtResource("11_3saht")]
 z_index = 0

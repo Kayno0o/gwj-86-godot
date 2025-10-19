@@ -17,7 +17,7 @@ animations = [{
 
 [node name="Tree" groups=["trees"] instance=ExtResource("1_olndm")]
 target_types = Array[int]([0, 1])
-health = 5.0
+health = 10.0
 loot_scene = ExtResource("2_ni0tv")
 loot_amount = 3
 

@@ -17,14 +17,21 @@ class_name ResourceProps extends Node2D
 }
 
 func _ready() -> void:
-	health_component.death.connect(on_death)
+	health_component.death.connect(_on_death)
+	health_component.on_damage.connect(_on_damage)
 
 	TargetManager.register_target(self, target_types)
 
-func on_damage(damage: float):
-	return health_component.on_damage(damage)
+func _on_damage(_damage: float):
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "rotation_degrees", rotation_degrees+6, 0.5) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self, "rotation_degrees", rotation_degrees-6, 0.5) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_IN_OUT)
 
-func on_death():
+func _on_death():
 	TargetManager.unregister_target(self, target_types)
 
 	if loot_component.spawn_loot(global_position, get_parent()):
