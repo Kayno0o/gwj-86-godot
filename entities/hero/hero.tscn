@@ -35,7 +35,18 @@ stats = Dictionary[int, float]({
 
 [node name="Sprite" parent="." index="1"]
 sprite_frames = ExtResource("3_rpktq")
+offset = Vector2(0, -283.5)
 
 [node name="HealthBar" parent="." index="3"]
-offset_top = -454.0
-offset_bottom = -434.0
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -350.15
+offset_top = -1116.0
+offset_right = 350.15
+offset_bottom = -1069.0
+grow_vertical = 2
+pivot_offset = Vector2(349.15, 1114)

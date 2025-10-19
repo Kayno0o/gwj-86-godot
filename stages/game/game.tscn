@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=11 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
+[ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="12_js6n3"]
+[ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="13_oq21h"]
+[ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="14_k5jav"]
 [ext_resource type="PackedScene" uid="uid://ugmne86ko1c3" path="res://stages/ground/ground.tscn" id="14_oq21h"]
 [ext_resource type="PackedScene" uid="uid://cuv8yu4lkrvyx" path="res://entities/hero/hero.tscn" id="14_ourju"]
 [ext_resource type="PackedScene" uid="uid://b4vw5vuiqtoh8" path="res://Ui/inventory/inventory_list.tscn" id="16_k5jav"]
@@ -41,6 +44,62 @@ position = Vector2(5, -6)
 [node name="Hero" parent="game" instance=ExtResource("14_ourju")]
 position = Vector2(1145, -606)
 respawn_cooldown = 20.0
+stats = Dictionary[int, float]({
+0: 150.0,
+1: 5.0,
+10: 5.0,
+11: 1.0,
+12: 200.0,
+13: 600.0,
+20: 1.0,
+21: 200.0,
+22: 2.0
+})
+
+[node name="Tree" parent="game" instance=ExtResource("13_oq21h")]
+position = Vector2(-1552, -1718)
+
+[node name="Tree2" parent="game" instance=ExtResource("13_oq21h")]
+position = Vector2(981, -2447)
+
+[node name="Tree3" parent="game" instance=ExtResource("13_oq21h")]
+position = Vector2(-3759, -297)
+
+[node name="Tree4" parent="game" instance=ExtResource("13_oq21h")]
+position = Vector2(-3165, -1967)
+
+[node name="rock" parent="game" instance=ExtResource("12_js6n3")]
+position = Vector2(-1782, 950)
+
+[node name="rock2" parent="game" instance=ExtResource("12_js6n3")]
+position = Vector2(2229, 1277)
+
+[node name="rock3" parent="game" instance=ExtResource("12_js6n3")]
+position = Vector2(2997, -1257)
+
+[node name="rock4" parent="game" instance=ExtResource("12_js6n3")]
+position = Vector2(-2128, -2658)
+
+[node name="Tree5" parent="game" instance=ExtResource("13_oq21h")]
+position = Vector2(3880, -988)
+
+[node name="Tree6" parent="game" instance=ExtResource("13_oq21h")]
+position = Vector2(-2857, 2025)
+
+[node name="wheat" parent="game" instance=ExtResource("14_k5jav")]
+position = Vector2(214, 1968)
+
+[node name="wheat2" parent="game" instance=ExtResource("14_k5jav")]
+position = Vector2(867, 1756)
+
+[node name="wheat3" parent="game" instance=ExtResource("14_k5jav")]
+position = Vector2(1596, 2198)
+
+[node name="wheat4" parent="game" instance=ExtResource("14_k5jav")]
+position = Vector2(924, 2236)
+
+[node name="wheat5" parent="game" instance=ExtResource("14_k5jav")]
+position = Vector2(1308, 1795)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1e-05, 1e-05)

@@ -15,8 +15,8 @@ script = ExtResource("1_wxx16")
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(579.6951, 329.75)
-scale = Vector2(1.011664, 1.011664)
+position = Vector2(1154.5879, 651.75006)
+scale = Vector2(2.0132194, 2.0132194)
 texture = ExtResource("1_phs36")
 
 [node name="Play" type="Button" parent="." groups=["main_button"]]
@@ -75,41 +75,6 @@ theme_override_font_sizes/font_size = 32
 text = "Credits"
 
 [node name="ColorRect" type="ColorRect" parent="credits"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.0
-offset_top = -27.25
-offset_right = 138.0
-offset_bottom = 52.75
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.23921569, 0.23921569, 0.23921569, 0.8039216)
-
-[node name="quit" type="Button" parent="." groups=["main_button"]]
-z_index = 5
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -119.75
-offset_top = 72.0
-offset_right = 119.75
-offset_bottom = 140.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_owbi8")
-theme_override_font_sizes/font_size = 32
-text = "quit ?"
-
-[node name="ColorRect" type="ColorRect" parent="quit"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 8

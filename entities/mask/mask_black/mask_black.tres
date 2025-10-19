@@ -1,30 +1,32 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dlyj70aaxueje"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dlyj70aaxueje"]
 
-[ext_resource type="Texture2D" uid="uid://dqbxys1r2o31w" path="res://entities/mask/mask_black/masque_pierre.png" id="1_fa4t5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fspct"]
-atlas = ExtResource("1_fa4t5")
-region = Rect2(0, 0, 333, 455)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ffosi"]
-atlas = ExtResource("1_fa4t5")
-region = Rect2(333, 0, 333, 455)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wo3wb"]
-atlas = ExtResource("1_fa4t5")
-region = Rect2(666, 0, 333, 455)
+[ext_resource type="Texture2D" uid="uid://ce4p32bgeunad" path="res://assets/hero/sprite/heros_attaque.png" id="1_77b85"]
+[ext_resource type="Texture2D" uid="uid://3fm3oj54ah3p" path="res://assets/hero/sprite/heros_bucheron.png" id="2_2u6mm"]
+[ext_resource type="Texture2D" uid="uid://bxj7mjeddv4j1" path="res://assets/hero/sprite/heros_def.png" id="3_i2kkw"]
+[ext_resource type="Texture2D" uid="uid://c687sv8o54ces" path="res://assets/hero/sprite/heros_mine.png" id="4_kyt1v"]
+[ext_resource type="Texture2D" uid="uid://h1ufmc0tekwf" path="res://assets/hero/sprite/heros_recolte.png" id="5_pswkf"]
+[ext_resource type="Texture2D" uid="uid://b25uu1dl7g5pb" path="res://assets/hero/sprite/heros_trans.png" id="6_d3kbb"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fspct")
+"texture": ExtResource("2_2u6mm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ffosi")
+"texture": ExtResource("4_kyt1v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wo3wb")
+"texture": ExtResource("1_77b85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i2kkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pswkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d3kbb")
 }],
 "loop": true,
 "name": &"default",

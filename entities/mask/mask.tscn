@@ -91,6 +91,7 @@ offset_right = 149.0
 offset_bottom = -375.0
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset = Vector2(149, 395)
 value = 50.0
 nine_patch_stretch = true
 stretch_margin_left = 4
