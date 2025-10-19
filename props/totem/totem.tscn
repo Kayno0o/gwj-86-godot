@@ -37,15 +37,12 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="base" type="Sprite2D" parent="Totem/Sprites"]
-z_index = 1
-z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0, -552)
 texture = ExtResource("2_q76w8")
 offset = Vector2(0, -85)
 
 [node name="Sprite2D" type="Sprite2D" parent="Totem/Sprites/base"]
-z_index = 1
 texture = ExtResource("5_x5o6e")
 offset = Vector2(0, -242)
 
