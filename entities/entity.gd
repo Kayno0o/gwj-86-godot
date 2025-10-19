@@ -38,12 +38,17 @@ var inventory_component: InventoryComponent = null
 	Component.Type.Health: health_component,
 }
 
+var rotation_time: float = 0.0
+var base_rotation: float
+
 func _ready() -> void:
 	TargetManager.register_target(self, [target_type])
 	TargetManager.target_removed.connect(_on_target_removed)
 	health_component.death.connect(_on_death)
 
 	state_machine.ready(self)
+
+	base_rotation = rotation_degrees
 
 func _physics_process(delta: float):
 	state_machine.physics_process(delta)
@@ -52,6 +57,14 @@ func _process(delta: float):
 	state_machine.process(delta)
 
 	update_sprite_direction()
+	wobble(delta)
+
+func wobble(delta: float):
+	if velocity.length() > 10:
+		rotation_time += delta
+		var angle = sin(rotation_time * get_movement_speed() / 35) * 4.0
+		
+		rotation_degrees = base_rotation + angle
 
 func update_sprite_direction():
 	if velocity.length() > 10:
