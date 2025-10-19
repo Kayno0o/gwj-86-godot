@@ -4,7 +4,17 @@
 
 [node name="Villain" instance=ExtResource("1_hkpc8")]
 cost = 60
-health = 10.0
+stats = Dictionary[int, float]({
+0: 150.0,
+1: 10.0,
+10: 5.0,
+11: 1.0,
+12: 200.0,
+13: 700.0,
+20: 1.0,
+21: 150.0,
+22: 2.0
+})
 
 [node name="Sprite" parent="." index="1"]
 frame = 1

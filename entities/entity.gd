@@ -10,13 +10,13 @@ var current_target: Node2D = null
 @export var stats: Dictionary[Enum.Stat, float] = {
 	Enum.Stat.Health: 5.0,
 	Enum.Stat.InventorySize: 1.0,
-	Enum.Stat.PickupRange: 42.0,
+	Enum.Stat.PickupRange: 150.0,
 	Enum.Stat.TargetSearchCooldown: 2.0,
-	Enum.Stat.Attack: 5,
+	Enum.Stat.Attack: 5.0,
 	Enum.Stat.AttackSpeed: 1.0,
-	Enum.Stat.AttackRange: 42.0,
-	Enum.Stat.AttackViewDistance: 300.0,
-	Enum.Stat.MovementSpeed: 50.0,
+	Enum.Stat.AttackRange: 200.0,
+	Enum.Stat.AttackViewDistance: 700.0,
+	Enum.Stat.MovementSpeed: 150.0,
 }
 
 @export_category("Pickup")
