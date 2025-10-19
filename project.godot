@@ -24,6 +24,11 @@ StatsManager="*res://scripts/global/StatsManager.gd"
 InventoryManager="*res://scripts/global/InventoryManager.gd"
 I18n="*res://scripts/global/I18n.gd"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
 [gui]
 
 theme/custom="uid://rk7n5yn304v"
