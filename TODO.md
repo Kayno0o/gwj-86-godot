@@ -5,11 +5,17 @@
 - [x] faire un vrai sacrifice (pas juste un tween)
 - [ ] buy mini totems
 
-- [ ] Hero
+- [x] Hero
   - [x] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
   - [x] le hero peut changer de masque pour changer de rôle principal
-  - [ ] faire l'intégration avec le totem central
+  - [x] faire l'intégration avec le totem central
   - [x] le hero respawn 15 secondes après sa mort
+- [ ] theme des panels/buttons
+
+- [ ] skill tree
+  - [ ] base stats upgrade
+  - [ ] transporter
+    - débloquer l'affichage des stats
 
 # Pediluve EN URGENCE
 
@@ -22,6 +28,8 @@
   - [X] bug - quand on middle click en dehors de la zone de jeu, ça bouge pas, et on peut se retrouver stuck en dehors de la zone
 	- [X] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
   - [X] déplacement via `w/z` `a/q` `s` `d`
+- [ ] UI
+- [ ] totem principal
 
 # Global
 
@@ -37,12 +45,8 @@
 - [x] Lacher l'inventaire du masked quand il meurt
 - [X] pour payer, les transporteurs doivent transporter les items du totem vers le feu
 - [x] state saccrifice des mask pour payer une upgrade
-- [ ] les ennemies drop des souls
-
 - [X] spawner à ressource
-
 - [X] camera
-
 
 # BUG
 
@@ -51,15 +55,9 @@
   - `The Object-derived class of argument 1 (CharacterBody2D (Villain))`
   - `entity.gd:32, Spawner.gd:50, Spawner.gd:31`
 
-# skill tree
-
-- [ ] base stats upgrade
-- [ ] transporter
-  - débloquer l'affichage des stats
-
 # EZ (mais pas prio)
 
-- [ ] Rendre les white mask pacifiste
+- [x] Rendre les white mask pacifiste
 - [ ] les unités se heal pendant la journée
 - [ ] trads
   - [x] types d'objets dans les skill tree
@@ -75,6 +73,7 @@
 
 # Later
 
+- [ ] les ennemies drop des souls
 - [x] pouvoir cliquer sur les props pour les faire bouger -- peut occuper le joueur
   - [ ] faire des ptites particules
 - [ ] drag and drop new totems to positions
