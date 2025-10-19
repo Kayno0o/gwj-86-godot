@@ -112,7 +112,6 @@ y_sort_enabled = false
 position = Vector2(-147, 160)
 
 [node name="GameMaster" parent="." instance=ExtResource("11_51ysb")]
-visible = false
 day_lenght = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
