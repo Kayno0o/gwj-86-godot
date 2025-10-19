@@ -171,7 +171,7 @@ func total_pending_items() -> int:
 	return Utils.iSum(pending_items.values())
 
 func get_current_transfer_capacity(mask: Mask) -> int:
-	return current_mask_transfering.size() * mask.get_inventory_size()
+	return current_mask_transfering.size() * floor(mask.get_inventory_size())
 
 func can_send_new_mask_to_transfer(mask: Mask):
 	return total_pending_items() > get_current_transfer_capacity(mask)

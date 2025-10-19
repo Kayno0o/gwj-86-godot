@@ -1,36 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqk8yh7c2vn8p"]
+[gd_scene load_steps=3 format=3 uid="uid://bqk8yh7c2vn8p"]
 
 [ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_base"]
-[ext_resource type="Texture2D" uid="uid://div1sx0elwuqm" path="res://entities/mask/mask_blue/masque_defense.png" id="2_yn4qt"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iw53i"]
-atlas = ExtResource("2_yn4qt")
-region = Rect2(0, 0, 333, 455)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uoxlw"]
-atlas = ExtResource("2_yn4qt")
-region = Rect2(333, 0, 333, 455)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fuy44"]
-atlas = ExtResource("2_yn4qt")
-region = Rect2(666, 0, 333, 455)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3jwj5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iw53i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uoxlw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fuy44")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://dv8xgmhs8yftv" path="res://entities/mask/mask_blue/mask_blue.tres" id="2_yn4qt"]
 
 [node name="MaskBlue" instance=ExtResource("1_base")]
 type = 3
@@ -39,5 +10,5 @@ entity_name = "Blue Tank"
 [node name="Sprite" parent="." index="1"]
 position = Vector2(-45, 0)
 scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_3jwj5")
+sprite_frames = ExtResource("2_yn4qt")
 offset = Vector2(38, -154)

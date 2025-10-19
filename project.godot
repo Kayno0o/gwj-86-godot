@@ -22,6 +22,11 @@ TargetManager="*res://scripts/global/TargetManager.gd"
 Enum="*res://scripts/global/Enum.gd"
 StatsManager="*res://scripts/global/StatsManager.gd"
 InventoryManager="*res://scripts/global/InventoryManager.gd"
+I18n="*res://scripts/global/I18n.gd"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://i18n/translations.en.translation", "res://i18n/translations.fr.translation")
 
 [layer_names]
 

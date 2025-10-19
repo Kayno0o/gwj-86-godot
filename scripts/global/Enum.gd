@@ -1,6 +1,6 @@
 extends Node
 
-enum StatType {
+enum Stat {
 	MovementSpeed = 0,
 	Health = 1,
 

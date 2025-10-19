@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dm2ff6lm557vq"]
+
+[ext_resource type="Texture2D" uid="uid://dt1mnshf7d8j6" path="res://entities/mask/mask_orange/masque_recolte.png" id="1_kncdi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdvhr"]
+atlas = ExtResource("1_kncdi")
+region = Rect2(0, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6mqx"]
+atlas = ExtResource("1_kncdi")
+region = Rect2(333, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_062no"]
+atlas = ExtResource("1_kncdi")
+region = Rect2(666, 0, 333, 455)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdvhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6mqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_062no")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

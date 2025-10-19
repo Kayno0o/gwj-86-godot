@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bhdv1al33sxco"]
+
+[ext_resource type="Texture2D" uid="uid://bq66voigje3ns" path="res://entities/mask/mask_red/masque_attaque.png" id="1_2m52k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo4og"]
+atlas = ExtResource("1_2m52k")
+region = Rect2(0, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3auv"]
+atlas = ExtResource("1_2m52k")
+region = Rect2(333, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hit5q"]
+atlas = ExtResource("1_2m52k")
+region = Rect2(666, 0, 333, 455)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo4og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3auv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hit5q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

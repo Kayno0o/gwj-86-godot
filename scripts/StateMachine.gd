@@ -47,7 +47,7 @@ func process(delta: float) -> void:
 func change_state_type(type: State.Type) -> bool:
 	if type == null: return false
 	if not states.has(type):
-		push_error("State %s does not exist" % [State.Type.find_key(type)])
+		printerr("State %s does not exist" % [State.Type.find_key(type)])
 		return false
 
 	change_state(states[type])

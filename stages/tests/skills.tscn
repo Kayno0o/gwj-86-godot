@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs1odjgbafywv"]
+[gd_scene load_steps=10 format=3 uid="uid://cs1odjgbafywv"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_xsb5j"]
 [ext_resource type="Script" uid="uid://fik2dpk4ixya" path="res://Ui/skill/skill_tree.gd" id="2_g3txa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="5_c1oe0"]
 [ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="6_x3je3"]
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="7_jgt3j"]
+[ext_resource type="PackedScene" uid="uid://l5egrao65xp6" path="res://entities/hero/hero.tscn" id="7_mypfp"]
 [ext_resource type="PackedScene" uid="uid://kchp3v55avod" path="res://props/fire/fire.tscn" id="8_x3je3"]
 
 [node name="Skills" type="Node2D"]
@@ -34,6 +35,8 @@ position = Vector2(12.999999, -564.99994)
 
 [node name="Totem" parent="All" instance=ExtResource("4_c1oe0")]
 position = Vector2(-10, 39)
+
+[node name="Hero" parent="All" instance=ExtResource("7_mypfp")]
 
 [node name="SkillTree" type="Control" parent="."]
 light_mask = 16
