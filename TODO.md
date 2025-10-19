@@ -16,7 +16,7 @@
 
 - [ ] Caméra :
   - [ ] bug - quand on middle click en dehors de la zone de jeu, ça bouge pas, et on peut se retrouver stuck en dehors de la zone
-    - [ ] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
+	- [ ] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
   - [ ] déplacement via `w/z` `a/q` `s` `d`
 
 # Global

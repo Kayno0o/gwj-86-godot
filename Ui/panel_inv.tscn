@@ -8,8 +8,6 @@ custom_minimum_size = Vector2(300, 100)
 offset_right = 300.0
 offset_bottom = 100.0
 script = ExtResource("1_ur5q1")
-item_type = null
-entity_type = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

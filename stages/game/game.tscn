@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="10_w77vm"]
 [ext_resource type="PackedScene" uid="uid://c0x6jgtd4wswl" path="res://entities/mask/mask_orange/mask_orange.tscn" id="11_3saht"]
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
-[ext_resource type="Script" path="res://stages/game/test_inventory.gd" id="12_3saht"]
+[ext_resource type="Script" uid="uid://b6lpseqjnwf7c" path="res://stages/game/test_inventory.gd" id="12_3saht"]
 [ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="12_js6n3"]
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="13_oq21h"]
 [ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="14_k5jav"]
@@ -42,7 +42,7 @@ y_sort_enabled = true
 position = Vector2(5, -6)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="game"]
-offset_right = 185.0
+offset_right = 500.0
 offset_bottom = 107.0
 script = ExtResource("12_3saht")
 metadata/_edit_use_anchors_ = true
@@ -79,7 +79,7 @@ position = Vector2(273, -264)
 z_index = 0
 z_as_relative = true
 y_sort_enabled = false
-position = Vector2(129, 290)
+position = Vector2(-1029, 271)
 
 [node name="Mask_orange" parent="game" instance=ExtResource("11_3saht")]
 z_index = 0
@@ -112,6 +112,7 @@ y_sort_enabled = false
 position = Vector2(-147, 160)
 
 [node name="GameMaster" parent="." instance=ExtResource("11_51ysb")]
+visible = false
 day_lenght = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -121,3 +122,7 @@ position_smoothing_speed = 10.0
 script = ExtResource("17_ourju")
 
 [node name="Control" parent="." instance=ExtResource("16_k5jav")]
+offset_left = 528.0
+offset_top = -136.0
+offset_right = 528.0
+offset_bottom = -136.0

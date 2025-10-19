@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4vw5vuiqtoh8"]
+[gd_scene load_steps=11 format=3 uid="uid://b4vw5vuiqtoh8"]
 
 [ext_resource type="PackedScene" uid="uid://c2rpenrej1232" path="res://Ui/panel_inv.tscn" id="1_bfcj6"]
+[ext_resource type="Texture2D" uid="uid://cha5h4jfswgd0" path="res://props/item/pebble/pebble.png" id="2_4bnb7"]
+[ext_resource type="Texture2D" uid="uid://bkgd00vcrbif7" path="res://props/item/log/log.png" id="2_q7l56"]
+[ext_resource type="Texture2D" uid="uid://bm0bet1e1muxj" path="res://props/item/cereal/cereal.png" id="4_asrnv"]
+[ext_resource type="Texture2D" uid="uid://d1dbi5smb7yca" path="res://assets/mask/green/masqués_1.png" id="5_xgnnb"]
+[ext_resource type="Texture2D" uid="uid://cg4p6nws3is4n" path="res://assets/mask/black/masqués_1.png" id="6_ko5sv"]
+[ext_resource type="Texture2D" uid="uid://bgds4ixlr1nlo" path="res://assets/mask/orange/masqués_1.png" id="7_3od21"]
+[ext_resource type="Texture2D" uid="uid://br7ckkuur1ts8" path="res://assets/mask/red/masqués_1.png" id="8_ob40m"]
+[ext_resource type="Texture2D" uid="uid://bx3ft4w7s682l" path="res://assets/mask/blue/masqués_1.png" id="9_klxej"]
+[ext_resource type="Texture2D" uid="uid://edglwjfftecv" path="res://assets/mask/pink/masqués_1.png" id="10_wpfui"]
 
 [node name="Control" type="Control"]
 z_index = 10
@@ -10,14 +19,60 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+columns = 3
 
-[node name="Panel" parent="VBoxContainer" instance=ExtResource("1_bfcj6")]
+[node name="Panel" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
+item_sprite = ExtResource("2_q7l56")
 
-[node name="Panel2" parent="VBoxContainer" instance=ExtResource("1_bfcj6")]
+[node name="Panel2" parent="GridContainer" instance=ExtResource("1_bfcj6")]
 layout_mode = 2
+item_sprite = ExtResource("2_4bnb7")
+item_type = 1
+
+[node name="Panel3" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("4_asrnv")
+item_type = 2
+
+[node name="Panel4" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("5_xgnnb")
+is_entity = true
+
+[node name="Panel5" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("6_ko5sv")
+entity_type = 1
+is_entity = true
+
+[node name="Panel6" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("7_3od21")
+entity_type = 4
+is_entity = true
+
+[node name="Panel7" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("8_ob40m")
+entity_type = 2
+is_entity = true
+
+[node name="Panel8" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("9_klxej")
+entity_type = 3
+is_entity = true
+
+[node name="Panel9" parent="GridContainer" instance=ExtResource("1_bfcj6")]
+layout_mode = 2
+item_sprite = ExtResource("10_wpfui")
+entity_type = 5
+is_entity = true
