@@ -19,7 +19,34 @@ sprites = Dictionary[int, SpriteFrames]({
 4: ExtResource("6_3cwou"),
 5: ExtResource("7_7nqo0")
 })
+respawn_cooldown = 30.0
 entity_name = "Hero"
+stats = Dictionary[int, float]({
+0: 250.0,
+1: 6.0,
+10: 4.0,
+11: 1.0,
+12: 200.0,
+13: 600.0,
+20: 2.0,
+21: 250.0,
+22: 1.5
+})
 
 [node name="Sprite" parent="." index="1"]
 sprite_frames = ExtResource("3_rpktq")
+offset = Vector2(0, -283.5)
+
+[node name="HealthBar" parent="." index="3"]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -350.15
+offset_top = -1116.0
+offset_right = 350.15
+offset_bottom = -1069.0
+grow_vertical = 2
+pivot_offset = Vector2(349.15, 1114)

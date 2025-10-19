@@ -10,12 +10,12 @@
   - [x] le hero peut changer de masque pour changer de rôle principal
   - [x] faire l'intégration avec le totem central
   - [x] le hero respawn 15 secondes après sa mort
-- [ ] theme des panels/buttons
+- [x] theme des panels/buttons
 
 - [ ] skill tree
   - [ ] base stats upgrade
   - [ ] transporter
-    - débloquer l'affichage des stats
+	  - débloquer l'affichage des stats
 
 # Pediluve EN URGENCE
 
@@ -29,7 +29,7 @@
 	- [X] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
   - [X] déplacement via `w/z` `a/q` `s` `d`
 - [ ] UI
-- [ ] totem principal
+- [X] totem principal
 
 # Global
 
@@ -50,7 +50,7 @@
 
 # BUG
 
-- [ ] baston + inventaire plein = sais plus ou aller
+- [?] baston + inventaire plein = sais plus ou aller
 - [X] spawner `implicit_ready: Invalid type in function 'new' in base 'GDScript'.`
   - `The Object-derived class of argument 1 (CharacterBody2D (Villain))`
   - `entity.gd:32, Spawner.gd:50, Spawner.gd:31`
@@ -69,7 +69,7 @@
 - [ ] particules de mort
 - [x] animations sur les resources qui se font taper
 - [ ] particules sur les resources qui se font taper
-- [ ] animations sur les masks quand il bougent
+- [X] animations sur les masks quand il bougent
 
 # Later
 

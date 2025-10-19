@@ -1,9 +1,12 @@
 class_name SkillNode extends Button
 
+@export var infinite: bool = false
+
 @export_category("Label")
 @export var skill_name: String = "health"
 
 @export_category("Stats")
+@export var inherit_entity_type: bool = true
 @export var entity_type: Enum.EntityType
 @export var items_shopping_list: Dictionary[Enum.ItemType, int] = {}
 @export var entities_shopping_list: Dictionary[Enum.EntityType, int] = {}
@@ -37,8 +40,6 @@ signal on_bought()
 func _ready():
 	_setup_ui()
 	
-	print_debug(shopping_list)
-	
 	pressed.connect(_on_pressed)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
@@ -59,6 +60,9 @@ func _on_paid():
 	StatsManager.add_bonuses(target_entity_type, bonuses)
 
 	on_bought.emit()
+
+	# if upgrade is infinite, do not delete it
+	if infinite: return
 	
 	for children in get_children():
 		if not children is Button:
@@ -70,7 +74,7 @@ func _on_paid():
 	queue_free()
 
 func _get_entity_type() -> Enum.EntityType:
-	if not entity_type:
+	if inherit_entity_type:
 		var parent_node: SkillTree = get_parent()
 		if parent_node.default_entity_type:
 			return parent_node.entity_type
@@ -129,22 +133,17 @@ func _setup_ui():
 		description_label.add_theme_font_size_override("font_size", font_size)
 		
 		description_panel.add_child(description_label)
+		description_panel.theme = get_theme()
 		add_child(description_panel)
 		move_child(description_panel, INTERNAL_MODE_FRONT)
 
 	_update_border()
 
 func _update_border():
-	var style = StyleBoxFlat.new()
-	style.set_border_width_all(border_width_pixels)
-	style.set_corner_radius_all(corner_radius_pixels)
-	
 	if _can_buy():
-		style.border_color = Color.GREEN
+		disabled = false
 	else:
-		style.border_color = Color.RED
-	
-	add_theme_stylebox_override("normal", style)
+		disabled = true
 
 func _on_mouse_entered():
 	if description_panel:

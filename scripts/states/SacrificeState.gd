@@ -33,7 +33,7 @@ func physics_process(_delta: float):
 
 func move_to_target() -> void:
 	var direction = (totem.global_position - parent.global_position).normalized()
-	parent.velocity = direction * parent.get_movement_speed()
+	parent.velocity = direction * parent.get_movement_speed() * 2
 	parent.move_and_slide()
 
 func _on_reached_totem():

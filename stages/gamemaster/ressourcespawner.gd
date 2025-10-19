@@ -12,6 +12,8 @@ extends CollisionShape2D
 
 func _ready() -> void:
 	$Timer.start(spawn_rate)
+	for x in 20 :
+		_on_timer_timeout()
 	
 func gen_random_pos():
 	var x = randf_range(origin.x, spawnArea.x)
@@ -30,4 +32,5 @@ func _on_timer_timeout():
 		2 :
 			ressource_instance = wheat.instantiate()
 	ressource_instance.position = gen_random_pos()
+	print("done")
 	$"../../game".add_child(ressource_instance)

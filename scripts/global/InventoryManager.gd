@@ -211,7 +211,7 @@ func _on_target_available(target: Node2D, target_types: Array[Enum.TargetType]):
 	if not target_types.has(Enum.TargetType.Mask):
 		return
 
-	if target is not Mask:
+	if target is not Mask or target is Hero:
 		return
 
 	var entity_type_string = Enum.EntityType.find_key(target.type)
@@ -228,7 +228,7 @@ func _on_target_removed(target: Node2D):
 	if not target_types.has(Enum.TargetType.Mask):
 		return
 
-	if target is not Mask:
+	if target is not Mask or target is Hero:
 		return
 
 	for item_type in transfering_items:

@@ -1,12 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwy0xgki0ltex"]
+[gd_scene load_steps=10 format=3 uid="uid://cwy0xgki0ltex"]
 
 [ext_resource type="Script" uid="uid://d1pnuushvfayr" path="res://scripts/GameMaster.gd" id="1_8ji5e"]
 [ext_resource type="Script" uid="uid://dfmfgpth0lafo" path="res://scripts/DayNightCycle.gd" id="2_tdqy3"]
-[ext_resource type="Script" uid="uid://cil7hln12c8mb" path="res://stages/gamemaster/ressourcespawner.gd" id="4_2gu0r"]
+[ext_resource type="PackedScene" uid="uid://setwk61da4ei" path="res://stages/gamemaster/ressource_spawner.tscn" id="4_2gu0r"]
 [ext_resource type="Texture2D" uid="uid://cucetx1qqeinf" path="res://assets/gradient.png" id="4_crrro"]
-[ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="5_bt8ya"]
-[ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="6_sufog"]
-[ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="7_yc55y"]
 
 [sub_resource type="Curve" id="Curve_5powy"]
 _limits = [0.0, 1.0, 0.0, 30.0]
@@ -30,9 +27,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -18532, -9460, 0, 0, 0, 0, 17585, -9279, 0, 0, 0, 0, 17494, 9097, 0, 0, 0, 0, -18441, 9006, 0, 0, 0, 0, -18532, -9460)
 }
 point_count = 5
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_crrro"]
-size = Vector2(33164, 15388)
 
 [node name="GameMaster" type="Node2D" groups=["Master"]]
 script = ExtResource("1_8ji5e")
@@ -112,20 +106,11 @@ offset_right = -17545.0
 offset_bottom = 12760.0
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" parent="." instance=ExtResource("4_2gu0r")]
 position = Vector2(-366, -37)
-shape = SubResource("RectangleShape2D_crrro")
-script = ExtResource("4_2gu0r")
-spawn_rate = 1
-tree = ExtResource("5_bt8ya")
-rock = ExtResource("6_sufog")
-wheat = ExtResource("7_yc55y")
-
-[node name="Timer" type="Timer" parent="CollisionShape2D"]
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="end_night" from="." to="DayNightCycler" method="_on_game_master_end_night"]
 [connection signal="midnight" from="DayNightCycler" to="." method="_on_day_night_cycler_midnight"]
 [connection signal="timeout" from="DayNightCycler/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DayNightCycler/Timer" to="DayNightCycler" method="_on_timer_timeout"]
-[connection signal="timeout" from="CollisionShape2D/Timer" to="CollisionShape2D" method="_on_timer_timeout"]

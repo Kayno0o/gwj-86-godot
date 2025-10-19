@@ -25,7 +25,6 @@ var available_masks: Array[Enum.EntityType] = [
 
 func _ready():
 	super._ready()
-	_on_mask_change(type)
 
 	spawn_position = global_position
 
@@ -68,10 +67,12 @@ func _on_switch_mask():
 func _on_mask_change(new_type: Enum.EntityType) -> void:
 	type = new_type
 	
-	var animated_sprite: AnimatedSprite2D = sprite
-	animated_sprite.sprite_frames = sprites[new_type]
+	$Sprite.frame = ($Sprite.frame + 1) % 6
 
 	state_machine.change_state_type(State.Type.Idle)
+
+func update_sprite_direction() :
+	return
 
 func _on_death(_die = false):
 	var tween = super._on_death(false)

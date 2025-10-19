@@ -52,3 +52,7 @@ stats = Dictionary[int, float]({
 [node name="Sprite" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_ht5b4")
 offset = Vector2(0, -205)
+
+[node name="HealthBar" parent="." index="3"]
+offset_top = -443.0
+offset_bottom = -423.0
