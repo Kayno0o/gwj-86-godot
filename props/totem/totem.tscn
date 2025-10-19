@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=28 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="2_q76w8"]
@@ -11,12 +11,63 @@
 [ext_resource type="PackedScene" uid="uid://bwr7ygt2ff7hq" path="res://entities/mask/mask_green/mask_green.tscn" id="8_h5uus"]
 [ext_resource type="Texture2D" uid="uid://dslee6wnr15cf" path="res://assets/totem/red_totem.png" id="8_q76w8"]
 [ext_resource type="PackedScene" uid="uid://bqk8yh7c2vn8p" path="res://entities/mask/mask_blue/mask_blue.tscn" id="9_a0348"]
+[ext_resource type="Texture2D" uid="uid://fwgltuyt6ggj" path="res://assets/hero/totem/héros totem sheet_1.png" id="9_waqct"]
 [ext_resource type="Texture2D" uid="uid://bekvbetm0lfqw" path="res://assets/totem/orange_totem.png" id="10_waqct"]
 [ext_resource type="Texture2D" uid="uid://bw11mro1e5kd" path="res://assets/totem/green_totem.png" id="12_42wbl"]
 [ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="14_tbapd"]
 [ext_resource type="Script" uid="uid://cvqo4kpgigh15" path="res://props/totem/fire_click.gd" id="16_kgfja"]
 [ext_resource type="Texture2D" uid="uid://dow08o5o8bdkl" path="res://props/fire/Crafting_115.png" id="16_x5o6e"]
 [ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42wbl"]
+atlas = ExtResource("9_waqct")
+region = Rect2(1000, 600, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbapd"]
+atlas = ExtResource("9_waqct")
+region = Rect2(500, 600, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjcm3"]
+atlas = ExtResource("9_waqct")
+region = Rect2(0, 600, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn2fh"]
+atlas = ExtResource("9_waqct")
+region = Rect2(500, 0, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdf54"]
+atlas = ExtResource("9_waqct")
+region = Rect2(1000, 0, 500, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwgo1"]
+atlas = ExtResource("9_waqct")
+region = Rect2(0, 0, 500, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bhy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42wbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbapd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjcm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn2fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdf54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwgo1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q76w8"]
 radius = 161.5
@@ -115,6 +166,11 @@ z_index = 1
 position = Vector2(1, 0)
 texture = ExtResource("2_q76w8")
 offset = Vector2(-1, -827)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base"]
+z_index = 1
+position = Vector2(-3, -1027)
+sprite_frames = SubResource("SpriteFrames_1bhy3")
 
 [node name="Area2D" type="Area2D" parent="Totem"]
 collision_mask = 0

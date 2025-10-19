@@ -16,6 +16,7 @@ var inventory: Dictionary = {}
 
 #region @onready
 @onready var health_component: HealthComponent = HealthComponent.new(func(): return health)
+@onready var hero_totem = $Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/AnimatedSprite2D
 
 @onready var components: Dictionary[Component.Type, Component] = {
 	Component.Type.Health: health_component,
@@ -46,3 +47,4 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 	if event is InputEventMouseButton :
 		if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
 			hero_switch.emit()
+			hero_totem.frame = (hero_totem.frame + 1) % 6

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ljh1yjgp2eg0"
-path="res://.godot/imported/héros totem_2.jpg-7ceebb1e68c99d84b964be9f59b1779d.ctex"
+uid="uid://fwgltuyt6ggj"
+path="res://.godot/imported/héros totem sheet_1.png-e8b2d9e8216b9af81eb53e3d31059fc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mask/hero/héros totem_2.jpg"
-dest_files=["res://.godot/imported/héros totem_2.jpg-7ceebb1e68c99d84b964be9f59b1779d.ctex"]
+source_file="res://assets/hero/totem/héros totem sheet_1.png"
+dest_files=["res://.godot/imported/héros totem sheet_1.png-e8b2d9e8216b9af81eb53e3d31059fc2.ctex"]
 
 [params]
 
