@@ -3,7 +3,8 @@
 - [x] refactor/simplify and document state machine
 - [x] skill tree
 - [x] faire un vrai sacrifice (pas juste un tween)
-- [ ] hero
+- [x] hero
+  - [ ] faire l'intégration avec le totem central
 - [ ] buy mini totems
 
 # Pediluve EN URGENCE
