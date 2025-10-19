@@ -1494,9 +1494,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -54.0
-offset_bottom = 54.0
+offset_left = -90.0
+offset_bottom = 90.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
 text = "X"
 
 [node name="tuto minitotem" type="Panel" parent="."]
@@ -1522,9 +1523,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -54.0
-offset_bottom = 54.0
+offset_left = -79.0
+offset_bottom = 79.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
 text = "X"
 
 [connection signal="input_event" from="Totem/Area2D" to="Totem" method="_on_area_2d_input_event"]
