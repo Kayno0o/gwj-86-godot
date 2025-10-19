@@ -226,6 +226,202 @@ items_shopping_list = Dictionary[int, int]({
 buy_instant = true
 metadata/_custom_type_script = "uid://csujtitx8durp"
 
+[node name="Wooden Sword" type="Button" parent="redtotem/RedSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Sword" type="Button" parent="redtotem/RedSkillTree/Wooden Sword"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0,
+11: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Sword" type="Button" parent="redtotem/RedSkillTree/Wooden Sword/Stone Sword"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 4
+})
+bonuses = Dictionary[int, float]({
+10: 2.0,
+11: -0.1,
+12: 20.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Battle Axe" type="Button" parent="redtotem/RedSkillTree/Wooden Sword/Stone Sword/Iron Sword"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "battle_axe"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 6,
+2: 2
+})
+bonuses = Dictionary[int, float]({
+10: 3.0,
+11: -0.1,
+12: 20.0,
+13: 200.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Infinite Sword" type="Button" parent="redtotem/RedSkillTree/Wooden Sword/Stone Sword/Iron Sword/Battle Axe"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+infinite = true
+skill_name = "infinite_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 8,
+1: 10,
+2: 4
+})
+entities_shopping_list = Dictionary[int, int]({
+2: 1
+})
+bonuses = Dictionary[int, float]({
+10: 1.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Wooden Shield" type="Button" parent="redtotem/RedSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Shield" type="Button" parent="redtotem/RedSkillTree/Wooden Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Shield" type="Button" parent="redtotem/RedSkillTree/Wooden Shield/Stone Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 6
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Obsidian Shield" type="Button" parent="redtotem/RedSkillTree/Wooden Shield/Stone Shield/Iron Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "obsidian_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 8,
+2: 2
+})
+bonuses = Dictionary[int, float]({
+0: -25.0,
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Leather Boots" type="Button" parent="redtotem/RedSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "leather_boots"
+items_shopping_list = Dictionary[int, int]({
+2: 3
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Copper Boots" type="Button" parent="redtotem/RedSkillTree/Leather Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "copper_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.25
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Boots" type="Button" parent="redtotem/RedSkillTree/Leather Boots/Copper Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+21: 25.0,
+22: -0.25
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
 [node name="bluetotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(-600, -410)
 mask_to_invok = ExtResource("9_a0348")
@@ -269,6 +465,166 @@ items_shopping_list = Dictionary[int, int]({
 })
 buy_instant = true
 metadata/_custom_type_script = "uid://csujtitx8durp"
+
+[node name="Wooden Sword" type="Button" parent="bluetotem/BlueSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Sword" type="Button" parent="bluetotem/BlueSkillTree/Wooden Sword"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0,
+11: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Sword" type="Button" parent="bluetotem/BlueSkillTree/Wooden Sword/Stone Sword"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 4
+})
+bonuses = Dictionary[int, float]({
+10: 2.0,
+11: -0.1,
+12: 20.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Wooden Shield" type="Button" parent="bluetotem/BlueSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Shield" type="Button" parent="bluetotem/BlueSkillTree/Wooden Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Shield" type="Button" parent="bluetotem/BlueSkillTree/Wooden Shield/Stone Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 6
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Obsidian Shield" type="Button" parent="bluetotem/BlueSkillTree/Wooden Shield/Stone Shield/Iron Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "obsidian_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 8,
+2: 2
+})
+bonuses = Dictionary[int, float]({
+0: -25.0,
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Infinite Shield" type="Button" parent="bluetotem/BlueSkillTree/Wooden Shield/Stone Shield/Iron Shield/Obsidian Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "infinite_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 8,
+2: 2
+})
+entities_shopping_list = Dictionary[int, int]({
+3: 1
+})
+bonuses = Dictionary[int, float]({
+0: -10.0,
+1: 1.0,
+12: 10.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Leather Boots" type="Button" parent="bluetotem/BlueSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "leather_boots"
+items_shopping_list = Dictionary[int, int]({
+2: 3
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Copper Boots" type="Button" parent="bluetotem/BlueSkillTree/Leather Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "copper_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.25
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
 
 [node name="orangetotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(-1000, 190)
@@ -343,6 +699,131 @@ bonuses = Dictionary[int, float]({
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
+[node name="Wooden Sword" type="Button" parent="orangetotem/OrangeSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Sword" type="Button" parent="orangetotem/OrangeSkillTree/Wooden Sword"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0,
+11: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Wooden Shield" type="Button" parent="orangetotem/OrangeSkillTree"]
+layout_mode = 0
+offset_left = 148.5
+offset_top = 587.0
+offset_right = 156.5
+offset_bottom = 595.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Shield" type="Button" parent="orangetotem/OrangeSkillTree/Wooden Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Shield" type="Button" parent="orangetotem/OrangeSkillTree/Wooden Shield/Stone Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 6
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Leather Boots" type="Button" parent="orangetotem/OrangeSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "leather_boots"
+items_shopping_list = Dictionary[int, int]({
+2: 3
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Copper Boots" type="Button" parent="orangetotem/OrangeSkillTree/Leather Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "copper_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.25
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Boots" type="Button" parent="orangetotem/OrangeSkillTree/Leather Boots/Copper Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+21: 25.0,
+22: -0.25
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
 [node name="greentotem" parent="." instance=ExtResource("5_xabt0")]
 position = Vector2(450, 940)
 mask_to_invok = ExtResource("8_h5uus")
@@ -410,6 +891,131 @@ items_shopping_list = Dictionary[int, int]({
 })
 bonuses = Dictionary[int, float]({
 20: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Wooden Sword" type="Button" parent="greentotem/GreenSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Sword" type="Button" parent="greentotem/GreenSkillTree/Wooden Sword"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0,
+11: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Wooden Shield" type="Button" parent="greentotem/GreenSkillTree"]
+layout_mode = 0
+offset_left = 148.5
+offset_top = 587.0
+offset_right = 156.5
+offset_bottom = 595.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Shield" type="Button" parent="greentotem/GreenSkillTree/Wooden Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Shield" type="Button" parent="greentotem/GreenSkillTree/Wooden Shield/Stone Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 6
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Leather Boots" type="Button" parent="greentotem/GreenSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "leather_boots"
+items_shopping_list = Dictionary[int, int]({
+2: 3
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Copper Boots" type="Button" parent="greentotem/GreenSkillTree/Leather Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "copper_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.25
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Boots" type="Button" parent="greentotem/GreenSkillTree/Leather Boots/Copper Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+21: 25.0,
+22: -0.25
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
@@ -482,6 +1088,129 @@ items_shopping_list = Dictionary[int, int]({
 })
 bonuses = Dictionary[int, float]({
 20: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Wooden Sword" type="Button" parent="blacktotem/BlackSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Sword" type="Button" parent="blacktotem/BlackSkillTree/Wooden Sword"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_sword"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 2
+})
+bonuses = Dictionary[int, float]({
+10: 2.0,
+11: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Wooden Shield" type="Button" parent="blacktotem/BlackSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Shield" type="Button" parent="blacktotem/BlackSkillTree/Wooden Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Shield" type="Button" parent="blacktotem/BlackSkillTree/Wooden Shield/Stone Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 6
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Leather Boots" type="Button" parent="blacktotem/BlackSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "leather_boots"
+items_shopping_list = Dictionary[int, int]({
+2: 3
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Copper Boots" type="Button" parent="blacktotem/BlackSkillTree/Leather Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "copper_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.25
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Boots" type="Button" parent="blacktotem/BlackSkillTree/Leather Boots/Copper Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+21: 25.0,
+22: -0.25
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
@@ -600,8 +1329,124 @@ items_shopping_list = Dictionary[int, int]({
 1: 4,
 2: 6
 })
+entities_shopping_list = Dictionary[int, int]({
+5: 1
+})
 bonuses = Dictionary[int, float]({
 20: 1.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Wooden Shield" type="Button" parent="pinktotem/PinkSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wooden_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Stone Shield" type="Button" parent="pinktotem/PinkSkillTree/Wooden Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "stone_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Shield" type="Button" parent="pinktotem/PinkSkillTree/Wooden Shield/Stone Shield"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_shield"
+items_shopping_list = Dictionary[int, int]({
+0: 3,
+1: 6
+})
+bonuses = Dictionary[int, float]({
+1: 2.0
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Leather Boots" type="Button" parent="pinktotem/PinkSkillTree"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "leather_boots"
+items_shopping_list = Dictionary[int, int]({
+2: 3
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.1
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Copper Boots" type="Button" parent="pinktotem/PinkSkillTree/Leather Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "copper_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+22: -0.25
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Iron Boots" type="Button" parent="pinktotem/PinkSkillTree/Leather Boots/Copper Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "iron_boots"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3,
+2: 5
+})
+bonuses = Dictionary[int, float]({
+0: 25.0,
+21: 25.0,
+22: -0.25
+})
+metadata/_custom_type_script = "uid://ca0dgeimti308"
+
+[node name="Wings" type="Button" parent="pinktotem/PinkSkillTree/Leather Boots/Copper Boots/Iron Boots"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("16_wn2fh")
+skill_name = "wings"
+items_shopping_list = Dictionary[int, int]({
+0: 2,
+1: 3,
+2: 5
+})
+entities_shopping_list = Dictionary[int, int]({
+5: 1
+})
+bonuses = Dictionary[int, float]({
+0: 10.0,
+21: 10.0
 })
 metadata/_custom_type_script = "uid://ca0dgeimti308"
 
