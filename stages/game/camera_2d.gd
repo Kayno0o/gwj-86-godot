@@ -6,12 +6,26 @@ const ZOOM_INCREMENT: float = 0.05
 const ZOOM_RATE: float = 8.0
 
 var _target_zoom: float = 1.0
-var limit_x = 18000
+var limit_x = 15000
 var limit_y = 8000
-
+var cam_speed = 5
 
 func _physics_process(delta: float) -> void:
 	zoom = lerp(zoom, _target_zoom * Vector2.ONE, ZOOM_RATE * delta)
+
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed("go up") :
+		if _can_move(Vector2(0, 1)):
+			position.y -= cam_speed / zoom.x
+	if Input.is_action_pressed("go down") :
+		if _can_move(Vector2(0, -1)):
+			position.y += cam_speed / zoom.x
+	if Input.is_action_pressed("go right") :
+		if _can_move(Vector2(-1, 0)):
+			position.x += cam_speed / zoom.x
+	if Input.is_action_pressed("go left") :
+		if _can_move(Vector2(1, 0)):
+			position.x -= cam_speed / zoom.x
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion :
