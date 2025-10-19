@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://nvsgrq2s67sj"]
+[gd_scene load_steps=10 format=3 uid="uid://nvsgrq2s67sj"]
 
 [ext_resource type="PackedScene" uid="uid://yttupk6ktjv" path="res://props/resource/resource_props.tscn" id="1_1m2ui"]
 [ext_resource type="PackedScene" uid="uid://qjlmttnh71iq" path="res://props/item/pebble/pebble.tscn" id="2_17yxs"]
 [ext_resource type="Texture2D" uid="uid://cd7c5s6y8d7gi" path="res://props/resource/rock/rock.png" id="3_x7qje"]
+[ext_resource type="Script" uid="uid://c2duh2w4fdtsp" path="res://props/resource/rock/random_rock.gd" id="4_x7qje"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17yxs"]
 atlas = ExtResource("3_x7qje")
@@ -45,8 +46,8 @@ loot_amount = 3
 position = Vector2(-2, 1)
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_qte6s")
-frame = 1
 offset = Vector2(1.5, -114.5)
+script = ExtResource("4_x7qje")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-4, -124.5)
