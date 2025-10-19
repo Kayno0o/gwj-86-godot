@@ -5,10 +5,10 @@
 - [x] faire un vrai sacrifice (pas juste un tween)
 - [ ] buy mini totems
 
-- [ ] Hero
+- [x] Hero
   - [x] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
   - [x] le hero peut changer de masque pour changer de rôle principal
-  - [ ] faire l'intégration avec le totem central
+  - [x] faire l'intégration avec le totem central
   - [x] le hero respawn 15 secondes après sa mort
 
 # Pediluve EN URGENCE
@@ -59,7 +59,7 @@
 
 # EZ (mais pas prio)
 
-- [ ] Rendre les white mask pacifiste
+- [x] Rendre les white mask pacifiste
 - [ ] les unités se heal pendant la journée
 - [ ] trads
   - [x] types d'objets dans les skill tree
