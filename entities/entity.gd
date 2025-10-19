@@ -109,11 +109,13 @@ func get_attack_view_distance() -> float:
 func get_movement_speed() -> float:
 	return get_stat(Enum.Stat.MovementSpeed)
 
-func _on_death():
+func _on_death(die: bool = true):
 	TargetManager.unregister_target(self, [target_type])
 	if inventory_component:
 		inventory_component.drop_inventory()
-	queue_free()
+
+	if die:
+		queue_free()
 
 func _on_target_removed(target: Node) -> void:
 	if current_target == target:
