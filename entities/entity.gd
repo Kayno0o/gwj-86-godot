@@ -135,13 +135,22 @@ func get_attack_view_distance() -> float:
 func get_movement_speed() -> float:
 	return get_stat(Enum.Stat.MovementSpeed)
 
-func _on_death(die: bool = true):
+func _on_death(die: bool = true) -> Tween:
 	TargetManager.unregister_target(self, [target_type])
 	if inventory_component:
 		inventory_component.drop_inventory()
 
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "rotation_degrees", rotation_degrees+80, 0.75) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_IN)
+
+	TargetManager.unregister_target(self, [target_type])
+
 	if die:
-		queue_free()
+		tween.finished.connect(queue_free.bind())
+
+	return tween
 
 func _on_target_removed(target: Node) -> void:
 	if current_target == target:
