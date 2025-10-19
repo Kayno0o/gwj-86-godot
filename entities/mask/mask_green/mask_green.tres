@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dgkvud6dethdg"]
+
+[ext_resource type="Texture2D" uid="uid://copd6vrms21ws" path="res://entities/mask/mask_green/masque_bois.png" id="1_xlo8x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48mui"]
+atlas = ExtResource("1_xlo8x")
+region = Rect2(0, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he2vv"]
+atlas = ExtResource("1_xlo8x")
+region = Rect2(333, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i36d"]
+atlas = ExtResource("1_xlo8x")
+region = Rect2(666, 0, 333, 455)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48mui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he2vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i36d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

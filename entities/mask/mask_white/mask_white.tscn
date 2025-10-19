@@ -1,47 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://chlm7ig6hfol0"]
+[gd_scene load_steps=3 format=3 uid="uid://chlm7ig6hfol0"]
 
 [ext_resource type="PackedScene" uid="uid://dyshqk03h8wqg" path="res://entities/mask/mask.tscn" id="1_0urcv"]
-[ext_resource type="Texture2D" uid="uid://snjnri7bbp6n" path="res://entities/mask/mask_white/masque_transport.png" id="2_0urcv"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0urcv"]
-atlas = ExtResource("2_0urcv")
-region = Rect2(0, 0, 333, 455)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixak3"]
-atlas = ExtResource("2_0urcv")
-region = Rect2(333, 0, 333, 455)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4cal7"]
-atlas = ExtResource("2_0urcv")
-region = Rect2(666, 0, 333, 455)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3057f"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0urcv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ixak3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4cal7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://bm1l0rrkwsg83" path="res://entities/mask/mask_white/mask_white.tres" id="2_0urcv"]
 
 [node name="Mask White" instance=ExtResource("1_0urcv")]
 type = 5
 entity_name = "Mask Transporter"
-health = 4.0
-inventory_size = 3
-target_search_cooldown = 1.5
-movement_speed = 100.0
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2(-45, 0)
 scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_3057f")
+sprite_frames = ExtResource("2_0urcv")
 offset = Vector2(39, -154)

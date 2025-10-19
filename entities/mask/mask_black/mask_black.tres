@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dlyj70aaxueje"]
+
+[ext_resource type="Texture2D" uid="uid://dqbxys1r2o31w" path="res://entities/mask/mask_black/masque_pierre.png" id="1_fa4t5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fspct"]
+atlas = ExtResource("1_fa4t5")
+region = Rect2(0, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffosi"]
+atlas = ExtResource("1_fa4t5")
+region = Rect2(333, 0, 333, 455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo3wb"]
+atlas = ExtResource("1_fa4t5")
+region = Rect2(666, 0, 333, 455)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fspct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffosi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo3wb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

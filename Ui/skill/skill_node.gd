@@ -6,7 +6,7 @@ class_name SkillNode extends Button
 @export_category("Stats")
 @export var entity_type: Enum.EntityType
 @export var shopping_list: Dictionary[String, int] = {}
-@export var bonuses: Dictionary[Enum.StatType, float] = {}
+@export var bonuses: Dictionary[Enum.Stat, float] = {}
 @export var buy_instant: bool = false
 
 var is_unlocked: bool = false
@@ -88,7 +88,7 @@ func _setup_ui():
 		for stat_type in bonuses:
 			var bonus_value = bonuses[stat_type]
 			var sign_text = "+" if bonus_value >= 0 else ""
-			upgrades_text += "%s%s %s\n" % [sign_text, bonus_value, tr("stat.%s" % Enum.StatType.find_key(stat_type))]
+			upgrades_text += "%s%s %s\n" % [sign_text, bonus_value, tr("stat.%s" % Enum.Stat.find_key(stat_type))]
 	
 	text = upgrades_text.strip_edges()
 	add_theme_font_size_override("font_size", font_size)
