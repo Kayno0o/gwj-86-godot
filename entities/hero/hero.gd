@@ -71,11 +71,9 @@ func _on_death(_die = false):
 		visible = false
 		process_mode = Node.PROCESS_MODE_DISABLED
 		respawn_timer.start()
-		print_debug("tween finished, respawn started")
 	)
 
 func _on_respawn():
-	print_debug("RESPAWN")
 	global_position = spawn_position
 	rotation_degrees = 0
 	visible = true
