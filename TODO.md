@@ -14,10 +14,10 @@
 
 # Pédiluve (quand tu veux)
 
-- [ ] Caméra :
+- [X] Caméra :
   - [X] bug - quand on middle click en dehors de la zone de jeu, ça bouge pas, et on peut se retrouver stuck en dehors de la zone
 	- [X] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
-  - [ ] déplacement via `w/z` `a/q` `s` `d`
+  - [X] déplacement via `w/z` `a/q` `s` `d`
 
 # Global
 
@@ -35,9 +35,9 @@
 - [x] state saccrifice des mask pour payer une upgrade
 - [ ] les ennemies drop des souls
 
-- [ ] spawner à ressource
+- [X] spawner à ressource
 
-- [ ] camera
+- [X] camera
 
 - [ ] Hero
   - [ ] stats du hero = stats du mask + bonus * 2, sauf pour inventory_size et health = bonus de tous les masks
@@ -77,4 +77,5 @@
 
 - [ ] pouvoir cliquer sur les props pour faire des ptites particules/les faire bouger -- peut occuper le joueur
 - [ ] drag and drop new totems to positions
+- [ ] drag and drop des petit objet sur les masqués
 - [ ] agrandir les mini totem à chaque upgrade
