@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=32 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="2_q76w8"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://ca0dgeimti308" path="res://Ui/skill/skill_node.gd" id="16_wn2fh"]
 [ext_resource type="Texture2D" uid="uid://dow08o5o8bdkl" path="res://props/fire/Crafting_115.png" id="16_x5o6e"]
 [ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
+[ext_resource type="Script" uid="uid://c6fwb73mxxhgy" path="res://Ui/window.gd" id="22_wn2fh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42wbl"]
 atlas = ExtResource("9_waqct")
@@ -1470,5 +1471,63 @@ shape = SubResource("CircleShape2D_waqct")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
+[node name="tuto totem" type="Panel" parent="."]
+z_index = 500
+offset_left = 256.0
+offset_top = -2213.0
+offset_right = 1163.0
+offset_bottom = -1493.0
+script = ExtResource("22_wn2fh")
+
+[node name="Label" type="Label" parent="tuto totem"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 850.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "ui.tutorial.totem"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="tuto totem"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 54.0
+grow_horizontal = 0
+text = "X"
+
+[node name="tuto minitotem" type="Panel" parent="."]
+z_index = 500
+offset_left = -1553.0
+offset_top = -1320.0
+offset_right = -763.0
+offset_bottom = -939.0
+script = ExtResource("22_wn2fh")
+
+[node name="Label" type="Label" parent="tuto minitotem"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 742.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "ui.tutorial.minitotem"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="tuto minitotem"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 54.0
+grow_horizontal = 0
+text = "X"
+
 [connection signal="input_event" from="Totem/Area2D" to="Totem" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="fire/Area2D" to="fire" method="_on_area_2d_input_event"]
+[connection signal="pressed" from="tuto totem/Button" to="tuto totem" method="_on_button_pressed"]
+[connection signal="pressed" from="tuto minitotem/Button" to="tuto minitotem" method="_on_button_pressed"]
