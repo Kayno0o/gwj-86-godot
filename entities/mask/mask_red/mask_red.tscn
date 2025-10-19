@@ -6,6 +6,18 @@
 [node name="MaskRed" instance=ExtResource("1_base")]
 type = 2
 entity_name = "Red Warrior"
+stats = Dictionary[int, float]({
+0: 175.0,
+1: 6.0,
+10: 6.0,
+11: 1.0,
+12: 250.0,
+13: 1200.0,
+20: 1.0,
+21: 100.0,
+22: 2.0
+})
+deposit_speed = 0.3
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2(-45, 0)

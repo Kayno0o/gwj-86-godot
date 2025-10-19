@@ -24,16 +24,18 @@ collision_mask = 4
 script = ExtResource("1_wo7wq")
 target_type = 11
 stats = Dictionary[int, float]({
-0: 125.0,
+0: 150.0,
 1: 5.0,
 10: 5.0,
 11: 1.0,
-12: 42.0,
-13: 300.0,
+12: 200.0,
+13: 600.0,
 20: 1.0,
-21: 42.0,
+21: 200.0,
 22: 2.0
 })
+totem_approach_distance = 400.0
+wandering_distance = 300.0
 metadata/_custom_type_script = "uid://20wyg6v86aum"
 
 [node name="Collision" type="CollisionShape2D" parent="."]

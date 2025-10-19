@@ -5,7 +5,18 @@
 
 [node name="Mask White" instance=ExtResource("1_0urcv")]
 type = 5
-entity_name = "Mask Transporter"
+entity_name = "White Transporter"
+stats = Dictionary[int, float]({
+0: 200.0,
+1: 2.0,
+10: 2.0,
+11: 1.0,
+12: 200.0,
+13: 0.0,
+20: 2.0,
+21: 200.0,
+22: 1.0
+})
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2(-45, 0)
