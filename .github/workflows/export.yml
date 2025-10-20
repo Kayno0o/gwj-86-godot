@@ -54,30 +54,13 @@ jobs:
         with:
           files: ${{ steps.export.outputs.archive_directory }}/*.zip
 
-      - name: Get release changelog
-        if: startsWith(github.ref, 'refs/tags/')
-        id: release_info
-        run: |
-          sleep 2  # Give GitHub API a moment to update
-          RELEASE_DATA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/releases/tags/${GITHUB_REF#refs/tags/}")
-          BODY=$(echo "$RELEASE_DATA" | jq -r '.body // empty')
-          URL=$(echo "$RELEASE_DATA" | jq -r '.html_url // empty')
-          
-          # Write to output using multiline format
-          {
-            echo 'body<<EOF'
-            echo "$BODY"
-            echo 'EOF'
-            echo "url=$URL"
-          } >> $GITHUB_OUTPUT
-
       - name: Send changelog to Discord
         if: startsWith(github.ref, 'refs/tags/')
-        uses: tsickert/discord-webhook@v5.3.0
+        uses: sarisia/actions-status-discord@v1
         with:
-          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          embed-title: "🎮 New Release: ${{ github.ref_name }}"
-          embed-description: ${{ steps.release_info.outputs.body }}
-          embed-url: ${{ steps.release_info.outputs.url }}
-          embed-color: 5814783
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          title: "🎮 Nouvelle version de Totemidle : ${{ github.ref_name }}"
+          url: ${{ github.event.release.html_url }}
+          content: "Pour tester le jeu, cliquez ici : https://kayno0o.github.io/gwj-86-godot/index.html"
+          color: 0x5865F2
+          username: "Totemidle Releases"
