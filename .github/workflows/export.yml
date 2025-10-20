@@ -53,3 +53,13 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: ${{ steps.export.outputs.archive_directory }}/*.zip
+
+      - name: Send changelog to Discord
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: tsickert/discord-webhook@v5.3.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          embed-title: "🎮 New Release: ${{ github.ref_name }}"
+          embed-description: ${{ steps.release_info.outputs.body }}
+          embed-url: ${{ steps.release_info.outputs.url }}
+          embed-color: 5814783
