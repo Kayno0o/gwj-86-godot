@@ -38,14 +38,12 @@ var description: String:
 signal on_bought()
 
 func _ready():
-	_setup_ui()
-	
 	pressed.connect(_on_pressed)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 
 	InventoryManager.update_inventory.connect(_update_border)
-	_update_border()
+	_setup_ui()
 
 func buy():
 	if not _can_buy(): 
@@ -101,14 +99,6 @@ func _can_buy() -> bool:
 
 func _setup_ui():
 	# show upgrades/bonuses
-	var upgrades_text = title + "\n"
-	if bonuses.size() > 0:
-		for stat_type in bonuses:
-			var bonus_value = bonuses[stat_type]
-			var sign_text = "+" if bonus_value >= 0 else ""
-			upgrades_text += "%s%s %s\n" % [sign_text, bonus_value, tr("stat.%s" % Enum.Stat.find_key(stat_type))]
-	
-	text = upgrades_text.strip_edges()
 	add_theme_font_size_override("font_size", font_size)
 	
 	# show description + shopping_list
@@ -122,6 +112,27 @@ func _setup_ui():
 		description_label.custom_minimum_size.x = 300  # Set a reasonable max width for wrapping
 
 		# Combine description and shopping list
+		description_label.add_theme_font_size_override("font_size", font_size)
+		
+		description_panel.add_child(description_label)
+		description_panel.theme = get_theme()
+		add_child(description_panel)
+		move_child(description_panel, INTERNAL_MODE_FRONT)
+
+	_update_border()
+	_update_texts()
+
+func _update_texts():
+	var upgrades_text = title + "\n"
+	if bonuses.size() > 0:
+		for stat_type in bonuses:
+			var bonus_value = bonuses[stat_type]
+			var sign_text = "+" if bonus_value >= 0 else ""
+			upgrades_text += "%s%s %s\n" % [sign_text, bonus_value, tr("stat.%s" % Enum.Stat.find_key(stat_type))]
+	
+	text = upgrades_text.strip_edges()
+
+	if description != "" or shopping_list.size() > 0:
 		var full_text = ""
 		if description != "":
 			full_text += description + "\n\n"
@@ -132,14 +143,6 @@ func _setup_ui():
 				full_text += "- %s%s %d\n" % [tr("item.%s" % item), tr(":"), shopping_list[item]]
 		
 		description_label.text = full_text.strip_edges()
-		description_label.add_theme_font_size_override("font_size", font_size)
-		
-		description_panel.add_child(description_label)
-		description_panel.theme = get_theme()
-		add_child(description_panel)
-		move_child(description_panel, INTERNAL_MODE_FRONT)
-
-	_update_border()
 
 func _update_border():
 	if _can_buy():

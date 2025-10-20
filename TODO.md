@@ -62,12 +62,12 @@
 # EZ (mais pas prio)
 
 - [x] Rendre les white mask pacifiste
-- [ ] les unités se heal pendant la journée
-- [ ] trads
+- [x] trads
   - [x] types d'objets dans les skill tree
-  - [ ] descriptions des skill (si besoin)
+  - [x] descriptions des skill (si besoin)
   - [x] types de stats
   - [x] interface
+- [ ] les unités se heal pendant la journée
 
 # QoL bien a avoir mais pas nécessaire
 
@@ -88,3 +88,4 @@
 # GROS REFACTOR
 
 - [ ] utiliser les group au lieu du TargetManager
+- [ ] skill node sous forme de scene

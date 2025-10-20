@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cps5jjnch8vi4"]
+[gd_scene load_steps=33 format=3 uid="uid://cps5jjnch8vi4"]
 
 [ext_resource type="Script" uid="uid://b8ny58wv6ftll" path="res://props/totem/totem.gd" id="1_7ndw4"]
 [ext_resource type="Texture2D" uid="uid://dmku4ouwjlq2s" path="res://assets/totem/totem_base.png" id="2_q76w8"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dm1b3rryrrrxi" path="res://assets/totem/blue_totem.png" id="14_tbapd"]
 [ext_resource type="Script" uid="uid://ca0dgeimti308" path="res://Ui/skill/skill_node.gd" id="16_wn2fh"]
 [ext_resource type="Texture2D" uid="uid://4580kbqbk2ur" path="res://assets/totem/grey_totem.png" id="16_yjcm3"]
+[ext_resource type="Curve" uid="uid://cw6x17deni4y7" path="res://props/totem/mini_totem/price_multiplicator.tres" id="20_gdf54"]
 [ext_resource type="Script" uid="uid://cqhyds4fvv6u1" path="res://props/fire/fire.gd" id="20_wn2fh"]
 [ext_resource type="Texture2D" uid="uid://densh2u1mkjil" path="res://assets/fire.png" id="21_wn2fh"]
 [ext_resource type="Script" uid="uid://c6fwb73mxxhgy" path="res://Ui/window.gd" id="22_wn2fh"]
@@ -1077,6 +1078,7 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("12_kgfja")
+price_multiplicator = ExtResource("20_gdf54")
 infinite = true
 skill_name = "black_miner"
 entity_type = 1
