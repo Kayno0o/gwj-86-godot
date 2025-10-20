@@ -22,15 +22,15 @@ sprites = Dictionary[int, SpriteFrames]({
 respawn_cooldown = 30.0
 entity_name = "Hero"
 stats = Dictionary[int, float]({
-0: 1500.0,
+0: 500.0,
 1: 30.0,
 10: 4.0,
 11: 1.0,
 12: 200.0,
-13: 600.0,
-20: 3.0,
+13: 1200.0,
+20: 2.0,
 21: 250.0,
-22: 0.5
+22: 1.0
 })
 
 [node name="Sprite" parent="." index="1"]
