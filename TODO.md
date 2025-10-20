@@ -28,7 +28,7 @@
   - [X] bug - quand on middle click en dehors de la zone de jeu, ça bouge pas, et on peut se retrouver stuck en dehors de la zone
 	- [X] une solution serait de faire en sorte que la caméra puisse pas sortir de la zone
   - [X] déplacement via `w/z` `a/q` `s` `d`
-- [ ] UI
+- [X] UI
 - [X] totem principal
 
 # Global
@@ -49,7 +49,11 @@
 - [X] camera
 
 # BUG
+## GAMEBREACKING :
+- [ ] game crash on spawning mask other than wood, no idea why, didn't touch it other than fixing the wood mask cost
 
+## CAN WAIT :
+- [ ] ennemies layering is poorly done
 - [?] baston + inventaire plein = sais plus ou aller
 - [X] spawner `implicit_ready: Invalid type in function 'new' in base 'GDScript'.`
   - `The Object-derived class of argument 1 (CharacterBody2D (Villain))`

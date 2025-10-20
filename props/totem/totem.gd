@@ -42,6 +42,7 @@ func _on_death():
 	# TODO totem death
 	TargetManager.unregister_target(self, [target_type])
 	queue_free()
+	get_tree().change_scene_to_packed(preload("res://stages/main_menu/main_menu.tscn"))
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton :

@@ -21,7 +21,7 @@ script = ExtResource("1_7h61r")
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
-day_lenght = 90.0
+day_lenght = 1.0
 
 [node name="ground" parent="." instance=ExtResource("14_oq21h")]
 
@@ -40,21 +40,6 @@ y_sort_enabled = true
 
 [node name="Totem" parent="game" instance=ExtResource("6_rsoik")]
 position = Vector2(5, -6)
-
-[node name="Hero" parent="game" instance=ExtResource("14_ourju")]
-position = Vector2(1145, -606)
-respawn_cooldown = 20.0
-stats = Dictionary[int, float]({
-0: 150.0,
-1: 5.0,
-10: 5.0,
-11: 1.0,
-12: 200.0,
-13: 600.0,
-20: 1.0,
-21: 200.0,
-22: 2.0
-})
 
 [node name="Tree" parent="game" instance=ExtResource("13_oq21h")]
 position = Vector2(-1552, -1718)
@@ -100,6 +85,8 @@ position = Vector2(924, 2236)
 
 [node name="wheat5" parent="game" instance=ExtResource("14_k5jav")]
 position = Vector2(1308, 1795)
+
+[node name="Hero" parent="game" instance=ExtResource("14_ourju")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1e-05, 1e-05)

@@ -97,89 +97,85 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="base" type="Sprite2D" parent="Totem/Sprites"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0, -552)
 texture = ExtResource("2_q76w8")
 offset = Vector2(0, -85)
 
 [node name="Sprite2D" type="Sprite2D" parent="Totem/Sprites/base"]
+y_sort_enabled = true
 texture = ExtResource("5_x5o6e")
 offset = Vector2(0, -242)
 
 [node name="base" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D"]
-z_index = 1
+y_sort_enabled = true
 texture = ExtResource("2_q76w8")
 offset = Vector2(0, -455)
 
 [node name="Sprite2D" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base"]
-z_index = 1
+y_sort_enabled = true
 position = Vector2(-1, 0)
 texture = ExtResource("12_42wbl")
 offset = Vector2(1, -611)
 
 [node name="base" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D"]
-z_index = 1
+y_sort_enabled = true
 position = Vector2(1, 0)
 texture = ExtResource("2_q76w8")
 offset = Vector2(-1, -827)
 
 [node name="Sprite2D" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base"]
-z_index = 1
-position = Vector2(-1, -377)
+y_sort_enabled = true
 texture = ExtResource("16_yjcm3")
-offset = Vector2(1, -611)
+offset = Vector2(0, -988)
 
 [node name="base" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D"]
-z_index = 1
-position = Vector2(1, 0)
+y_sort_enabled = true
 texture = ExtResource("2_q76w8")
-offset = Vector2(-1, -827)
+offset = Vector2(0, -1209)
 
 [node name="Sprite2D" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base"]
-z_index = 1
-position = Vector2(-1, -377)
+y_sort_enabled = true
 texture = ExtResource("10_waqct")
-offset = Vector2(1, -611)
+offset = Vector2(0, -1363)
 
 [node name="base" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D"]
-z_index = 1
-position = Vector2(1, 0)
+y_sort_enabled = true
 texture = ExtResource("2_q76w8")
-offset = Vector2(-1, -827)
+offset = Vector2(0, -1582)
 
 [node name="Sprite2D" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base"]
-z_index = 1
-position = Vector2(-1, -377)
+y_sort_enabled = true
 texture = ExtResource("14_tbapd")
-offset = Vector2(1, -611)
+offset = Vector2(0, -1733)
 
 [node name="base" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D"]
-z_index = 1
-position = Vector2(1, 0)
+y_sort_enabled = true
 texture = ExtResource("2_q76w8")
-offset = Vector2(-1, -827)
+offset = Vector2(0, -1951)
 
 [node name="Sprite2D" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base"]
-z_index = 1
-position = Vector2(-1, -377)
+y_sort_enabled = true
 texture = ExtResource("8_q76w8")
-offset = Vector2(1, -611)
+offset = Vector2(0, -2114)
 
 [node name="base" type="Sprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D"]
-z_index = 1
-position = Vector2(1, 0)
+y_sort_enabled = true
 texture = ExtResource("2_q76w8")
-offset = Vector2(-1, -827)
+offset = Vector2(0, -2335)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Totem/Sprites/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base/Sprite2D/base"]
-z_index = 1
-position = Vector2(-3, -1027)
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_1bhy3")
+offset = Vector2(-3, -2535)
 
 [node name="Area2D" type="Area2D" parent="Totem"]
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Totem/Area2D"]
+visible = false
 position = Vector2(-1.5, -1548.5)
 shape = SubResource("CapsuleShape2D_q76w8")
 
@@ -859,9 +855,9 @@ script = ExtResource("12_kgfja")
 infinite = true
 skill_name = "green_lumberjack"
 items_shopping_list = Dictionary[int, int]({
-0: 0,
+0: 2,
 1: 0,
-2: 2
+2: 0
 })
 buy_instant = true
 metadata/_custom_type_script = "uid://csujtitx8durp"
@@ -1464,6 +1460,15 @@ y_sort_enabled = true
 position = Vector2(4, 0)
 texture = ExtResource("21_wn2fh")
 offset = Vector2(-184, -151)
+
+[node name="PointLight2D" type="PointLight2D" parent="fire/Sprite2D"]
+position = Vector2(-1067.9999, -1276.4996)
+scale = Vector2(5.1125, 10.4383335)
+color = Color(0.654902, 0.4862745, 0.18431373, 0.57254905)
+energy = 2.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("21_wn2fh")
 
 [node name="Area2D" type="Area2D" parent="fire"]
 

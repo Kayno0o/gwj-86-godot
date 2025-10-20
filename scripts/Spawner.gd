@@ -36,10 +36,10 @@ func _ready() -> void:
 # Selectionne les villains a spawn selon son budget
 func _villain_picker() :
 	var allowed = 0
-	var spawn_budget = world.difficulty * threat_cost * difficulty_curve.sample(world.difficulty)
+	var spawn_budget = int(world.difficulty * threat_cost * difficulty_curve.sample(world.difficulty))
 	for current_villain in villains :
 		var villain_instance = current_villain.instantiate()
-		if spawn_budget > villain_instance.cost :
+		if spawn_budget >= villain_instance.cost :
 			if current_villain == villains.back() :
 				allowed = spawn_budget / villain_instance.cost
 			else :
@@ -49,6 +49,7 @@ func _villain_picker() :
 				spawn_budget -= villain_instance.cost
 				villain_instance.position = Vector2(randf_range(offset, -offset), randf_range(offset, -offset))
 				add_child(villain_instance)
+				print("spawned one")
 #endregion
 
 #region Signal catching
