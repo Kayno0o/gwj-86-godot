@@ -85,3 +85,5 @@ cost,Coût,Cost
 ,,
 ui.tutorial.totem,"Cliquez sur le totem pour changer le masque du Héro et son rôle : Rose (Transport d'objets), Vert (Bois), Bleu (Défense), Rouge (Attaque), Orange (Blé), Noir (Pierre)","Click the totem to swap hero's masks and change their job: Pink (Item Transport), Green (Wood), Blue (Defend), Red (Attack), Orange (Wheat), Black (Pebble)"
 ui.tutorial.minitotem,"Cliquez sur les mini-totems pour acheter des masqués, et les améliorer","Click on the mini totems to buy masked and upgrade them"
+ui.button.play,Jouer,Play
+ui.button.credits,Crédits,Credits
