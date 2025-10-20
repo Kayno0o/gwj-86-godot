@@ -18,6 +18,8 @@
 	  - débloquer l'affichage des stats
 - [ ] augmenter le spawn des ressources (en fonction de la difficulté et du nombre de masks)
 
+- [ ] scoreboard
+
 # Pediluve EN URGENCE
 
 - [X] Refactor spawner : faire spawn en dehors de la zone de jeux (path2D ou Area2D) / mettre un effet de brouillard là ou ça peut spawn
@@ -50,6 +52,8 @@
 - [X] camera
 - [ ] death screen + score
 - [ ] click droit sur totem = cycle back
+- [ ] sounds
+- [ ] musics
 
 # BUG
 ## GAMEBREACKING :
@@ -87,6 +91,10 @@
 - [ ] drag and drop new totems to positions
 - [ ] drag and drop des petit objet sur les masqués
 - [ ] agrandir les mini totem à chaque upgrade
+
+# Questionning
+
+- [ ] pouvoir drag and drop les masks ???
 
 # GROS REFACTOR
 
