@@ -39,7 +39,6 @@ offset = Vector2(0, -283.5)
 
 [node name="HealthBar" parent="." index="3"]
 z_index = 1
-z_as_relative = false
 y_sort_enabled = true
 anchors_preset = 8
 anchor_top = 0.5

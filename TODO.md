@@ -50,6 +50,7 @@
 
 # BUG
 
+- [ ] ennemies layering is poorly done
 - [?] baston + inventaire plein = sais plus ou aller
 - [X] spawner `implicit_ready: Invalid type in function 'new' in base 'GDScript'.`
   - `The Object-derived class of argument 1 (CharacterBody2D (Villain))`
