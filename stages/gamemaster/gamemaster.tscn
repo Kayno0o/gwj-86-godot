@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1pnuushvfayr" path="res://scripts/GameMaster.gd" id="1_8ji5e"]
 [ext_resource type="Script" uid="uid://dfmfgpth0lafo" path="res://scripts/DayNightCycle.gd" id="2_tdqy3"]
-[ext_resource type="PackedScene" uid="uid://setwk61da4ei" path="res://stages/gamemaster/ressource_spawner.tscn" id="4_2gu0r"]
+[ext_resource type="PackedScene" uid="uid://dfh5qn6p1khml" path="res://stages/gamemaster/ressource_spawner.tscn" id="4_2gu0r"]
 [ext_resource type="Texture2D" uid="uid://cucetx1qqeinf" path="res://assets/gradient.png" id="4_crrro"]
 
 [sub_resource type="Curve" id="Curve_5powy"]
@@ -28,7 +28,7 @@ _data = {
 }
 point_count = 5
 
-[node name="GameMaster" type="Node2D" groups=["Master"]]
+[node name="GameMaster" type="Node2D" groups=["gamemaster"]]
 script = ExtResource("1_8ji5e")
 map_size = Array[Vector2]([Vector2(-100, -100), Vector2(1200, -100), Vector2(1200, 700), Vector2(-100, 700)])
 day_lenght = 50.0

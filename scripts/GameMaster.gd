@@ -2,6 +2,7 @@ extends Node
 
 #region @Onready
 @onready var is_midnight : bool = false
+@onready var max_score : int = 0
 #endregion
 
 #region @Export
@@ -19,6 +20,11 @@ signal kill_villain() # Dev purpose
 # Gere la difficulté ainsi que le placement du spawner de villain
 # Selection de zone modulable
 # Communique avec le Day/Night cycler
+
+#region _ready/_process
+func _ready() -> void:
+	InventoryManager.update_inventory.connect(_score_update)
+#endregion
 
 #region Signal Catching
 # Si la nuit se termine apres la mort du spawner, commencer la journée
@@ -44,6 +50,12 @@ func _unhandled_input(event):
 # Ajoute un spawner lors de la fin de la journée
 func _on_timer_timeout() -> void:
 	_place_spawner()
+
+# Vérifie si le score a besoin d'etre update
+func _score_update() -> void:
+	var current_score = get_tree().get_nodes_in_group("masked").size()
+	if current_score > max_score :
+		max_score = current_score
 #endregion
 
 #region Fonctions

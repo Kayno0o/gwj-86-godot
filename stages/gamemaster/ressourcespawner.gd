@@ -9,7 +9,7 @@ extends CollisionShape2D
 
 @onready var spawn_area = $".".shape.extents
 @onready var origin = $".".global_position -  spawn_area
-@onready var world = get_tree().get_nodes_in_group("Master")[0]
+@onready var world = get_tree().get_first_node_in_group("gamemaster")
 
 @onready var timer: Timer = $Timer
 

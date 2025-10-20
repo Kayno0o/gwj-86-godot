@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxo4lip2se728"]
+[gd_scene load_steps=4 format=3 uid="uid://cxo4lip2se728"]
 
 [ext_resource type="Script" uid="uid://qsu6q0yyijsf" path="res://Ui/death_screen/death_screen.gd" id="1_01e2f"]
 [ext_resource type="Theme" path="res://Ui/textures/theme.tres" id="1_qlxye"]
+[ext_resource type="Script" uid="uid://bts76uj2jmhc4" path="res://Ui/death_screen/apply_score.gd" id="3_tk5a4"]
 
 [node name="DeathScreen" type="CanvasLayer"]
 layer = 500
@@ -61,6 +62,41 @@ theme_override_font_sizes/font_size = 32
 text = "ui.button.restart"
 
 [node name="ColorRect" type="ColorRect" parent="restart"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -27.25
+offset_right = 138.0
+offset_bottom = 52.75
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.23921569, 0.23921569, 0.23921569, 0.8039216)
+
+[node name="score" type="Button" parent="." groups=["main_button"]]
+top_level = true
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 510.25
+offset_top = -406.0
+offset_right = 775.25
+offset_bottom = -337.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qlxye")
+theme_override_font_sizes/font_size = 32
+script = ExtResource("3_tk5a4")
+
+[node name="ColorRect" type="ColorRect" parent="score"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
