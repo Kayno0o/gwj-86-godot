@@ -84,3 +84,7 @@
 - [ ] drag and drop new totems to positions
 - [ ] drag and drop des petit objet sur les masqués
 - [ ] agrandir les mini totem à chaque upgrade
+
+# GROS REFACTOR
+
+- [ ] utiliser les group au lieu du TargetManager
