@@ -55,6 +55,8 @@ func buy():
 	InventoryManager.pay_shopping_list(shopping_list, buy_instant)
 
 func _on_paid():
+	InventoryManager.has_paid.disconnect(_on_paid)
+
 	# Apply stat bonuses to the appropriate entity type
 	var target_entity_type = _get_entity_type()
 	StatsManager.add_bonuses(target_entity_type, bonuses)
