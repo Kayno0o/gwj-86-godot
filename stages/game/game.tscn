@@ -22,7 +22,7 @@ script = ExtResource("1_7h61r")
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
-day_lenght = 1.0
+day_lenght = 90.0
 
 [node name="ground" parent="." instance=ExtResource("14_oq21h")]
 
