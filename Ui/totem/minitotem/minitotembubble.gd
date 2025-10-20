@@ -18,3 +18,4 @@ func _on_bought() -> void:
 	for item in items_shopping_list:
 		if items_shopping_list[item] != 0:
 			items_shopping_list[item] += entity_count / base_item_price[item]
+	_setup_ui()
