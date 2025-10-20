@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bm8cevkvp12oy" path="res://assets/ground/image.png" id="1_phs36"]
 [ext_resource type="Script" uid="uid://c11urxphddj8w" path="res://stages/main_menu/main_menu.gd" id="1_wxx16"]
-[ext_resource type="Theme" uid="uid://rk7n5yn304v" path="res://Ui/textures/theme.tres" id="2_owbi8"]
+[ext_resource type="Theme" path="res://Ui/textures/theme.tres" id="2_owbi8"]
 [ext_resource type="PackedScene" uid="uid://dap12e7d4vlk5" path="res://props/resource/wheat/wheat.tscn" id="4_mcab4"]
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="5_onbu3"]
 [ext_resource type="Texture2D" uid="uid://coyi7w4fl5wo5" path="res://props/resource/wheat/wheat.png" id="6_hqqfy"]
@@ -165,6 +165,9 @@ mouse_filter = 2
 color = Color(0.23921569, 0.23921569, 0.23921569, 0.8039216)
 
 [node name="game" type="Node2D" parent="."]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 scale = Vector2(0.2, 0.2)
 
 [node name="wheat" parent="game" instance=ExtResource("4_mcab4")]
@@ -201,7 +204,7 @@ position = Vector2(6819.9995, 4364.9995)
 position = Vector2(5184.9995, 4174.9995)
 
 [node name="Tree5" parent="game" instance=ExtResource("5_onbu3")]
-position = Vector2(6194.9995, 4469.9995)
+position = Vector2(7090, 3855)
 
 [node name="Wheat" type="Sprite2D" parent="game"]
 position = Vector2(5914.9995, 2854.9998)

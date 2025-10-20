@@ -33,19 +33,16 @@ animations = [{
 }]
 
 [node name="Villain" instance=ExtResource("1_ex2au")]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
 stats = Dictionary[int, float]({
-0: 150.0,
+0: 300.0,
 1: 5.0,
-10: 3.0,
-11: 1.0,
+10: 0.5,
+11: 0.2,
 12: 200.0,
 13: 2000.0,
 20: 1.0,
 21: 150.0,
-22: 2.0
+22: 0.5
 })
 
 [node name="Sprite" parent="." index="1"]
