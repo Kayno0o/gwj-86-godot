@@ -13,7 +13,7 @@
 - [x] theme des panels/buttons
 
 - [ ] skill tree
-  - [ ] base stats upgrade
+  - [x] base stats upgrade
   - [ ] transporter
 	  - débloquer l'affichage des stats
 
@@ -50,7 +50,7 @@
 
 # BUG
 ## GAMEBREACKING :
-- [ ] game crash on spawning mask other than wood, no idea why, didn't touch it other than fixing the wood mask cost
+- [x] game crash on spawning mask other than wood, no idea why, didn't touch it other than fixing the wood mask cost
 
 ## CAN WAIT :
 - [ ] ennemies layering is poorly done
@@ -67,6 +67,7 @@
   - [x] types d'objets dans les skill tree
   - [ ] descriptions des skill (si besoin)
   - [x] types de stats
+  - [x] interface
 
 # QoL bien a avoir mais pas nécessaire
 
