@@ -20,7 +20,8 @@ func _ready() -> void:
 	
 	for lang_name in languages.keys():
 		add_item(lang_name)
-	
+
+	I18n.load_and_set_language()
 	var current_locale = TranslationServer.get_locale()
 	var current_lang_name = languages.find_key(current_locale)
 	if current_lang_name:
