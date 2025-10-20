@@ -49,7 +49,6 @@ func _villain_picker() :
 				spawn_budget -= villain_instance.cost
 				villain_instance.position = Vector2(randf_range(offset, -offset), randf_range(offset, -offset))
 				add_child(villain_instance)
-				print("spawned one")
 #endregion
 
 #region Signal catching
