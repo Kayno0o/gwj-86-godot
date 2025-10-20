@@ -59,15 +59,10 @@ func get_attack_view_distance() -> float:
 func get_movement_speed() -> float:
 	return stats[Enum.Stat.MovementSpeed] + get_bonus(Enum.Stat.MovementSpeed) * 2.0
 
-func _on_switch_mask():
-	var index = available_masks.find(type)
-	var new_type = available_masks.get((index + 1) % available_masks.size())
-	_on_mask_change(new_type)
-
-func _on_mask_change(new_type: Enum.EntityType) -> void:
-	type = new_type
+func _on_switch_mask(index: int):
+	type = available_masks.get(index)
 	
-	$Sprite.frame = ($Sprite.frame + 1) % 6
+	$Sprite.frame = index
 
 	state_machine.change_state_type(State.Type.Idle)
 
