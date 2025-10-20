@@ -16,6 +16,7 @@
   - [x] base stats upgrade
   - [ ] transporter
 	  - débloquer l'affichage des stats
+- [ ] augmenter le spawn des ressources (en fonction de la difficulté et du nombre de masks)
 
 # Pediluve EN URGENCE
 
@@ -47,6 +48,8 @@
 - [x] state saccrifice des mask pour payer une upgrade
 - [X] spawner à ressource
 - [X] camera
+- [ ] death screen + score
+- [ ] click droit sur totem = cycle back
 
 # BUG
 ## GAMEBREACKING :
