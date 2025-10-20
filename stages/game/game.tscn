@@ -42,7 +42,7 @@ y_sort_enabled = true
 position = Vector2(5, -6)
 
 [node name="Hero" parent="game" instance=ExtResource("14_ourju")]
-position = Vector2(1145, -606)
+position = Vector2(-139, -539)
 respawn_cooldown = 20.0
 stats = Dictionary[int, float]({
 0: 150.0,
