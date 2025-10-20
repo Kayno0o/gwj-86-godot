@@ -79,7 +79,7 @@ func _get_entity_type() -> Enum.EntityType:
 	if inherit_entity_type:
 		var parent_node: SkillTree = get_parent()
 		if parent_node.default_entity_type:
-			return parent_node.entity_type
+			return parent_node.default_entity_type
 	
 	return entity_type
 
