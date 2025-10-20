@@ -57,6 +57,7 @@ func search_target() -> void:
 	# if transporter and can send new mask to transfer
 	if parent.type == Enum.EntityType.MaskTransporter \
 	and InventoryManager.can_send_new_mask_to_transfer(parent):
+		change_state_type(State.Type.Transfer)
 		return
 
 	var new_target = parent.find_closer_target()
