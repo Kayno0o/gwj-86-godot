@@ -11,9 +11,12 @@ _data = [Vector2(0, 1.1235962), 0.0, 0.0, 0, 0, Vector2(2.9702988, 1), 0.0, 0.0,
 point_count = 4
 
 [node name="spawner" type="Node2D"]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_h5yvs")
 villains = Array[PackedScene]([ExtResource("2_3la0t"), ExtResource("3_jj44w"), ExtResource("4_0roro")])
-offset = 50.0
+offset = 1500.0
 difficulty_curve = SubResource("Curve_h5yvs")
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
