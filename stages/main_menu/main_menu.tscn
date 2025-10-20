@@ -249,7 +249,7 @@ position = Vector2(5679.9995, 2759.9998)
 [node name="rock5" parent="game" instance=ExtResource("7_ee1t4")]
 position = Vector2(3919.9995, 2429.9998)
 
-[node name="LangSwitcher" parent="." instance=ExtResource("8_onbu3")]
+[node name="LangSwitcher" parent="." groups=["main_button"] instance=ExtResource("8_onbu3")]
 layout_mode = 1
 offset_left = 680.0
 offset_top = 518.0
