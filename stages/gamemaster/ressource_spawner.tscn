@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://setwk61da4ei"]
+[gd_scene load_steps=6 format=3 uid="uid://dfh5qn6p1khml"]
 
 [ext_resource type="Script" uid="uid://cil7hln12c8mb" path="res://stages/gamemaster/ressourcespawner.gd" id="1_igqhv"]
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="2_yqmgc"]
@@ -17,5 +17,6 @@ rock = ExtResource("3_rw6rv")
 wheat = ExtResource("4_triek")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
