@@ -20,8 +20,8 @@ script = ExtResource("1_wxx16")
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(1154.5879, 651.75006)
-scale = Vector2(2.0132194, 2.0132194)
+position = Vector2(821.5, 469.75003)
+scale = Vector2(1.4329268, 1.4471228)
 texture = ExtResource("1_phs36")
 
 [node name="Play" type="Button" parent="." groups=["main_button"]]
