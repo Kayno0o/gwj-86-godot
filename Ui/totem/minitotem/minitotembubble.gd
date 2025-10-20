@@ -16,8 +16,12 @@ func _ready() -> void:
 
 func _on_bought() -> void:
 	minitotem.spawn()
+
 	var entity_count = InventoryManager.inventory[Enum.EntityType.find_key(minitotem.totem_type)].size()
+	var mult = price_multiplicator.sample(clamp(entity_count, price_multiplicator.min_domain, price_multiplicator.max_domain))
+
 	for item in items_shopping_list:
 		if items_shopping_list[item] != 0:
-			items_shopping_list[item] = ceil(base_item_price[item] * price_multiplicator.sample(clamp(entity_count, price_multiplicator.min_domain, price_multiplicator.max_domain)))
+			items_shopping_list[item] = ceili(base_item_price[item] * mult)
+
 	_setup_ui()
