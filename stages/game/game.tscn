@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=12 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
+[ext_resource type="PackedScene" uid="uid://chlm7ig6hfol0" path="res://entities/mask/mask_white/mask_white.tscn" id="9_51ysb"]
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
 [ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="12_js6n3"]
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="13_oq21h"]
@@ -87,6 +88,9 @@ position = Vector2(924, 2236)
 position = Vector2(1308, 1795)
 
 [node name="Hero" parent="game" instance=ExtResource("14_ourju")]
+
+[node name="Mask White" parent="game" instance=ExtResource("9_51ysb")]
+position = Vector2(656, 189)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1e-05, 1e-05)
