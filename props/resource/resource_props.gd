@@ -62,6 +62,9 @@ func _on_death():
 func _on_click():
 	if not reset_tween(TweenType.USER_CLICK): return
 
+	$AudioStreamPlayer.play() # play a random sound
+	if $Sprite2D/particlesanchor :
+		$Sprite2D/particlesanchor/CPUParticles2D.emitting = true
 	tweens[TweenType.USER_CLICK] = get_tree().create_tween()
 	tweens[TweenType.USER_CLICK].tween_property(self, "rotation_degrees", original_rotation+2, 0.1) \
 		.set_trans(Tween.TRANS_SINE) \

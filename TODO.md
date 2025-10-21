@@ -51,7 +51,7 @@
 - [X] spawner à ressource
 - [X] camera
 - [ ] death screen + score
-- [ ] click droit sur totem = cycle back
+- [X] click droit sur totem = cycle back
 - [ ] sounds
 - [ ] musics
 
@@ -60,7 +60,7 @@
 - [x] game crash on spawning mask other than wood, no idea why, didn't touch it other than fixing the wood mask cost
 
 ## CAN WAIT :
-- [ ] ennemies layering is poorly done
+- [X] ennemies layering is poorly done
 - [?] baston + inventaire plein = sais plus ou aller
 - [X] spawner `implicit_ready: Invalid type in function 'new' in base 'GDScript'.`
   - `The Object-derived class of argument 1 (CharacterBody2D (Villain))`

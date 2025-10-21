@@ -2,7 +2,7 @@ extends Node
 
 #region @Onready
 @onready var threat_cost :int = 10
-@onready var world = get_tree().get_nodes_in_group("Master")[0]
+@onready var world = get_tree().get_first_node_in_group("gamemaster")
 #endregion
 
 #region @Export

@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnp5j6tutmm3o"]
+[gd_scene load_steps=13 format=3 uid="uid://dnp5j6tutmm3o"]
 
 [ext_resource type="PackedScene" uid="uid://yttupk6ktjv" path="res://props/resource/resource_props.tscn" id="1_olndm"]
 [ext_resource type="PackedScene" uid="uid://bfhwvj28jnhvo" path="res://props/item/log/log.tscn" id="2_ni0tv"]
 [ext_resource type="Texture2D" uid="uid://cyhgsqoaellnb" path="res://props/resource/tree/tree.png" id="3_ni0tv"]
+[ext_resource type="AudioStream" uid="uid://cov011cx6r86f" path="res://assets/sound effect/tree/woosh1.wav" id="4_0au72"]
+[ext_resource type="Texture2D" uid="uid://densh2u1mkjil" path="res://assets/fire.png" id="4_xvm03"]
+[ext_resource type="AudioStream" uid="uid://d0h7o4tteyehe" path="res://assets/sound effect/tree/woosh2.wav" id="5_nokca"]
+[ext_resource type="AudioStream" uid="uid://bn0og3n11sxf8" path="res://assets/sound effect/tree/woosh3.wav" id="6_xvm03"]
+[ext_resource type="AudioStream" uid="uid://gg58xqv6o8sj" path="res://assets/sound effect/tree/woosh4.wav" id="7_iqvmu"]
+[ext_resource type="AudioStream" uid="uid://bwvfd6tuaybcd" path="res://assets/sound effect/tree/woosh5official.wav" id="8_m27l4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0au72"]
 animations = [{
@@ -18,6 +24,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ni0tv"]
 size = Vector2(869, 1204)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rft1y"]
+streams_count = 5
+stream_0/stream = ExtResource("4_0au72")
+stream_0/weight = 100.0
+stream_1/stream = ExtResource("5_nokca")
+stream_1/weight = 100.0
+stream_2/stream = ExtResource("6_xvm03")
+stream_2/weight = 100.0
+stream_3/stream = ExtResource("7_iqvmu")
+stream_3/weight = 100.0
+stream_4/stream = ExtResource("8_m27l4")
+stream_4/weight = 0.5
+
 [node name="Tree" groups=["trees"] instance=ExtResource("1_olndm")]
 target_types = Array[int]([0, 1])
 health = 10.0
@@ -30,6 +49,37 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_0au72")
 offset = Vector2(-130.5, -335)
 
+[node name="particlesanchor" type="Sprite2D" parent="Sprite2D" index="0"]
+position = Vector2(-132.66667, 48.666668)
+scale = Vector2(0.6666667, 0.6666667)
+offset = Vector2(0, -1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D/particlesanchor" index="0"]
+position = Vector2(23, -808)
+emitting = false
+amount = 10
+texture = ExtResource("4_xvm03")
+lifetime = 2.0
+one_shot = true
+speed_scale = 1.2
+explosiveness = 0.9
+emission_shape = 3
+emission_rect_extents = Vector2(300, 260)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 800)
+initial_velocity_min = 180.61
+initial_velocity_max = 558.77
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = -90.0
+angle_max = 90.0
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+color = Color(0.14117648, 0.75686276, 0.27450982, 1)
+
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(38.5, -592)
 shape = SubResource("RectangleShape2D_ni0tv")
+
+[node name="AudioStreamPlayer" parent="." index="2"]
+stream = SubResource("AudioStreamRandomizer_rft1y")

@@ -17,7 +17,7 @@ radius = 8.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oeqx8"]
 
-[node name="Mask" type="CharacterBody2D"]
+[node name="Mask" type="CharacterBody2D" groups=["masked"]]
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true

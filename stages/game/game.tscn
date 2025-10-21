@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5gxjdr52th8t"]
+[gd_scene load_steps=12 format=3 uid="uid://b5gxjdr52th8t"]
 
 [ext_resource type="Script" uid="uid://cox74b6gr6uvl" path="res://stages/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://cps5jjnch8vi4" path="res://props/totem/totem.tscn" id="6_rsoik"]
+[ext_resource type="AudioStream" uid="uid://b54e2l18eam5o" path="res://assets/music/main_music.wav" id="11_3saht"]
 [ext_resource type="PackedScene" uid="uid://cwy0xgki0ltex" path="res://stages/gamemaster/gamemaster.tscn" id="11_51ysb"]
 [ext_resource type="PackedScene" uid="uid://nvsgrq2s67sj" path="res://props/resource/rock/rock.tscn" id="12_js6n3"]
 [ext_resource type="PackedScene" uid="uid://dnp5j6tutmm3o" path="res://props/resource/tree/tree.tscn" id="13_oq21h"]
@@ -105,3 +106,7 @@ offset_top = 1.0
 offset_bottom = 1.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_3saht")
+autoplay = true

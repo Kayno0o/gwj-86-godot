@@ -22,7 +22,7 @@
 [ext_resource type="Curve" uid="uid://cw6x17deni4y7" path="res://props/totem/mini_totem/price_multiplicator.tres" id="20_gdf54"]
 [ext_resource type="Script" uid="uid://cqhyds4fvv6u1" path="res://props/fire/fire.gd" id="20_wn2fh"]
 [ext_resource type="Texture2D" uid="uid://densh2u1mkjil" path="res://assets/fire.png" id="21_wn2fh"]
-[ext_resource type="Script" uid="uid://c6fwb73mxxhgy" path="res://Ui/window.gd" id="22_wn2fh"]
+[ext_resource type="Script" path="res://Ui/window.gd" id="22_wn2fh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_waqct"]
 radius = 218.66183
@@ -109,7 +109,7 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("21_wn2fh")
 
-[node name="Area2D" type="Area2D" parent="fire"]
+[node name="Area2D" type="Area2D" parent="fire" groups=["interactable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fire/Area2D"]
 shape = SubResource("CircleShape2D_waqct")
@@ -121,7 +121,7 @@ y_sort_enabled = true
 position = Vector2(0, -604)
 script = ExtResource("1_7ndw4")
 
-[node name="Area2D" type="Area2D" parent="Totem"]
+[node name="Area2D" type="Area2D" parent="Totem" groups=["interactable"]]
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Totem/Area2D"]
@@ -220,7 +220,7 @@ main_ressources = Dictionary[int, int]({
 })
 totem_type = 2
 
-[node name="RedSkillTree" type="Control" parent="redtotem"]
+[node name="RedSkillTree" type="Control" parent="redtotem" groups=["interactable"]]
 z_index = 500
 layout_mode = 3
 anchors_preset = 7
@@ -461,7 +461,7 @@ main_ressources = Dictionary[int, int]({
 })
 totem_type = 3
 
-[node name="BlueSkillTree" type="Control" parent="bluetotem"]
+[node name="BlueSkillTree" type="Control" parent="bluetotem" groups=["interactable"]]
 z_index = 500
 layout_mode = 3
 anchors_preset = 7
@@ -666,7 +666,7 @@ main_ressources = Dictionary[int, int]({
 })
 totem_type = 4
 
-[node name="OrangeSkillTree" type="Control" parent="orangetotem"]
+[node name="OrangeSkillTree" type="Control" parent="orangetotem" groups=["interactable"]]
 z_index = 500
 layout_mode = 3
 anchors_preset = 7
@@ -864,7 +864,7 @@ main_ressources = Dictionary[int, int]({
 2: 0
 })
 
-[node name="GreenSkillTree" type="Control" parent="greentotem"]
+[node name="GreenSkillTree" type="Control" parent="greentotem" groups=["interactable"]]
 z_index = 500
 layout_mode = 3
 anchors_preset = 7
@@ -1060,7 +1060,7 @@ main_ressources = Dictionary[int, int]({
 })
 totem_type = 1
 
-[node name="BlackSkillTree" type="Control" parent="blacktotem"]
+[node name="BlackSkillTree" type="Control" parent="blacktotem" groups=["interactable"]]
 z_index = 500
 layout_mode = 3
 anchors_preset = 7
@@ -1257,7 +1257,7 @@ main_ressources = Dictionary[int, int]({
 })
 totem_type = 5
 
-[node name="PinkSkillTree" type="Control" parent="pinktotem"]
+[node name="PinkSkillTree" type="Control" parent="pinktotem" groups=["interactable"]]
 z_index = 500
 layout_mode = 3
 anchors_preset = 7

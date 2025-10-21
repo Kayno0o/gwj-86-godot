@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gg58xqv6o8sj"
+path="res://.godot/imported/woosh4.wav-98182dc6752a2d455413b0b2aa8111e8.sample"
+
+[deps]
+
+source_file="res://assets/sound effect/tree/woosh4.wav"
+dest_files=["res://.godot/imported/woosh4.wav-98182dc6752a2d455413b0b2aa8111e8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
