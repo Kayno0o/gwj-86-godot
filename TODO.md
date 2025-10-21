@@ -103,3 +103,4 @@
 
 - [ ] utiliser les group au lieu du TargetManager
 - [ ] skill node sous forme de scene
+- [ ] components sous format "Machine"
