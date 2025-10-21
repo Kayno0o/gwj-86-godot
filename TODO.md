@@ -54,6 +54,9 @@
 - [X] click droit sur totem = cycle back
 - [ ] sounds
 - [ ] musics
+- [ ] les ressources ont plus d'hp (10 ?)
+- [ ] les hp des ressources scalent avec la difficulté (HP de base + niveau de difficulté)
+- [ ] les ressources dropent moins
 
 # BUG
 ## GAMEBREACKING :
