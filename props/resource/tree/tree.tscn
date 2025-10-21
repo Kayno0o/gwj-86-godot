@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnp5j6tutmm3o"]
+[gd_scene load_steps=12 format=3 uid="uid://dnp5j6tutmm3o"]
 
 [ext_resource type="PackedScene" uid="uid://yttupk6ktjv" path="res://props/resource/resource_props.tscn" id="1_olndm"]
 [ext_resource type="PackedScene" uid="uid://bfhwvj28jnhvo" path="res://props/item/log/log.tscn" id="2_ni0tv"]
 [ext_resource type="Texture2D" uid="uid://cyhgsqoaellnb" path="res://props/resource/tree/tree.png" id="3_ni0tv"]
+[ext_resource type="AudioStream" uid="uid://cov011cx6r86f" path="res://assets/sound effect/tree/woosh1.wav" id="4_0au72"]
+[ext_resource type="AudioStream" uid="uid://d0h7o4tteyehe" path="res://assets/sound effect/tree/woosh2.wav" id="5_nokca"]
+[ext_resource type="AudioStream" uid="uid://bn0og3n11sxf8" path="res://assets/sound effect/tree/woosh3.wav" id="6_xvm03"]
+[ext_resource type="AudioStream" uid="uid://gg58xqv6o8sj" path="res://assets/sound effect/tree/woosh4.wav" id="7_iqvmu"]
+[ext_resource type="AudioStream" uid="uid://bwvfd6tuaybcd" path="res://assets/sound effect/tree/woosh5official.wav" id="8_m27l4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0au72"]
 animations = [{
@@ -17,6 +22,19 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ni0tv"]
 size = Vector2(869, 1204)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rft1y"]
+streams_count = 5
+stream_0/stream = ExtResource("4_0au72")
+stream_0/weight = 100.0
+stream_1/stream = ExtResource("5_nokca")
+stream_1/weight = 100.0
+stream_2/stream = ExtResource("6_xvm03")
+stream_2/weight = 100.0
+stream_3/stream = ExtResource("7_iqvmu")
+stream_3/weight = 100.0
+stream_4/stream = ExtResource("8_m27l4")
+stream_4/weight = 0.5
 
 [node name="Tree" groups=["trees"] instance=ExtResource("1_olndm")]
 target_types = Array[int]([0, 1])
@@ -33,3 +51,6 @@ offset = Vector2(-130.5, -335)
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(38.5, -592)
 shape = SubResource("RectangleShape2D_ni0tv")
+
+[node name="AudioStreamPlayer" parent="." index="2"]
+stream = SubResource("AudioStreamRandomizer_rft1y")
