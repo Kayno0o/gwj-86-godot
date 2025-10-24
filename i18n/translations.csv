@@ -87,3 +87,5 @@ ui.tutorial.totem,"Cliquez sur le totem pour changer le masque du Héro et son r
 ui.tutorial.minitotem,"Cliquez sur les mini-totems pour acheter des masqués, et les améliorer","Click on the mini totems to buy masked and upgrade them"
 ui.button.play,Jouer,Play
 ui.button.credits,Crédits,Credits
+ui.button.restart,Redémarrer,Restart
+ui.button.main_menu,Menu principal,Main menu
